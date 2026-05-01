@@ -195,8 +195,8 @@ test('verifies a directory of committed dogfood app contracts', () => {
   const report = verifyOmarchyAppDirectory('examples');
 
   assert.equal(report.ok, true);
-  assert.equal(report.appCount, 68);
-  assert.equal(report.verifiedCount, 68);
+  assert.equal(report.appCount, 69);
+  assert.equal(report.verifiedCount, 69);
   assert.ok(report.reports.some((app) => app.appName === 'accessibility-contrast-auditor'));
   assert.ok(report.reports.some((app) => app.appName === 'app-health-monitor'));
   assert.ok(report.reports.some((app) => app.appName === 'apparmor-profile-workbench'));
@@ -242,6 +242,7 @@ test('verifies a directory of committed dogfood app contracts', () => {
   assert.ok(report.reports.some((app) => app.appName === 'api-token-scope-auditor'));
   assert.ok(report.reports.some((app) => app.appName === 'oauth-consent-review-board'));
   assert.ok(report.reports.some((app) => app.appName === 'saml-assertion-trust-lab'));
+  assert.ok(report.reports.some((app) => app.appName === 'webauthn-passkey-policy-center'));
   assert.ok(report.reports.some((app) => app.appName === 'ssh-agent-session-monitor'));
   assert.ok(report.reports.some((app) => app.appName === 'sandbox-policy-simulator'));
   assert.ok(report.reports.some((app) => app.appName === 'sensor-access-ledger'));
@@ -257,8 +258,8 @@ test('verifies a directory of committed dogfood app contracts', () => {
 test('catalogs committed dogfood apps', () => {
   const catalog = readAppCatalog('examples');
 
-  assert.equal(catalog.appCount, 68);
-  assert.equal(catalog.verifiedCount, 68);
+  assert.equal(catalog.appCount, 69);
+  assert.equal(catalog.verifiedCount, 69);
   assert.deepEqual(
     catalog.apps.map((app) => app.name),
     [
@@ -327,6 +328,7 @@ test('catalogs committed dogfood apps', () => {
       'theme-migration-lab',
       'trust-zone-mapper',
       'vpn-profile-coordinator',
+      'webauthn-passkey-policy-center',
       'window-rule-lab',
       'workspace-automation-builder',
       'workspace-radar'
