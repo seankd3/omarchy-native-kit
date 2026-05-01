@@ -1,0 +1,473 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(140deg, color-mix(in srgb, var(--omarchy-info) 10%, transparent), transparent 34rem),
+    linear-gradient(230deg, color-mix(in srgb, var(--omarchy-warning) 9%, transparent), transparent 42rem),
+    var(--omarchy-background);
+}
+
+button {
+  font: inherit;
+}
+
+.shell {
+  width: min(1460px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: end;
+  border: 1px solid var(--omarchy-border);
+  padding: 28px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--omarchy-surface-raised) 94%, transparent), color-mix(in srgb, var(--omarchy-surface) 88%, transparent)),
+    var(--omarchy-surface);
+  box-shadow: 0 24px 72px color-mix(in srgb, var(--omarchy-shadow) 32%, transparent);
+}
+
+.eyebrow,
+.cardTop p,
+.sectionTitle span,
+.facts span,
+.coverage span,
+.blockerRow span,
+.approval span,
+.destinationRow span,
+.deliveryRow span {
+  margin: 0;
+  color: var(--omarchy-muted-foreground);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: var(--omarchy-accent);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 960px;
+  margin-bottom: 18px;
+  font-size: 3.28rem;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 0;
+  color: var(--omarchy-surface-foreground);
+  font-size: 1.13rem;
+}
+
+h3 {
+  margin-bottom: 8px;
+  color: var(--omarchy-surface-foreground);
+  font-size: 1rem;
+}
+
+.lede {
+  max-width: 920px;
+  margin-bottom: 0;
+  color: var(--omarchy-muted-foreground);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.hero button {
+  min-height: 44px;
+  border: 1px solid color-mix(in srgb, var(--omarchy-accent) 62%, var(--omarchy-border));
+  padding: 0 18px;
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hero button:hover,
+.hero button:focus-visible {
+  outline: 2px solid var(--omarchy-accent);
+  outline-offset: 3px;
+  background: color-mix(in srgb, var(--omarchy-accent) 84%, var(--omarchy-foreground));
+}
+
+.metrics,
+.reviewGrid,
+.workspace,
+.evidenceGrid,
+.bottomGrid {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric,
+.reviewCard,
+.panel {
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface) 92%, transparent);
+}
+
+.metric {
+  min-height: 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.metric span,
+.metric small,
+.summary,
+.retry p,
+.retry small {
+  color: var(--omarchy-muted-foreground);
+}
+
+.metric span,
+.metric small,
+.coverage small,
+.blockerRow small,
+.approval small,
+.destinationRow small,
+.retry small {
+  font-size: 0.82rem;
+}
+
+.metric strong {
+  display: block;
+  color: var(--omarchy-surface-foreground);
+  font-size: 2.35rem;
+  line-height: 1;
+}
+
+.metric.good {
+  border-color: color-mix(in srgb, var(--omarchy-success) 44%, var(--omarchy-border));
+}
+
+.metric.danger {
+  border-color: color-mix(in srgb, var(--omarchy-danger) 50%, var(--omarchy-border));
+}
+
+.metric.warn {
+  border-color: color-mix(in srgb, var(--omarchy-warning) 48%, var(--omarchy-border));
+}
+
+.metric.info {
+  border-color: color-mix(in srgb, var(--omarchy-info) 44%, var(--omarchy-border));
+}
+
+.reviewGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.reviewCard {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px;
+}
+
+.cardTop,
+.sectionTitle,
+.coverage,
+.blockerRow,
+.approval,
+.destinationRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.chip,
+.badge,
+.coverage small,
+.blockerRow small,
+.approval small,
+.destinationRow small {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--omarchy-border);
+  padding: 4px 9px;
+  color: var(--omarchy-muted-foreground);
+  background: var(--omarchy-background);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.ready,
+.covered {
+  border-color: color-mix(in srgb, var(--omarchy-success) 60%, var(--omarchy-border));
+  color: var(--omarchy-success);
+}
+
+.blocked,
+.blocker,
+.gap {
+  border-color: color-mix(in srgb, var(--omarchy-danger) 64%, var(--omarchy-border));
+  color: var(--omarchy-danger);
+}
+
+.review,
+.high {
+  border-color: color-mix(in srgb, var(--omarchy-warning) 64%, var(--omarchy-border));
+  color: var(--omarchy-warning);
+}
+
+.queued,
+.medium {
+  border-color: color-mix(in srgb, var(--omarchy-info) 58%, var(--omarchy-border));
+  color: var(--omarchy-info);
+}
+
+.summary {
+  margin-bottom: 0;
+  line-height: 1.55;
+}
+
+.facts {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.facts span,
+.blocker {
+  display: block;
+  border-left: 3px solid var(--omarchy-border-strong);
+  padding-left: 10px;
+}
+
+.blocker {
+  color: var(--omarchy-danger);
+  font-size: 0.88rem;
+}
+
+.progress {
+  overflow: hidden;
+  block-size: 8px;
+  background: var(--omarchy-background);
+}
+
+.progress span {
+  display: block;
+  block-size: 100%;
+  background: linear-gradient(90deg, var(--omarchy-accent), var(--omarchy-success));
+}
+
+.workspace {
+  grid-template-columns: minmax(0, 1.4fr) minmax(340px, 0.6fr);
+}
+
+.evidenceGrid {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.bottomGrid {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(320px, 0.7fr);
+}
+
+.panel {
+  padding: 18px;
+}
+
+.wide {
+  min-height: 260px;
+}
+
+.sectionTitle {
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--omarchy-border);
+  padding-bottom: 14px;
+}
+
+.sectionTitle p {
+  margin: 0;
+  color: var(--omarchy-surface-foreground);
+  font-size: 1.08rem;
+  font-weight: 900;
+}
+
+.coverageGrid,
+.blockerList,
+.approvalList,
+.retryList {
+  display: grid;
+  gap: 10px;
+}
+
+.coverage,
+.blockerRow,
+.approval,
+.destinationRow,
+.deliveryRow {
+  border: 1px solid var(--omarchy-border);
+  padding: 12px;
+  background: color-mix(in srgb, var(--omarchy-background) 62%, transparent);
+}
+
+.coverage strong,
+.blockerRow strong,
+.approval strong,
+.destinationRow strong,
+.deliveryRow strong {
+  display: block;
+  color: var(--omarchy-surface-foreground);
+}
+
+.coverage b {
+  color: var(--omarchy-accent);
+  font-size: 1.4rem;
+}
+
+.retryList {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.retry {
+  min-height: 170px;
+  border: 1px solid var(--omarchy-border);
+  padding: 14px;
+  background: color-mix(in srgb, var(--omarchy-background) 62%, transparent);
+}
+
+.retry .badge {
+  margin-bottom: 16px;
+}
+
+.retry p {
+  margin-bottom: 10px;
+}
+
+.retry strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--omarchy-surface-foreground);
+}
+
+.destinations,
+.delivery,
+.checklist {
+  min-height: 330px;
+}
+
+.destinationRow + .destinationRow,
+.deliveryRow + .deliveryRow {
+  margin-top: 10px;
+}
+
+.deliveryRow {
+  display: grid;
+  gap: 10px;
+}
+
+.deliveryRow strong {
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+ol {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 22px;
+}
+
+li {
+  color: var(--omarchy-muted-foreground);
+  line-height: 1.5;
+}
+
+li::marker {
+  color: var(--omarchy-accent);
+  font-weight: 900;
+}
+
+@media (max-width: 1180px) {
+  .metrics,
+  .reviewGrid,
+  .workspace,
+  .evidenceGrid,
+  .bottomGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wide,
+  .destinations {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .shell {
+    padding: 12px;
+  }
+
+  .hero,
+  .metrics,
+  .reviewGrid,
+  .workspace,
+  .evidenceGrid,
+  .bottomGrid,
+  .retryList {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    align-items: stretch;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.35rem;
+  }
+
+  .hero button {
+    width: 100%;
+  }
+
+  .cardTop,
+  .coverage,
+  .blockerRow,
+  .approval,
+  .destinationRow {
+    display: grid;
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-export-readiness-board",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "readiness-summary",
+      "purpose": "Snapshot export candidates, packet coverage, reviewer blockers, and audit destinations.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "border",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ]
+    },
+    {
+      "name": "review-packet-grid",
+      "purpose": "Compare access review exports by sealed packet coverage, blockers, destinations, and delivery progress.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "mutedForeground",
+        "accent",
+        "success"
+      ]
+    },
+    {
+      "name": "delivery-workspace",
+      "purpose": "Track missing evidence, delegated approvals, retry exceptions, destination receipts, and rollback-safe delivery commands.",
+      "tokens": [
+        "background",
+        "surface",
+        "border",
+        "borderStrong",
+        "danger",
+        "warning"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricTile",
+      "purpose": "Compact readiness counter with a token-colored risk tone.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ],
+      "interactions": [
+        "stable height across values",
+        "tone visible without raw colors"
+      ]
+    },
+    {
+      "name": "ReviewCard",
+      "purpose": "Export candidate card showing readiness status, coverage, blocker, destination, and progress.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "accent",
+        "success",
+        "danger"
+      ],
+      "interactions": [
+        "progress bar uses semantic tokens",
+        "status chip maps to readiness state"
+      ]
+    },
+    {
+      "name": "DestinationRow",
+      "purpose": "Audit destination row with receipt state and routing lane.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ],
+      "interactions": [
+        "receipt status remains readable at narrow widths",
+        "row layout does not shift when state changes"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button and status row has a visible focus or stable hover-safe presentation.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}

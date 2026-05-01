@@ -132,6 +132,7 @@ Initial public seed of Omarchy Native Kit.
   - `access-credential-cache-cleanup-desk`
   - `access-owner-receipt-ledger`
   - `access-audit-packet-seal-reviewer`
+  - `access-review-export-readiness-board`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
