@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-break-glass-rehearsal-lab",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "masthead",
+      "purpose": "Summarize emergency-access rehearsal health and expose the report sealing action.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "foreground",
+        "accent",
+        "border",
+        "shadow"
+      ]
+    },
+    {
+      "name": "rehearsal-grid",
+      "purpose": "Compare active break-glass rehearsals, grant scope, windows, status, and completion progress.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success",
+        "warning",
+        "danger"
+      ]
+    },
+    {
+      "name": "evidence-panels",
+      "purpose": "Track privileged grant simulations, responder timing, failed controls, vault evidence, cleanup steps, and rollback reports.",
+      "tokens": [
+        "background",
+        "surface",
+        "border",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricCard",
+      "purpose": "Compact rehearsal totals with token-colored risk emphasis.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ],
+      "interactions": [
+        "maintains stable height across summary values",
+        "uses semantic token borders for risk tone"
+      ]
+    },
+    {
+      "name": "RehearsalCard",
+      "purpose": "Detailed card for a break-glass rehearsal run with status, grant scope, window, and progress.",
+      "tokens": [
+        "surface",
+        "background",
+        "border",
+        "accent",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "interactions": [
+        "progress bar uses Omarchy tokens",
+        "status chip remains readable on narrow screens"
+      ]
+    },
+    {
+      "name": "EvidenceRow",
+      "purpose": "Dense row for simulated grants, timing lanes, vault evidence, and report inputs.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "interactions": [
+        "row layout stacks at mobile widths",
+        "status labels use semantic token colors"
+      ]
+    },
+    {
+      "name": "PrimaryAction",
+      "purpose": "Seal the completed rehearsal report.",
+      "tokens": [
+        "accent",
+        "accentForeground",
+        "foreground"
+      ],
+      "interactions": [
+        "hover and focus-visible states use accent tokens"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
