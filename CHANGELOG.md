@@ -65,4 +65,5 @@ Initial public seed of Omarchy Native Kit.
   - `window-rule-lab`
   - `config-diff-studio`
   - `session-restore-planner`
+  - `portal-permission-center`
 - Ecosystem map and CI workflow template.

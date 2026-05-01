@@ -31,6 +31,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Window Rule Lab | `examples/window-rule-lab` | Studio app for drafting window/workspace rules before live config changes. |
 | Config Diff Studio | `examples/config-diff-studio` | Studio app for staging reversible Omarchy config patch previews. |
 | Session Restore Planner | `examples/session-restore-planner` | Dashboard app for modeling startup apps, workspaces, and restore order. |
+| Portal Permission Center | `examples/portal-permission-center` | Studio app for reviewing portals, default handlers, and desktop integration permissions. |
 
 ## Build Loop
 
@@ -106,7 +107,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `portal-permission-center` - review browser/app permissions, portals, and default handlers before applying desktop integration changes.
+- `backup-restore-console` - verify app state backups, restore points, and rollback readiness for Omarchy-native workflows.
 
 ## Kit Refinements To Unlock More Apps
 
