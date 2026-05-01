@@ -100,6 +100,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Access Review Archive Purge Approval Console | `examples/access-review-archive-purge-approval-console` | Studio app for inspecting access review archive purge approvals, retention policy exceptions, legal hold overrides, delegated owner approvals, retry hash preservation, checksum proof retention, and rollback-safe purge authorization packets. |
 | Access Review Purge Exception Appeal Board | `examples/access-review-purge-exception-appeal-board` | Studio app for inspecting denied archive purge appeals, retention exception disputes, legal hold release evidence, delegated owner re-approvals, retry hash disputes, checksum proof objections, and rollback-safe appeal packets. |
 | Access Review Appeal Outcome Reconciliation Desk | `examples/access-review-appeal-outcome-reconciliation-desk` | Studio app for inspecting overturned archive purge appeals, appeal outcome ledgers, retention dispute settlements, legal hold release receipts, delegated re-approval attestations, retry hash objection outcomes, checksum proof acceptance, and rollback-safe reconciliation packets. |
+| Access Review Purge Execution Freeze Monitor | `examples/access-review-purge-execution-freeze-monitor` | Studio app for inspecting approved-but-frozen archive purge executions, reconciliation packet locks, legal hold re-freezes, delegated owner pause acknowledgements, retry hash freeze proofs, checksum acceptance freezes, and rollback-safe thaw packets. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -195,7 +196,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `access-review-purge-execution-freeze-monitor` - inspect approved-but-frozen archive purge executions, reconciliation packet locks, legal hold re-freezes, delegated owner pause acknowledgements, retry hash freeze proofs, checksum acceptance freezes, and rollback-safe thaw packets.
+- `access-review-purge-thaw-authorization-console` - inspect archive purge thaw authorization requests, freeze release attestations, legal hold thaw clearances, delegated owner resume approvals, retry hash thaw proofs, checksum acceptance unlocks, and rollback-safe purge resume packets.
 
 ## Kit Refinements To Unlock More Apps
 

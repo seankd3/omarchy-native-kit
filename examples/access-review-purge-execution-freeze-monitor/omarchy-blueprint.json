@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-purge-execution-freeze-monitor",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "freeze-hero",
+      "purpose": "Summarize approved-but-frozen archive purge execution posture and expose the thaw packet action.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "border",
+        "info"
+      ]
+    },
+    {
+      "name": "freeze-grid",
+      "purpose": "Compare frozen purge executions, reconciliation packet locks, legal re-freezes, and delegated pause acknowledgements.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "info",
+        "warning",
+        "success"
+      ]
+    },
+    {
+      "name": "thaw-panels",
+      "purpose": "Inspect retry hash freeze proofs, checksum acceptance freezes, and rollback-safe thaw packet exhibits.",
+      "tokens": [
+        "background",
+        "surface",
+        "borderStrong",
+        "accent",
+        "success"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "FreezeCard",
+      "purpose": "Approved-but-frozen purge execution summary with packet lock, pause acknowledgement, and thaw readiness.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "info"
+      ],
+      "interactions": [
+        "status chip highlights frozen, thaw ready, or review state",
+        "progress bar communicates thaw readiness without layout shift"
+      ]
+    },
+    {
+      "name": "EvidenceRow",
+      "purpose": "Dense row for reconciliation locks, legal hold re-freezes, owner pause acknowledgements, and checksum freezes.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "info",
+        "success"
+      ],
+      "interactions": [
+        "state label remains visible at narrow widths",
+        "row content stacks cleanly on mobile"
+      ]
+    },
+    {
+      "name": "ThawPacket",
+      "purpose": "Rollback-safe command and exhibit checklist for resuming a frozen purge execution.",
+      "tokens": [
+        "surface",
+        "border",
+        "info",
+        "accent"
+      ],
+      "interactions": [
+        "packet fields preserve long command text without overlapping neighboring panels",
+        "checklist remains readable on mobile and desktop"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
