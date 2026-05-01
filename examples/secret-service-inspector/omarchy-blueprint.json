@@ -13,77 +13,88 @@
   ],
   "layoutRegions": [
     {
-      "name": "tool-rail",
-      "purpose": "Icon-first mode switching for creation tools.",
+      "name": "masthead",
+      "purpose": "Secret Service app identity, current inspection posture, and the primary staged cleanup action.",
       "tokens": [
+        "background",
         "surface",
-        "surfaceRaised",
         "border",
         "accent"
       ]
     },
     {
-      "name": "canvas",
-      "purpose": "Primary creative work area with a quiet background.",
+      "name": "provider-grid",
+      "purpose": "Provider, unlock-state, secret-count, and stale-entry scan rows that stay keyboard reachable.",
       "tokens": [
-        "background",
+        "surface",
+        "surfaceRaised",
+        "surfaceForeground",
         "border",
-        "shadow"
+        "success",
+        "warning",
+        "danger"
       ]
     },
     {
-      "name": "properties-panel",
-      "purpose": "Controls for the selected object or generation pass.",
+      "name": "audit-rail",
+      "purpose": "Application access grants, rollback-safe cleanup steps, and command probes for credential review.",
       "tokens": [
         "surface",
+        "surfaceRaised",
         "surfaceForeground",
-        "borderStrong",
-        "info"
+        "mutedForeground",
+        "border",
+        "info",
+        "accent"
       ]
     }
   ],
   "components": [
     {
-      "name": "ToolButton",
-      "purpose": "Square icon button with tooltip text and selected state.",
+      "name": "ProviderRow",
+      "purpose": "Focusable Secret Service provider row with unlock status, stored secret count, and stale secret count.",
       "tokens": [
         "surface",
         "surfaceRaised",
-        "accent",
-        "accentForeground"
+        "surfaceForeground",
+        "mutedForeground",
+        "accent"
       ],
       "interactions": [
-        "selected state uses accent",
-        "focus outlines with accent",
-        "tooltip appears on hover"
+        "tab order follows the provider scan order",
+        "hover and focus use raised surface",
+        "focus ring remains visible inside dense rows"
       ]
     },
     {
-      "name": "CanvasFrame",
-      "purpose": "Full-bleed or dominant work area without decorative card nesting.",
+      "name": "StateBadge",
+      "purpose": "Semantic ready, review, and locked labels for providers, grants, cleanup steps, and probes.",
       "tokens": [
-        "background",
-        "border",
-        "shadow"
+        "success",
+        "warning",
+        "danger",
+        "border"
       ],
       "interactions": [
-        "preserves aspect ratio",
-        "does not shift when selection changes"
+        "state text stays one word",
+        "semantic colors match readiness meaning"
       ]
     },
     {
-      "name": "PropertyControl",
-      "purpose": "Label, input, slider, or toggle for editing selected state.",
+      "name": "ProbeCard",
+      "purpose": "Focusable command item for Secret Service inspection commands and rollback confirmation steps.",
       "tokens": [
         "surface",
-        "foreground",
+        "surfaceRaised",
         "mutedForeground",
+        "info",
         "accent",
         "border"
       ],
       "interactions": [
-        "tab order follows visual order",
-        "value changes are visible immediately"
+        "command text wraps without changing grid columns",
+        "focus state mirrors hover state",
+        "tab order reaches every probe before leaving the inspector"
       ]
     }
   ],

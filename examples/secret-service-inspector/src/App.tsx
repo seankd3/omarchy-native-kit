@@ -229,7 +229,7 @@ export function App() {
               </div>
               <div className="grantList">
                 {grants.map((grant) => (
-                  <article data-state={grant.state} key={grant.app}>
+                  <article data-state={grant.state} key={grant.app} tabIndex={0}>
                     <span>{stateLabels[grant.state]}</span>
                     <h3>{grant.app}</h3>
                     <p>{grant.collection}</p>
@@ -249,7 +249,7 @@ export function App() {
               </div>
               <div className="cleanupList">
                 {cleanupSteps.map((step) => (
-                  <article data-state={step.state} key={step.title}>
+                  <article data-state={step.state} key={step.title} tabIndex={0}>
                     <span>{stateLabels[step.state]}</span>
                     <h3>{step.title}</h3>
                     <p>{step.intent}</p>
@@ -270,7 +270,7 @@ export function App() {
           </div>
           <div className="probeGrid">
             {probes.map((probe) => (
-              <article data-state={probe.state} key={probe.label}>
+              <article data-state={probe.state} key={probe.label} tabIndex={0}>
                 <span>{stateLabels[probe.state]}</span>
                 <h3>{probe.label}</h3>
                 <code>{probe.command}</code>

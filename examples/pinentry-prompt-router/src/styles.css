@@ -15,7 +15,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--omarchy-accent) 12%, transparent), transparent 34rem),
+    linear-gradient(135deg, color-mix(in srgb, var(--omarchy-info) 11%, transparent), transparent 34rem),
     linear-gradient(315deg, color-mix(in srgb, var(--omarchy-warning) 10%, transparent), transparent 38rem),
     var(--omarchy-background);
 }
@@ -33,7 +33,7 @@ button {
 
 button:hover,
 button:focus-visible {
-  outline: 2px solid var(--omarchy-accent);
+  outline: 2px solid var(--omarchy-focus);
   outline-offset: 2px;
   background: var(--omarchy-accent-strong);
 }
@@ -60,16 +60,16 @@ code {
 }
 
 .masthead,
-.summary,
-.grid,
+.metrics,
+.layout,
 .panelHeader,
-.providerRow,
-.providerTitle,
-.providerMeta,
-.grantList article,
-.cleanupList article,
+.variantRow,
+.variantTitle,
+.variantMeta,
+.routeList article,
+.boundaryList article,
 .probeGrid article,
-.totalBadge {
+.statusBadge {
   display: grid;
 }
 
@@ -98,12 +98,13 @@ p {
 }
 
 h1 {
-  font-size: clamp(3rem, 8vw, 6.4rem);
+  max-width: 12ch;
+  font-size: clamp(2.8rem, 7vw, 6.2rem);
   line-height: 0.9;
 }
 
 h2 {
-  max-width: 72ch;
+  max-width: 74ch;
   color: var(--omarchy-surface-foreground);
   font-size: 1.05rem;
 }
@@ -113,7 +114,7 @@ h3 {
   font-size: 1rem;
 }
 
-.summary {
+.metrics {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   margin: 22px 0;
@@ -121,13 +122,13 @@ h3 {
   background: var(--omarchy-border);
 }
 
-.summary article {
+.metrics article {
   min-height: 116px;
   padding: 18px;
   background: color-mix(in srgb, var(--omarchy-surface) 94%, transparent);
 }
 
-.summary span {
+.metrics span {
   display: block;
   color: var(--omarchy-accent);
   font-size: clamp(2rem, 5vw, 4rem);
@@ -135,37 +136,37 @@ h3 {
   line-height: 0.95;
 }
 
-.summary article:nth-child(2) span {
+.metrics article:nth-child(2) span {
   color: var(--omarchy-success);
 }
 
-.summary article:nth-child(3) span {
+.metrics article:nth-child(3) span {
   color: var(--omarchy-warning);
 }
 
-.summary article:last-child span {
+.metrics article:last-child span {
   color: var(--omarchy-danger);
 }
 
-.summary p,
-.providerRow p,
-.providerRow small,
-.grantList p,
-.grantList small,
-.cleanupList p,
+.metrics p,
+.variantRow p,
+.variantRow small,
+.routeList p,
+.routeList small,
+.boundaryList p,
 .probeGrid p {
   color: var(--omarchy-muted-foreground);
 }
 
-.grid {
+.layout {
   grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
   gap: 18px;
   align-items: start;
 }
 
-.providerPanel,
-.accessPanel,
-.cleanupPanel,
+.variantPanel,
+.routePanel,
+.boundaryPanel,
 .probePanel {
   border: 1px solid var(--omarchy-border);
   background: color-mix(in srgb, var(--omarchy-surface) 94%, transparent);
@@ -185,10 +186,10 @@ h3 {
   grid-template-columns: 1fr;
 }
 
-.totalBadge {
+.statusBadge {
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   min-height: 38px;
   border: 1px solid var(--omarchy-border);
   padding: 0 11px;
@@ -198,62 +199,56 @@ h3 {
   white-space: nowrap;
 }
 
-.totalBadge span {
-  color: var(--omarchy-accent);
-  font-size: 1.1rem;
+.statusBadge span {
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 999px;
+  background: var(--omarchy-info);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--omarchy-info) 17%, transparent);
 }
 
-.providerRows,
-.grantList,
-.cleanupList,
+.variantRows,
+.routeList,
+.boundaryList,
 .probeGrid,
 .sideRail {
   display: grid;
 }
 
-.providerRows,
-.grantList,
-.cleanupList,
+.variantRows,
+.routeList,
+.boundaryList,
 .probeGrid {
   gap: 1px;
   background: var(--omarchy-border);
 }
 
-.providerRow {
-  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+.variantRow {
+  grid-template-columns: minmax(240px, 0.46fr) minmax(0, 1fr);
   gap: 18px;
   align-items: center;
-  min-height: 128px;
+  min-height: 126px;
   padding: 16px;
   background: var(--omarchy-surface);
 }
 
-.providerRow:hover,
-.providerRow:focus-visible,
-.grantList article:hover,
-.grantList article:focus-visible,
-.cleanupList article:hover,
-.cleanupList article:focus-visible,
-.probeGrid article:hover,
-.probeGrid article:focus-visible {
+.variantRow:hover,
+.variantRow:focus-visible {
   outline: 0;
   background: var(--omarchy-surface-raised);
 }
 
-.providerRow:focus-visible,
-.grantList article:focus-visible,
-.cleanupList article:focus-visible,
-.probeGrid article:focus-visible {
-  box-shadow: inset 0 0 0 2px var(--omarchy-accent);
+.variantRow:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--omarchy-focus);
 }
 
-.providerTitle {
+.variantTitle {
   gap: 7px;
 }
 
-.providerTitle span,
-.grantList article > span,
-.cleanupList article > span,
+.variantTitle span,
+.routeList article > span,
+.boundaryList article > span,
 .probeGrid article > span {
   width: fit-content;
   border: 1px solid var(--omarchy-border);
@@ -265,41 +260,41 @@ h3 {
   text-transform: uppercase;
 }
 
-.providerRow[data-state="review"] .providerTitle span,
-.grantList article[data-state="review"] > span,
-.cleanupList article[data-state="review"] > span,
+.variantRow[data-state="review"] .variantTitle span,
+.routeList article[data-state="review"] > span,
+.boundaryList article[data-state="review"] > span,
 .probeGrid article[data-state="review"] > span {
   color: var(--omarchy-warning);
   background: color-mix(in srgb, var(--omarchy-warning) 12%, transparent);
 }
 
-.providerRow[data-state="locked"] .providerTitle span,
-.grantList article[data-state="locked"] > span,
-.cleanupList article[data-state="locked"] > span,
-.probeGrid article[data-state="locked"] > span {
+.variantRow[data-state="blocked"] .variantTitle span,
+.routeList article[data-state="blocked"] > span,
+.boundaryList article[data-state="blocked"] > span,
+.probeGrid article[data-state="blocked"] > span {
   color: var(--omarchy-danger);
   background: color-mix(in srgb, var(--omarchy-danger) 11%, transparent);
 }
 
-.providerMeta {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.variantMeta {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
   background: var(--omarchy-border);
 }
 
-.providerMeta div {
+.variantMeta div {
   min-width: 0;
   padding: 12px;
   background: var(--omarchy-background);
 }
 
-.providerMeta small {
+.variantMeta small {
   display: block;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
 
-.providerMeta strong {
+.variantMeta strong {
   color: var(--omarchy-surface-foreground);
   font-size: 0.94rem;
 }
@@ -308,8 +303,8 @@ h3 {
   gap: 18px;
 }
 
-.grantList article,
-.cleanupList article,
+.routeList article,
+.boundaryList article,
 .probeGrid article {
   gap: 9px;
   min-height: 118px;
@@ -317,8 +312,8 @@ h3 {
   background: var(--omarchy-surface);
 }
 
-.grantList strong,
-.cleanupList strong {
+.routeList strong,
+.boundaryList strong {
   color: var(--omarchy-info);
   font-size: 0.82rem;
   text-transform: uppercase;
@@ -333,8 +328,8 @@ h3 {
 }
 
 @media (max-width: 1040px) {
-  .grid,
-  .providerRow {
+  .layout,
+  .variantRow {
     grid-template-columns: 1fr;
   }
 
@@ -350,9 +345,9 @@ h3 {
   }
 
   .masthead,
-  .summary,
+  .metrics,
   .panelHeader,
-  .providerMeta,
+  .variantMeta,
   .sideRail,
   .probeGrid {
     grid-template-columns: 1fr;
