@@ -47,6 +47,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Package Update Coordinator | `examples/package-update-coordinator` | Dashboard app for planning package updates, pinning holds, comparing risky upgrades, and scheduling rollback-safe maintenance windows. |
 | Journal Timeline Inspector | `examples/journal-timeline-inspector` | Studio app for inspecting system logs across boots, correlating service failures with updates, and saving annotated incident timelines. |
 | Service Restart Orchestrator | `examples/service-restart-orchestrator` | Dashboard app for planning systemd user and system service restarts, previewing dependency impact, and scheduling safe restart batches. |
+| Screen Capture Permission Lab | `examples/screen-capture-permission-lab` | Studio app for inspecting screenshot and screen-share portals, monitor selection, persistent grants, and per-app capture expectations. |
 | Environment Variable Auditor | `examples/environment-variable-auditor` | Studio app for inspecting shell, desktop, and service environments, comparing mismatched variables, and staging clean export fixes. |
 | Locale Timezone Manager | `examples/locale-timezone-manager` | Dashboard app for comparing locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes. |
 | Font Rendering Tuner | `examples/font-rendering-tuner` | Studio app for comparing font stacks, antialiasing, hinting, and scaling behavior across GTK, Qt, browser, and terminal surfaces. |
@@ -129,7 +130,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `screen-capture-permission-lab` - inspect screenshot and screen-share portals, monitor selection, persistent grants, and per-app capture expectations.
+- `camera-microphone-permission-lab` - inspect camera and microphone portals, device selection, per-app grants, meeting profiles, and privacy fallback behavior.
 
 ## Kit Refinements To Unlock More Apps
 
