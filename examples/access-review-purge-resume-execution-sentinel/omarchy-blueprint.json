@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-purge-resume-execution-sentinel",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "sentinel-hero",
+      "purpose": "Summarize resumed archive purge sentinel posture and expose the freezeback guard action.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "border",
+        "danger"
+      ]
+    },
+    {
+      "name": "execution-grid",
+      "purpose": "Compare resumed purge executions, thaw authorization drift, hold relapse alerts, and owner confirmation replay.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "danger",
+        "warning",
+        "success"
+      ]
+    },
+    {
+      "name": "sentinel-panels",
+      "purpose": "Inspect retry hash thaw replay, checksum unlock drift, and rollback-safe resume sentinels.",
+      "tokens": [
+        "background",
+        "surface",
+        "borderStrong",
+        "info",
+        "success"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "ExecutionCard",
+      "purpose": "Resumed archive purge execution summary with drift, confirmation replay, and sentinel coverage.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "danger"
+      ],
+      "interactions": [
+        "status chip highlights drift, guarded, or review state",
+        "progress bar communicates sentinel coverage without layout shift"
+      ]
+    },
+    {
+      "name": "EvidenceRow",
+      "purpose": "Dense row for thaw authorization drift, relapse alerts, resume confirmations, and checksum unlock drift.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "danger",
+        "success"
+      ],
+      "interactions": [
+        "state label remains visible at narrow widths",
+        "row content stacks cleanly on mobile"
+      ]
+    },
+    {
+      "name": "ResumeSentinel",
+      "purpose": "Rollback-safe command and exhibit checklist for watching and freezing back resumed purge execution.",
+      "tokens": [
+        "surface",
+        "border",
+        "danger",
+        "info"
+      ],
+      "interactions": [
+        "packet fields preserve long command text without overlapping neighboring panels",
+        "checklist remains readable on mobile and desktop"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
