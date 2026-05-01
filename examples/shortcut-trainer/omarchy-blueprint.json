@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "shortcut-trainer",
+  "kind": "command-center",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "topbar",
+      "purpose": "App identity, active workspace, and one primary action.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "border",
+        "accent"
+      ]
+    },
+    {
+      "name": "command-list",
+      "purpose": "Keyboard-first rows for high-frequency actions.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "border",
+        "accent",
+        "mutedForeground"
+      ]
+    },
+    {
+      "name": "inspector",
+      "purpose": "Contextual details for the selected command or object.",
+      "tokens": [
+        "background",
+        "surface",
+        "borderStrong",
+        "info"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "CommandRow",
+      "purpose": "A stable-height action row with shortcut, label, status, and focus ring.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "surfaceForeground",
+        "accent",
+        "border"
+      ],
+      "interactions": [
+        "hover raises surface",
+        "focus outlines with accent",
+        "enter activates"
+      ]
+    },
+    {
+      "name": "StatusPill",
+      "purpose": "Compact semantic status label for ready, warning, error, or info states.",
+      "tokens": [
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ],
+      "interactions": [
+        "uses text color only",
+        "does not steal focus"
+      ]
+    },
+    {
+      "name": "Keycap",
+      "purpose": "Readable keyboard shortcut indicator.",
+      "tokens": [
+        "background",
+        "accent",
+        "borderStrong"
+      ],
+      "interactions": [
+        "fixed width when possible",
+        "wraps long chords without resizing row height"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
