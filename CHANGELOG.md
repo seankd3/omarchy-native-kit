@@ -92,6 +92,7 @@ Initial public seed of Omarchy Native Kit.
   - `sensor-access-ledger`
   - `environment-variable-auditor`
   - `firewall-rule-planner`
+  - `flatpak-permission-auditor`
   - `locale-timezone-manager`
   - `font-rendering-tuner`
   - `trust-zone-mapper`

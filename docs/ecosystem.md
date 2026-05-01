@@ -58,6 +58,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Sensor Access Ledger | `examples/sensor-access-ledger` | Studio app for inspecting ambient light, accelerometer, Bluetooth, and location sensor access, app requests, stale grants, and privacy-safe fallback behavior. |
 | Environment Variable Auditor | `examples/environment-variable-auditor` | Studio app for inspecting shell, desktop, and service environments, comparing mismatched variables, and staging clean export fixes. |
 | Firewall Rule Planner | `examples/firewall-rule-planner` | Studio app for inspecting nftables and ufw intents, per-workspace network exposure, temporary holes, and rollback-safe firewall changes. |
+| Flatpak Permission Auditor | `examples/flatpak-permission-auditor` | Studio app for inspecting Flatpak permissions, filesystem grants, portal use, override drift, and rollback-safe sandbox changes. |
 | Locale Timezone Manager | `examples/locale-timezone-manager` | Dashboard app for comparing locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes. |
 | Font Rendering Tuner | `examples/font-rendering-tuner` | Studio app for comparing font stacks, antialiasing, hinting, and scaling behavior across GTK, Qt, browser, and terminal surfaces. |
 | Trust Zone Mapper | `examples/trust-zone-mapper` | Studio app for inspecting workspace trust zones, portal exposure, network posture, removable media, and rollback-safe isolation recipes. |
@@ -141,7 +142,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `flatpak-permission-auditor` - inspect Flatpak permissions, filesystem grants, portal use, override drift, and rollback-safe sandbox changes.
+- `secret-service-inspector` - inspect Secret Service providers, keyring unlock state, app access, stale secrets, and rollback-safe credential cleanup.
 
 ## Kit Refinements To Unlock More Apps
 

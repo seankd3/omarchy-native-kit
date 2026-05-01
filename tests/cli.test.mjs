@@ -265,8 +265,8 @@ test('verify all reports discovered app contract statuses', () => {
 
   assert.equal(payload.schemaVersion, 1);
   assert.equal(payload.ok, true);
-  assert.equal(payload.appCount, 54);
-  assert.equal(payload.verifiedCount, 54);
+  assert.equal(payload.appCount, 55);
+  assert.equal(payload.verifiedCount, 55);
   assert.ok(payload.reports.some((report) => report.appName === 'accessibility-contrast-auditor'));
   assert.ok(payload.reports.some((report) => report.appName === 'apparmor-profile-workbench'));
   assert.ok(payload.reports.some((report) => report.appName === 'audio-device-mixer'));
@@ -282,6 +282,7 @@ test('verify all reports discovered app contract statuses', () => {
   assert.ok(payload.reports.some((report) => report.appName === 'dns-resolver-policy-lab'));
   assert.ok(payload.reports.some((report) => report.appName === 'environment-variable-auditor'));
   assert.ok(payload.reports.some((report) => report.appName === 'firewall-rule-planner'));
+  assert.ok(payload.reports.some((report) => report.appName === 'flatpak-permission-auditor'));
   assert.ok(payload.reports.some((report) => report.appName === 'font-rendering-tuner'));
   assert.ok(payload.reports.some((report) => report.appName === 'focus-flight-recorder'));
   assert.ok(payload.reports.some((report) => report.appName === 'icon-theme-coordinator'));
@@ -359,8 +360,8 @@ test('app catalog lists verified blueprint apps', () => {
   const payload = JSON.parse(output);
 
   assert.equal(payload.schemaVersion, 1);
-  assert.equal(payload.appCount, 54);
-  assert.equal(payload.verifiedCount, 54);
+  assert.equal(payload.appCount, 55);
+  assert.equal(payload.verifiedCount, 55);
   assert.ok(payload.apps.some((app) => app.name === 'accessibility-contrast-auditor' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'app-health-monitor' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'apparmor-profile-workbench' && app.kind === 'studio' && app.verified));
@@ -379,6 +380,7 @@ test('app catalog lists verified blueprint apps', () => {
   assert.ok(payload.apps.some((app) => app.name === 'docs-reader' && app.kind === 'command-center' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'environment-variable-auditor' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'firewall-rule-planner' && app.kind === 'studio' && app.verified));
+  assert.ok(payload.apps.some((app) => app.name === 'flatpak-permission-auditor' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'font-rendering-tuner' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'focus-flight-recorder' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'hook-station' && app.kind === 'studio' && app.verified));
