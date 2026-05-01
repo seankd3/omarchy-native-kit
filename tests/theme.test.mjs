@@ -195,8 +195,8 @@ test('verifies a directory of committed dogfood app contracts', () => {
   const report = verifyOmarchyAppDirectory('examples');
 
   assert.equal(report.ok, true);
-  assert.equal(report.appCount, 55);
-  assert.equal(report.verifiedCount, 55);
+  assert.equal(report.appCount, 56);
+  assert.equal(report.verifiedCount, 56);
   assert.ok(report.reports.some((app) => app.appName === 'accessibility-contrast-auditor'));
   assert.ok(report.reports.some((app) => app.appName === 'app-health-monitor'));
   assert.ok(report.reports.some((app) => app.appName === 'apparmor-profile-workbench'));
@@ -230,6 +230,7 @@ test('verifies a directory of committed dogfood app contracts', () => {
   assert.ok(report.reports.some((app) => app.appName === 'portal-file-picker-lab'));
   assert.ok(report.reports.some((app) => app.appName === 'service-restart-orchestrator'));
   assert.ok(report.reports.some((app) => app.appName === 'screen-capture-permission-lab'));
+  assert.ok(report.reports.some((app) => app.appName === 'secret-service-inspector'));
   assert.ok(report.reports.some((app) => app.appName === 'sandbox-policy-simulator'));
   assert.ok(report.reports.some((app) => app.appName === 'sensor-access-ledger'));
   assert.ok(report.reports.some((app) => app.appName === 'trust-zone-mapper'));
@@ -244,8 +245,8 @@ test('verifies a directory of committed dogfood app contracts', () => {
 test('catalogs committed dogfood apps', () => {
   const catalog = readAppCatalog('examples');
 
-  assert.equal(catalog.appCount, 55);
-  assert.equal(catalog.verifiedCount, 55);
+  assert.equal(catalog.appCount, 56);
+  assert.equal(catalog.verifiedCount, 56);
   assert.deepEqual(
     catalog.apps.map((app) => app.name),
     [
@@ -292,6 +293,7 @@ test('catalogs committed dogfood apps', () => {
       'release-console',
       'sandbox-policy-simulator',
       'screen-capture-permission-lab',
+      'secret-service-inspector',
       'sensor-access-ledger',
       'service-restart-orchestrator',
       'session-restore-planner',
