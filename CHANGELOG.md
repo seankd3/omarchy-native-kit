@@ -87,4 +87,5 @@ Initial public seed of Omarchy Native Kit.
   - `cursor-pointer-theme-studio`
   - `icon-theme-coordinator`
   - `mime-defaults-workbench`
+  - `portal-file-picker-lab`
 - Ecosystem map and CI workflow template.

@@ -53,6 +53,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Cursor Pointer Theme Studio | `examples/cursor-pointer-theme-studio` | Studio app for comparing cursor themes, pointer sizes, acceleration, and touchpad behavior across compositor, GTK, Qt, and browser surfaces. |
 | Icon Theme Coordinator | `examples/icon-theme-coordinator` | Studio app for comparing icon themes, symbolic icon coverage, launcher glyphs, and file-manager fallbacks across GTK, Qt, browser, and shell surfaces. |
 | MIME Defaults Workbench | `examples/mime-defaults-workbench` | Studio app for auditing MIME defaults, opener precedence, portal handoffs, browser handlers, and rollback-safe association changes. |
+| Portal File Picker Lab | `examples/portal-file-picker-lab` | Studio app for inspecting file chooser portals, recent-file exposure, sandbox handoffs, and per-app document access expectations. |
 
 ## Build Loop
 
@@ -128,7 +129,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `portal-file-picker-lab` - inspect file chooser portals, recent-file exposure, sandbox handoffs, and per-app document access expectations.
+- `screen-capture-permission-lab` - inspect screenshot and screen-share portals, monitor selection, persistent grants, and per-app capture expectations.
 
 ## Kit Refinements To Unlock More Apps
 
