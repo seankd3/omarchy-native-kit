@@ -39,6 +39,7 @@ export {
   verifyOmarchyApp,
   type AppVerificationBatchReport,
   type AppVerificationCheck,
+  type AppVerificationOptions,
   type AppVerificationReport
 } from './verify.js';
 export {

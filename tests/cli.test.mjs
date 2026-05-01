@@ -227,6 +227,36 @@ test('verify reports multiple app contract statuses', () => {
   );
 });
 
+test('verify can run an app build script', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-verify-build-'));
+  try {
+    const target = join(dir, 'buildable');
+    execFileSync(
+      process.execPath,
+      [...cli, 'create', target, '--template', 'react-vite', '--kind', 'command-center', '--colors', fixture]
+    );
+    const packagePath = join(target, 'package.json');
+    const packageJson = JSON.parse(readFileSync(packagePath, 'utf8'));
+    packageJson.scripts.build = 'node -e "console.log(\\"build ok\\")"';
+    writeFileSync(packagePath, `${JSON.stringify(packageJson, null, 2)}\n`);
+
+    const output = execFileSync(process.execPath, [...cli, 'verify', target, '--build', '--json'], { encoding: 'utf8' });
+    const payload = JSON.parse(output);
+
+    assert.equal(payload.ok, true);
+    assert.ok(payload.checks.some((check) => check.name === 'build' && check.ok));
+
+    packageJson.scripts.build = 'node -e "process.exit(2)"';
+    writeFileSync(packagePath, `${JSON.stringify(packageJson, null, 2)}\n`);
+    assert.throws(
+      () => execFileSync(process.execPath, [...cli, 'verify', target, '--build'], { encoding: 'utf8', stdio: 'pipe' }),
+      /Command failed/
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test('verify all reports discovered app contract statuses', () => {
   const output = execFileSync(process.execPath, [...cli, 'verify', '--all', 'examples', '--json'], {
     encoding: 'utf8'

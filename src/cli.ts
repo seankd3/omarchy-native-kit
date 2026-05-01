@@ -219,9 +219,10 @@ function desktop(parsed: ParsedArgs): void {
 
 function verify(parsed: ParsedArgs): void {
   const paths = parsed.positionals.slice(1);
+  const options = { runBuild: booleanFlag(parsed, 'build') };
   if (parsed.flags.has('all')) {
     const root = stringFlag(parsed, 'all') ?? paths[0] ?? '.';
-    const report = verifyOmarchyAppDirectory(root);
+    const report = verifyOmarchyAppDirectory(root, options);
     process.stdout.write(
       booleanFlag(parsed, 'json') ? toAppVerificationBatchJson(report) : toAppVerificationBatchText(report)
     );
@@ -230,13 +231,13 @@ function verify(parsed: ParsedArgs): void {
   }
 
   if (paths.length <= 1) {
-    const report = verifyOmarchyApp(paths[0] ?? '.');
+    const report = verifyOmarchyApp(paths[0] ?? '.', options);
     process.stdout.write(booleanFlag(parsed, 'json') ? toAppVerificationJson(report) : toAppVerificationText(report));
     if (!report.ok) process.exitCode = 1;
     return;
   }
 
-  const report = verifyOmarchyApps(paths);
+  const report = verifyOmarchyApps(paths, options);
   process.stdout.write(
     booleanFlag(parsed, 'json') ? toAppVerificationBatchJson(report) : toAppVerificationBatchText(report)
   );
@@ -392,6 +393,7 @@ Commands:
   create <name> --template react-vite   Create a React/Vite starter app
     [--kind command-center|dashboard|studio] writes omarchy-blueprint.json
   verify [paths...] [--json]            Verify Omarchy-native app contracts
+    --build                             Run npm build during verification
     --all [dir]                         Verify every blueprint app under a directory
   app desktop [path] [--out <file>]     Generate a .desktop launcher entry
   app hook [path] [--out <file>]        Generate a safe theme sync hook script

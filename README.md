@@ -142,10 +142,11 @@ Verify an app contract after generation or agent edits:
 omarchy-native verify ./my-app
 omarchy-native verify ./app-one ./app-two
 omarchy-native verify --all ./examples
+omarchy-native verify --all ./examples --build
 omarchy-native verify ./my-app --json
 ```
 
-The verifier checks package metadata, theme refresh scripts, blueprint identity, the blueprint contract, required blueprint files, generated theme CSS, theme/style import order, and obvious hard-coded hex colors outside generated theme files.
+The verifier checks package metadata, theme refresh scripts, blueprint identity, the blueprint contract, required blueprint files, generated theme CSS, theme/style import order, and obvious hard-coded hex colors outside generated theme files. Pass `--build` when you also want verification to run `npm run build` for every target app.
 
 Generate a launcher entry without installing it:
 

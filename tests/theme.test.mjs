@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
 import test from 'node:test';
 import {
   blend,
@@ -144,6 +145,35 @@ test('verifies committed dogfood app contracts', () => {
   assert.ok(report.checks.some((check) => check.name === 'theme-import-order' && check.ok));
   assert.ok(report.checks.some((check) => check.name === 'blueprint-name' && check.ok));
   assert.ok(report.checks.some((check) => check.name === 'no-hardcoded-colors' && check.ok));
+});
+
+test('optionally runs build scripts during app verification', () => {
+  const root = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-build-check-'));
+  const appPath = join(root, 'buildable');
+  try {
+    execFileSync(process.execPath, [
+      'dist/cli.js',
+      'create',
+      appPath,
+      '--template',
+      'react-vite',
+      '--kind',
+      'command-center',
+      '--colors',
+      'tests/fixtures/colors.basic.toml'
+    ]);
+    const packagePath = join(appPath, 'package.json');
+    const packageJson = JSON.parse(readFileSync(packagePath, 'utf8'));
+    packageJson.scripts.build = 'node -e "console.log(\\"build ok\\")"';
+    writeFileSync(packagePath, `${JSON.stringify(packageJson, null, 2)}\n`);
+
+    const report = verifyOmarchyApp(appPath, { runBuild: true });
+
+    assert.equal(report.ok, true);
+    assert.ok(report.checks.some((check) => check.name === 'build' && check.ok));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });
 
 test('verifies multiple committed dogfood app contracts', () => {

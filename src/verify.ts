@@ -1,4 +1,5 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { basename, dirname, join, resolve } from 'node:path';
 import type { AgentBlueprintKind, OmarchyAgentBlueprint } from './agent.js';
 
@@ -25,7 +26,11 @@ export type AppVerificationBatchReport = {
   reports: AppVerificationReport[];
 };
 
-export function verifyOmarchyApp(appPath: string): AppVerificationReport {
+export type AppVerificationOptions = {
+  runBuild?: boolean;
+};
+
+export function verifyOmarchyApp(appPath: string, options: AppVerificationOptions = {}): AppVerificationReport {
   const root = resolve(appPath);
   const checks: AppVerificationCheck[] = [];
   const packagePath = join(root, 'package.json');
@@ -49,6 +54,9 @@ export function verifyOmarchyApp(appPath: string): AppVerificationReport {
     ok: packageJson.ok && typeof packageJson.value.scripts?.build === 'string',
     detail: packageJson.ok ? `build script: ${packageJson.value.scripts?.build ?? '(missing)'}` : packageJson.error
   });
+  if (options.runBuild) {
+    checks.push(runBuildCheck(root, packageJson));
+  }
   checks.push({
     name: 'theme-scripts',
     ok: packageJson.ok && hasThemeScripts(packageJson.value.scripts),
@@ -98,8 +106,11 @@ export function verifyOmarchyApp(appPath: string): AppVerificationReport {
   };
 }
 
-export function verifyOmarchyApps(appPaths: string[]): AppVerificationBatchReport {
-  const reports = appPaths.map((appPath) => verifyOmarchyApp(appPath));
+export function verifyOmarchyApps(
+  appPaths: string[],
+  options: AppVerificationOptions = {}
+): AppVerificationBatchReport {
+  const reports = appPaths.map((appPath) => verifyOmarchyApp(appPath, options));
 
   return {
     schemaVersion: 1,
@@ -110,13 +121,16 @@ export function verifyOmarchyApps(appPaths: string[]): AppVerificationBatchRepor
   };
 }
 
-export function verifyOmarchyAppDirectory(rootPath: string): AppVerificationBatchReport {
+export function verifyOmarchyAppDirectory(
+  rootPath: string,
+  options: AppVerificationOptions = {}
+): AppVerificationBatchReport {
   const root = resolve(rootPath);
   const appPaths = findBlueprints(root)
     .map((blueprintPath) => dirname(blueprintPath))
     .sort((a, b) => a.localeCompare(b));
 
-  return verifyOmarchyApps(appPaths);
+  return verifyOmarchyApps(appPaths, options);
 }
 
 export function toAppVerificationJson(report: AppVerificationReport): string {
@@ -195,6 +209,39 @@ function themeScriptsDetail(scripts: Record<string, string> | undefined): string
   const missing = ['theme:css', 'theme:watch'].filter((script) => typeof scripts?.[script] !== 'string');
   if (missing.length > 0) return `missing scripts: ${missing.join(', ')}`;
   return 'theme scripts must use omarchy-native theme sync/watch --out src/omarchy-theme.css';
+}
+
+function runBuildCheck(
+  root: string,
+  packageJson: { ok: true; value: { name?: string; scripts?: Record<string, string> } } | { ok: false; error: string }
+): AppVerificationCheck {
+  if (!packageJson.ok) {
+    return { name: 'build', ok: false, detail: packageJson.error };
+  }
+
+  if (typeof packageJson.value.scripts?.build !== 'string') {
+    return { name: 'build', ok: false, detail: 'missing build script' };
+  }
+
+  try {
+    execFileSync('npm', ['run', 'build', '--prefix', root], {
+      encoding: 'utf8',
+      stdio: 'pipe'
+    });
+    return { name: 'build', ok: true, detail: 'npm run build completed successfully' };
+  } catch (error) {
+    return { name: 'build', ok: false, detail: buildErrorDetail(error) };
+  }
+}
+
+function buildErrorDetail(error: unknown): string {
+  if (error && typeof error === 'object' && 'stderr' in error) {
+    const stderr = String((error as { stderr?: unknown }).stderr ?? '').trim();
+    const stdout = String((error as { stdout?: unknown }).stdout ?? '').trim();
+    const detail = stderr || stdout;
+    if (detail) return detail.split(/\r?\n/).slice(-4).join(' ');
+  }
+  return error instanceof Error ? error.message : String(error);
 }
 
 function blueprintNameDetail(
