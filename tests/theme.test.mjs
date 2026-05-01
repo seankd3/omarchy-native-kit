@@ -12,8 +12,10 @@ import {
   toAgentBlueprint,
   toAgentContext,
   toAgentPrompt,
+  toAppVerificationText,
   toCssVariables,
-  toJsonTheme
+  toJsonTheme,
+  verifyOmarchyApp
 } from '../dist/index.js';
 
 test('parses Omarchy colors.toml fixtures', () => {
@@ -109,4 +111,14 @@ test('emits app blueprints for common Omarchy-native surfaces', () => {
   assert.ok(blueprint.layoutRegions.some((region) => region.name === 'activity-table'));
   assert.ok(blueprint.components.some((component) => component.name === 'MetricTile'));
   assert.ok(blueprint.acceptanceChecks.some((check) => check.includes('npm run build')));
+});
+
+test('verifies committed dogfood app contracts', () => {
+  const report = verifyOmarchyApp('examples/signal-desk');
+  const text = toAppVerificationText(report);
+
+  assert.equal(report.ok, true);
+  assert.equal(report.kind, 'dashboard');
+  assert.match(text, /Omarchy app verification: ok/);
+  assert.ok(report.checks.some((check) => check.name === 'theme-import-order' && check.ok));
 });

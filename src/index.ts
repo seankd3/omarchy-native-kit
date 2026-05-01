@@ -21,6 +21,13 @@ export {
 } from './agent.js';
 export { toCssVariables, toJsonTheme } from './emitters.js';
 export {
+  toAppVerificationJson,
+  toAppVerificationText,
+  verifyOmarchyApp,
+  type AppVerificationCheck,
+  type AppVerificationReport
+} from './verify.js';
+export {
   OmarchyThemeError,
   createStarterTheme,
   defaultColorsPath,

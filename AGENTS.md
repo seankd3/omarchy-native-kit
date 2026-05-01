@@ -11,6 +11,7 @@ node dist/cli.js agent json --colors tests/fixtures/colors.basic.toml
 node dist/cli.js agent prompt --colors tests/fixtures/colors.basic.toml
 node dist/cli.js agent blueprint --app signal-desk --kind dashboard --colors tests/fixtures/colors.basic.toml
 node dist/cli.js create my-app --template react-vite --kind dashboard --colors tests/fixtures/colors.basic.toml
+node dist/cli.js verify my-app --json
 ```
 
 On an Omarchy machine, omit `--colors` to read `~/.config/omarchy/current/theme/colors.toml`.
@@ -23,6 +24,7 @@ On an Omarchy machine, omit `--colors` to read `~/.config/omarchy/current/theme/
 - `theme css` writes `--omarchy-*` variables for app code.
 - `theme json` exposes the lower-level raw theme payload.
 - `create --kind <kind>` writes `omarchy-blueprint.json` into the generated app for follow-on agent work.
+- `verify <path>` audits generated app contracts before handoff.
 
 ## Build Rules
 
@@ -31,3 +33,4 @@ On an Omarchy machine, omit `--colors` to read `~/.config/omarchy/current/theme/
 - Treat `accent`, `danger`, `success`, `warning`, and `info` as semantic roles.
 - Use the generated foreground tokens for contrast-safe text on semantic backgrounds.
 - Run `npm test` before committing changes.
+- Run `node dist/cli.js verify <app>` after editing a generated app.

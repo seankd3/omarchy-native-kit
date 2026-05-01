@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, unlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -82,6 +82,30 @@ test('create generates react-vite app with blueprint contract', () => {
     assert.equal(blueprint.appName, 'hello');
     assert.equal(blueprint.kind, 'dashboard');
     assert.ok(blueprint.acceptanceChecks.some((check) => check.includes('npm run build')));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('verify reports generated app contract status', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-verify-'));
+  try {
+    const target = join(dir, 'hello');
+    execFileSync(
+      process.execPath,
+      [...cli, 'create', target, '--template', 'react-vite', '--kind', 'command-center', '--colors', fixture]
+    );
+
+    const output = execFileSync(process.execPath, [...cli, 'verify', target, '--json'], { encoding: 'utf8' });
+    const payload = JSON.parse(output);
+    assert.equal(payload.ok, true);
+    assert.equal(payload.kind, 'command-center');
+
+    unlinkSync(join(target, 'src/omarchy-theme.css'));
+    assert.throws(
+      () => execFileSync(process.execPath, [...cli, 'verify', target], { encoding: 'utf8', stdio: 'pipe' }),
+      /Command failed/
+    );
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

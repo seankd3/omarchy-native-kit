@@ -40,3 +40,14 @@ Supported `--kind` values:
 - `studio` - tool rails, creation canvases, and properties panels.
 
 Unknown kinds fall back to `command-center` so agents still get a usable plan.
+
+## Verification
+
+Generated apps can be audited with:
+
+```bash
+omarchy-native verify ./my-app
+omarchy-native verify ./my-app --json
+```
+
+The verifier checks that the app has package metadata, a valid `omarchy-blueprint.json`, all files named by that blueprint, generated `src/omarchy-theme.css`, and the required import order where theme variables load before app styles.

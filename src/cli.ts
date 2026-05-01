@@ -10,8 +10,11 @@ import {
   toAgentBlueprintJson,
   toAgentContextJson,
   toAgentPrompt,
+  toAppVerificationJson,
+  toAppVerificationText,
   toCssVariables,
-  toJsonTheme
+  toJsonTheme,
+  verifyOmarchyApp
 } from './index.js';
 
 type ParsedArgs = {
@@ -88,8 +91,20 @@ function run(parsed: ParsedArgs): void {
     return;
   }
 
+  if (command === 'verify') {
+    verify(parsed);
+    return;
+  }
+
   help();
   process.exitCode = 1;
+}
+
+function verify(parsed: ParsedArgs): void {
+  const [, path = '.'] = parsed.positionals;
+  const report = verifyOmarchyApp(path);
+  process.stdout.write(booleanFlag(parsed, 'json') ? toAppVerificationJson(report) : toAppVerificationText(report));
+  if (!report.ok) process.exitCode = 1;
 }
 
 function doctor(parsed: ParsedArgs): void {
@@ -162,6 +177,10 @@ function stringFlag(parsed: ParsedArgs, name: string): string | undefined {
   return typeof value === 'string' ? value : undefined;
 }
 
+function booleanFlag(parsed: ParsedArgs, name: string): boolean {
+  return parsed.flags.get(name) === true;
+}
+
 function parseArgs(rawArgs: string[]): ParsedArgs {
   const positionals: string[] = [];
   const flags = new Map<string, string | boolean>();
@@ -198,5 +217,6 @@ Commands:
   agent blueprint [--app <name>]        Print a structured app build blueprint
   create <name> --template react-vite   Create a React/Vite starter app
     [--kind command-center|dashboard|studio] writes omarchy-blueprint.json
+  verify [path] [--json]                Verify an Omarchy-native app contract
 `);
 }

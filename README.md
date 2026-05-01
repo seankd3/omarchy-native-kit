@@ -36,6 +36,7 @@ omarchy-native agent json
 omarchy-native agent prompt
 omarchy-native agent blueprint --app signal-desk --kind dashboard
 omarchy-native create hello-omarchy-native --template react-vite --kind dashboard
+omarchy-native verify ./hello-omarchy-native
 ```
 
 All theme commands read inside `~/.config/omarchy/current/theme` by default, primarily `colors.toml` and optionally `theme.name` if present in that directory. For tests or deterministic generation, pass `--colors <path>` or `--theme-dir <path>`.
@@ -98,6 +99,15 @@ Generated apps import `src/omarchy-theme.css` before `src/styles.css` and use va
 
 Generated apps also include `omarchy-blueprint.json`, so coding agents can keep the target layout, component recipes, token roles, and acceptance checks in the app repo while they build.
 
+Verify an app contract after generation or agent edits:
+
+```bash
+omarchy-native verify ./my-app
+omarchy-native verify ./my-app --json
+```
+
+The verifier checks package metadata, the blueprint contract, required blueprint files, generated theme CSS, and theme/style import order.
+
 The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/agent-context-lab` is a richer dogfood app that turns the agent context contract into a compact Omarchy-native build workspace.
 `examples/signal-desk` is a dashboard dogfood app generated from an agent blueprint.
@@ -119,7 +129,8 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/color.ts` - hex validation, blending, contrast, and readable foreground helpers
 - `src/emitters.ts` - CSS and JSON emitters
 - `src/agent.ts` - machine-readable and prompt-ready agent context
-- `src/cli.ts` - `doctor`, `theme json`, `theme css`, `agent json`, `agent prompt`, `agent blueprint`, and `create`
+- `src/cli.ts` - `doctor`, `theme json`, `theme css`, `agent json`, `agent prompt`, `agent blueprint`, `create`, and `verify`
+- `src/verify.ts` - app contract verification for generated Omarchy-native apps
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app
 - `docs/` - preserved research, product, architecture, and implementation notes
