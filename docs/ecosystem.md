@@ -6,7 +6,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 | Surface | Path | Purpose |
 | --- | --- | --- |
-| Theme runtime | `src/theme.ts`, `src/color.ts`, `src/emitters.ts` | Read Omarchy colors, map semantic tokens, emit CSS/JSON. |
+| Theme runtime | `src/theme.ts`, `src/color.ts`, `src/emitters.ts` | Read Omarchy colors, map semantic tokens, emit CSS/JSON/shell output. |
 | Agent contract | `src/agent.ts` | Give coding agents JSON, prompts, and app blueprints. |
 | App verifier | `src/verify.ts` | Audit generated apps before handoff. |
 | Hook generator | `src/hooks.ts` | Generate opt-in theme sync scripts without mutating Omarchy config. |
@@ -43,22 +43,28 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
    omarchy-native theme watch --out src/omarchy-theme.css
    ```
 
-5. Build the app using only `--omarchy-*` variables.
+5. Export shell variables when scripts need theme tokens:
 
-6. Verify before handoff:
+   ```bash
+   omarchy-native theme shell --out omarchy-theme.env
+   ```
+
+6. Build the app using only `--omarchy-*` variables.
+
+7. Verify before handoff:
 
    ```bash
    omarchy-native verify ./signal-desk
    npm run build
    ```
 
-7. Generate a launcher entry:
+8. Generate a launcher entry:
 
    ```bash
    omarchy-native app desktop ./signal-desk --out signal-desk.desktop
    ```
 
-8. Generate an opt-in theme hook script:
+9. Generate an opt-in theme hook script:
 
    ```bash
    omarchy-native app hook ./signal-desk --out theme-set

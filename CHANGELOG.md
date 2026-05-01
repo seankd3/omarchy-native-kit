@@ -12,6 +12,7 @@ Initial public seed of Omarchy Native Kit.
 - `colors.toml` parsing with validation and friendly errors.
 - Semantic token mapping with contrast-aware foregrounds.
 - CSS and JSON theme emitters.
+- Shell export theme emitter.
 - CLI commands:
   - `doctor`
   - `theme json`

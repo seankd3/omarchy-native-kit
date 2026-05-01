@@ -16,6 +16,7 @@ import {
   toDesktopEntry,
   toThemeHookScript,
   toJsonTheme,
+  toShellExports,
   verifyOmarchyApp
 } from './index.js';
 
@@ -64,6 +65,18 @@ function run(parsed: ParsedArgs): void {
       writeFileSync(out, css);
     } else {
       process.stdout.write(css);
+    }
+    return;
+  }
+
+  if (command === 'theme' && subcommand === 'shell') {
+    const shell = toShellExports(loadTheme(parsed).tokens, stringFlag(parsed, 'prefix') ?? 'OMARCHY');
+    const out = stringFlag(parsed, 'out');
+    if (out) {
+      mkdirSync(dirname(resolve(out)), { recursive: true });
+      writeFileSync(out, shell);
+    } else {
+      process.stdout.write(shell);
     }
     return;
   }
@@ -304,6 +317,7 @@ Commands:
   doctor [--colors <path>]              Check Omarchy theme detection
   theme json [--colors <path>]          Print current Omarchy theme as JSON
   theme css [--out <file>]              Print or write CSS variables
+  theme shell [--out <file>]            Print or write shell exports
   theme sync --out <file>               Write current theme CSS once
   theme watch --out <file>              Keep generated theme CSS in sync
   agent json [--colors <path>]          Print AI-agent design context as JSON

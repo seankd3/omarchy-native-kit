@@ -17,6 +17,7 @@ import {
   toDesktopEntry,
   toThemeHookScript,
   toJsonTheme,
+  toShellExports,
   verifyOmarchyApp
 } from '../dist/index.js';
 
@@ -83,10 +84,13 @@ test('emits CSS and JSON schemas', () => {
   const theme = readOmarchyTheme({ colorsPath: 'tests/fixtures/colors.basic.toml', themeNamePath: null });
   const css = toCssVariables(theme.tokens);
   const json = JSON.parse(toJsonTheme(theme));
+  const shell = toShellExports(theme.tokens);
 
   assert.match(css, /--omarchy-background: #101216;/);
   assert.equal(json.schemaVersion, 1);
   assert.equal(json.tokens.accent, '#7aa2f7');
+  assert.match(shell, /export OMARCHY_BACKGROUND='#101216'/);
+  assert.match(shell, /export OMARCHY_SURFACE_RAISED='#414868'/);
 });
 
 test('emits agent context for coding assistants', () => {

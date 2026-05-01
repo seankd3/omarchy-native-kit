@@ -46,6 +46,22 @@ test('theme sync and watch once write output files', () => {
   }
 });
 
+test('theme shell writes shell exports', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-shell-'));
+  try {
+    const out = join(dir, 'theme.env');
+    const stdout = execFileSync(process.execPath, [...cli, 'theme', 'shell', '--colors', fixture], {
+      encoding: 'utf8'
+    });
+    execFileSync(process.execPath, [...cli, 'theme', 'shell', '--colors', fixture, '--prefix', 'APP', '--out', out]);
+
+    assert.match(stdout, /export OMARCHY_BACKGROUND='#101216'/);
+    assert.match(readFileSync(out, 'utf8'), /export APP_ACCENT='#7aa2f7'/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test('agent json prints machine-readable design context', () => {
   const output = execFileSync(process.execPath, [...cli, 'agent', 'json', '--colors', fixture], {
     encoding: 'utf8'
