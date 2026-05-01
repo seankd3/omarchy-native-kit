@@ -30,9 +30,13 @@ export {
   type AppCatalogEntry
 } from './catalog.js';
 export {
+  toAppVerificationBatchJson,
+  toAppVerificationBatchText,
   toAppVerificationJson,
   toAppVerificationText,
+  verifyOmarchyApps,
   verifyOmarchyApp,
+  type AppVerificationBatchReport,
   type AppVerificationCheck,
   type AppVerificationReport
 } from './verify.js';

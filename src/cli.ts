@@ -13,6 +13,8 @@ import {
   readAppCatalog,
   toAppCatalogJson,
   toAppCatalogText,
+  toAppVerificationBatchJson,
+  toAppVerificationBatchText,
   toAppVerificationJson,
   toAppVerificationText,
   toCssVariables,
@@ -22,6 +24,7 @@ import {
   toJsonTheme,
   toQtPalette,
   toShellExports,
+  verifyOmarchyApps,
   verifyOmarchyApp
 } from './index.js';
 
@@ -214,9 +217,18 @@ function desktop(parsed: ParsedArgs): void {
 }
 
 function verify(parsed: ParsedArgs): void {
-  const [, path = '.'] = parsed.positionals;
-  const report = verifyOmarchyApp(path);
-  process.stdout.write(booleanFlag(parsed, 'json') ? toAppVerificationJson(report) : toAppVerificationText(report));
+  const paths = parsed.positionals.slice(1);
+  if (paths.length <= 1) {
+    const report = verifyOmarchyApp(paths[0] ?? '.');
+    process.stdout.write(booleanFlag(parsed, 'json') ? toAppVerificationJson(report) : toAppVerificationText(report));
+    if (!report.ok) process.exitCode = 1;
+    return;
+  }
+
+  const report = verifyOmarchyApps(paths);
+  process.stdout.write(
+    booleanFlag(parsed, 'json') ? toAppVerificationBatchJson(report) : toAppVerificationBatchText(report)
+  );
   if (!report.ok) process.exitCode = 1;
 }
 
@@ -368,7 +380,7 @@ Commands:
   agent blueprint [--app <name>]        Print a structured app build blueprint
   create <name> --template react-vite   Create a React/Vite starter app
     [--kind command-center|dashboard|studio] writes omarchy-blueprint.json
-  verify [path] [--json]                Verify an Omarchy-native app contract
+  verify [paths...] [--json]            Verify Omarchy-native app contracts
   app desktop [path] [--out <file>]     Generate a .desktop launcher entry
   app hook [path] [--out <file>]        Generate a safe theme sync hook script
   app catalog [path] [--json]           Catalog Omarchy-native apps by blueprint

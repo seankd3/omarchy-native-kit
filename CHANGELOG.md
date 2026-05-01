@@ -37,6 +37,7 @@ Initial public seed of Omarchy Native Kit.
 - App contract verifier for generated apps.
 - Blueprint-backed app catalog generation.
 - Hard-coded hex color detection in generated app verification.
+- Multi-app verification from a single `omarchy-native verify` invocation.
 - Blueprint/package name consistency checks in generated app verification.
 - Theme script checks in generated app verification.
 - `.desktop` launcher generation.

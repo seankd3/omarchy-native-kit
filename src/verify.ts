@@ -17,6 +17,14 @@ export type AppVerificationReport = {
   checks: AppVerificationCheck[];
 };
 
+export type AppVerificationBatchReport = {
+  schemaVersion: 1;
+  ok: boolean;
+  appCount: number;
+  verifiedCount: number;
+  reports: AppVerificationReport[];
+};
+
 export function verifyOmarchyApp(appPath: string): AppVerificationReport {
   const root = resolve(appPath);
   const checks: AppVerificationCheck[] = [];
@@ -90,7 +98,23 @@ export function verifyOmarchyApp(appPath: string): AppVerificationReport {
   };
 }
 
+export function verifyOmarchyApps(appPaths: string[]): AppVerificationBatchReport {
+  const reports = appPaths.map((appPath) => verifyOmarchyApp(appPath));
+
+  return {
+    schemaVersion: 1,
+    ok: reports.every((report) => report.ok),
+    appCount: reports.length,
+    verifiedCount: reports.filter((report) => report.ok).length,
+    reports
+  };
+}
+
 export function toAppVerificationJson(report: AppVerificationReport): string {
+  return `${JSON.stringify(report, null, 2)}\n`;
+}
+
+export function toAppVerificationBatchJson(report: AppVerificationBatchReport): string {
   return `${JSON.stringify(report, null, 2)}\n`;
 }
 
@@ -103,6 +127,18 @@ export function toAppVerificationText(report: AppVerificationReport): string {
   ];
 
   return `${lines.join('\n')}\n`;
+}
+
+export function toAppVerificationBatchText(report: AppVerificationBatchReport): string {
+  const sections = report.reports.map((appReport) => toAppVerificationText(appReport).trimEnd());
+  sections.push(
+    [
+      `Omarchy app verification summary: ${report.ok ? 'ok' : 'failed'}`,
+      `verified: ${report.verifiedCount}/${report.appCount}`
+    ].join('\n')
+  );
+
+  return `${sections.join('\n\n')}\n`;
 }
 
 function readJson<T>(path: string): { ok: true; value: T } | { ok: false; error: string } {

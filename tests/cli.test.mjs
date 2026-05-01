@@ -209,6 +209,24 @@ test('verify reports generated app contract status', () => {
   }
 });
 
+test('verify reports multiple app contract statuses', () => {
+  const output = execFileSync(
+    process.execPath,
+    [...cli, 'verify', 'examples/signal-desk', 'examples/shortcut-trainer', '--json'],
+    { encoding: 'utf8' }
+  );
+  const payload = JSON.parse(output);
+
+  assert.equal(payload.schemaVersion, 1);
+  assert.equal(payload.ok, true);
+  assert.equal(payload.appCount, 2);
+  assert.equal(payload.verifiedCount, 2);
+  assert.deepEqual(
+    payload.reports.map((report) => report.appName),
+    ['signal-desk', 'shortcut-trainer']
+  );
+});
+
 test('app desktop writes launcher entry', () => {
   const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-desktop-'));
   try {

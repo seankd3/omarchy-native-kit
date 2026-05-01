@@ -14,6 +14,7 @@ import {
   toAgentPrompt,
   readAppCatalog,
   toAppVerificationText,
+  toAppVerificationBatchText,
   toCssVariables,
   toDesktopEntry,
   toGtkCss,
@@ -21,7 +22,8 @@ import {
   toJsonTheme,
   toQtPalette,
   toShellExports,
-  verifyOmarchyApp
+  verifyOmarchyApp,
+  verifyOmarchyApps
 } from '../dist/index.js';
 
 test('parses Omarchy colors.toml fixtures', () => {
@@ -141,6 +143,21 @@ test('verifies committed dogfood app contracts', () => {
   assert.ok(report.checks.some((check) => check.name === 'theme-import-order' && check.ok));
   assert.ok(report.checks.some((check) => check.name === 'blueprint-name' && check.ok));
   assert.ok(report.checks.some((check) => check.name === 'no-hardcoded-colors' && check.ok));
+});
+
+test('verifies multiple committed dogfood app contracts', () => {
+  const report = verifyOmarchyApps(['examples/signal-desk', 'examples/shortcut-trainer']);
+  const text = toAppVerificationBatchText(report);
+
+  assert.equal(report.ok, true);
+  assert.equal(report.appCount, 2);
+  assert.equal(report.verifiedCount, 2);
+  assert.deepEqual(
+    report.reports.map((app) => app.appName),
+    ['signal-desk', 'shortcut-trainer']
+  );
+  assert.match(text, /Omarchy app verification summary: ok/);
+  assert.match(text, /verified: 2\/2/);
 });
 
 test('catalogs committed dogfood apps', () => {
