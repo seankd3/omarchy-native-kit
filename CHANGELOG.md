@@ -111,6 +111,7 @@ Initial public seed of Omarchy Native Kit.
   - `directory-group-nesting-inspector`
   - `directory-owner-attestation-desk`
   - `directory-lifecycle-policy-lab`
+  - `directory-deprovisioning-runbook`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`

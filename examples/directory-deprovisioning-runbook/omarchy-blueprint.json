@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "directory-deprovisioning-runbook",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "runbook-summary",
+      "purpose": "At-a-glance counts for tasks, app queues, orphaned sessions, and rollback checkpoints.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "danger",
+        "warning",
+        "success",
+        "info"
+      ]
+    },
+    {
+      "name": "task-queue",
+      "purpose": "Keyboard-focusable deprovisioning tasks with due time, system, owner, and blocker evidence.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "border",
+        "accent"
+      ]
+    },
+    {
+      "name": "evidence-panels",
+      "purpose": "Suspended identity, app offboarding, session revocation, sign-off, and rollback guardrail panels.",
+      "tokens": [
+        "background",
+        "surface",
+        "mutedForeground",
+        "borderStrong",
+        "shadow"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "TaskRow",
+      "purpose": "Focusable runbook row for a deprovisioning task and its current blocker.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "surfaceRaised",
+        "accent",
+        "border"
+      ],
+      "interactions": [
+        "hover and focus-visible states expose selection",
+        "status tone is shown with semantic danger, warning, success, or info"
+      ]
+    },
+    {
+      "name": "EvidenceCard",
+      "purpose": "Compact evidence surface for suspended identities and app offboarding queues.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "mutedForeground",
+        "danger",
+        "warning",
+        "success",
+        "info"
+      ],
+      "interactions": [
+        "stable card sizing across viewport changes",
+        "tone label stays visible without overlapping text"
+      ]
+    },
+    {
+      "name": "RollbackGuardrail",
+      "purpose": "Ordered disablement checklist for rollback-safe account exits.",
+      "tokens": [
+        "background",
+        "accent",
+        "borderStrong",
+        "surfaceForeground"
+      ],
+      "interactions": [
+        "primary disablement action has visible hover and focus-visible states",
+        "guardrail numbers are stable and token-colored"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
