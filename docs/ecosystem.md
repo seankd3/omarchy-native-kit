@@ -40,6 +40,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Display Layout Planner | `examples/display-layout-planner` | Dashboard app for planning monitor arrangements, scaling, color temperature, and workspace placement. |
 | Input Method Studio | `examples/input-method-studio` | Studio app for configuring keyboards, pointer devices, layout variants, repeat rates, and workspace behavior. |
 | Workspace Automation Builder | `examples/workspace-automation-builder` | Studio app for composing workspace triggers, app launch rules, hooks, and rollback-safe automation recipes. |
+| Credential Session Vault | `examples/credential-session-vault` | Studio app for staging session secrets, SSH agents, keyring readiness, and workspace credential exposure. |
 
 ## Build Loop
 
@@ -115,7 +116,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `credential-session-vault` - stage session secrets, SSH agents, keyring readiness, and per-workspace credential exposure.
+- `clipboard-history-curator` - review clipboard history, pin safe snippets, redact secrets, and route copied content by workspace.
 
 ## Kit Refinements To Unlock More Apps
 

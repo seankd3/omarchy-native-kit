@@ -201,6 +201,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/display-layout-planner` is a dashboard dogfood app for planning monitor arrangements, scaling, color temperature, and workspace placement.
 `examples/input-method-studio` is a studio dogfood app for configuring keyboards, pointer devices, layout variants, repeat rates, and workspace behavior.
 `examples/workspace-automation-builder` is a studio dogfood app for composing workspace triggers, app launch rules, hooks, and rollback-safe recipes.
+`examples/credential-session-vault` is a studio dogfood app for staging session secrets, SSH agents, keyring readiness, and workspace credential exposure.
 
 ## Development
 
@@ -232,7 +233,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/verify.ts` - app contract verification for generated Omarchy-native apps
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app
-- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer`, `examples/focus-flight-recorder`, `examples/window-rule-lab`, `examples/config-diff-studio`, `examples/session-restore-planner`, `examples/portal-permission-center`, `examples/backup-restore-console`, `examples/notification-routing-board`, `examples/power-profile-switchboard`, `examples/audio-device-mixer`, `examples/network-profile-mapper`, `examples/display-layout-planner`, `examples/input-method-studio`, `examples/workspace-automation-builder` - richer dogfood apps
+- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer`, `examples/focus-flight-recorder`, `examples/window-rule-lab`, `examples/config-diff-studio`, `examples/session-restore-planner`, `examples/portal-permission-center`, `examples/backup-restore-console`, `examples/notification-routing-board`, `examples/power-profile-switchboard`, `examples/audio-device-mixer`, `examples/network-profile-mapper`, `examples/display-layout-planner`, `examples/input-method-studio`, `examples/workspace-automation-builder`, `examples/credential-session-vault` - richer dogfood apps
 - `docs/` - preserved research, product, architecture, and implementation notes
 
 ## Current Scope

@@ -74,4 +74,5 @@ Initial public seed of Omarchy Native Kit.
   - `display-layout-planner`
   - `input-method-studio`
   - `workspace-automation-builder`
+  - `credential-session-vault`
 - Ecosystem map and CI workflow template.
