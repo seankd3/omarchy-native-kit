@@ -44,4 +44,5 @@ Initial public seed of Omarchy Native Kit.
   - `agent-context-lab`
   - `signal-desk`
   - `theme-forge`
+  - `hook-station`
 - Ecosystem map and CI workflow template.

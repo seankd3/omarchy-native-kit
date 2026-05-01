@@ -164,6 +164,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/agent-context-lab` is a richer dogfood app that turns the agent context contract into a compact Omarchy-native build workspace.
 `examples/signal-desk` is a dashboard dogfood app generated from an agent blueprint.
 `examples/theme-forge` is a studio dogfood app for inspecting semantic tokens and export targets.
+`examples/hook-station` is a studio dogfood app for reviewing safe theme sync hook scripts before export.
 
 ## Development
 

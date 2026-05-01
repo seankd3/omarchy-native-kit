@@ -125,6 +125,7 @@ test('emits app blueprints for common Omarchy-native surfaces', () => {
   assert.ok(blueprint.layoutRegions.some((region) => region.name === 'activity-table'));
   assert.ok(blueprint.components.some((component) => component.name === 'MetricTile'));
   assert.ok(blueprint.acceptanceChecks.some((check) => check.includes('npm run build')));
+  assert.ok(blueprint.acceptanceChecks.some((check) => check.includes('omarchy-native app hook')));
 });
 
 test('verifies committed dogfood app contracts', () => {
