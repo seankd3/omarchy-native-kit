@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-ledger-archive-browser",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "archive-summary",
+      "purpose": "Track archived ledgers, retained closeouts, hash mismatches, and export labels.",
+      "tokens": ["surface", "surfaceForeground", "border", "success", "info", "warning", "danger"]
+    },
+    {
+      "name": "ledger-grid",
+      "purpose": "Compare archived review ledgers by owner, export label, retrieval state, and proof progress.",
+      "tokens": ["surface", "surfaceRaised", "mutedForeground", "accent", "info"]
+    },
+    {
+      "name": "archive-workspace",
+      "purpose": "Inspect receipt closeouts, owner acknowledgement history, retry hashes, checksum repairs, export labels, and rollback-safe retrieval commands.",
+      "tokens": ["background", "surface", "border", "borderStrong", "danger", "warning", "info"]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricTile",
+      "purpose": "Compact archive counter with semantic status tone.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["stable height across values", "tone visible without raw colors"]
+    },
+    {
+      "name": "LedgerCard",
+      "purpose": "Archived ledger card showing export label, retrieval state, status, and proof progress.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "accent", "info", "success"],
+      "interactions": ["progress bar uses semantic tokens", "status chip maps to archive state"]
+    },
+    {
+      "name": "RetrievalRow",
+      "purpose": "Rollback-safe archive retrieval row with command and bundle proof details.",
+      "tokens": ["background", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["retrieval text remains readable at narrow widths", "row layout does not shift when state changes"]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button and status row has a visible focus or stable hover-safe presentation.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
