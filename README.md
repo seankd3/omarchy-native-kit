@@ -32,6 +32,8 @@ omarchy-native doctor
 omarchy-native doctor
 omarchy-native theme json
 omarchy-native theme css --out src/omarchy-theme.css
+omarchy-native agent json
+omarchy-native agent prompt
 omarchy-native create hello-omarchy-native --template react-vite
 ```
 
@@ -62,6 +64,17 @@ The stable token payload uses `schemaVersion: 1` and exposes semantic roles:
 - accent, danger, success, warning, info plus contrast-safe foregrounds for each
 
 The color helpers validate six-digit hex colors, compute WCAG-style contrast ratios, blend colors, and choose readable foregrounds when an Omarchy palette has low contrast.
+
+## Agent Context
+
+Omarchy Native Kit includes an agent-facing contract so coding assistants can build on the user's active Omarchy palette without scraping README prose.
+
+```bash
+omarchy-native agent json
+omarchy-native agent prompt
+```
+
+`agent json` emits `schemaVersion: 1`, CSS variable mappings, suggested token uses, design rules, component patterns, and canonical kit commands. `agent prompt` emits the same guidance as a compact natural-language brief for coding agents.
 
 ## React/Vite Template
 
@@ -97,7 +110,8 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/theme.ts` - theme discovery, parser, validation, and semantic token mapping
 - `src/color.ts` - hex validation, blending, contrast, and readable foreground helpers
 - `src/emitters.ts` - CSS and JSON emitters
-- `src/cli.ts` - `doctor`, `theme json`, `theme css`, and `create`
+- `src/agent.ts` - machine-readable and prompt-ready agent context
+- `src/cli.ts` - `doctor`, `theme json`, `theme css`, `agent json`, `agent prompt`, and `create`
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app
 - `docs/` - preserved research, product, architecture, and implementation notes

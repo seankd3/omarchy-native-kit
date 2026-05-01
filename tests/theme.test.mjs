@@ -9,6 +9,8 @@ import {
   mapSemanticTokens,
   parseColorsToml,
   readOmarchyTheme,
+  toAgentContext,
+  toAgentPrompt,
   toCssVariables,
   toJsonTheme
 } from '../dist/index.js';
@@ -80,4 +82,17 @@ test('emits CSS and JSON schemas', () => {
   assert.match(css, /--omarchy-background: #101216;/);
   assert.equal(json.schemaVersion, 1);
   assert.equal(json.tokens.accent, '#7aa2f7');
+});
+
+test('emits agent context for coding assistants', () => {
+  const theme = readOmarchyTheme({ colorsPath: 'tests/fixtures/colors.basic.toml', themeNamePath: null });
+  const context = toAgentContext(theme);
+  const prompt = toAgentPrompt(theme);
+
+  assert.equal(context.schemaVersion, 1);
+  assert.equal(context.kit, 'omarchy-native-kit');
+  assert.ok(context.cssVariables.some((item) => item.variable === '--omarchy-accent' && item.value === '#7aa2f7'));
+  assert.ok(context.designRules.some((rule) => rule.includes('--omarchy-*')));
+  assert.match(prompt, /You are building an Omarchy-native interface/);
+  assert.match(prompt, /--omarchy-background: #101216/);
 });

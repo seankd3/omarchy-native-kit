@@ -30,6 +30,26 @@ test('theme css writes output file', () => {
   }
 });
 
+test('agent json prints machine-readable design context', () => {
+  const output = execFileSync(process.execPath, [...cli, 'agent', 'json', '--colors', fixture], {
+    encoding: 'utf8'
+  });
+  const payload = JSON.parse(output);
+
+  assert.equal(payload.schemaVersion, 1);
+  assert.equal(payload.kit, 'omarchy-native-kit');
+  assert.ok(payload.cssVariables.some((item) => item.variable === '--omarchy-accent'));
+});
+
+test('agent prompt prints compact instructions for coding agents', () => {
+  const output = execFileSync(process.execPath, [...cli, 'agent', 'prompt', '--colors', fixture], {
+    encoding: 'utf8'
+  });
+
+  assert.match(output, /Design rules:/);
+  assert.match(output, /--omarchy-accent: #7aa2f7/);
+});
+
 test('create generates react-vite app', () => {
   const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-create-'));
   try {

@@ -7,6 +7,8 @@ import {
   createStarterTheme,
   defaultColorsPath,
   readOmarchyTheme,
+  toAgentContextJson,
+  toAgentPrompt,
   toCssVariables,
   toJsonTheme
 } from './index.js';
@@ -57,6 +59,16 @@ function run(parsed: ParsedArgs): void {
     } else {
       process.stdout.write(css);
     }
+    return;
+  }
+
+  if (command === 'agent' && subcommand === 'json') {
+    process.stdout.write(toAgentContextJson(loadTheme(parsed)));
+    return;
+  }
+
+  if (command === 'agent' && subcommand === 'prompt') {
+    process.stdout.write(toAgentPrompt(loadTheme(parsed)));
     return;
   }
 
@@ -166,6 +178,8 @@ Commands:
   doctor [--colors <path>]              Check Omarchy theme detection
   theme json [--colors <path>]          Print current Omarchy theme as JSON
   theme css [--out <file>]              Print or write CSS variables
+  agent json [--colors <path>]          Print AI-agent design context as JSON
+  agent prompt [--colors <path>]        Print a compact design prompt for agents
   create <name> --template react-vite   Create a React/Vite starter app
 `);
 }

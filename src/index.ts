@@ -6,6 +6,13 @@ export {
   readableForeground,
   type HexColor
 } from './color.js';
+export {
+  toAgentContext,
+  toAgentContextJson,
+  toAgentPrompt,
+  type AgentCssVariable,
+  type OmarchyAgentContext
+} from './agent.js';
 export { toCssVariables, toJsonTheme } from './emitters.js';
 export {
   OmarchyThemeError,
