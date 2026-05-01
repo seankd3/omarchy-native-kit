@@ -27,6 +27,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Docs Reader | `examples/docs-reader` | Command-center app for browsing local docs, commands, and blueprints. |
 | App Health Monitor | `examples/app-health-monitor` | Dashboard app for verifier results and blueprint drift. |
 | Shortcut Trainer | `examples/shortcut-trainer` | Command-center app for practicing keyboard chords and focus checks. |
+| Focus Flight Recorder | `examples/focus-flight-recorder` | Studio app for capturing keyboard navigation paths and inspecting focus landings. |
 
 ## Build Loop
 
@@ -102,7 +103,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `focus-flight-recorder` - capture keyboard navigation paths and inspect where focus lands across app surfaces.
+- `window-rule-lab` - draft and test Omarchy window/workspace rules before wiring them into a live config.
 
 ## Kit Refinements To Unlock More Apps
 

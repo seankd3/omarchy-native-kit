@@ -61,4 +61,5 @@ Initial public seed of Omarchy Native Kit.
   - `docs-reader`
   - `app-health-monitor`
   - `shortcut-trainer`
+  - `focus-flight-recorder`
 - Ecosystem map and CI workflow template.

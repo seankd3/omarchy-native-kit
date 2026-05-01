@@ -188,6 +188,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/docs-reader` is a command-center dogfood app for browsing local docs, commands, and blueprints.
 `examples/app-health-monitor` is a dashboard dogfood app for verifier results and blueprint drift.
 `examples/shortcut-trainer` is a command-center dogfood app for practicing keyboard chords and focus checks.
+`examples/focus-flight-recorder` is a studio dogfood app for capturing keyboard navigation paths and focus landings.
 
 ## Development
 
@@ -219,7 +220,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/verify.ts` - app contract verification for generated Omarchy-native apps
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app
-- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer` - richer dogfood apps
+- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer`, `examples/focus-flight-recorder` - richer dogfood apps
 - `docs/` - preserved research, product, architecture, and implementation notes
 
 ## Current Scope
