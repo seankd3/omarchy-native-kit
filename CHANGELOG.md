@@ -68,4 +68,5 @@ Initial public seed of Omarchy Native Kit.
   - `portal-permission-center`
   - `backup-restore-console`
   - `notification-routing-board`
+  - `power-profile-switchboard`
 - Ecosystem map and CI workflow template.

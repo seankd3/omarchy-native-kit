@@ -34,6 +34,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Portal Permission Center | `examples/portal-permission-center` | Studio app for reviewing portals, default handlers, and desktop integration permissions. |
 | Backup Restore Console | `examples/backup-restore-console` | Dashboard app for checking backup coverage, restore points, and rollback readiness. |
 | Notification Routing Board | `examples/notification-routing-board` | Dashboard app for designing notification routes, quiet hours, and escalation rules. |
+| Power Profile Switchboard | `examples/power-profile-switchboard` | Dashboard app for tuning power profiles, brightness, idle behavior, and performance modes per workspace. |
 
 ## Build Loop
 
@@ -109,7 +110,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `power-profile-switchboard` - tune power profiles, display brightness, idle behavior, and performance modes per workspace.
+- `audio-device-mixer` - route microphones, speakers, per-app volume, and meeting presets across Omarchy-native apps.
 
 ## Kit Refinements To Unlock More Apps
 
