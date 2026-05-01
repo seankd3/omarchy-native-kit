@@ -88,6 +88,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Access Vault Recovery Drill Board | `examples/access-vault-recovery-drill-board` | Studio app for inspecting vault recovery drills, secret lease timing, responder identity proof, failed unwrap attempts, cleanup attestations, recovery ownership, and rollback-safe evidence packets. |
 | Access Secret Lease Rotation Console | `examples/access-secret-lease-rotation-console` | Studio app for inspecting emergency secret lease rotations, stale token caches, owner attestations, failed revocations, dependent services, cleanup receipts, and rollback-safe rotation packets. |
 | Access Dependent Service Restart Map | `examples/access-dependent-service-restart-map` | Studio app for inspecting access-dependent service restart plans, secret consumers, stale credentials, outage windows, owner acknowledgements, failed restarts, cleanup proof, and rollback-safe restart packets. |
+| Access Credential Cache Cleanup Desk | `examples/access-credential-cache-cleanup-desk` | Studio app for inspecting stale credential caches, secret consumers, emergency lease leftovers, purge progress, owner receipts, failed cleanup jobs, service restart dependencies, and rollback-safe cleanup packets. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -183,7 +184,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `access-credential-cache-cleanup-desk` - inspect stale credential caches, secret consumers, emergency lease leftovers, purge progress, owner receipts, failed cleanup jobs, service restart dependencies, and rollback-safe cleanup packets.
+- `access-owner-receipt-ledger` - inspect access cleanup owner receipts, missing acknowledgements, stale credential evidence, delegated signoffs, retry queues, audit packet sealing, and rollback-safe accountability trails.
 
 ## Kit Refinements To Unlock More Apps
 

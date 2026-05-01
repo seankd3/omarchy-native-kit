@@ -129,6 +129,7 @@ Initial public seed of Omarchy Native Kit.
   - `access-vault-recovery-drill-board`
   - `access-secret-lease-rotation-console`
   - `access-dependent-service-restart-map`
+  - `access-credential-cache-cleanup-desk`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
