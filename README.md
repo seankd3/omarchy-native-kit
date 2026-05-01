@@ -94,6 +94,7 @@ Generated apps import `src/omarchy-theme.css` before `src/styles.css` and use va
 ```
 
 The first dogfood output is committed under `examples/hello-omarchy-native`.
+`examples/agent-context-lab` is a richer dogfood app that turns the agent context contract into a compact Omarchy-native build workspace.
 
 ## Development
 

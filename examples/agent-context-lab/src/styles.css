@@ -1,0 +1,261 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--omarchy-surface-raised) 34%, transparent), transparent 420px),
+    var(--omarchy-background);
+}
+
+button {
+  font: inherit;
+}
+
+.labShell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.mast {
+  min-height: 124px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0 24px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.eyebrow,
+kbd,
+small,
+.sectionHeader span,
+em {
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--omarchy-accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5.8rem);
+  line-height: 0.92;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+.primaryAction,
+.tokenRow,
+.command,
+.check {
+  border: 1px solid var(--omarchy-border);
+  color: var(--omarchy-surface-foreground);
+  background: var(--omarchy-surface);
+  cursor: pointer;
+}
+
+.primaryAction {
+  min-height: 42px;
+  padding: 0 16px;
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  font-weight: 800;
+}
+
+.workspaceGrid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.05fr) minmax(320px, 1fr);
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.tokenPanel,
+.promptPanel,
+.checkPanel {
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface) 92%, transparent);
+}
+
+.tokenPanel {
+  grid-row: span 2;
+}
+
+.sectionHeader {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.sectionHeader span,
+small,
+em {
+  color: var(--omarchy-muted-foreground);
+  font-size: 0.78rem;
+  font-style: normal;
+}
+
+.tokenList,
+.commandStack,
+.checkGrid {
+  display: grid;
+  gap: 1px;
+  background: var(--omarchy-border);
+}
+
+.tokenRow {
+  min-height: 72px;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.tokenRow strong,
+.tokenRow small,
+.command span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.swatch {
+  width: 28px;
+  aspect-ratio: 1;
+  border: 1px solid var(--omarchy-border-strong);
+}
+
+.promptBlock {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  color: var(--omarchy-muted-foreground);
+  line-height: 1.6;
+}
+
+.command {
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+kbd {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  aspect-ratio: 1;
+  border: 1px solid var(--omarchy-border-strong);
+  color: var(--omarchy-accent);
+  background: var(--omarchy-background);
+  font-size: 0.8rem;
+}
+
+.checkGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.check {
+  min-height: 104px;
+  display: grid;
+  align-content: space-between;
+  justify-items: start;
+  gap: 8px;
+  padding: 14px;
+  text-align: left;
+}
+
+.check span {
+  width: 10px;
+  aspect-ratio: 1;
+  background: var(--omarchy-success);
+}
+
+.check span.locked {
+  background: var(--omarchy-accent);
+}
+
+.primaryAction:focus-visible,
+.tokenRow:focus-visible,
+.command:focus-visible,
+.check:focus-visible {
+  outline: 2px solid var(--omarchy-accent);
+  outline-offset: 2px;
+}
+
+.tokenRow:hover,
+.command:hover,
+.check:hover {
+  background: var(--omarchy-surface-raised);
+}
+
+@media (max-width: 820px) {
+  .mast {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .primaryAction {
+    width: 100%;
+  }
+
+  .workspaceGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tokenPanel {
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .labShell {
+    padding: 12px;
+  }
+
+  .tokenRow {
+    grid-template-columns: 28px minmax(0, 1fr);
+  }
+
+  .tokenRow em {
+    grid-column: 2;
+  }
+
+  .checkGrid {
+    grid-template-columns: 1fr;
+  }
+}
