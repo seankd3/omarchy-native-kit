@@ -9,6 +9,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Theme runtime | `src/theme.ts`, `src/color.ts`, `src/emitters.ts` | Read Omarchy colors, map semantic tokens, emit CSS/JSON. |
 | Agent contract | `src/agent.ts` | Give coding agents JSON, prompts, and app blueprints. |
 | App verifier | `src/verify.ts` | Audit generated apps before handoff. |
+| Hook generator | `src/hooks.ts` | Generate opt-in theme sync scripts without mutating Omarchy config. |
 | React/Vite template | `templates/react-vite` | Small starter for theme-aware apps. |
 | Hello app | `examples/hello-omarchy-native` | Minimal command-surface starter output. |
 | Agent Context Lab | `examples/agent-context-lab` | Studio-style app for inspecting agent context. |
@@ -57,6 +58,12 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
    omarchy-native app desktop ./signal-desk --out signal-desk.desktop
    ```
 
+8. Generate an opt-in theme hook script:
+
+   ```bash
+   omarchy-native app hook ./signal-desk --out theme-set
+   ```
+
 ## App Ideas To Build Next
 
 - `hook-station` - manage safe per-app theme sync hooks without clobbering user scripts.
@@ -69,7 +76,6 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 - Add GTK and Qt emitters beside CSS/JSON.
 - Add Playwright visual checks for generated apps.
 - Publish npm package and install docs.
-- Add safe hook installation for app-level theme refresh.
 - Add an AUR packaging path once the CLI stabilizes.
 
 ## Definition Of A Good Omarchy-Native App
@@ -81,3 +87,4 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 - Ships an `omarchy-blueprint.json` contract.
 - Passes `omarchy-native verify`.
 - Can generate a `.desktop` launcher without mutating user config.
+- Can generate an opt-in theme sync hook script without mutating user config.

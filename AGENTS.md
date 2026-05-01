@@ -14,6 +14,7 @@ node dist/cli.js create my-app --template react-vite --kind dashboard --colors t
 node dist/cli.js theme sync --out my-app/src/omarchy-theme.css --colors tests/fixtures/colors.basic.toml
 node dist/cli.js verify my-app --json
 node dist/cli.js app desktop my-app --out my-app.desktop
+node dist/cli.js app hook my-app --out theme-set
 ```
 
 On an Omarchy machine, omit `--colors` to read `~/.config/omarchy/current/theme/colors.toml`.
@@ -29,6 +30,7 @@ On an Omarchy machine, omit `--colors` to read `~/.config/omarchy/current/theme/
 - `create --kind <kind>` writes `omarchy-blueprint.json` into the generated app for follow-on agent work.
 - `verify <path>` audits generated app contracts before handoff.
 - `app desktop <path>` generates a launcher entry without installing it.
+- `app hook <path>` generates a theme sync hook script without installing it.
 
 ## Build Rules
 
@@ -39,3 +41,4 @@ On an Omarchy machine, omit `--colors` to read `~/.config/omarchy/current/theme/
 - Run `npm test` before committing changes.
 - Run `node dist/cli.js verify <app>` after editing a generated app.
 - Generate a `.desktop` file when handing off an app meant to launch from Omarchy.
+- Generate a hook script only as an opt-in artifact; do not mutate Omarchy hooks automatically.

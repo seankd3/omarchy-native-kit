@@ -41,6 +41,7 @@ omarchy-native agent blueprint --app signal-desk --kind dashboard
 omarchy-native create hello-omarchy-native --template react-vite --kind dashboard
 omarchy-native verify ./hello-omarchy-native
 omarchy-native app desktop ./hello-omarchy-native --out hello-omarchy-native.desktop
+omarchy-native app hook ./hello-omarchy-native --out theme-set
 ```
 
 All theme commands read inside `~/.config/omarchy/current/theme` by default, primarily `colors.toml` and optionally `theme.name` if present in that directory. For tests or deterministic generation, pass `--colors <path>` or `--theme-dir <path>`.
@@ -127,6 +128,14 @@ omarchy-native app desktop ./my-app --out my-app.desktop
 
 The generated `.desktop` file defaults to running the app preview with `npm --prefix <app> run preview -- --host 127.0.0.1`. Pass `--exec`, `--icon`, `--name`, or `--categories Utility,Graphics` to customize it.
 
+Generate a theme sync hook script without installing it:
+
+```bash
+omarchy-native app hook ./my-app --out theme-set
+```
+
+The hook script runs `omarchy-native theme sync --out <app>/src/omarchy-theme.css`. Review it, then wire it into your preferred Omarchy hook workflow manually.
+
 The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/agent-context-lab` is a richer dogfood app that turns the agent context contract into a compact Omarchy-native build workspace.
 `examples/signal-desk` is a dashboard dogfood app generated from an agent blueprint.
@@ -154,6 +163,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/agent.ts` - machine-readable and prompt-ready agent context
 - `src/cli.ts` - `doctor`, `theme json`, `theme css`, `agent json`, `agent prompt`, `agent blueprint`, `create`, and `verify`
 - `src/desktop.ts` - `.desktop` launcher entry generation
+- `src/hooks.ts` - opt-in theme hook script generation
 - `src/verify.ts` - app contract verification for generated Omarchy-native apps
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app
@@ -162,4 +172,4 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 
 ## Current Scope
 
-This MVP covers CSS and JSON token output, live theme syncing, agent context, app blueprints, React/Vite scaffolding, generated app verification, `.desktop` launcher generation, and dogfood apps. Future work can add safe hook installation, shell exports, GTK/Qt emitters, visual regression checks, npm publishing, and AUR packaging.
+This MVP covers CSS and JSON token output, live theme syncing, agent context, app blueprints, React/Vite scaffolding, generated app verification, `.desktop` launcher generation, opt-in hook script generation, and dogfood apps. Future work can add shell exports, GTK/Qt emitters, visual regression checks, npm publishing, and AUR packaging.

@@ -28,6 +28,7 @@ Initial public seed of Omarchy Native Kit.
 - Agent context, prompt, and blueprint contracts for coding agents.
 - App contract verifier for generated apps.
 - `.desktop` launcher generation.
+- Opt-in theme hook script generation.
 - Dogfood apps:
   - `hello-omarchy-native`
   - `agent-context-lab`

@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdtempSync, readFileSync, rmSync, unlinkSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, statSync, unlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -143,6 +143,27 @@ test('app desktop writes launcher entry', () => {
     assert.match(desktop, /Name=Hello Native/);
     assert.match(desktop, /Exec=npm --prefix/);
     assert.match(desktop, /Categories=Utility;/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('app hook writes executable theme sync script', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-hook-'));
+  try {
+    const target = join(dir, 'hello');
+    const out = join(dir, 'theme-set');
+    execFileSync(
+      process.execPath,
+      [...cli, 'create', target, '--template', 'react-vite', '--kind', 'studio', '--colors', fixture]
+    );
+    execFileSync(process.execPath, [...cli, 'app', 'hook', target, '--out', out, '--binary', 'node dist/cli.js']);
+
+    const hook = readFileSync(out, 'utf8');
+    assert.match(hook, /^#!\/usr\/bin\/env sh/);
+    assert.match(hook, /theme sync --out/);
+    assert.match(hook, /omarchy-theme.css/);
+    assert.equal(statSync(out).mode & 0o111, 0o111);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

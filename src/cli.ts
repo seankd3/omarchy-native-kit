@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { cpSync, existsSync, mkdirSync, readFileSync, watchFile, writeFileSync } from 'node:fs';
+import { chmodSync, cpSync, existsSync, mkdirSync, readFileSync, watchFile, writeFileSync } from 'node:fs';
 import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -14,6 +14,7 @@ import {
   toAppVerificationText,
   toCssVariables,
   toDesktopEntry,
+  toThemeHookScript,
   toJsonTheme,
   verifyOmarchyApp
 } from './index.js';
@@ -112,8 +113,30 @@ function run(parsed: ParsedArgs): void {
     return;
   }
 
+  if (command === 'app' && subcommand === 'hook') {
+    hook(parsed);
+    return;
+  }
+
   help();
   process.exitCode = 1;
+}
+
+function hook(parsed: ParsedArgs): void {
+  const [, , path = '.'] = parsed.positionals;
+  const script = toThemeHookScript({
+    appPath: path,
+    cssPath: stringFlag(parsed, 'css'),
+    binary: stringFlag(parsed, 'binary')
+  });
+  const out = stringFlag(parsed, 'out');
+  if (out) {
+    mkdirSync(dirname(resolve(out)), { recursive: true });
+    writeFileSync(out, script);
+    chmodSync(out, 0o755);
+  } else {
+    process.stdout.write(script);
+  }
 }
 
 function desktop(parsed: ParsedArgs): void {
@@ -290,5 +313,6 @@ Commands:
     [--kind command-center|dashboard|studio] writes omarchy-blueprint.json
   verify [path] [--json]                Verify an Omarchy-native app contract
   app desktop [path] [--out <file>]     Generate a .desktop launcher entry
+  app hook [path] [--out <file>]        Generate a safe theme sync hook script
 `);
 }

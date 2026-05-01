@@ -61,3 +61,13 @@ omarchy-native app desktop ./my-app --out my-app.desktop
 ```
 
 This writes a launcher file only where requested. It does not install into `~/.local/share/applications` or mutate Omarchy configuration.
+
+## Hook Scripts
+
+Generate an opt-in theme sync hook script with:
+
+```bash
+omarchy-native app hook ./my-app --out theme-set
+```
+
+The generated script syncs `src/omarchy-theme.css` for that app. It is written only to the requested output path and is not installed into Omarchy automatically.
