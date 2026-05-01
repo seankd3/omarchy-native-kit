@@ -48,6 +48,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Environment Variable Auditor | `examples/environment-variable-auditor` | Studio app for inspecting shell, desktop, and service environments, comparing mismatched variables, and staging clean export fixes. |
 | Locale Timezone Manager | `examples/locale-timezone-manager` | Dashboard app for comparing locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes. |
 | Font Rendering Tuner | `examples/font-rendering-tuner` | Studio app for comparing font stacks, antialiasing, hinting, and scaling behavior across GTK, Qt, browser, and terminal surfaces. |
+| Cursor Pointer Theme Studio | `examples/cursor-pointer-theme-studio` | Studio app for comparing cursor themes, pointer sizes, acceleration, and touchpad behavior across compositor, GTK, Qt, and browser surfaces. |
 
 ## Build Loop
 
@@ -123,7 +124,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `cursor-pointer-theme-studio` - compare cursor themes, pointer sizes, acceleration, and touchpad behavior across compositor, GTK, Qt, and browser surfaces.
+- `icon-theme-coordinator` - compare icon themes, symbolic icon coverage, launcher glyphs, and file-manager fallbacks across GTK, Qt, browser, and shell surfaces.
 
 ## Kit Refinements To Unlock More Apps
 

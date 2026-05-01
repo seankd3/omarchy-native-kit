@@ -209,6 +209,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/environment-variable-auditor` is a studio dogfood app for inspecting shell, desktop, and service environments, comparing mismatched variables, and staging clean export fixes.
 `examples/locale-timezone-manager` is a dashboard dogfood app for comparing locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes.
 `examples/font-rendering-tuner` is a studio dogfood app for comparing font stacks, antialiasing, hinting, and scaling behavior across GTK, Qt, browser, and terminal surfaces.
+`examples/cursor-pointer-theme-studio` is a studio dogfood app for comparing cursor themes, pointer sizes, acceleration, and touchpad behavior across compositor, GTK, Qt, and browser surfaces.
 
 ## Development
 
@@ -240,7 +241,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/verify.ts` - app contract verification for generated Omarchy-native apps
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app
-- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer`, `examples/focus-flight-recorder`, `examples/window-rule-lab`, `examples/config-diff-studio`, `examples/session-restore-planner`, `examples/portal-permission-center`, `examples/backup-restore-console`, `examples/notification-routing-board`, `examples/power-profile-switchboard`, `examples/audio-device-mixer`, `examples/network-profile-mapper`, `examples/display-layout-planner`, `examples/input-method-studio`, `examples/workspace-automation-builder`, `examples/credential-session-vault`, `examples/clipboard-history-curator`, `examples/package-update-coordinator`, `examples/journal-timeline-inspector`, `examples/service-restart-orchestrator`, `examples/environment-variable-auditor`, `examples/locale-timezone-manager`, `examples/font-rendering-tuner` - richer dogfood apps
+- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer`, `examples/focus-flight-recorder`, `examples/window-rule-lab`, `examples/config-diff-studio`, `examples/session-restore-planner`, `examples/portal-permission-center`, `examples/backup-restore-console`, `examples/notification-routing-board`, `examples/power-profile-switchboard`, `examples/audio-device-mixer`, `examples/network-profile-mapper`, `examples/display-layout-planner`, `examples/input-method-studio`, `examples/workspace-automation-builder`, `examples/credential-session-vault`, `examples/clipboard-history-curator`, `examples/package-update-coordinator`, `examples/journal-timeline-inspector`, `examples/service-restart-orchestrator`, `examples/environment-variable-auditor`, `examples/locale-timezone-manager`, `examples/font-rendering-tuner`, `examples/cursor-pointer-theme-studio` - richer dogfood apps
 - `docs/` - preserved research, product, architecture, and implementation notes
 
 ## Current Scope

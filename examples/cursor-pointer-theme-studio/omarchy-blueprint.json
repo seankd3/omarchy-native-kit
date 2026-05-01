@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "cursor-pointer-theme-studio",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "tool-rail",
+      "purpose": "Icon-first mode switching for creation tools.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "border",
+        "accent"
+      ]
+    },
+    {
+      "name": "canvas",
+      "purpose": "Primary creative work area with a quiet background.",
+      "tokens": [
+        "background",
+        "border",
+        "shadow"
+      ]
+    },
+    {
+      "name": "properties-panel",
+      "purpose": "Controls for the selected object or generation pass.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "borderStrong",
+        "info"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "ToolButton",
+      "purpose": "Square icon button with tooltip text and selected state.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "accent",
+        "accentForeground"
+      ],
+      "interactions": [
+        "selected state uses accent",
+        "focus outlines with accent",
+        "tooltip appears on hover"
+      ]
+    },
+    {
+      "name": "CanvasFrame",
+      "purpose": "Full-bleed or dominant work area without decorative card nesting.",
+      "tokens": [
+        "background",
+        "border",
+        "shadow"
+      ],
+      "interactions": [
+        "preserves aspect ratio",
+        "does not shift when selection changes"
+      ]
+    },
+    {
+      "name": "PropertyControl",
+      "purpose": "Label, input, slider, or toggle for editing selected state.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "mutedForeground",
+        "accent",
+        "border"
+      ],
+      "interactions": [
+        "tab order follows visual order",
+        "value changes are visible immediately"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
