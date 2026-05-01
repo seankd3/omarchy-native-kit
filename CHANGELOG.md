@@ -99,6 +99,7 @@ Initial public seed of Omarchy Native Kit.
   - `credential-leak-forensics`
   - `secret-lifecycle-governor`
   - `api-token-scope-auditor`
+  - `oauth-consent-review-board`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`

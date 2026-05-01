@@ -1,0 +1,355 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--omarchy-success) 10%, transparent), transparent 34rem),
+    linear-gradient(315deg, color-mix(in srgb, var(--omarchy-warning) 9%, transparent), transparent 38rem),
+    var(--omarchy-background);
+}
+
+button {
+  min-height: 42px;
+  border: 1px solid var(--omarchy-border-strong);
+  padding: 0 14px;
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  font: inherit;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+  outline: 2px solid var(--omarchy-accent);
+  outline-offset: 2px;
+  background: color-mix(in srgb, var(--omarchy-accent) 84%, var(--omarchy-foreground));
+}
+
+code {
+  display: block;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--omarchy-border);
+  padding: 10px;
+  color: var(--omarchy-info);
+  background: var(--omarchy-background);
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.78rem;
+}
+
+.shell {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.board {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+}
+
+.masthead,
+.scoreboard,
+.grantPanel,
+.panelHeader,
+.grantGrid,
+.grantCard,
+.cardTopline,
+.reviewArea,
+.findingList,
+.stepList,
+.revocationList,
+.syncBadge {
+  display: grid;
+}
+
+.masthead {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: end;
+  padding: 8px 0 22px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--omarchy-success);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 10ch;
+  font-size: 5.6rem;
+  line-height: 0.9;
+}
+
+h2 {
+  max-width: 80ch;
+  color: var(--omarchy-surface-foreground);
+  font-size: 1.04rem;
+}
+
+h3 {
+  color: var(--omarchy-surface-foreground);
+  font-size: 1rem;
+}
+
+.scoreboard {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 22px 0;
+  border: 1px solid var(--omarchy-border);
+  background: var(--omarchy-border);
+}
+
+.scoreboard article {
+  min-height: 112px;
+  padding: 18px;
+  background: color-mix(in srgb, var(--omarchy-surface) 94%, transparent);
+}
+
+.scoreboard span {
+  display: block;
+  color: var(--omarchy-accent);
+  font-size: 3.9rem;
+  font-weight: 900;
+  line-height: 0.95;
+}
+
+.scoreboard article:nth-child(2) span {
+  color: var(--omarchy-success);
+}
+
+.scoreboard article:nth-child(3) span {
+  color: var(--omarchy-warning);
+}
+
+.scoreboard article:last-child span {
+  color: var(--omarchy-danger);
+}
+
+.scoreboard p,
+.grantCard p,
+.findingList p,
+.stepList p,
+.revocationList p {
+  color: var(--omarchy-muted-foreground);
+}
+
+.grantPanel,
+.findingPanel,
+.stepPanel,
+.revocationPanel {
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface) 94%, transparent);
+  box-shadow: 0 18px 58px color-mix(in srgb, var(--omarchy-shadow) 23%, transparent);
+}
+
+.panelHeader {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 74px;
+  padding: 16px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.panelHeader.compact {
+  grid-template-columns: 1fr;
+}
+
+.syncBadge {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 9px;
+  min-height: 38px;
+  border: 1px solid var(--omarchy-border);
+  padding: 0 11px;
+  color: var(--omarchy-info);
+  background: color-mix(in srgb, var(--omarchy-info) 9%, var(--omarchy-surface));
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.syncBadge span {
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 999px;
+  background: var(--omarchy-info);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--omarchy-info) 17%, transparent);
+}
+
+.grantGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--omarchy-border);
+}
+
+.grantCard {
+  gap: 14px;
+  min-height: 238px;
+  padding: 16px;
+  background: var(--omarchy-surface);
+}
+
+.grantCard:hover,
+.grantCard:focus-visible,
+.findingList article:hover,
+.findingList article:focus-visible,
+.stepList article:hover,
+.stepList article:focus-visible,
+.revocationList article:hover,
+.revocationList article:focus-visible {
+  outline: 0;
+  background: var(--omarchy-surface-raised);
+}
+
+.grantCard:focus-visible,
+.findingList article:focus-visible,
+.stepList article:focus-visible,
+.revocationList article:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--omarchy-accent);
+}
+
+.cardTopline {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardTopline span,
+.findingList article > span,
+.stepList article > span,
+.revocationList article > span {
+  width: fit-content;
+  border: 1px solid var(--omarchy-border);
+  padding: 3px 8px;
+  color: var(--omarchy-success);
+  background: color-mix(in srgb, var(--omarchy-success) 10%, transparent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.cardTopline strong {
+  color: var(--omarchy-info);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+.grantCard[data-state="review"] .cardTopline span,
+.findingList article[data-state="review"] > span,
+.stepList article[data-state="review"] > span,
+.revocationList article[data-state="review"] > span {
+  color: var(--omarchy-warning);
+  background: color-mix(in srgb, var(--omarchy-warning) 12%, transparent);
+}
+
+.grantCard[data-state="revoke"] .cardTopline span,
+.findingList article[data-state="revoke"] > span,
+.stepList article[data-state="revoke"] > span,
+.revocationList article[data-state="revoke"] > span {
+  color: var(--omarchy-danger);
+  background: color-mix(in srgb, var(--omarchy-danger) 11%, transparent);
+}
+
+.reviewArea {
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.86fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.findingList,
+.stepList,
+.revocationList {
+  gap: 1px;
+  background: var(--omarchy-border);
+}
+
+.findingList article,
+.stepList article,
+.revocationList article {
+  display: grid;
+  gap: 9px;
+  min-height: 138px;
+  padding: 14px;
+  background: var(--omarchy-surface);
+}
+
+.findingList strong,
+.stepList strong,
+.revocationList strong {
+  color: var(--omarchy-info);
+  font-size: 0.84rem;
+  text-transform: uppercase;
+}
+
+.revocationPanel {
+  margin-top: 18px;
+}
+
+.revocationList {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1080px) {
+  .grantGrid,
+  .revocationList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reviewArea {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .shell {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .scoreboard span {
+    font-size: 2.55rem;
+  }
+
+  .masthead,
+  .scoreboard,
+  .panelHeader,
+  .grantGrid,
+  .revocationList {
+    grid-template-columns: 1fr;
+  }
+
+  .masthead {
+    align-items: start;
+  }
+
+  button {
+    width: 100%;
+  }
+}

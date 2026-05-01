@@ -58,6 +58,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Credential Leak Forensics | `examples/credential-leak-forensics` | Studio app for inspecting leaked secret fingerprints, exposure timelines, affected workspaces, scanner evidence, containment status, and cleanup verification. |
 | Secret Lifecycle Governor | `examples/secret-lifecycle-governor` | Studio app for inspecting secret birth, owner attestations, rotation cadence, consumer drift, deletion readiness, and policy-safe lifecycle changes. |
 | API Token Scope Auditor | `examples/api-token-scope-auditor` | Studio app for inspecting API token scopes, stale grants, owner intent, overbroad permissions, revocation windows, and rollback-safe scope reductions. |
+| OAuth Consent Review Board | `examples/oauth-consent-review-board` | Studio app for inspecting OAuth grants, delegated scopes, stale app access, owner intent, revocation windows, and rollback-safe consent cleanup. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -153,7 +154,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `oauth-consent-review-board` - inspect OAuth grants, delegated scopes, stale app access, owner intent, revocation windows, and rollback-safe consent cleanup.
+- `saml-assertion-trust-lab` - inspect SAML apps, assertion attributes, stale identity provider trust, certificate expiry, owner intent, and rollback-safe federation cleanup.
 
 ## Kit Refinements To Unlock More Apps
 

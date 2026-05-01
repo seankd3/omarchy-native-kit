@@ -265,8 +265,8 @@ test('verify all reports discovered app contract statuses', () => {
 
   assert.equal(payload.schemaVersion, 1);
   assert.equal(payload.ok, true);
-  assert.equal(payload.appCount, 66);
-  assert.equal(payload.verifiedCount, 66);
+  assert.equal(payload.appCount, 67);
+  assert.equal(payload.verifiedCount, 67);
   assert.ok(payload.reports.some((report) => report.appName === 'accessibility-contrast-auditor'));
   assert.ok(payload.reports.some((report) => report.appName === 'apparmor-profile-workbench'));
   assert.ok(payload.reports.some((report) => report.appName === 'audio-device-mixer'));
@@ -309,6 +309,7 @@ test('verify all reports discovered app contract statuses', () => {
   assert.ok(payload.reports.some((report) => report.appName === 'secret-service-inspector'));
   assert.ok(payload.reports.some((report) => report.appName === 'secret-lifecycle-governor'));
   assert.ok(payload.reports.some((report) => report.appName === 'api-token-scope-auditor'));
+  assert.ok(payload.reports.some((report) => report.appName === 'oauth-consent-review-board'));
   assert.ok(payload.reports.some((report) => report.appName === 'ssh-agent-session-monitor'));
   assert.ok(payload.reports.some((report) => report.appName === 'sandbox-policy-simulator'));
   assert.ok(payload.reports.some((report) => report.appName === 'sensor-access-ledger'));
@@ -371,8 +372,8 @@ test('app catalog lists verified blueprint apps', () => {
   const payload = JSON.parse(output);
 
   assert.equal(payload.schemaVersion, 1);
-  assert.equal(payload.appCount, 66);
-  assert.equal(payload.verifiedCount, 66);
+  assert.equal(payload.appCount, 67);
+  assert.equal(payload.verifiedCount, 67);
   assert.ok(payload.apps.some((app) => app.name === 'accessibility-contrast-auditor' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'app-health-monitor' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'api-token-scope-auditor' && app.kind === 'studio' && app.verified));
@@ -410,6 +411,7 @@ test('app catalog lists verified blueprint apps', () => {
   assert.ok(payload.apps.some((app) => app.name === 'native-gallery' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'network-profile-mapper' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'notification-routing-board' && app.kind === 'dashboard' && app.verified));
+  assert.ok(payload.apps.some((app) => app.name === 'oauth-consent-review-board' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'ops-deck' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'package-update-coordinator' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'pinentry-prompt-router' && app.kind === 'studio' && app.verified));
