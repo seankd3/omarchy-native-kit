@@ -9,6 +9,7 @@ npm ci
 npm run typecheck
 npm test
 npm run verify:examples
+npm run verify:examples:build
 npm pack --dry-run
 ```
 

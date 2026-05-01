@@ -197,9 +197,11 @@ npm run typecheck
 npm test
 npm run catalog:examples
 npm run verify:examples
+npm run verify:examples:build
 ```
 
 Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
+`verify:examples` runs the fast contract gate. `verify:examples:build` also runs every dogfood app build and is the stronger pre-release handoff check.
 `docs/ci.workflow.yml` contains a ready-to-install GitHub Actions workflow for typecheck, test, and package dry-run verification.
 `docs/ecosystem.md` maps the current kit, examples, build loop, and next app ideas.
 `docs/release-checklist.md` covers pre-publish verification.

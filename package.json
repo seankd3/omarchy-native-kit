@@ -51,7 +51,8 @@
     "theme:sync": "node dist/cli.js theme sync --out src/omarchy-theme.css",
     "theme:watch": "node dist/cli.js theme watch --out src/omarchy-theme.css",
     "catalog:examples": "node dist/cli.js app catalog examples",
-    "verify:examples": "node dist/cli.js verify --all examples"
+    "verify:examples": "node dist/cli.js verify --all examples",
+    "verify:examples:build": "node dist/cli.js verify --all examples --build"
   },
   "devDependencies": {
     "@types/node": "latest",
