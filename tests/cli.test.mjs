@@ -265,11 +265,12 @@ test('verify all reports discovered app contract statuses', () => {
 
   assert.equal(payload.schemaVersion, 1);
   assert.equal(payload.ok, true);
-  assert.equal(payload.appCount, 21);
-  assert.equal(payload.verifiedCount, 21);
+  assert.equal(payload.appCount, 22);
+  assert.equal(payload.verifiedCount, 22);
   assert.ok(payload.reports.some((report) => report.appName === 'backup-restore-console'));
   assert.ok(payload.reports.some((report) => report.appName === 'config-diff-studio'));
   assert.ok(payload.reports.some((report) => report.appName === 'focus-flight-recorder'));
+  assert.ok(payload.reports.some((report) => report.appName === 'notification-routing-board'));
   assert.ok(payload.reports.some((report) => report.appName === 'window-rule-lab'));
   assert.ok(payload.reports.some((report) => report.appName === 'docs-reader'));
   assert.ok(payload.reports.some((report) => report.appName === 'portal-permission-center'));
@@ -326,8 +327,8 @@ test('app catalog lists verified blueprint apps', () => {
   const payload = JSON.parse(output);
 
   assert.equal(payload.schemaVersion, 1);
-  assert.equal(payload.appCount, 21);
-  assert.equal(payload.verifiedCount, 21);
+  assert.equal(payload.appCount, 22);
+  assert.equal(payload.verifiedCount, 22);
   assert.ok(payload.apps.some((app) => app.name === 'app-health-monitor' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'backup-restore-console' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'aur-packager' && app.kind === 'studio' && app.verified));
@@ -336,6 +337,7 @@ test('app catalog lists verified blueprint apps', () => {
   assert.ok(payload.apps.some((app) => app.name === 'focus-flight-recorder' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'hook-station' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'native-gallery' && app.kind === 'studio' && app.verified));
+  assert.ok(payload.apps.some((app) => app.name === 'notification-routing-board' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'ops-deck' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'portal-permission-center' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'prompt-foundry' && app.kind === 'studio' && app.verified));

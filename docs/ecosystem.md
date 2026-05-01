@@ -33,6 +33,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Session Restore Planner | `examples/session-restore-planner` | Dashboard app for modeling startup apps, workspaces, and restore order. |
 | Portal Permission Center | `examples/portal-permission-center` | Studio app for reviewing portals, default handlers, and desktop integration permissions. |
 | Backup Restore Console | `examples/backup-restore-console` | Dashboard app for checking backup coverage, restore points, and rollback readiness. |
+| Notification Routing Board | `examples/notification-routing-board` | Dashboard app for designing notification routes, quiet hours, and escalation rules. |
 
 ## Build Loop
 
@@ -108,7 +109,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `notification-routing-board` - design notification routes, quiet hours, and escalation rules for Omarchy-native apps.
+- `power-profile-switchboard` - tune power profiles, display brightness, idle behavior, and performance modes per workspace.
 
 ## Kit Refinements To Unlock More Apps
 

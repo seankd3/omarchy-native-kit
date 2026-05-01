@@ -194,6 +194,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/session-restore-planner` is a dashboard dogfood app for modeling startup apps, workspaces, and restore order.
 `examples/portal-permission-center` is a studio dogfood app for reviewing portals, default handlers, and desktop integration permissions.
 `examples/backup-restore-console` is a dashboard dogfood app for checking backup coverage, restore points, and rollback readiness.
+`examples/notification-routing-board` is a dashboard dogfood app for designing notification routes, quiet hours, and escalation rules.
 
 ## Development
 
@@ -225,7 +226,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/verify.ts` - app contract verification for generated Omarchy-native apps
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app
-- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer`, `examples/focus-flight-recorder`, `examples/window-rule-lab`, `examples/config-diff-studio`, `examples/session-restore-planner`, `examples/portal-permission-center`, `examples/backup-restore-console` - richer dogfood apps
+- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer`, `examples/focus-flight-recorder`, `examples/window-rule-lab`, `examples/config-diff-studio`, `examples/session-restore-planner`, `examples/portal-permission-center`, `examples/backup-restore-console`, `examples/notification-routing-board` - richer dogfood apps
 - `docs/` - preserved research, product, architecture, and implementation notes
 
 ## Current Scope
