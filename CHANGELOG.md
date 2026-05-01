@@ -86,4 +86,5 @@ Initial public seed of Omarchy Native Kit.
   - `font-rendering-tuner`
   - `cursor-pointer-theme-studio`
   - `icon-theme-coordinator`
+  - `mime-defaults-workbench`
 - Ecosystem map and CI workflow template.

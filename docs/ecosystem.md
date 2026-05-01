@@ -52,6 +52,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Font Rendering Tuner | `examples/font-rendering-tuner` | Studio app for comparing font stacks, antialiasing, hinting, and scaling behavior across GTK, Qt, browser, and terminal surfaces. |
 | Cursor Pointer Theme Studio | `examples/cursor-pointer-theme-studio` | Studio app for comparing cursor themes, pointer sizes, acceleration, and touchpad behavior across compositor, GTK, Qt, and browser surfaces. |
 | Icon Theme Coordinator | `examples/icon-theme-coordinator` | Studio app for comparing icon themes, symbolic icon coverage, launcher glyphs, and file-manager fallbacks across GTK, Qt, browser, and shell surfaces. |
+| MIME Defaults Workbench | `examples/mime-defaults-workbench` | Studio app for auditing MIME defaults, opener precedence, portal handoffs, browser handlers, and rollback-safe association changes. |
 
 ## Build Loop
 
@@ -127,7 +128,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `mime-defaults-workbench` - audit MIME defaults, opener precedence, portal handoffs, browser handlers, and rollback-safe association changes.
+- `portal-file-picker-lab` - inspect file chooser portals, recent-file exposure, sandbox handoffs, and per-app document access expectations.
 
 ## Kit Refinements To Unlock More Apps
 
