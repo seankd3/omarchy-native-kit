@@ -178,6 +178,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/workspace-radar` is a dashboard dogfood app for scanning workspaces, windows, and keybindings.
 `examples/prompt-foundry` is a studio dogfood app for composing Omarchy-native app-building prompts.
 `examples/native-gallery` is a studio dogfood app for browsing verified apps and copying blueprint recipes.
+`examples/release-console` is a dashboard dogfood app for release dry-runs, catalog snapshots, and publish prep.
 
 ## Development
 

@@ -20,6 +20,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Workspace Radar | `examples/workspace-radar` | Dashboard app for scanning workspaces, windows, and keybindings. |
 | Prompt Foundry | `examples/prompt-foundry` | Studio app for composing Omarchy-native app-building prompts. |
 | Native Gallery | `examples/native-gallery` | Studio app for browsing verified apps and copying blueprint recipes. |
+| Release Console | `examples/release-console` | Dashboard app for release dry-runs, catalog snapshots, and publish prep. |
 
 ## Build Loop
 
@@ -95,7 +96,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `release-console` - prepare package dry-runs, catalog snapshots, and pre-publish checks in one Omarchy-native surface.
+- `aur-packager` - stage PKGBUILD metadata, install commands, and package validation for Arch/Omarchy users.
 
 ## Kit Refinements To Unlock More Apps
 
