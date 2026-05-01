@@ -77,6 +77,7 @@ Initial public seed of Omarchy Native Kit.
   - `workspace-automation-builder`
   - `credential-session-vault`
   - `clipboard-history-curator`
+  - `desktop-entry-inspector`
   - `package-update-coordinator`
   - `journal-timeline-inspector`
   - `service-restart-orchestrator`
