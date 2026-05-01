@@ -265,9 +265,10 @@ test('verify all reports discovered app contract statuses', () => {
 
   assert.equal(payload.schemaVersion, 1);
   assert.equal(payload.ok, true);
-  assert.equal(payload.appCount, 16);
-  assert.equal(payload.verifiedCount, 16);
+  assert.equal(payload.appCount, 17);
+  assert.equal(payload.verifiedCount, 17);
   assert.ok(payload.reports.some((report) => report.appName === 'focus-flight-recorder'));
+  assert.ok(payload.reports.some((report) => report.appName === 'window-rule-lab'));
   assert.ok(payload.reports.some((report) => report.appName === 'docs-reader'));
   assert.ok(payload.reports.some((report) => report.appName === 'shortcut-trainer'));
 });
@@ -321,8 +322,8 @@ test('app catalog lists verified blueprint apps', () => {
   const payload = JSON.parse(output);
 
   assert.equal(payload.schemaVersion, 1);
-  assert.equal(payload.appCount, 16);
-  assert.equal(payload.verifiedCount, 16);
+  assert.equal(payload.appCount, 17);
+  assert.equal(payload.verifiedCount, 17);
   assert.ok(payload.apps.some((app) => app.name === 'app-health-monitor' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'aur-packager' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'docs-reader' && app.kind === 'command-center' && app.verified));
@@ -334,6 +335,7 @@ test('app catalog lists verified blueprint apps', () => {
   assert.ok(payload.apps.some((app) => app.name === 'release-console' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'shortcut-trainer' && app.kind === 'command-center' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'theme-migration-lab' && app.kind === 'studio' && app.verified));
+  assert.ok(payload.apps.some((app) => app.name === 'window-rule-lab' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'workspace-radar' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.every((app) => app.acceptanceChecks === 8));
 });

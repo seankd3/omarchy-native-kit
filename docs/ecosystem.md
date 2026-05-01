@@ -28,6 +28,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | App Health Monitor | `examples/app-health-monitor` | Dashboard app for verifier results and blueprint drift. |
 | Shortcut Trainer | `examples/shortcut-trainer` | Command-center app for practicing keyboard chords and focus checks. |
 | Focus Flight Recorder | `examples/focus-flight-recorder` | Studio app for capturing keyboard navigation paths and inspecting focus landings. |
+| Window Rule Lab | `examples/window-rule-lab` | Studio app for drafting window/workspace rules before live config changes. |
 
 ## Build Loop
 
@@ -103,7 +104,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `window-rule-lab` - draft and test Omarchy window/workspace rules before wiring them into a live config.
+- `config-diff-studio` - compare proposed Omarchy config edits against current files and stage a reversible patch.
 
 ## Kit Refinements To Unlock More Apps
 
