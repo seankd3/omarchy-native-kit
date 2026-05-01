@@ -258,9 +258,10 @@ test('app catalog lists verified blueprint apps', () => {
   const payload = JSON.parse(output);
 
   assert.equal(payload.schemaVersion, 1);
-  assert.equal(payload.appCount, 7);
-  assert.equal(payload.verifiedCount, 7);
+  assert.equal(payload.appCount, 8);
+  assert.equal(payload.verifiedCount, 8);
   assert.ok(payload.apps.some((app) => app.name === 'hook-station' && app.kind === 'studio' && app.verified));
+  assert.ok(payload.apps.some((app) => app.name === 'native-gallery' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'prompt-foundry' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'workspace-radar' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.every((app) => app.acceptanceChecks === 8));

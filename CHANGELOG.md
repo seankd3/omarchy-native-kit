@@ -49,4 +49,5 @@ Initial public seed of Omarchy Native Kit.
   - `hook-station`
   - `workspace-radar`
   - `prompt-foundry`
+  - `native-gallery`
 - Ecosystem map and CI workflow template.

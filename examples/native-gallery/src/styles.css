@@ -1,0 +1,269 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--omarchy-background);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.galleryShell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(240px, 300px) minmax(0, 1fr) minmax(280px, 360px);
+}
+
+.sidebar,
+.recipePane {
+  background: var(--omarchy-surface);
+}
+
+.sidebar {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+  padding: 18px;
+  border-right: 1px solid var(--omarchy-border);
+}
+
+.eyebrow,
+small,
+em,
+b,
+kbd,
+.paneHeader span {
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.eyebrow,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  color: var(--omarchy-accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 0.96;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+.filterStack,
+.appList,
+.commandStack {
+  display: grid;
+  gap: 1px;
+  background: var(--omarchy-border);
+}
+
+.filter,
+.appRow,
+.primaryAction,
+.commandRow {
+  border: 1px solid var(--omarchy-border);
+  color: var(--omarchy-surface-foreground);
+  background: var(--omarchy-surface);
+}
+
+.filter {
+  min-height: 42px;
+  text-align: left;
+  padding: 0 12px;
+}
+
+.filter.active,
+.primaryAction {
+  border-color: var(--omarchy-accent);
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  font-weight: 800;
+}
+
+.catalogPane {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.paneHeader {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.primaryAction {
+  min-height: 40px;
+  padding: 0 14px;
+}
+
+.appList {
+  align-content: start;
+  overflow: auto;
+}
+
+.appRow {
+  min-height: 88px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(92px, auto) 54px;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  text-align: left;
+}
+
+.appRow span {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.appRow small,
+.commandRow span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+small,
+em,
+b,
+.paneHeader span,
+.summary p {
+  color: var(--omarchy-muted-foreground);
+  font-size: 0.78rem;
+  font-style: normal;
+}
+
+.appRow em,
+.appRow b {
+  padding: 5px 8px;
+  border: 1px solid var(--omarchy-border-strong);
+  color: var(--omarchy-info);
+  text-align: center;
+}
+
+.appRow.selected {
+  box-shadow: inset 4px 0 0 var(--omarchy-accent);
+  background: var(--omarchy-surface-raised);
+}
+
+.recipePane {
+  border-left: 1px solid var(--omarchy-border);
+}
+
+.summary {
+  display: grid;
+  gap: 10px;
+  margin: 14px;
+  padding: 14px;
+  border: 1px solid var(--omarchy-border-strong);
+  background: var(--omarchy-background);
+}
+
+.summary strong {
+  color: var(--omarchy-info);
+  font-size: 1.3rem;
+}
+
+.summary p {
+  line-height: 1.55;
+}
+
+.commandStack {
+  margin: 0 14px 14px;
+}
+
+.commandRow {
+  min-height: 50px;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+kbd {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  aspect-ratio: 1;
+  border: 1px solid var(--omarchy-border-strong);
+  color: var(--omarchy-accent);
+  background: var(--omarchy-background);
+}
+
+.filter:hover,
+.appRow:hover,
+.commandRow:hover {
+  background: var(--omarchy-surface-raised);
+}
+
+.filter:focus-visible,
+.appRow:focus-visible,
+.primaryAction:focus-visible,
+.commandRow:focus-visible {
+  outline: 2px solid var(--omarchy-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1040px) {
+  .galleryShell {
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  }
+
+  .recipePane {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--omarchy-border);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .galleryShell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--omarchy-border);
+  }
+
+  .appRow {
+    grid-template-columns: 1fr;
+  }
+
+  .appRow em,
+  .appRow b {
+    width: fit-content;
+  }
+}

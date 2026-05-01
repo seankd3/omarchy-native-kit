@@ -19,6 +19,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Hook Station | `examples/hook-station` | Studio app for reviewing safe theme sync hook scripts. |
 | Workspace Radar | `examples/workspace-radar` | Dashboard app for scanning workspaces, windows, and keybindings. |
 | Prompt Foundry | `examples/prompt-foundry` | Studio app for composing Omarchy-native app-building prompts. |
+| Native Gallery | `examples/native-gallery` | Studio app for browsing verified apps and copying blueprint recipes. |
 
 ## Build Loop
 
@@ -94,7 +95,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `native-gallery` - browse community Omarchy-native apps and copy blueprint recipes.
+- `release-console` - prepare package dry-runs, catalog snapshots, and pre-publish checks in one Omarchy-native surface.
 
 ## Kit Refinements To Unlock More Apps
 
