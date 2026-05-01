@@ -70,4 +70,5 @@ Initial public seed of Omarchy Native Kit.
   - `notification-routing-board`
   - `power-profile-switchboard`
   - `audio-device-mixer`
+  - `network-profile-mapper`
 - Ecosystem map and CI workflow template.
