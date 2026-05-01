@@ -30,6 +30,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Focus Flight Recorder | `examples/focus-flight-recorder` | Studio app for capturing keyboard navigation paths and inspecting focus landings. |
 | Window Rule Lab | `examples/window-rule-lab` | Studio app for drafting window/workspace rules before live config changes. |
 | Config Diff Studio | `examples/config-diff-studio` | Studio app for staging reversible Omarchy config patch previews. |
+| Session Restore Planner | `examples/session-restore-planner` | Dashboard app for modeling startup apps, workspaces, and restore order. |
 
 ## Build Loop
 
@@ -105,7 +106,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `session-restore-planner` - model startup apps, workspaces, and restore order before committing session automation.
+- `portal-permission-center` - review browser/app permissions, portals, and default handlers before applying desktop integration changes.
 
 ## Kit Refinements To Unlock More Apps
 
