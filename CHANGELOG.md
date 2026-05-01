@@ -83,4 +83,5 @@ Initial public seed of Omarchy Native Kit.
   - `locale-timezone-manager`
   - `font-rendering-tuner`
   - `cursor-pointer-theme-studio`
+  - `icon-theme-coordinator`
 - Ecosystem map and CI workflow template.
