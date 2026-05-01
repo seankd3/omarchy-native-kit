@@ -109,7 +109,7 @@ export function toAgentContext(theme: OmarchyTheme): OmarchyAgentContext {
       'Toolbar: icon buttons, accent only for selected or primary controls.'
     ],
     commands: {
-      syncCss: 'omarchy-native theme css --out src/omarchy-theme.css',
+      syncCss: 'omarchy-native theme sync --out src/omarchy-theme.css',
       printJson: 'omarchy-native theme json',
       blueprint: 'omarchy-native agent blueprint --app my-app --kind command-center',
       scaffold: 'omarchy-native create my-app --template react-vite'

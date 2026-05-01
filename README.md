@@ -176,6 +176,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/theme-forge` is a studio dogfood app for inspecting semantic tokens and export targets.
 `examples/hook-station` is a studio dogfood app for reviewing safe theme sync hook scripts before export.
 `examples/workspace-radar` is a dashboard dogfood app for scanning workspaces, windows, and keybindings.
+`examples/prompt-foundry` is a studio dogfood app for composing Omarchy-native app-building prompts.
 
 ## Development
 

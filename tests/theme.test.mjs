@@ -111,6 +111,7 @@ test('emits agent context for coding assistants', () => {
   assert.equal(context.kit, 'omarchy-native-kit');
   assert.ok(context.cssVariables.some((item) => item.variable === '--omarchy-accent' && item.value === '#7aa2f7'));
   assert.ok(context.designRules.some((rule) => rule.includes('--omarchy-*')));
+  assert.equal(context.commands.syncCss, 'omarchy-native theme sync --out src/omarchy-theme.css');
   assert.match(prompt, /You are building an Omarchy-native interface/);
   assert.match(prompt, /--omarchy-background: #101216/);
 });
@@ -145,11 +146,19 @@ test('verifies committed dogfood app contracts', () => {
 test('catalogs committed dogfood apps', () => {
   const catalog = readAppCatalog('examples');
 
-  assert.equal(catalog.appCount, 6);
-  assert.equal(catalog.verifiedCount, 6);
+  assert.equal(catalog.appCount, 7);
+  assert.equal(catalog.verifiedCount, 7);
   assert.deepEqual(
     catalog.apps.map((app) => app.name),
-    ['agent-context-lab', 'hello-omarchy-native', 'hook-station', 'signal-desk', 'theme-forge', 'workspace-radar']
+    [
+      'agent-context-lab',
+      'hello-omarchy-native',
+      'hook-station',
+      'prompt-foundry',
+      'signal-desk',
+      'theme-forge',
+      'workspace-radar'
+    ]
   );
   assert.ok(catalog.apps.every((app) => app.acceptanceChecks === 8));
 });
