@@ -94,6 +94,7 @@
     "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
     "Primary content is usable on first load without a marketing interstitial.",
     "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
     "npm run build completes successfully."
   ]
 }

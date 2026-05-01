@@ -9,6 +9,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Theme runtime | `src/theme.ts`, `src/color.ts`, `src/emitters.ts` | Read Omarchy colors, map semantic tokens, emit CSS/JSON/shell/GTK/Qt output. |
 | Agent contract | `src/agent.ts` | Give coding agents JSON, prompts, and app blueprints. |
 | App verifier | `src/verify.ts` | Audit generated apps before handoff. |
+| App catalog | `src/catalog.ts` | Discover blueprint-backed apps and summarize verification status. |
 | Hook generator | `src/hooks.ts` | Generate opt-in theme sync scripts without mutating Omarchy config. |
 | React/Vite template | `templates/react-vite` | Small starter for theme-aware apps. |
 | Hello app | `examples/hello-omarchy-native` | Minimal command-surface starter output. |
@@ -81,6 +82,12 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
    ```bash
    omarchy-native app hook ./signal-desk --out theme-set
+   ```
+
+12. Catalog the local app set:
+
+   ```bash
+   omarchy-native app catalog ./examples
    ```
 
 ## App Ideas To Build Next

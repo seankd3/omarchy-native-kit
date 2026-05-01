@@ -250,3 +250,16 @@ test('app hook writes executable theme sync script', () => {
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test('app catalog lists verified blueprint apps', () => {
+  const output = execFileSync(process.execPath, [...cli, 'app', 'catalog', 'examples', '--json'], {
+    encoding: 'utf8'
+  });
+  const payload = JSON.parse(output);
+
+  assert.equal(payload.schemaVersion, 1);
+  assert.equal(payload.appCount, 5);
+  assert.equal(payload.verifiedCount, 5);
+  assert.ok(payload.apps.some((app) => app.name === 'hook-station' && app.kind === 'studio' && app.verified));
+  assert.ok(payload.apps.every((app) => app.acceptanceChecks === 8));
+});

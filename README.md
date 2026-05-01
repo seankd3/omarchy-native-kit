@@ -2,7 +2,7 @@
 
 Scaffolding and theme utilities for apps that should feel native to [Omarchy](https://omarchy.org): theme-aware, keyboard-first, and aligned with the user's current Omarchy palette.
 
-This repo ships a small TypeScript library, a CLI, a React/Vite starter template, agent contracts, app verification, launcher generation, parser fixtures, and dogfood apps.
+This repo ships a small TypeScript library, a CLI, a React/Vite starter template, agent contracts, app verification, app cataloging, launcher generation, parser fixtures, and dogfood apps.
 
 ## Install
 
@@ -45,6 +45,7 @@ omarchy-native create hello-omarchy-native --template react-vite --kind dashboar
 omarchy-native verify ./hello-omarchy-native
 omarchy-native app desktop ./hello-omarchy-native --out hello-omarchy-native.desktop
 omarchy-native app hook ./hello-omarchy-native --out theme-set
+omarchy-native app catalog ./examples
 ```
 
 All theme commands read inside `~/.config/omarchy/current/theme` by default, primarily `colors.toml` and optionally `theme.name` if present in that directory. For tests or deterministic generation, pass `--colors <path>` or `--theme-dir <path>`.
@@ -160,6 +161,15 @@ omarchy-native app hook ./my-app --out theme-set
 
 The hook script runs `omarchy-native theme sync --out <app>/src/omarchy-theme.css`. Review it, then wire it into your preferred Omarchy hook workflow manually.
 
+Catalog a directory of Omarchy-native apps:
+
+```bash
+omarchy-native app catalog ./examples
+omarchy-native app catalog ./examples --json
+```
+
+The catalog scans for `omarchy-blueprint.json`, verifies each app contract, and reports app name, kind, path, file count, and acceptance check count.
+
 The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/agent-context-lab` is a richer dogfood app that turns the agent context contract into a compact Omarchy-native build workspace.
 `examples/signal-desk` is a dashboard dogfood app generated from an agent blueprint.
@@ -172,6 +182,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 npm run build
 npm run typecheck
 npm test
+npm run catalog:examples
 npm run verify:examples
 ```
 
@@ -186,6 +197,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/color.ts` - hex validation, blending, contrast, and readable foreground helpers
 - `src/emitters.ts` - CSS, JSON, shell, GTK, and Qt emitters
 - `src/agent.ts` - machine-readable and prompt-ready agent context
+- `src/catalog.ts` - blueprint-backed app catalog generation
 - `src/cli.ts` - `doctor`, theme emitters/sync/watch, agent context commands, `create`, `verify`, and app helper commands
 - `src/desktop.ts` - `.desktop` launcher entry generation
 - `src/hooks.ts` - opt-in theme hook script generation

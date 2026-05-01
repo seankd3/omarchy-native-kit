@@ -31,9 +31,11 @@ Initial public seed of Omarchy Native Kit.
   - `verify`
   - `app desktop`
   - `app hook`
+  - `app catalog`
 - React/Vite starter template.
 - Agent context, prompt, and blueprint contracts for coding agents.
 - App contract verifier for generated apps.
+- Blueprint-backed app catalog generation.
 - Hard-coded hex color detection in generated app verification.
 - Blueprint/package name consistency checks in generated app verification.
 - Theme script checks in generated app verification.

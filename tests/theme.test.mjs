@@ -12,6 +12,7 @@ import {
   toAgentBlueprint,
   toAgentContext,
   toAgentPrompt,
+  readAppCatalog,
   toAppVerificationText,
   toCssVariables,
   toDesktopEntry,
@@ -139,6 +140,18 @@ test('verifies committed dogfood app contracts', () => {
   assert.ok(report.checks.some((check) => check.name === 'theme-import-order' && check.ok));
   assert.ok(report.checks.some((check) => check.name === 'blueprint-name' && check.ok));
   assert.ok(report.checks.some((check) => check.name === 'no-hardcoded-colors' && check.ok));
+});
+
+test('catalogs committed dogfood apps', () => {
+  const catalog = readAppCatalog('examples');
+
+  assert.equal(catalog.appCount, 5);
+  assert.equal(catalog.verifiedCount, 5);
+  assert.deepEqual(
+    catalog.apps.map((app) => app.name),
+    ['agent-context-lab', 'hello-omarchy-native', 'hook-station', 'signal-desk', 'theme-forge']
+  );
+  assert.ok(catalog.apps.every((app) => app.acceptanceChecks === 8));
 });
 
 test('emits desktop launcher entries', () => {

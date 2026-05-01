@@ -10,6 +10,9 @@ import {
   toAgentBlueprintJson,
   toAgentContextJson,
   toAgentPrompt,
+  readAppCatalog,
+  toAppCatalogJson,
+  toAppCatalogText,
   toAppVerificationJson,
   toAppVerificationText,
   toCssVariables,
@@ -157,8 +160,20 @@ function run(parsed: ParsedArgs): void {
     return;
   }
 
+  if (command === 'app' && subcommand === 'catalog') {
+    catalog(parsed);
+    return;
+  }
+
   help();
   process.exitCode = 1;
+}
+
+function catalog(parsed: ParsedArgs): void {
+  const [, , path = '.'] = parsed.positionals;
+  const report = readAppCatalog(path);
+  process.stdout.write(booleanFlag(parsed, 'json') ? toAppCatalogJson(report) : toAppCatalogText(report));
+  if (report.appCount === 0 || report.verifiedCount !== report.appCount) process.exitCode = 1;
 }
 
 function hook(parsed: ParsedArgs): void {
@@ -356,5 +371,6 @@ Commands:
   verify [path] [--json]                Verify an Omarchy-native app contract
   app desktop [path] [--out <file>]     Generate a .desktop launcher entry
   app hook [path] [--out <file>]        Generate a safe theme sync hook script
+  app catalog [path] [--json]           Catalog Omarchy-native apps by blueprint
 `);
 }

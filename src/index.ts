@@ -23,6 +23,13 @@ export { toCssVariables, toGtkCss, toJsonTheme, toQtPalette, toShellExports } fr
 export { toDesktopEntry, type DesktopEntryOptions } from './desktop.js';
 export { toThemeHookScript, type ThemeHookOptions } from './hooks.js';
 export {
+  readAppCatalog,
+  toAppCatalogJson,
+  toAppCatalogText,
+  type AppCatalog,
+  type AppCatalogEntry
+} from './catalog.js';
+export {
   toAppVerificationJson,
   toAppVerificationText,
   verifyOmarchyApp,
