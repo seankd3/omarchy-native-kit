@@ -78,6 +78,24 @@ test('theme gtk writes gtk css', () => {
   }
 });
 
+test('theme qt writes qt palette ini', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-qt-'));
+  try {
+    const out = join(dir, 'qt.ini');
+    const stdout = execFileSync(process.execPath, [...cli, 'theme', 'qt', '--colors', fixture], {
+      encoding: 'utf8'
+    });
+    execFileSync(process.execPath, [...cli, 'theme', 'qt', '--colors', fixture, '--out', out]);
+
+    assert.match(stdout, /\[Omarchy\]/);
+    assert.match(stdout, /accent=#7aa2f7/);
+    assert.match(readFileSync(out, 'utf8'), /Window=#101216/);
+    assert.match(readFileSync(out, 'utf8'), /HighlightedText=#111827/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test('agent json prints machine-readable design context', () => {
   const output = execFileSync(process.execPath, [...cli, 'agent', 'json', '--colors', fixture], {
     encoding: 'utf8'

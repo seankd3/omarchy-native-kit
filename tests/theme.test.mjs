@@ -18,6 +18,7 @@ import {
   toGtkCss,
   toThemeHookScript,
   toJsonTheme,
+  toQtPalette,
   toShellExports,
   verifyOmarchyApp
 } from '../dist/index.js';
@@ -87,6 +88,7 @@ test('emits CSS and JSON schemas', () => {
   const json = JSON.parse(toJsonTheme(theme));
   const shell = toShellExports(theme.tokens);
   const gtk = toGtkCss(theme.tokens);
+  const qt = toQtPalette(theme.tokens);
 
   assert.match(css, /--omarchy-background: #101216;/);
   assert.equal(json.schemaVersion, 1);
@@ -95,6 +97,8 @@ test('emits CSS and JSON schemas', () => {
   assert.match(shell, /export OMARCHY_SURFACE_RAISED='#414868'/);
   assert.match(gtk, /@define-color omarchy_background #101216;/);
   assert.match(gtk, /button:focus, entry:focus, row:selected/);
+  assert.match(qt, /\[QPalette\]/);
+  assert.match(qt, /Highlight=#7aa2f7/);
 });
 
 test('emits agent context for coding assistants', () => {

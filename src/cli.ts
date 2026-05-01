@@ -17,6 +17,7 @@ import {
   toGtkCss,
   toThemeHookScript,
   toJsonTheme,
+  toQtPalette,
   toShellExports,
   verifyOmarchyApp
 } from './index.js';
@@ -90,6 +91,18 @@ function run(parsed: ParsedArgs): void {
       writeFileSync(out, gtk);
     } else {
       process.stdout.write(gtk);
+    }
+    return;
+  }
+
+  if (command === 'theme' && subcommand === 'qt') {
+    const qt = toQtPalette(loadTheme(parsed).tokens);
+    const out = stringFlag(parsed, 'out');
+    if (out) {
+      mkdirSync(dirname(resolve(out)), { recursive: true });
+      writeFileSync(out, qt);
+    } else {
+      process.stdout.write(qt);
     }
     return;
   }
@@ -332,6 +345,7 @@ Commands:
   theme css [--out <file>]              Print or write CSS variables
   theme shell [--out <file>]            Print or write shell exports
   theme gtk [--out <file>]              Print or write GTK CSS
+  theme qt [--out <file>]               Print or write Qt palette INI
   theme sync --out <file>               Write current theme CSS once
   theme watch --out <file>              Keep generated theme CSS in sync
   agent json [--colors <path>]          Print AI-agent design context as JSON

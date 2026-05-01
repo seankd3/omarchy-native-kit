@@ -50,6 +50,29 @@ export function toGtkCss(tokens: SemanticOmarchyTokens): string {
   return `${colorLines.join('\n')}\n${widgetLines.join('\n')}\n`;
 }
 
+export function toQtPalette(tokens: SemanticOmarchyTokens): string {
+  const semanticLines = Object.entries(tokens).map(([key, value]) => `${key}=${value}`);
+  const palette = {
+    Window: tokens.background,
+    WindowText: tokens.foreground,
+    Base: tokens.background,
+    AlternateBase: tokens.surface,
+    ToolTipBase: tokens.surfaceRaised,
+    ToolTipText: tokens.surfaceRaisedForeground,
+    Text: tokens.foreground,
+    Button: tokens.surface,
+    ButtonText: tokens.surfaceForeground,
+    BrightText: tokens.dangerForeground,
+    Link: tokens.info,
+    Highlight: tokens.accent,
+    HighlightedText: tokens.accentForeground,
+    PlaceholderText: tokens.mutedForeground
+  };
+  const paletteLines = Object.entries(palette).map(([key, value]) => `${key}=${value}`);
+
+  return `[Omarchy]\n${semanticLines.join('\n')}\n\n[QPalette]\n${paletteLines.join('\n')}\n`;
+}
+
 function kebab(key: string): string {
   return key.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
 }

@@ -14,6 +14,7 @@ Initial public seed of Omarchy Native Kit.
 - CSS and JSON theme emitters.
 - Shell export theme emitter.
 - GTK CSS theme emitter.
+- Qt palette theme emitter.
 - CLI commands:
   - `doctor`
   - `theme json`
