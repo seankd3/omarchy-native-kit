@@ -59,6 +59,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Locale Timezone Manager | `examples/locale-timezone-manager` | Dashboard app for comparing locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes. |
 | Font Rendering Tuner | `examples/font-rendering-tuner` | Studio app for comparing font stacks, antialiasing, hinting, and scaling behavior across GTK, Qt, browser, and terminal surfaces. |
 | Trust Zone Mapper | `examples/trust-zone-mapper` | Studio app for inspecting workspace trust zones, portal exposure, network posture, removable media, and rollback-safe isolation recipes. |
+| VPN Profile Coordinator | `examples/vpn-profile-coordinator` | Studio app for inspecting VPN profiles, route ownership, kill-switch posture, workspace bindings, and rollback-safe tunnel changes. |
 | Cursor Pointer Theme Studio | `examples/cursor-pointer-theme-studio` | Studio app for comparing cursor themes, pointer sizes, acceleration, and touchpad behavior across compositor, GTK, Qt, and browser surfaces. |
 | Icon Theme Coordinator | `examples/icon-theme-coordinator` | Studio app for comparing icon themes, symbolic icon coverage, launcher glyphs, and file-manager fallbacks across GTK, Qt, browser, and shell surfaces. |
 | MIME Defaults Workbench | `examples/mime-defaults-workbench` | Studio app for auditing MIME defaults, opener precedence, portal handoffs, browser handlers, and rollback-safe association changes. |
@@ -138,7 +139,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `vpn-profile-coordinator` - inspect VPN profiles, route ownership, kill-switch posture, workspace bindings, and rollback-safe tunnel changes.
+- `proxy-environment-router` - inspect proxy variables, per-app proxy routing, no-proxy gaps, PAC files, and rollback-safe proxy changes.
 
 ## Kit Refinements To Unlock More Apps
 

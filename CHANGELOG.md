@@ -93,6 +93,7 @@ Initial public seed of Omarchy Native Kit.
   - `locale-timezone-manager`
   - `font-rendering-tuner`
   - `trust-zone-mapper`
+  - `vpn-profile-coordinator`
   - `cursor-pointer-theme-studio`
   - `icon-theme-coordinator`
   - `mime-defaults-workbench`
