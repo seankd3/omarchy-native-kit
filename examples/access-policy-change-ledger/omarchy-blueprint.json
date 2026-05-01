@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-policy-change-ledger",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "change-summary",
+      "purpose": "At-a-glance counts for open edits, blocked publishes, ready windows, and rollback schedules.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "danger",
+        "warning",
+        "success",
+        "info"
+      ]
+    },
+    {
+      "name": "policy-ledger",
+      "purpose": "Keyboard-focusable rows for access policy edits with approver, principal, publish, and status context.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "surfaceForeground",
+        "border",
+        "accent"
+      ]
+    },
+    {
+      "name": "simulation-history",
+      "purpose": "Panels for rule diffs, simulation snapshots, publish history, and rollback-safe policy records.",
+      "tokens": [
+        "background",
+        "surface",
+        "mutedForeground",
+        "borderStrong",
+        "shadow"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "ChangeRow",
+      "purpose": "Focusable policy edit row with approver chain, affected principals, and publish state.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "surfaceForeground",
+        "accent",
+        "border"
+      ],
+      "interactions": [
+        "hover and focus-visible states expose row selection",
+        "publish state is shown with semantic danger, warning, info, or success"
+      ]
+    },
+    {
+      "name": "DiffCard",
+      "purpose": "Rule diff card that keeps before, after, and affected principal impact visible.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "mutedForeground",
+        "danger",
+        "warning",
+        "success",
+        "info"
+      ],
+      "interactions": [
+        "tone label stays visible without overlapping text",
+        "card sizing remains stable across responsive breakpoints"
+      ]
+    },
+    {
+      "name": "RollbackList",
+      "purpose": "Ordered policy publish checklist for rollback-safe change history.",
+      "tokens": [
+        "background",
+        "accent",
+        "borderStrong",
+        "surfaceForeground"
+      ],
+      "interactions": [
+        "primary publish action has visible hover and focus-visible states",
+        "guardrail numbers are stable and token-colored"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}

@@ -115,6 +115,7 @@ Initial public seed of Omarchy Native Kit.
   - `access-exception-expiration-board`
   - `access-review-evidence-locker`
   - `access-certification-scope-mapper`
+  - `access-policy-change-ledger`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
