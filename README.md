@@ -183,6 +183,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/theme-migration-lab` is a studio dogfood app for comparing theme changes before rollout.
 `examples/ops-deck` is a dashboard dogfood app for daily catalog, release, and rollout operations.
 `examples/docs-reader` is a command-center dogfood app for browsing local docs, commands, and blueprints.
+`examples/app-health-monitor` is a dashboard dogfood app for verifier results and blueprint drift.
 
 ## Development
 

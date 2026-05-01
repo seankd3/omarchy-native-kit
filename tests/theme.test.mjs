@@ -146,12 +146,13 @@ test('verifies committed dogfood app contracts', () => {
 test('catalogs committed dogfood apps', () => {
   const catalog = readAppCatalog('examples');
 
-  assert.equal(catalog.appCount, 13);
-  assert.equal(catalog.verifiedCount, 13);
+  assert.equal(catalog.appCount, 14);
+  assert.equal(catalog.verifiedCount, 14);
   assert.deepEqual(
     catalog.apps.map((app) => app.name),
     [
       'agent-context-lab',
+      'app-health-monitor',
       'aur-packager',
       'docs-reader',
       'hello-omarchy-native',

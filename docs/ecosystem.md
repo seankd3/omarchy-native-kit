@@ -25,6 +25,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Theme Migration Lab | `examples/theme-migration-lab` | Studio app for comparing theme changes before rollout. |
 | Ops Deck | `examples/ops-deck` | Dashboard app for daily catalog, release, and rollout operations. |
 | Docs Reader | `examples/docs-reader` | Command-center app for browsing local docs, commands, and blueprints. |
+| App Health Monitor | `examples/app-health-monitor` | Dashboard app for verifier results and blueprint drift. |
 
 ## Build Loop
 
@@ -100,7 +101,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `app-health-monitor` - inspect app verifier failures, missing scripts, and blueprint drift across a catalog.
+- `shortcut-trainer` - practice keyboard-first Omarchy app commands and verify focus behavior patterns.
 
 ## Kit Refinements To Unlock More Apps
 
