@@ -89,6 +89,7 @@ Initial public seed of Omarchy Native Kit.
   - `service-restart-orchestrator`
   - `screen-capture-permission-lab`
   - `secret-service-inspector`
+  - `ssh-agent-session-monitor`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
