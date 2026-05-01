@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-vault-recovery-drill-board",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "hero",
+      "purpose": "Explain the vault recovery drill state and expose packet sealing.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "foreground",
+        "accent",
+        "border",
+        "shadow"
+      ]
+    },
+    {
+      "name": "drill-grid",
+      "purpose": "Compare vault drills by owner, lease timing, identity proof, evidence state, and progress.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "background",
+        "border",
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ]
+    },
+    {
+      "name": "evidence-workbench",
+      "purpose": "Inspect secret lease timing, recovery ownership, failed unwrap attempts, cleanup attestations, and sealed evidence packet content.",
+      "tokens": [
+        "surface",
+        "background",
+        "border",
+        "accent",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricCard",
+      "purpose": "Show vault drill totals and risk tone without changing layout height.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ],
+      "interactions": [
+        "stable card height across values",
+        "semantic token border communicates tone"
+      ]
+    },
+    {
+      "name": "DrillCard",
+      "purpose": "Show a vault recovery drill with owner, status, lease, identity proof, evidence state, and progress.",
+      "tokens": [
+        "surface",
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "info",
+        "accent",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "interactions": [
+        "status chip stacks cleanly on mobile",
+        "progress bar uses Omarchy tokens"
+      ]
+    },
+    {
+      "name": "EvidenceRow",
+      "purpose": "Dense rows for lease lanes, owners, cleanup attestations, and evidence packet fields.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ],
+      "interactions": [
+        "row layout stacks at mobile widths",
+        "status labels remain visible without layout shift"
+      ]
+    },
+    {
+      "name": "SealPacketButton",
+      "purpose": "Primary action for sealing the completed rollback-safe evidence packet.",
+      "tokens": [
+        "accent",
+        "accentForeground",
+        "foreground"
+      ],
+      "interactions": [
+        "hover and focus-visible states use accent tokens"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
