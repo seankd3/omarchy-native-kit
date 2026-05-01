@@ -27,6 +27,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Ops Deck | `examples/ops-deck` | Dashboard app for daily catalog, release, and rollout operations. |
 | Docs Reader | `examples/docs-reader` | Command-center app for browsing local docs, commands, and blueprints. |
 | App Health Monitor | `examples/app-health-monitor` | Dashboard app for verifier results and blueprint drift. |
+| AppArmor Profile Workbench | `examples/apparmor-profile-workbench` | Studio app for inspecting AppArmor profile intents, denied operations, portal alternatives, local overrides, and rollback-safe confinement changes. |
 | Shortcut Trainer | `examples/shortcut-trainer` | Command-center app for practicing keyboard chords and focus checks. |
 | Focus Flight Recorder | `examples/focus-flight-recorder` | Studio app for capturing keyboard navigation paths and inspecting focus landings. |
 | Window Rule Lab | `examples/window-rule-lab` | Studio app for drafting window/workspace rules before live config changes. |
@@ -135,7 +136,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `apparmor-profile-workbench` - inspect AppArmor profile intents, denied operations, portal alternatives, local overrides, and rollback-safe confinement changes.
+- `firewall-rule-planner` - inspect nftables and ufw intents, per-workspace network exposure, temporary holes, and rollback-safe firewall changes.
 
 ## Kit Refinements To Unlock More Apps
 

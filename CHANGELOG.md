@@ -61,6 +61,7 @@ Initial public seed of Omarchy Native Kit.
   - `ops-deck`
   - `docs-reader`
   - `app-health-monitor`
+  - `apparmor-profile-workbench`
   - `shortcut-trainer`
   - `focus-flight-recorder`
   - `window-rule-lab`
