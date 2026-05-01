@@ -42,6 +42,11 @@ export function verifyOmarchyApp(appPath: string): AppVerificationReport {
     detail: packageJson.ok ? `build script: ${packageJson.value.scripts?.build ?? '(missing)'}` : packageJson.error
   });
   checks.push({
+    name: 'theme-scripts',
+    ok: packageJson.ok && hasThemeScripts(packageJson.value.scripts),
+    detail: packageJson.ok ? themeScriptsDetail(packageJson.value.scripts) : packageJson.error
+  });
+  checks.push({
     name: 'blueprint',
     ok: blueprint.ok && blueprint.value.schemaVersion === 1 && blueprint.value.kit === 'omarchy-native-kit',
     detail: blueprint.ok ? `${blueprint.value.kind} blueprint for ${blueprint.value.appName}` : blueprint.error
@@ -125,6 +130,26 @@ function importsThemeBeforeStyles(source: string): boolean {
   const themeIndex = source.indexOf("import './omarchy-theme.css'");
   const stylesIndex = source.indexOf("import './styles.css'");
   return themeIndex >= 0 && stylesIndex >= 0 && themeIndex < stylesIndex;
+}
+
+function hasThemeScripts(scripts: Record<string, string> | undefined): boolean {
+  const css = scripts?.['theme:css'];
+  const watch = scripts?.['theme:watch'];
+  return (
+    typeof css === 'string' &&
+    css.includes('omarchy-native theme sync') &&
+    css.includes('--out src/omarchy-theme.css') &&
+    typeof watch === 'string' &&
+    watch.includes('omarchy-native theme watch') &&
+    watch.includes('--out src/omarchy-theme.css')
+  );
+}
+
+function themeScriptsDetail(scripts: Record<string, string> | undefined): string {
+  if (hasThemeScripts(scripts)) return 'theme:css and theme:watch refresh src/omarchy-theme.css';
+  const missing = ['theme:css', 'theme:watch'].filter((script) => typeof scripts?.[script] !== 'string');
+  if (missing.length > 0) return `missing scripts: ${missing.join(', ')}`;
+  return 'theme scripts must use omarchy-native theme sync/watch --out src/omarchy-theme.css';
 }
 
 function blueprintNameDetail(

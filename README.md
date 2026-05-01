@@ -142,7 +142,7 @@ omarchy-native verify ./my-app
 omarchy-native verify ./my-app --json
 ```
 
-The verifier checks package metadata, blueprint identity, the blueprint contract, required blueprint files, generated theme CSS, theme/style import order, and obvious hard-coded hex colors outside generated theme files.
+The verifier checks package metadata, theme refresh scripts, blueprint identity, the blueprint contract, required blueprint files, generated theme CSS, theme/style import order, and obvious hard-coded hex colors outside generated theme files.
 
 Generate a launcher entry without installing it:
 
@@ -185,7 +185,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/color.ts` - hex validation, blending, contrast, and readable foreground helpers
 - `src/emitters.ts` - CSS, JSON, shell, GTK, and Qt emitters
 - `src/agent.ts` - machine-readable and prompt-ready agent context
-- `src/cli.ts` - `doctor`, `theme json`, `theme css`, `agent json`, `agent prompt`, `agent blueprint`, `create`, and `verify`
+- `src/cli.ts` - `doctor`, theme emitters/sync/watch, agent context commands, `create`, `verify`, and app helper commands
 - `src/desktop.ts` - `.desktop` launcher entry generation
 - `src/hooks.ts` - opt-in theme hook script generation
 - `src/verify.ts` - app contract verification for generated Omarchy-native apps

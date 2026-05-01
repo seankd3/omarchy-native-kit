@@ -50,7 +50,7 @@ omarchy-native verify ./my-app
 omarchy-native verify ./my-app --json
 ```
 
-The verifier checks that the app has package metadata, a valid `omarchy-blueprint.json` whose app name matches `package.json`, all files named by that blueprint, generated `src/omarchy-theme.css`, the required import order where theme variables load before app styles, and no obvious raw hex colors outside generated theme files.
+The verifier checks that the app has package metadata, `theme:css` and `theme:watch` scripts wired to refresh `src/omarchy-theme.css`, a valid `omarchy-blueprint.json` whose app name matches `package.json`, all files named by that blueprint, generated theme CSS, the required import order where theme variables load before app styles, and no obvious raw hex colors outside generated theme files.
 
 ## Launchers
 

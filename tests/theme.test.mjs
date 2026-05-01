@@ -134,6 +134,7 @@ test('verifies committed dogfood app contracts', () => {
   assert.equal(report.ok, true);
   assert.equal(report.kind, 'dashboard');
   assert.match(text, /Omarchy app verification: ok/);
+  assert.ok(report.checks.some((check) => check.name === 'theme-scripts' && check.ok));
   assert.ok(report.checks.some((check) => check.name === 'theme-import-order' && check.ok));
   assert.ok(report.checks.some((check) => check.name === 'blueprint-name' && check.ok));
   assert.ok(report.checks.some((check) => check.name === 'no-hardcoded-colors' && check.ok));

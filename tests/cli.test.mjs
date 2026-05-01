@@ -166,6 +166,7 @@ test('verify reports generated app contract status', () => {
     const payload = JSON.parse(output);
     assert.equal(payload.ok, true);
     assert.equal(payload.kind, 'command-center');
+    assert.ok(payload.checks.some((check) => check.name === 'theme-scripts' && check.ok));
 
     unlinkSync(join(target, 'src/omarchy-theme.css'));
     assert.throws(
@@ -184,6 +185,17 @@ test('verify reports generated app contract status', () => {
     );
 
     unlinkSync(join(target, 'src/bad.css'));
+    const packagePath = join(target, 'package.json');
+    const packageJson = JSON.parse(readFileSync(packagePath, 'utf8'));
+    packageJson.scripts['theme:css'] = 'vite';
+    writeFileSync(packagePath, `${JSON.stringify(packageJson, null, 2)}\n`);
+    assert.throws(
+      () => execFileSync(process.execPath, [...cli, 'verify', target], { encoding: 'utf8', stdio: 'pipe' }),
+      /Command failed/
+    );
+    packageJson.scripts['theme:css'] = 'omarchy-native theme sync --out src/omarchy-theme.css';
+    writeFileSync(packagePath, `${JSON.stringify(packageJson, null, 2)}\n`);
+
     const blueprintPath = join(target, 'omarchy-blueprint.json');
     const blueprint = JSON.parse(readFileSync(blueprintPath, 'utf8'));
     blueprint.appName = 'wrong-name';
