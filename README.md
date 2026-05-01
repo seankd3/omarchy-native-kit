@@ -142,7 +142,7 @@ omarchy-native verify ./my-app
 omarchy-native verify ./my-app --json
 ```
 
-The verifier checks package metadata, the blueprint contract, required blueprint files, generated theme CSS, theme/style import order, and obvious hard-coded hex colors outside generated theme files.
+The verifier checks package metadata, blueprint identity, the blueprint contract, required blueprint files, generated theme CSS, theme/style import order, and obvious hard-coded hex colors outside generated theme files.
 
 Generate a launcher entry without installing it:
 

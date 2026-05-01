@@ -31,6 +31,7 @@ Initial public seed of Omarchy Native Kit.
 - Agent context, prompt, and blueprint contracts for coding agents.
 - App contract verifier for generated apps.
 - Hard-coded hex color detection in generated app verification.
+- Blueprint/package name consistency checks in generated app verification.
 - `.desktop` launcher generation.
 - Opt-in theme hook script generation.
 - Dogfood apps:

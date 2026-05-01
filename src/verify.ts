@@ -47,6 +47,11 @@ export function verifyOmarchyApp(appPath: string): AppVerificationReport {
     detail: blueprint.ok ? `${blueprint.value.kind} blueprint for ${blueprint.value.appName}` : blueprint.error
   });
   checks.push({
+    name: 'blueprint-name',
+    ok: blueprint.ok && packageJson.ok && blueprint.value.appName === packageJson.value.name,
+    detail: blueprintNameDetail(blueprint, packageJson)
+  });
+  checks.push({
     name: 'blueprint-files',
     ok: blueprint.ok && blueprint.value.files.every((file) => existsSync(join(root, file))),
     detail: blueprint.ok ? missingFiles(root, blueprint.value.files) : blueprint.error
@@ -120,6 +125,15 @@ function importsThemeBeforeStyles(source: string): boolean {
   const themeIndex = source.indexOf("import './omarchy-theme.css'");
   const stylesIndex = source.indexOf("import './styles.css'");
   return themeIndex >= 0 && stylesIndex >= 0 && themeIndex < stylesIndex;
+}
+
+function blueprintNameDetail(
+  blueprint: { ok: true; value: OmarchyAgentBlueprint } | { ok: false; error: string },
+  packageJson: { ok: true; value: { name?: string; scripts?: Record<string, string> } } | { ok: false; error: string }
+): string {
+  if (!blueprint.ok) return blueprint.error;
+  if (!packageJson.ok) return packageJson.error;
+  return `blueprint appName ${blueprint.value.appName}; package name ${packageJson.value.name ?? '(missing)'}`;
 }
 
 function findHardcodedColors(root: string): string[] {

@@ -182,6 +182,16 @@ test('verify reports generated app contract status', () => {
       () => execFileSync(process.execPath, [...cli, 'verify', target], { encoding: 'utf8', stdio: 'pipe' }),
       /Command failed/
     );
+
+    unlinkSync(join(target, 'src/bad.css'));
+    const blueprintPath = join(target, 'omarchy-blueprint.json');
+    const blueprint = JSON.parse(readFileSync(blueprintPath, 'utf8'));
+    blueprint.appName = 'wrong-name';
+    writeFileSync(blueprintPath, `${JSON.stringify(blueprint, null, 2)}\n`);
+    assert.throws(
+      () => execFileSync(process.execPath, [...cli, 'verify', target], { encoding: 'utf8', stdio: 'pipe' }),
+      /Command failed/
+    );
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
