@@ -20,6 +20,7 @@ export {
   type OmarchyAgentContext
 } from './agent.js';
 export { toCssVariables, toJsonTheme } from './emitters.js';
+export { toDesktopEntry, type DesktopEntryOptions } from './desktop.js';
 export {
   toAppVerificationJson,
   toAppVerificationText,

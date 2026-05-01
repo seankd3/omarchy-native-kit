@@ -39,6 +39,7 @@ omarchy-native agent prompt
 omarchy-native agent blueprint --app signal-desk --kind dashboard
 omarchy-native create hello-omarchy-native --template react-vite --kind dashboard
 omarchy-native verify ./hello-omarchy-native
+omarchy-native app desktop ./hello-omarchy-native --out hello-omarchy-native.desktop
 ```
 
 All theme commands read inside `~/.config/omarchy/current/theme` by default, primarily `colors.toml` and optionally `theme.name` if present in that directory. For tests or deterministic generation, pass `--colors <path>` or `--theme-dir <path>`.
@@ -117,6 +118,14 @@ omarchy-native verify ./my-app --json
 
 The verifier checks package metadata, the blueprint contract, required blueprint files, generated theme CSS, and theme/style import order.
 
+Generate a launcher entry without installing it:
+
+```bash
+omarchy-native app desktop ./my-app --out my-app.desktop
+```
+
+The generated `.desktop` file defaults to running the app preview with `npm --prefix <app> run preview -- --host 127.0.0.1`. Pass `--exec`, `--icon`, `--name`, or `--categories Utility,Graphics` to customize it.
+
 The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/agent-context-lab` is a richer dogfood app that turns the agent context contract into a compact Omarchy-native build workspace.
 `examples/signal-desk` is a dashboard dogfood app generated from an agent blueprint.
@@ -141,6 +150,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/emitters.ts` - CSS and JSON emitters
 - `src/agent.ts` - machine-readable and prompt-ready agent context
 - `src/cli.ts` - `doctor`, `theme json`, `theme css`, `agent json`, `agent prompt`, `agent blueprint`, `create`, and `verify`
+- `src/desktop.ts` - `.desktop` launcher entry generation
 - `src/verify.ts` - app contract verification for generated Omarchy-native apps
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app

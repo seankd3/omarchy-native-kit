@@ -126,3 +126,24 @@ test('verify reports generated app contract status', () => {
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test('app desktop writes launcher entry', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-desktop-'));
+  try {
+    const target = join(dir, 'hello');
+    const out = join(dir, 'hello.desktop');
+    execFileSync(
+      process.execPath,
+      [...cli, 'create', target, '--template', 'react-vite', '--kind', 'studio', '--colors', fixture]
+    );
+    execFileSync(process.execPath, [...cli, 'app', 'desktop', target, '--out', out, '--name', 'Hello Native']);
+
+    const desktop = readFileSync(out, 'utf8');
+    assert.match(desktop, /^\[Desktop Entry\]/);
+    assert.match(desktop, /Name=Hello Native/);
+    assert.match(desktop, /Exec=npm --prefix/);
+    assert.match(desktop, /Categories=Utility;/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

@@ -95,6 +95,7 @@
     "Every button, row, input, and command item has a visible :focus-visible state.",
     "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
     "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
     "npm run build completes successfully."
   ]
 }

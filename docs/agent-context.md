@@ -51,3 +51,13 @@ omarchy-native verify ./my-app --json
 ```
 
 The verifier checks that the app has package metadata, a valid `omarchy-blueprint.json`, all files named by that blueprint, generated `src/omarchy-theme.css`, and the required import order where theme variables load before app styles.
+
+## Launchers
+
+Generate a `.desktop` entry for a built app with:
+
+```bash
+omarchy-native app desktop ./my-app --out my-app.desktop
+```
+
+This writes a launcher file only where requested. It does not install into `~/.local/share/applications` or mutate Omarchy configuration.

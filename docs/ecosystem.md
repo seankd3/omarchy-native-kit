@@ -51,6 +51,12 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
    npm run build
    ```
 
+7. Generate a launcher entry:
+
+   ```bash
+   omarchy-native app desktop ./signal-desk --out signal-desk.desktop
+   ```
+
 ## App Ideas To Build Next
 
 - `hook-station` - manage safe per-app theme sync hooks without clobbering user scripts.
@@ -75,3 +81,4 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 - Has stable responsive layouts at small, medium, and large widths.
 - Ships an `omarchy-blueprint.json` contract.
 - Passes `omarchy-native verify`.
+- Can generate a `.desktop` launcher without mutating user config.

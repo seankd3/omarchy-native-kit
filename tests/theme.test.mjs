@@ -14,6 +14,7 @@ import {
   toAgentPrompt,
   toAppVerificationText,
   toCssVariables,
+  toDesktopEntry,
   toJsonTheme,
   verifyOmarchyApp
 } from '../dist/index.js';
@@ -121,4 +122,13 @@ test('verifies committed dogfood app contracts', () => {
   assert.equal(report.kind, 'dashboard');
   assert.match(text, /Omarchy app verification: ok/);
   assert.ok(report.checks.some((check) => check.name === 'theme-import-order' && check.ok));
+});
+
+test('emits desktop launcher entries', () => {
+  const entry = toDesktopEntry({ appPath: 'examples/theme-forge', name: 'Theme Forge', categories: ['Graphics', 'Utility'] });
+
+  assert.match(entry, /Type=Application/);
+  assert.match(entry, /Name=Theme Forge/);
+  assert.match(entry, /Categories=Graphics;Utility;/);
+  assert.match(entry, /npm --prefix/);
 });

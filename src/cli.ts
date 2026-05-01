@@ -13,6 +13,7 @@ import {
   toAppVerificationJson,
   toAppVerificationText,
   toCssVariables,
+  toDesktopEntry,
   toJsonTheme,
   verifyOmarchyApp
 } from './index.js';
@@ -106,8 +107,33 @@ function run(parsed: ParsedArgs): void {
     return;
   }
 
+  if (command === 'app' && subcommand === 'desktop') {
+    desktop(parsed);
+    return;
+  }
+
   help();
   process.exitCode = 1;
+}
+
+function desktop(parsed: ParsedArgs): void {
+  const [, , path = '.'] = parsed.positionals;
+  const entry = toDesktopEntry({
+    appPath: path,
+    name: stringFlag(parsed, 'name'),
+    exec: stringFlag(parsed, 'exec'),
+    icon: stringFlag(parsed, 'icon'),
+    comment: stringFlag(parsed, 'comment'),
+    terminal: booleanFlag(parsed, 'terminal'),
+    categories: stringFlag(parsed, 'categories')?.split(',').map((item) => item.trim()).filter(Boolean)
+  });
+  const out = stringFlag(parsed, 'out');
+  if (out) {
+    mkdirSync(dirname(resolve(out)), { recursive: true });
+    writeFileSync(out, entry);
+  } else {
+    process.stdout.write(entry);
+  }
 }
 
 function verify(parsed: ParsedArgs): void {
@@ -263,5 +289,6 @@ Commands:
   create <name> --template react-vite   Create a React/Vite starter app
     [--kind command-center|dashboard|studio] writes omarchy-blueprint.json
   verify [path] [--json]                Verify an Omarchy-native app contract
+  app desktop [path] [--out <file>]     Generate a .desktop launcher entry
 `);
 }
