@@ -123,6 +123,7 @@ Initial public seed of Omarchy Native Kit.
   - `access-reopen-exception-console`
   - `access-revocation-sla-radar`
   - `access-owner-escalation-map`
+  - `access-delegation-backup-roster`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`

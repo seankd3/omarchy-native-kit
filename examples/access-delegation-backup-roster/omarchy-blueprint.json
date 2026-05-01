@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-delegation-backup-roster",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "coverage-summary",
+      "purpose": "Summarizes backup owner coverage, coverage gaps, stale delegations, and emergency approver readiness.",
+      "tokens": ["surface", "border", "success", "info", "shadow"]
+    },
+    {
+      "name": "backup-roster",
+      "purpose": "Shows delegated access backup owners, emergency approvers, readiness state, and review evidence.",
+      "tokens": ["surface", "background", "surfaceForeground", "border", "success", "warning", "danger"]
+    },
+    {
+      "name": "accountability-workbench",
+      "purpose": "Tracks coverage repairs, handoff readiness, review evidence, and rollback-safe accountability controls.",
+      "tokens": ["surface", "mutedForeground", "success", "warning", "danger", "info"]
+    }
+  ],
+  "components": [
+    {
+      "name": "RosterCard",
+      "purpose": "Backup owner assignment card with primary, backup, emergency approver, readiness, and evidence.",
+      "tokens": ["surface", "background", "border", "success", "warning", "danger"],
+      "interactions": [
+        "coverage chip remains visible at all widths",
+        "assignment facts wrap without horizontal scrolling"
+      ]
+    },
+    {
+      "name": "CoverageGap",
+      "purpose": "Coverage repair row with missing permission, owner, due date, and repair state.",
+      "tokens": ["background", "surfaceForeground", "mutedForeground", "danger", "warning"],
+      "interactions": [
+        "state labels use token-backed color",
+        "row layout stays readable on narrow viewports"
+      ]
+    },
+    {
+      "name": "ControlChecklist",
+      "purpose": "Rollback-safe accountability checklist for delegated access backup coverage.",
+      "tokens": ["surface", "background", "border", "success", "mutedForeground"],
+      "interactions": [
+        "items keep stable dimensions",
+        "markers are semantic token mixes"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
