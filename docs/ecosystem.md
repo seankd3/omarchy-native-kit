@@ -50,6 +50,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Journal Timeline Inspector | `examples/journal-timeline-inspector` | Studio app for inspecting system logs across boots, correlating service failures with updates, and saving annotated incident timelines. |
 | Service Restart Orchestrator | `examples/service-restart-orchestrator` | Dashboard app for planning systemd user and system service restarts, previewing dependency impact, and scheduling safe restart batches. |
 | Screen Capture Permission Lab | `examples/screen-capture-permission-lab` | Studio app for inspecting screenshot and screen-share portals, monitor selection, persistent grants, and per-app capture expectations. |
+| Sandbox Policy Simulator | `examples/sandbox-policy-simulator` | Studio app for inspecting sandbox profiles, bind mounts, portal holes, network namespaces, and rollback-safe policy experiments. |
 | Sensor Access Ledger | `examples/sensor-access-ledger` | Studio app for inspecting ambient light, accelerometer, Bluetooth, and location sensor access, app requests, stale grants, and privacy-safe fallback behavior. |
 | Environment Variable Auditor | `examples/environment-variable-auditor` | Studio app for inspecting shell, desktop, and service environments, comparing mismatched variables, and staging clean export fixes. |
 | Locale Timezone Manager | `examples/locale-timezone-manager` | Dashboard app for comparing locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes. |
@@ -134,7 +135,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `sandbox-policy-simulator` - inspect sandbox profiles, bind mounts, portal holes, network namespaces, and rollback-safe policy experiments.
+- `apparmor-profile-workbench` - inspect AppArmor profile intents, denied operations, portal alternatives, local overrides, and rollback-safe confinement changes.
 
 ## Kit Refinements To Unlock More Apps
 
