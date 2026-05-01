@@ -118,6 +118,7 @@ Initial public seed of Omarchy Native Kit.
   - `access-policy-change-ledger`
   - `access-impact-simulation-studio`
   - `access-remediation-priority-board`
+  - `access-removal-batch-planner`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`

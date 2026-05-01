@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-removal-batch-planner",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "masthead",
+      "purpose": "Summarizes the next cleanup release and the removal planning scope.",
+      "tokens": [
+        "surface",
+        "border",
+        "accent",
+        "shadow"
+      ]
+    },
+    {
+      "name": "batch-queue",
+      "purpose": "Shows ranked removal batches with owners, windows, dry-run results, dependencies, and rollback state.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "background",
+        "borderStrong",
+        "danger",
+        "warning",
+        "success"
+      ]
+    },
+    {
+      "name": "evidence-console",
+      "purpose": "Keeps rollback commands, communication windows, and audit packet readiness visible.",
+      "tokens": [
+        "surface",
+        "background",
+        "info",
+        "mutedForeground",
+        "success"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "BatchCard",
+      "purpose": "Risk-ranked removal batch summary with stable fact cells.",
+      "tokens": [
+        "surface",
+        "background",
+        "border",
+        "danger",
+        "warning",
+        "info"
+      ],
+      "interactions": [
+        "stage and risk states stay visible at all widths",
+        "facts wrap without resizing adjacent cards"
+      ]
+    },
+    {
+      "name": "DependencyRow",
+      "purpose": "Compact entitlement dependency and blocker state for each target system.",
+      "tokens": [
+        "surface",
+        "background",
+        "border",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "interactions": [
+        "state labels use token-backed color",
+        "row layout collapses to one column on narrow viewports"
+      ]
+    },
+    {
+      "name": "RollbackCommand",
+      "purpose": "Clickable command rows for rollback-ready cleanup batches.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "border",
+        "accent"
+      ],
+      "interactions": [
+        "focus outlines use accent",
+        "long commands wrap without horizontal scrolling"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
