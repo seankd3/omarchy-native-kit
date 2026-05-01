@@ -100,6 +100,7 @@ Initial public seed of Omarchy Native Kit.
   - `secret-lifecycle-governor`
   - `api-token-scope-auditor`
   - `oauth-consent-review-board`
+  - `saml-assertion-trust-lab`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
