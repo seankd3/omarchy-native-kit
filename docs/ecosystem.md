@@ -83,6 +83,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Access Revocation SLA Radar | `examples/access-revocation-sla-radar` | Studio app for inspecting revocation SLA windows, overdue removals, queue aging, ownership escalations, dependency blockers, exception pauses, and audit-ready breach evidence. |
 | Access Owner Escalation Map | `examples/access-owner-escalation-map` | Studio app for inspecting access owner escalation paths, stalled approvals, delegated backups, breach notifications, team handoffs, escalation evidence, and rollback-safe accountability trails. |
 | Access Delegation Backup Roster | `examples/access-delegation-backup-roster` | Studio app for inspecting delegated access backup owners, coverage gaps, stale delegations, handoff readiness, emergency approvers, review evidence, and rollback-safe accountability trails. |
+| Access Emergency Approver Drill | `examples/access-emergency-approver-drill` | Studio app for inspecting emergency approver drills, simulated access grants, response times, backup coverage, failed approvals, review evidence, and rollback-safe drill reports. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -178,7 +179,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `access-emergency-approver-drill` - inspect emergency approver drills, simulated access grants, response times, backup coverage, failed approvals, review evidence, and rollback-safe drill reports.
+- `access-break-glass-rehearsal-lab` - inspect break-glass rehearsal runs, privileged grant simulations, responder timing, vault recovery evidence, failed controls, cleanup steps, and rollback-safe rehearsal reports.
 
 ## Kit Refinements To Unlock More Apps
 

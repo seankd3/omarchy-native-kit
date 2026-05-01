@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-emergency-approver-drill",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "drill-summary",
+      "purpose": "Summarizes active drills, response times, failed approvals, and sealed report readiness.",
+      "tokens": ["surface", "border", "info", "success", "shadow"]
+    },
+    {
+      "name": "drill-queue",
+      "purpose": "Shows simulated emergency grants with approvers, backups, response time, coverage, evidence, and state.",
+      "tokens": ["surface", "background", "surfaceForeground", "border", "info", "success", "warning", "danger"]
+    },
+    {
+      "name": "drill-workbench",
+      "purpose": "Tracks failed approvals, response lanes, backup coverage, review evidence, and rollback-safe controls.",
+      "tokens": ["surface", "mutedForeground", "success", "warning", "danger", "info"]
+    }
+  ],
+  "components": [
+    {
+      "name": "DrillCard",
+      "purpose": "Emergency approver drill card with simulated grant, response time, coverage, and evidence.",
+      "tokens": ["surface", "background", "border", "info", "success", "warning", "danger"],
+      "interactions": [
+        "response chip remains visible at all widths",
+        "grant and evidence facts wrap without horizontal scrolling"
+      ]
+    },
+    {
+      "name": "FailureRepair",
+      "purpose": "Failed approval repair row with cause, owner, due date, and state.",
+      "tokens": ["background", "surfaceForeground", "mutedForeground", "danger", "warning"],
+      "interactions": [
+        "state labels use token-backed color",
+        "row layout stays readable on narrow viewports"
+      ]
+    },
+    {
+      "name": "DrillChecklist",
+      "purpose": "Rollback-safe checklist for sealing emergency approver drill reports.",
+      "tokens": ["surface", "background", "border", "info", "mutedForeground"],
+      "interactions": [
+        "items keep stable dimensions",
+        "markers are semantic token mixes"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
