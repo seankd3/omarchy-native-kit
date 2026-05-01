@@ -120,6 +120,7 @@ Initial public seed of Omarchy Native Kit.
   - `access-remediation-priority-board`
   - `access-removal-batch-planner`
   - `access-removal-evidence-vault`
+  - `access-reopen-exception-console`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`

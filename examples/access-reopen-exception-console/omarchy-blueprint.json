@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-reopen-exception-console",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "decision-summary",
+      "purpose": "Summarizes reopen request pressure, temporary regrant count, dependency gaps, and expiring exceptions.",
+      "tokens": [
+        "surface",
+        "border",
+        "accent",
+        "warning",
+        "shadow"
+      ]
+    },
+    {
+      "name": "regrant-queue",
+      "purpose": "Shows access reopen requests with owners, reasons, dependency evidence, TTL, and rollback scope.",
+      "tokens": [
+        "surface",
+        "background",
+        "surfaceForeground",
+        "border",
+        "info",
+        "warning",
+        "danger"
+      ]
+    },
+    {
+      "name": "exception-controls",
+      "purpose": "Tracks owner acknowledgements, dependency proof, expiry timers, audit events, and approval guardrails.",
+      "tokens": [
+        "surface",
+        "mutedForeground",
+        "success",
+        "warning",
+        "danger"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "ReopenRequestCard",
+      "purpose": "Temporary regrant request card with TTL, dependency evidence, and rollback scope.",
+      "tokens": [
+        "surface",
+        "background",
+        "border",
+        "info",
+        "warning",
+        "danger"
+      ],
+      "interactions": [
+        "status labels remain visible at all widths",
+        "request facts wrap without horizontal scrolling"
+      ]
+    },
+    {
+      "name": "ExpiryTimer",
+      "purpose": "Compact countdown row for temporary regrant expiry health.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "interactions": [
+        "timer state uses token-backed color",
+        "row layout collapses to one column on narrow viewports"
+      ]
+    },
+    {
+      "name": "GuardrailChecklist",
+      "purpose": "Approval safety checklist for exception reopen decisions.",
+      "tokens": [
+        "surface",
+        "background",
+        "border",
+        "success",
+        "mutedForeground"
+      ],
+      "interactions": [
+        "items keep stable dimensions",
+        "check markers are semantic token mixes"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
