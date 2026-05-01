@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-archive-retention-policy-lab",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "retention-summary",
+      "purpose": "Track retention policies, ledger expiry windows, receipt holds, and purge-safe ledgers.",
+      "tokens": ["surface", "surfaceForeground", "border", "success", "info", "warning", "danger"]
+    },
+    {
+      "name": "policy-grid",
+      "purpose": "Compare archive retention policies by owner, expiry window, hold state, and purge preview.",
+      "tokens": ["surface", "surfaceRaised", "mutedForeground", "accent", "warning"]
+    },
+    {
+      "name": "purge-preview-workspace",
+      "purpose": "Inspect closeout holds, owner acknowledgement history, retry hash preservation, checksum repair retention, and rollback-safe purge previews.",
+      "tokens": ["background", "surface", "border", "borderStrong", "danger", "warning", "info"]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricTile",
+      "purpose": "Compact retention counter with semantic status tone.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["stable height across values", "tone visible without raw colors"]
+    },
+    {
+      "name": "PolicyCard",
+      "purpose": "Archive retention policy card showing expiry window, purge preview, status, and proof progress.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "accent", "warning", "success"],
+      "interactions": ["progress bar uses semantic tokens", "status chip maps to retention state"]
+    },
+    {
+      "name": "PreviewRow",
+      "purpose": "Rollback-safe purge preview row with impact and rollback bundle details.",
+      "tokens": ["background", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["preview text remains readable at narrow widths", "row layout does not shift when state changes"]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button and status row has a visible focus or stable hover-safe presentation.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
