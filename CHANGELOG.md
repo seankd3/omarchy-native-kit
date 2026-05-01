@@ -73,4 +73,5 @@ Initial public seed of Omarchy Native Kit.
   - `network-profile-mapper`
   - `display-layout-planner`
   - `input-method-studio`
+  - `workspace-automation-builder`
 - Ecosystem map and CI workflow template.

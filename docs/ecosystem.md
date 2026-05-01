@@ -39,6 +39,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Network Profile Mapper | `examples/network-profile-mapper` | Dashboard app for mapping trusted networks, VPN posture, DNS profiles, and workspace connectivity rules. |
 | Display Layout Planner | `examples/display-layout-planner` | Dashboard app for planning monitor arrangements, scaling, color temperature, and workspace placement. |
 | Input Method Studio | `examples/input-method-studio` | Studio app for configuring keyboards, pointer devices, layout variants, repeat rates, and workspace behavior. |
+| Workspace Automation Builder | `examples/workspace-automation-builder` | Studio app for composing workspace triggers, app launch rules, hooks, and rollback-safe automation recipes. |
 
 ## Build Loop
 
@@ -114,7 +115,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `workspace-automation-builder` - compose workspace triggers, app launch rules, hooks, and rollback-safe automation recipes.
+- `credential-session-vault` - stage session secrets, SSH agents, keyring readiness, and per-workspace credential exposure.
 
 ## Kit Refinements To Unlock More Apps
 
