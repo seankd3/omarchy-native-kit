@@ -73,6 +73,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Directory Deprovisioning Runbook | `examples/directory-deprovisioning-runbook` | Studio app for inspecting deprovisioning tasks, suspended identities, app offboarding queues, orphaned sessions, manager sign-off, exception holds, and rollback-safe account disablement. |
 | Access Exception Expiration Board | `examples/access-exception-expiration-board` | Studio app for inspecting temporary access exceptions, expiring approvals, owner renewals, stale justifications, downstream entitlements, notification windows, and rollback-safe exception removal. |
 | Access Review Evidence Locker | `examples/access-review-evidence-locker` | Studio app for inspecting review evidence bundles, reviewer attestations, exported access snapshots, exception rationale, chain-of-custody notes, retention windows, and rollback-safe evidence sealing. |
+| Access Certification Scope Mapper | `examples/access-certification-scope-mapper` | Studio app for inspecting certification scopes, population filters, excluded accounts, resource ownership, reviewer coverage, sampling windows, and rollback-safe scope corrections. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -168,7 +169,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `access-certification-scope-mapper` - inspect certification scopes, population filters, excluded accounts, resource ownership, reviewer coverage, sampling windows, and rollback-safe scope corrections.
+- `access-policy-change-ledger` - inspect access policy edits, approver chains, diffed rule changes, affected principals, simulation snapshots, publish windows, and rollback-safe policy history.
 
 ## Kit Refinements To Unlock More Apps
 
