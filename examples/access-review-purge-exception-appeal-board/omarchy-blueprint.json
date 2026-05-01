@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-purge-exception-appeal-board",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "appeal-hero",
+      "purpose": "Summarize denied archive purge appeal posture and expose the appeal packet action.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "border",
+        "warning"
+      ]
+    },
+    {
+      "name": "appeal-grid",
+      "purpose": "Compare denied purge appeals, retention exception disputes, and delegated re-approval state.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "danger",
+        "warning",
+        "success"
+      ]
+    },
+    {
+      "name": "evidence-panels",
+      "purpose": "Inspect legal hold release evidence, retry hash disputes, checksum objections, and rollback-safe appeal packet exhibits.",
+      "tokens": [
+        "background",
+        "surface",
+        "borderStrong",
+        "info",
+        "success"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "AppealCard",
+      "purpose": "Denied archive purge appeal summary with dispute, re-approval state, and packet readiness progress.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "warning"
+      ],
+      "interactions": [
+        "status chip highlights ready, review, or disputed state",
+        "progress bar communicates appeal packet completeness without layout shift"
+      ]
+    },
+    {
+      "name": "EvidenceRow",
+      "purpose": "Dense review row for retention disputes, legal hold releases, delegated re-approvals, and checksum objections.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "danger",
+        "success"
+      ],
+      "interactions": [
+        "state label remains visible at narrow widths",
+        "row content stacks cleanly on mobile"
+      ]
+    },
+    {
+      "name": "AppealPacket",
+      "purpose": "Rollback-safe command and exhibit checklist for overturning a denied purge.",
+      "tokens": [
+        "surface",
+        "border",
+        "warning",
+        "accent"
+      ],
+      "interactions": [
+        "packet fields preserve long command text without overlapping neighboring panels",
+        "checklist remains readable on mobile and desktop"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
