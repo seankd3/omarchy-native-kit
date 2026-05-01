@@ -135,6 +135,7 @@ Initial public seed of Omarchy Native Kit.
   - `access-review-export-readiness-board`
   - `access-review-delivery-receipt-monitor`
   - `access-review-receipt-escalation-desk`
+  - `access-review-escalation-closeout-ledger`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`

@@ -94,6 +94,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Access Review Export Readiness Board | `examples/access-review-export-readiness-board` | Studio app for inspecting access review export readiness, sealed packet coverage, missing evidence, reviewer blockers, delegated approvals, retry exceptions, audit destinations, and rollback-safe delivery trails. |
 | Access Review Delivery Receipt Monitor | `examples/access-review-delivery-receipt-monitor` | Studio app for inspecting access review delivery receipts, audit destination acknowledgements, failed export retries, reviewer closeout notes, packet checksum drift, delegated owner escalations, and rollback-safe delivery evidence. |
 | Access Review Receipt Escalation Desk | `examples/access-review-receipt-escalation-desk` | Studio app for inspecting late access review receipt escalations, delegated owner paging, audit lane breach timers, retry transcripts, checksum reconciliation, reviewer closeout evidence, and rollback-safe escalation packets. |
+| Access Review Escalation Closeout Ledger | `examples/access-review-escalation-closeout-ledger` | Studio app for inspecting closed access review receipt escalations, final owner acknowledgements, breach timer outcomes, retry transcript retention, checksum repair proof, reviewer closeout packets, and rollback-safe audit ledgers. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -189,7 +190,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `access-review-escalation-closeout-ledger` - inspect closed access review receipt escalations, final owner acknowledgements, breach timer outcomes, retry transcript retention, checksum repair proof, reviewer closeout packets, and rollback-safe audit ledgers.
+- `access-review-ledger-archive-browser` - inspect archived access review ledgers, retained receipt closeouts, owner acknowledgement history, retry transcript hashes, checksum repair records, audit export labels, and rollback-safe archive retrieval.
 
 ## Kit Refinements To Unlock More Apps
 

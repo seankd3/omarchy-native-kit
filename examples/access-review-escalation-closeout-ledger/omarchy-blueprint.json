@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-escalation-closeout-ledger",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "closeout-summary",
+      "purpose": "Track closed escalations, owner acknowledgements, breach outcomes, and ledger gaps.",
+      "tokens": ["surface", "surfaceForeground", "border", "success", "info", "warning", "danger"]
+    },
+    {
+      "name": "closeout-grid",
+      "purpose": "Compare closed receipt escalations by outcome, proof, status, owner, and progress.",
+      "tokens": ["surface", "surfaceRaised", "mutedForeground", "accent", "success"]
+    },
+    {
+      "name": "audit-ledger-workspace",
+      "purpose": "Inspect owner acknowledgements, breach outcomes, retry transcript retention, checksum repair proof, reviewer packets, and rollback-safe ledger commands.",
+      "tokens": ["background", "surface", "border", "borderStrong", "danger", "warning", "info"]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricTile",
+      "purpose": "Compact closeout counter with semantic status tone.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["stable height across values", "tone visible without raw colors"]
+    },
+    {
+      "name": "CloseoutCard",
+      "purpose": "Closed escalation card showing outcome, proof, status, and ledger progress.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "accent", "success", "warning"],
+      "interactions": ["progress bar uses semantic tokens", "status chip maps to closeout state"]
+    },
+    {
+      "name": "LedgerRow",
+      "purpose": "Rollback-safe audit ledger row with retained proof details.",
+      "tokens": ["background", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["proof text remains readable at narrow widths", "row layout does not shift when state changes"]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button and status row has a visible focus or stable hover-safe presentation.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
