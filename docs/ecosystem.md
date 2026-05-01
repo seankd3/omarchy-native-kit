@@ -42,6 +42,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Workspace Automation Builder | `examples/workspace-automation-builder` | Studio app for composing workspace triggers, app launch rules, hooks, and rollback-safe automation recipes. |
 | Credential Session Vault | `examples/credential-session-vault` | Studio app for staging session secrets, SSH agents, keyring readiness, and workspace credential exposure. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
+| Package Update Coordinator | `examples/package-update-coordinator` | Dashboard app for planning package updates, pinning holds, comparing risky upgrades, and scheduling rollback-safe maintenance windows. |
 
 ## Build Loop
 
@@ -117,7 +118,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `package-update-coordinator` - plan package updates, pin holds, compare risky upgrades, and schedule rollback-safe maintenance windows.
+- `journal-timeline-inspector` - inspect system logs across boots, correlate service failures with updates, and save annotated incident timelines.
 
 ## Kit Refinements To Unlock More Apps
 

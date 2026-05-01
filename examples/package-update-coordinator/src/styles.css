@@ -1,0 +1,343 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--omarchy-warning) 13%, transparent), transparent 36rem),
+    linear-gradient(315deg, color-mix(in srgb, var(--omarchy-success) 10%, transparent), transparent 34rem),
+    var(--omarchy-background);
+}
+
+button {
+  min-height: 38px;
+  border: 1px solid var(--omarchy-border-strong);
+  padding: 0 14px;
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  font: inherit;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+  outline: 2px solid var(--omarchy-focus);
+  outline-offset: 2px;
+  background: var(--omarchy-accent-strong);
+}
+
+.shell {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.coordinator {
+  width: min(1320px, 100%);
+  margin: 0 auto;
+}
+
+.masthead,
+.metrics,
+.layout,
+.panelHeader,
+.batch,
+.batchMain,
+.batchMeta,
+.statusBadge,
+.holdList article,
+.runbook {
+  display: grid;
+}
+
+.masthead {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: end;
+  padding: 8px 0 22px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--omarchy-warning);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 7vw, 5.8rem);
+  line-height: 0.92;
+}
+
+h2 {
+  font-size: 1.05rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+.statusBadge {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 9px;
+  min-height: 38px;
+  border: 1px solid var(--omarchy-border);
+  padding: 0 12px;
+  color: var(--omarchy-success);
+  background: color-mix(in srgb, var(--omarchy-success) 9%, var(--omarchy-surface));
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.statusBadge span {
+  display: block;
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 999px;
+  background: var(--omarchy-success);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--omarchy-success) 17%, transparent);
+}
+
+.metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 22px 0;
+  border: 1px solid var(--omarchy-border);
+  background: var(--omarchy-border);
+}
+
+.metrics article {
+  min-height: 128px;
+  padding: 18px;
+  background: color-mix(in srgb, var(--omarchy-surface) 94%, transparent);
+}
+
+.metrics span {
+  display: block;
+  color: var(--omarchy-accent);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 0.95;
+}
+
+.metrics article[data-risk="safe"] span {
+  color: var(--omarchy-success);
+}
+
+.metrics article[data-risk="hold"] span {
+  color: var(--omarchy-danger);
+}
+
+.metrics p,
+.batch p,
+.batch small,
+.holdList p,
+.holdList small,
+.runbook {
+  color: var(--omarchy-muted-foreground);
+}
+
+.layout {
+  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.batchPanel,
+.holdPanel,
+.runbookPanel {
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface) 94%, transparent);
+  box-shadow: 0 18px 58px color-mix(in srgb, var(--omarchy-shadow) 24%, transparent);
+}
+
+.panelHeader {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 74px;
+  padding: 16px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.panelHeader.compact {
+  grid-template-columns: 1fr;
+}
+
+.batchList,
+.holdList,
+.sideRail {
+  display: grid;
+}
+
+.batchList {
+  gap: 1px;
+  background: var(--omarchy-border);
+}
+
+.batch {
+  grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.72fr);
+  gap: 18px;
+  align-items: center;
+  min-height: 112px;
+  padding: 16px;
+  background: var(--omarchy-surface);
+}
+
+.batch:hover,
+.batch:focus-visible {
+  outline: 0;
+  background: var(--omarchy-surface-raised);
+}
+
+.batch:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--omarchy-focus);
+}
+
+.batchMain {
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+}
+
+.batchMain > span {
+  display: inline-grid;
+  place-items: center;
+  min-height: 32px;
+  border: 1px solid var(--omarchy-border);
+  color: var(--omarchy-success);
+  background: color-mix(in srgb, var(--omarchy-success) 10%, transparent);
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.batch[data-risk="watch"] .batchMain > span {
+  color: var(--omarchy-warning);
+  background: color-mix(in srgb, var(--omarchy-warning) 12%, transparent);
+}
+
+.batch[data-risk="hold"] .batchMain > span {
+  color: var(--omarchy-danger);
+  background: color-mix(in srgb, var(--omarchy-danger) 11%, transparent);
+}
+
+.batchMeta {
+  grid-template-columns: auto 1fr;
+  gap: 5px 12px;
+  align-items: baseline;
+}
+
+.batchMeta strong {
+  color: var(--omarchy-accent);
+  font-size: 1.3rem;
+}
+
+.batchMeta small {
+  grid-column: 1 / -1;
+}
+
+.sideRail {
+  gap: 18px;
+}
+
+.holdList {
+  gap: 1px;
+  background: var(--omarchy-border);
+}
+
+.holdList article {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  min-height: 92px;
+  padding: 14px;
+  background: var(--omarchy-surface);
+}
+
+.holdMeta {
+  display: grid;
+  gap: 2px;
+  justify-items: end;
+  text-align: right;
+}
+
+.holdMeta span {
+  color: var(--omarchy-danger);
+  font-weight: 900;
+}
+
+.runbook {
+  gap: 10px;
+  margin: 0;
+  padding: 16px 16px 18px 34px;
+}
+
+.runbook li::marker {
+  color: var(--omarchy-warning);
+  font-weight: 900;
+}
+
+@media (max-width: 920px) {
+  .layout,
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sideRail {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .shell {
+    padding: 12px;
+  }
+
+  .masthead,
+  .layout,
+  .metrics,
+  .sideRail,
+  .batch,
+  .batchMain,
+  .holdList article {
+    grid-template-columns: 1fr;
+  }
+
+  .statusBadge {
+    width: fit-content;
+  }
+
+  .batchMain > span {
+    width: fit-content;
+    padding: 0 10px;
+  }
+
+  .holdMeta {
+    justify-items: start;
+    text-align: left;
+  }
+}

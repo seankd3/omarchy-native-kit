@@ -76,4 +76,5 @@ Initial public seed of Omarchy Native Kit.
   - `workspace-automation-builder`
   - `credential-session-vault`
   - `clipboard-history-curator`
+  - `package-update-coordinator`
 - Ecosystem map and CI workflow template.
