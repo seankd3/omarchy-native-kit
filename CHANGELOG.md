@@ -72,4 +72,5 @@ Initial public seed of Omarchy Native Kit.
   - `audio-device-mixer`
   - `network-profile-mapper`
   - `display-layout-planner`
+  - `input-method-studio`
 - Ecosystem map and CI workflow template.
