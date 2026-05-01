@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-exception-expiration-board",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "exception-summary",
+      "purpose": "At-a-glance counts for expired exceptions, upcoming expirations, stale justifications, and ready removals.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "danger",
+        "warning",
+        "success",
+        "info"
+      ]
+    },
+    {
+      "name": "approval-queue",
+      "purpose": "Keyboard-focusable rows for expiring temporary access approvals and their resource owners.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "surfaceForeground",
+        "border",
+        "accent"
+      ]
+    },
+    {
+      "name": "removal-evidence",
+      "purpose": "Evidence panels for downstream entitlements, owner renewal queues, notifications, and rollback guardrails.",
+      "tokens": [
+        "background",
+        "surface",
+        "mutedForeground",
+        "borderStrong",
+        "shadow"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "ExceptionRow",
+      "purpose": "Focusable access exception row with owner, expiration, resource, and justification context.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "surfaceForeground",
+        "accent",
+        "border"
+      ],
+      "interactions": [
+        "hover and focus-visible states expose row selection",
+        "expiration tone is shown with semantic danger, warning, info, or success"
+      ]
+    },
+    {
+      "name": "ImpactCard",
+      "purpose": "Compact downstream entitlement impact panel for rollback-safe exception removal planning.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "mutedForeground",
+        "danger",
+        "warning",
+        "success",
+        "info"
+      ],
+      "interactions": [
+        "tone label stays visible without overlapping text",
+        "card sizing remains stable across responsive breakpoints"
+      ]
+    },
+    {
+      "name": "RollbackList",
+      "purpose": "Ordered removal checklist for safe exception expiry and restoration.",
+      "tokens": [
+        "background",
+        "accent",
+        "borderStrong",
+        "surfaceForeground"
+      ],
+      "interactions": [
+        "primary removal action has visible hover and focus-visible states",
+        "guardrail numbers are stable and token-colored"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}

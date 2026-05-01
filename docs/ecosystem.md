@@ -71,6 +71,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Directory Owner Attestation Desk | `examples/directory-owner-attestation-desk` | Studio app for inspecting directory resource owners, stale approvers, delegated stewardship, missing attestations, group risk, escalation windows, and rollback-safe owner reassignment. |
 | Directory Lifecycle Policy Lab | `examples/directory-lifecycle-policy-lab` | Studio app for inspecting joiner-mover-leaver lifecycle policy, stale identities, manager handoffs, suspended accounts, entitlement drift, exception windows, and rollback-safe lifecycle cleanup. |
 | Directory Deprovisioning Runbook | `examples/directory-deprovisioning-runbook` | Studio app for inspecting deprovisioning tasks, suspended identities, app offboarding queues, orphaned sessions, manager sign-off, exception holds, and rollback-safe account disablement. |
+| Access Exception Expiration Board | `examples/access-exception-expiration-board` | Studio app for inspecting temporary access exceptions, expiring approvals, owner renewals, stale justifications, downstream entitlements, notification windows, and rollback-safe exception removal. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -166,7 +167,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `access-exception-expiration-board` - inspect temporary access exceptions, expiring approvals, owner renewals, stale justifications, downstream entitlements, notification windows, and rollback-safe exception removal.
+- `access-review-evidence-locker` - inspect review evidence bundles, reviewer attestations, exported access snapshots, exception rationale, chain-of-custody notes, retention windows, and rollback-safe evidence sealing.
 
 ## Kit Refinements To Unlock More Apps
 
