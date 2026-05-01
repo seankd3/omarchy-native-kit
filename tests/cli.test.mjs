@@ -265,11 +265,12 @@ test('verify all reports discovered app contract statuses', () => {
 
   assert.equal(payload.schemaVersion, 1);
   assert.equal(payload.ok, true);
-  assert.equal(payload.appCount, 43);
-  assert.equal(payload.verifiedCount, 43);
+  assert.equal(payload.appCount, 44);
+  assert.equal(payload.verifiedCount, 44);
   assert.ok(payload.reports.some((report) => report.appName === 'accessibility-contrast-auditor'));
   assert.ok(payload.reports.some((report) => report.appName === 'audio-device-mixer'));
   assert.ok(payload.reports.some((report) => report.appName === 'backup-restore-console'));
+  assert.ok(payload.reports.some((report) => report.appName === 'camera-microphone-permission-lab'));
   assert.ok(payload.reports.some((report) => report.appName === 'clipboard-history-curator'));
   assert.ok(payload.reports.some((report) => report.appName === 'config-diff-studio'));
   assert.ok(payload.reports.some((report) => report.appName === 'credential-session-vault'));
@@ -348,12 +349,13 @@ test('app catalog lists verified blueprint apps', () => {
   const payload = JSON.parse(output);
 
   assert.equal(payload.schemaVersion, 1);
-  assert.equal(payload.appCount, 43);
-  assert.equal(payload.verifiedCount, 43);
+  assert.equal(payload.appCount, 44);
+  assert.equal(payload.verifiedCount, 44);
   assert.ok(payload.apps.some((app) => app.name === 'accessibility-contrast-auditor' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'app-health-monitor' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'audio-device-mixer' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'backup-restore-console' && app.kind === 'dashboard' && app.verified));
+  assert.ok(payload.apps.some((app) => app.name === 'camera-microphone-permission-lab' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'clipboard-history-curator' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'aur-packager' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'config-diff-studio' && app.kind === 'studio' && app.verified));

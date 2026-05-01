@@ -68,6 +68,7 @@ Initial public seed of Omarchy Native Kit.
   - `session-restore-planner`
   - `portal-permission-center`
   - `backup-restore-console`
+  - `camera-microphone-permission-lab`
   - `notification-routing-board`
   - `power-profile-switchboard`
   - `audio-device-mixer`

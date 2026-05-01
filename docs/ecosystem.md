@@ -34,6 +34,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Session Restore Planner | `examples/session-restore-planner` | Dashboard app for modeling startup apps, workspaces, and restore order. |
 | Portal Permission Center | `examples/portal-permission-center` | Studio app for reviewing portals, default handlers, and desktop integration permissions. |
 | Backup Restore Console | `examples/backup-restore-console` | Dashboard app for checking backup coverage, restore points, and rollback readiness. |
+| Camera Microphone Permission Lab | `examples/camera-microphone-permission-lab` | Studio app for inspecting camera and microphone portals, device selection, per-app grants, meeting profiles, and privacy fallback behavior. |
 | Notification Routing Board | `examples/notification-routing-board` | Dashboard app for designing notification routes, quiet hours, and escalation rules. |
 | Power Profile Switchboard | `examples/power-profile-switchboard` | Dashboard app for tuning power profiles, brightness, idle behavior, and performance modes per workspace. |
 | Audio Device Mixer | `examples/audio-device-mixer` | Dashboard app for routing microphones, speakers, per-app volume, and meeting presets. |
@@ -130,7 +131,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `camera-microphone-permission-lab` - inspect camera and microphone portals, device selection, per-app grants, meeting profiles, and privacy fallback behavior.
+- `privacy-indicator-monitor` - inspect camera, microphone, screen-capture, and location activity indicators, stale grants, and per-workspace privacy posture.
 
 ## Kit Refinements To Unlock More Apps
 
