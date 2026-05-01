@@ -41,6 +41,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Input Method Studio | `examples/input-method-studio` | Studio app for configuring keyboards, pointer devices, layout variants, repeat rates, and workspace behavior. |
 | Workspace Automation Builder | `examples/workspace-automation-builder` | Studio app for composing workspace triggers, app launch rules, hooks, and rollback-safe automation recipes. |
 | Credential Session Vault | `examples/credential-session-vault` | Studio app for staging session secrets, SSH agents, keyring readiness, and workspace credential exposure. |
+| Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 
 ## Build Loop
 
@@ -116,7 +117,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `clipboard-history-curator` - review clipboard history, pin safe snippets, redact secrets, and route copied content by workspace.
+- `package-update-coordinator` - plan package updates, pin holds, compare risky upgrades, and schedule rollback-safe maintenance windows.
 
 ## Kit Refinements To Unlock More Apps
 
