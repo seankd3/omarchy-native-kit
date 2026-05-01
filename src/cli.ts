@@ -14,6 +14,7 @@ import {
   toAppVerificationText,
   toCssVariables,
   toDesktopEntry,
+  toGtkCss,
   toThemeHookScript,
   toJsonTheme,
   toShellExports,
@@ -77,6 +78,18 @@ function run(parsed: ParsedArgs): void {
       writeFileSync(out, shell);
     } else {
       process.stdout.write(shell);
+    }
+    return;
+  }
+
+  if (command === 'theme' && subcommand === 'gtk') {
+    const gtk = toGtkCss(loadTheme(parsed).tokens);
+    const out = stringFlag(parsed, 'out');
+    if (out) {
+      mkdirSync(dirname(resolve(out)), { recursive: true });
+      writeFileSync(out, gtk);
+    } else {
+      process.stdout.write(gtk);
     }
     return;
   }
@@ -318,6 +331,7 @@ Commands:
   theme json [--colors <path>]          Print current Omarchy theme as JSON
   theme css [--out <file>]              Print or write CSS variables
   theme shell [--out <file>]            Print or write shell exports
+  theme gtk [--out <file>]              Print or write GTK CSS
   theme sync --out <file>               Write current theme CSS once
   theme watch --out <file>              Keep generated theme CSS in sync
   agent json [--colors <path>]          Print AI-agent design context as JSON

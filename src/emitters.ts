@@ -17,8 +17,45 @@ export function toShellExports(tokens: SemanticOmarchyTokens, prefix = 'OMARCHY'
   return `${lines.join('\n')}\n`;
 }
 
+export function toGtkCss(tokens: SemanticOmarchyTokens): string {
+  const colorLines = Object.entries(tokens).map(([key, value]) => `@define-color omarchy_${snake(key)} ${value};`);
+  const widgetLines = [
+    '',
+    '* {',
+    '  color: @omarchy_foreground;',
+    '  background-color: @omarchy_background;',
+    '}',
+    '',
+    'window, popover, menu {',
+    '  background-color: @omarchy_background;',
+    '  color: @omarchy_foreground;',
+    '}',
+    '',
+    'button, entry, list, row, toolbar, headerbar {',
+    '  background-color: @omarchy_surface;',
+    '  color: @omarchy_surface_foreground;',
+    '  border-color: @omarchy_border;',
+    '}',
+    '',
+    'button:hover, row:hover {',
+    '  background-color: @omarchy_surface_raised;',
+    '}',
+    '',
+    'button:focus, entry:focus, row:selected {',
+    '  outline-color: @omarchy_accent;',
+    '  border-color: @omarchy_accent;',
+    '}'
+  ];
+
+  return `${colorLines.join('\n')}\n${widgetLines.join('\n')}\n`;
+}
+
 function kebab(key: string): string {
   return key.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+}
+
+function snake(key: string): string {
+  return key.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`);
 }
 
 function constant(key: string): string {

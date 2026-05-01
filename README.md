@@ -34,6 +34,7 @@ omarchy-native doctor
 omarchy-native theme json
 omarchy-native theme css --out src/omarchy-theme.css
 omarchy-native theme shell --out omarchy-theme.env
+omarchy-native theme gtk --out gtk.css
 omarchy-native theme sync --out src/omarchy-theme.css
 omarchy-native theme watch --out src/omarchy-theme.css
 omarchy-native agent json
@@ -61,6 +62,13 @@ Use `theme shell` when scripts need environment variables:
 ```bash
 omarchy-native theme shell
 omarchy-native theme shell --prefix APP --out omarchy-theme.env
+```
+
+Use `theme gtk` for GTK/libadwaita-adjacent CSS experiments:
+
+```bash
+omarchy-native theme gtk
+omarchy-native theme gtk --out gtk.css
 ```
 
 ## Library
@@ -167,7 +175,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 
 - `src/theme.ts` - theme discovery, parser, validation, and semantic token mapping
 - `src/color.ts` - hex validation, blending, contrast, and readable foreground helpers
-- `src/emitters.ts` - CSS, JSON, and shell emitters
+- `src/emitters.ts` - CSS, JSON, shell, and GTK emitters
 - `src/agent.ts` - machine-readable and prompt-ready agent context
 - `src/cli.ts` - `doctor`, `theme json`, `theme css`, `agent json`, `agent prompt`, `agent blueprint`, `create`, and `verify`
 - `src/desktop.ts` - `.desktop` launcher entry generation
@@ -180,4 +188,4 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 
 ## Current Scope
 
-This MVP covers CSS, JSON, and shell token output, live theme syncing, agent context, app blueprints, React/Vite scaffolding, generated app verification, `.desktop` launcher generation, opt-in hook script generation, and dogfood apps. Future work can add GTK/Qt emitters, visual regression checks, npm publishing, and AUR packaging.
+This MVP covers CSS, JSON, shell, and GTK token output, live theme syncing, agent context, app blueprints, React/Vite scaffolding, generated app verification, `.desktop` launcher generation, opt-in hook script generation, and dogfood apps. Future work can add Qt emitters, visual regression checks, npm publishing, and AUR packaging.

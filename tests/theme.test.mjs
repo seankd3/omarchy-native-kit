@@ -15,6 +15,7 @@ import {
   toAppVerificationText,
   toCssVariables,
   toDesktopEntry,
+  toGtkCss,
   toThemeHookScript,
   toJsonTheme,
   toShellExports,
@@ -85,12 +86,15 @@ test('emits CSS and JSON schemas', () => {
   const css = toCssVariables(theme.tokens);
   const json = JSON.parse(toJsonTheme(theme));
   const shell = toShellExports(theme.tokens);
+  const gtk = toGtkCss(theme.tokens);
 
   assert.match(css, /--omarchy-background: #101216;/);
   assert.equal(json.schemaVersion, 1);
   assert.equal(json.tokens.accent, '#7aa2f7');
   assert.match(shell, /export OMARCHY_BACKGROUND='#101216'/);
   assert.match(shell, /export OMARCHY_SURFACE_RAISED='#414868'/);
+  assert.match(gtk, /@define-color omarchy_background #101216;/);
+  assert.match(gtk, /button:focus, entry:focus, row:selected/);
 });
 
 test('emits agent context for coding assistants', () => {

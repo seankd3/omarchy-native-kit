@@ -13,6 +13,7 @@ Initial public seed of Omarchy Native Kit.
 - Semantic token mapping with contrast-aware foregrounds.
 - CSS and JSON theme emitters.
 - Shell export theme emitter.
+- GTK CSS theme emitter.
 - CLI commands:
   - `doctor`
   - `theme json`

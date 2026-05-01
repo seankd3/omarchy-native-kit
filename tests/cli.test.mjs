@@ -62,6 +62,22 @@ test('theme shell writes shell exports', () => {
   }
 });
 
+test('theme gtk writes gtk css', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-gtk-'));
+  try {
+    const out = join(dir, 'gtk.css');
+    const stdout = execFileSync(process.execPath, [...cli, 'theme', 'gtk', '--colors', fixture], {
+      encoding: 'utf8'
+    });
+    execFileSync(process.execPath, [...cli, 'theme', 'gtk', '--colors', fixture, '--out', out]);
+
+    assert.match(stdout, /@define-color omarchy_accent #7aa2f7;/);
+    assert.match(readFileSync(out, 'utf8'), /button:hover, row:hover/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test('agent json prints machine-readable design context', () => {
   const output = execFileSync(process.execPath, [...cli, 'agent', 'json', '--colors', fixture], {
     encoding: 'utf8'
