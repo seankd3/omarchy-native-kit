@@ -43,6 +43,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Credential Session Vault | `examples/credential-session-vault` | Studio app for staging session secrets, SSH agents, keyring readiness, and workspace credential exposure. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Package Update Coordinator | `examples/package-update-coordinator` | Dashboard app for planning package updates, pinning holds, comparing risky upgrades, and scheduling rollback-safe maintenance windows. |
+| Journal Timeline Inspector | `examples/journal-timeline-inspector` | Studio app for inspecting system logs across boots, correlating service failures with updates, and saving annotated incident timelines. |
 
 ## Build Loop
 
@@ -118,7 +119,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `journal-timeline-inspector` - inspect system logs across boots, correlate service failures with updates, and save annotated incident timelines.
+- `service-restart-orchestrator` - plan systemd user and system service restarts, preview dependency impact, and schedule safe restart batches.
 
 ## Kit Refinements To Unlock More Apps
 
