@@ -104,6 +104,7 @@ npm test
 ```
 
 Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
+`docs/ci.workflow.yml` contains a ready-to-install GitHub Actions workflow for typecheck, test, and package dry-run verification.
 
 ## Repository Layout
 
