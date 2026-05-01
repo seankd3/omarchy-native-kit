@@ -54,6 +54,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Sandbox Policy Simulator | `examples/sandbox-policy-simulator` | Studio app for inspecting sandbox profiles, bind mounts, portal holes, network namespaces, and rollback-safe policy experiments. |
 | Sensor Access Ledger | `examples/sensor-access-ledger` | Studio app for inspecting ambient light, accelerometer, Bluetooth, and location sensor access, app requests, stale grants, and privacy-safe fallback behavior. |
 | Environment Variable Auditor | `examples/environment-variable-auditor` | Studio app for inspecting shell, desktop, and service environments, comparing mismatched variables, and staging clean export fixes. |
+| Firewall Rule Planner | `examples/firewall-rule-planner` | Studio app for inspecting nftables and ufw intents, per-workspace network exposure, temporary holes, and rollback-safe firewall changes. |
 | Locale Timezone Manager | `examples/locale-timezone-manager` | Dashboard app for comparing locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes. |
 | Font Rendering Tuner | `examples/font-rendering-tuner` | Studio app for comparing font stacks, antialiasing, hinting, and scaling behavior across GTK, Qt, browser, and terminal surfaces. |
 | Trust Zone Mapper | `examples/trust-zone-mapper` | Studio app for inspecting workspace trust zones, portal exposure, network posture, removable media, and rollback-safe isolation recipes. |
@@ -136,7 +137,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `firewall-rule-planner` - inspect nftables and ufw intents, per-workspace network exposure, temporary holes, and rollback-safe firewall changes.
+- `dns-resolver-policy-lab` - inspect resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes.
 
 ## Kit Refinements To Unlock More Apps
 

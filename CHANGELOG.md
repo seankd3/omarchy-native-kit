@@ -88,6 +88,7 @@ Initial public seed of Omarchy Native Kit.
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
+  - `firewall-rule-planner`
   - `locale-timezone-manager`
   - `font-rendering-tuner`
   - `trust-zone-mapper`
