@@ -35,9 +35,15 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
    omarchy-native create signal-desk --template react-vite --kind dashboard
    ```
 
-4. Build the app using only `--omarchy-*` variables.
+4. Keep theme CSS synced while building:
 
-5. Verify before handoff:
+   ```bash
+   omarchy-native theme watch --out src/omarchy-theme.css
+   ```
+
+5. Build the app using only `--omarchy-*` variables.
+
+6. Verify before handoff:
 
    ```bash
    omarchy-native verify ./signal-desk

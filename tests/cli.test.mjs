@@ -30,6 +30,22 @@ test('theme css writes output file', () => {
   }
 });
 
+test('theme sync and watch once write output files', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-theme-sync-'));
+  try {
+    const syncOut = join(dir, 'sync.css');
+    const watchOut = join(dir, 'watch.css');
+
+    execFileSync(process.execPath, [...cli, 'theme', 'sync', '--colors', fixture, '--out', syncOut]);
+    execFileSync(process.execPath, [...cli, 'theme', 'watch', '--once', '--colors', fixture, '--out', watchOut]);
+
+    assert.match(readFileSync(syncOut, 'utf8'), /--omarchy-background: #101216;/);
+    assert.match(readFileSync(watchOut, 'utf8'), /--omarchy-accent: #7aa2f7;/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test('agent json prints machine-readable design context', () => {
   const output = execFileSync(process.execPath, [...cli, 'agent', 'json', '--colors', fixture], {
     encoding: 'utf8'

@@ -32,6 +32,8 @@ omarchy-native doctor
 omarchy-native doctor
 omarchy-native theme json
 omarchy-native theme css --out src/omarchy-theme.css
+omarchy-native theme sync --out src/omarchy-theme.css
+omarchy-native theme watch --out src/omarchy-theme.css
 omarchy-native agent json
 omarchy-native agent prompt
 omarchy-native agent blueprint --app signal-desk --kind dashboard
@@ -42,6 +44,13 @@ omarchy-native verify ./hello-omarchy-native
 All theme commands read inside `~/.config/omarchy/current/theme` by default, primarily `colors.toml` and optionally `theme.name` if present in that directory. For tests or deterministic generation, pass `--colors <path>` or `--theme-dir <path>`.
 
 The CLI only reads Omarchy's current theme path. It does not write to `~/.config/omarchy` or `~/.local/share/omarchy`.
+
+Use `theme sync` for a one-shot refresh and `theme watch` while developing an app:
+
+```bash
+omarchy-native theme sync --out src/omarchy-theme.css
+omarchy-native theme watch --out src/omarchy-theme.css
+```
 
 ## Library
 

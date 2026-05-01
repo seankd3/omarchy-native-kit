@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { cpSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readFileSync, watchFile, writeFileSync } from 'node:fs';
 import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -66,6 +66,16 @@ function run(parsed: ParsedArgs): void {
     return;
   }
 
+  if (command === 'theme' && subcommand === 'sync') {
+    syncThemeCss(parsed);
+    return;
+  }
+
+  if (command === 'theme' && subcommand === 'watch') {
+    watchThemeCss(parsed);
+    return;
+  }
+
   if (command === 'agent' && subcommand === 'json') {
     process.stdout.write(toAgentContextJson(loadTheme(parsed)));
     return;
@@ -105,6 +115,32 @@ function verify(parsed: ParsedArgs): void {
   const report = verifyOmarchyApp(path);
   process.stdout.write(booleanFlag(parsed, 'json') ? toAppVerificationJson(report) : toAppVerificationText(report));
   if (!report.ok) process.exitCode = 1;
+}
+
+function syncThemeCss(parsed: ParsedArgs, quiet = false): void {
+  const out = stringFlag(parsed, 'out');
+  if (!out) throw new Error('Missing --out <file>. Usage: omarchy-native theme sync --out src/omarchy-theme.css');
+
+  const css = toCssVariables(loadTheme(parsed).tokens);
+  mkdirSync(dirname(resolve(out)), { recursive: true });
+  writeFileSync(out, css);
+  if (!quiet) console.log(`Synced Omarchy theme CSS to ${out}.`);
+}
+
+function watchThemeCss(parsed: ParsedArgs): void {
+  const colorsPath = stringFlag(parsed, 'colors') ?? defaultColorsPath();
+  syncThemeCss(parsed);
+  if (booleanFlag(parsed, 'once')) return;
+
+  console.log(`Watching ${colorsPath} for theme changes.`);
+  watchFile(colorsPath, { interval: numberFlag(parsed, 'interval', 750) }, () => {
+    try {
+      syncThemeCss(parsed, true);
+      console.log(`Synced Omarchy theme CSS to ${stringFlag(parsed, 'out')}.`);
+    } catch (error) {
+      console.error(error instanceof Error ? error.message : String(error));
+    }
+  });
 }
 
 function doctor(parsed: ParsedArgs): void {
@@ -181,6 +217,13 @@ function booleanFlag(parsed: ParsedArgs, name: string): boolean {
   return parsed.flags.get(name) === true;
 }
 
+function numberFlag(parsed: ParsedArgs, name: string, fallback: number): number {
+  const value = stringFlag(parsed, name);
+  if (!value) return fallback;
+  const parsedValue = Number(value);
+  return Number.isFinite(parsedValue) && parsedValue > 0 ? parsedValue : fallback;
+}
+
 function parseArgs(rawArgs: string[]): ParsedArgs {
   const positionals: string[] = [];
   const flags = new Map<string, string | boolean>();
@@ -212,6 +255,8 @@ Commands:
   doctor [--colors <path>]              Check Omarchy theme detection
   theme json [--colors <path>]          Print current Omarchy theme as JSON
   theme css [--out <file>]              Print or write CSS variables
+  theme sync --out <file>               Write current theme CSS once
+  theme watch --out <file>              Keep generated theme CSS in sync
   agent json [--colors <path>]          Print AI-agent design context as JSON
   agent prompt [--colors <path>]        Print a compact design prompt for agents
   agent blueprint [--app <name>]        Print a structured app build blueprint

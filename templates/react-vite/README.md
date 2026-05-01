@@ -5,6 +5,7 @@ A keyboard-first React/Vite starter that imports generated Omarchy CSS variables
 ```bash
 npm install
 npm run theme:css
+npm run theme:watch
 npm run dev
 ```
 
