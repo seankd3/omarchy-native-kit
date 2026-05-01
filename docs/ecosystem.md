@@ -24,6 +24,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | AUR Packager | `examples/aur-packager` | Studio app for staging Arch/AUR package metadata and validation. |
 | Theme Migration Lab | `examples/theme-migration-lab` | Studio app for comparing theme changes before rollout. |
 | Ops Deck | `examples/ops-deck` | Dashboard app for daily catalog, release, and rollout operations. |
+| Docs Reader | `examples/docs-reader` | Command-center app for browsing local docs, commands, and blueprints. |
 
 ## Build Loop
 
@@ -99,7 +100,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `docs-reader` - browse local kit docs, commands, and app blueprints in a keyboard-first reference surface.
+- `app-health-monitor` - inspect app verifier failures, missing scripts, and blueprint drift across a catalog.
 
 ## Kit Refinements To Unlock More Apps
 
