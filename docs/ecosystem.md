@@ -44,6 +44,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Package Update Coordinator | `examples/package-update-coordinator` | Dashboard app for planning package updates, pinning holds, comparing risky upgrades, and scheduling rollback-safe maintenance windows. |
 | Journal Timeline Inspector | `examples/journal-timeline-inspector` | Studio app for inspecting system logs across boots, correlating service failures with updates, and saving annotated incident timelines. |
+| Service Restart Orchestrator | `examples/service-restart-orchestrator` | Dashboard app for planning systemd user and system service restarts, previewing dependency impact, and scheduling safe restart batches. |
 
 ## Build Loop
 
@@ -119,7 +120,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `service-restart-orchestrator` - plan systemd user and system service restarts, preview dependency impact, and schedule safe restart batches.
+- `environment-variable-auditor` - inspect shell, desktop, and service environments, compare mismatched variables, and stage clean export fixes.
 
 ## Kit Refinements To Unlock More Apps
 

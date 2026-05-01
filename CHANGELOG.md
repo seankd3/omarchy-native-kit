@@ -78,4 +78,5 @@ Initial public seed of Omarchy Native Kit.
   - `clipboard-history-curator`
   - `package-update-coordinator`
   - `journal-timeline-inspector`
+  - `service-restart-orchestrator`
 - Ecosystem map and CI workflow template.

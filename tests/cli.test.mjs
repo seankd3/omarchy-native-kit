@@ -265,8 +265,8 @@ test('verify all reports discovered app contract statuses', () => {
 
   assert.equal(payload.schemaVersion, 1);
   assert.equal(payload.ok, true);
-  assert.equal(payload.appCount, 32);
-  assert.equal(payload.verifiedCount, 32);
+  assert.equal(payload.appCount, 33);
+  assert.equal(payload.verifiedCount, 33);
   assert.ok(payload.reports.some((report) => report.appName === 'audio-device-mixer'));
   assert.ok(payload.reports.some((report) => report.appName === 'backup-restore-console'));
   assert.ok(payload.reports.some((report) => report.appName === 'clipboard-history-curator'));
@@ -280,6 +280,7 @@ test('verify all reports discovered app contract statuses', () => {
   assert.ok(payload.reports.some((report) => report.appName === 'notification-routing-board'));
   assert.ok(payload.reports.some((report) => report.appName === 'package-update-coordinator'));
   assert.ok(payload.reports.some((report) => report.appName === 'power-profile-switchboard'));
+  assert.ok(payload.reports.some((report) => report.appName === 'service-restart-orchestrator'));
   assert.ok(payload.reports.some((report) => report.appName === 'window-rule-lab'));
   assert.ok(payload.reports.some((report) => report.appName === 'workspace-automation-builder'));
   assert.ok(payload.reports.some((report) => report.appName === 'docs-reader'));
@@ -337,8 +338,8 @@ test('app catalog lists verified blueprint apps', () => {
   const payload = JSON.parse(output);
 
   assert.equal(payload.schemaVersion, 1);
-  assert.equal(payload.appCount, 32);
-  assert.equal(payload.verifiedCount, 32);
+  assert.equal(payload.appCount, 33);
+  assert.equal(payload.verifiedCount, 33);
   assert.ok(payload.apps.some((app) => app.name === 'app-health-monitor' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'audio-device-mixer' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'backup-restore-console' && app.kind === 'dashboard' && app.verified));
@@ -361,6 +362,7 @@ test('app catalog lists verified blueprint apps', () => {
   assert.ok(payload.apps.some((app) => app.name === 'portal-permission-center' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'prompt-foundry' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'release-console' && app.kind === 'dashboard' && app.verified));
+  assert.ok(payload.apps.some((app) => app.name === 'service-restart-orchestrator' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'session-restore-planner' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'shortcut-trainer' && app.kind === 'command-center' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'theme-migration-lab' && app.kind === 'studio' && app.verified));
