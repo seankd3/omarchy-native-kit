@@ -24,6 +24,7 @@ import {
   toJsonTheme,
   toQtPalette,
   toShellExports,
+  verifyOmarchyAppDirectory,
   verifyOmarchyApps,
   verifyOmarchyApp
 } from './index.js';
@@ -218,6 +219,16 @@ function desktop(parsed: ParsedArgs): void {
 
 function verify(parsed: ParsedArgs): void {
   const paths = parsed.positionals.slice(1);
+  if (parsed.flags.has('all')) {
+    const root = stringFlag(parsed, 'all') ?? paths[0] ?? '.';
+    const report = verifyOmarchyAppDirectory(root);
+    process.stdout.write(
+      booleanFlag(parsed, 'json') ? toAppVerificationBatchJson(report) : toAppVerificationBatchText(report)
+    );
+    if (report.appCount === 0 || !report.ok) process.exitCode = 1;
+    return;
+  }
+
   if (paths.length <= 1) {
     const report = verifyOmarchyApp(paths[0] ?? '.');
     process.stdout.write(booleanFlag(parsed, 'json') ? toAppVerificationJson(report) : toAppVerificationText(report));
@@ -381,6 +392,7 @@ Commands:
   create <name> --template react-vite   Create a React/Vite starter app
     [--kind command-center|dashboard|studio] writes omarchy-blueprint.json
   verify [paths...] [--json]            Verify Omarchy-native app contracts
+    --all [dir]                         Verify every blueprint app under a directory
   app desktop [path] [--out <file>]     Generate a .desktop launcher entry
   app hook [path] [--out <file>]        Generate a safe theme sync hook script
   app catalog [path] [--json]           Catalog Omarchy-native apps by blueprint

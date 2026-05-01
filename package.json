@@ -51,7 +51,7 @@
     "theme:sync": "node dist/cli.js theme sync --out src/omarchy-theme.css",
     "theme:watch": "node dist/cli.js theme watch --out src/omarchy-theme.css",
     "catalog:examples": "node dist/cli.js app catalog examples",
-    "verify:examples": "node dist/cli.js verify examples/hello-omarchy-native examples/agent-context-lab examples/signal-desk examples/theme-forge examples/hook-station examples/workspace-radar examples/prompt-foundry examples/native-gallery examples/release-console examples/aur-packager examples/theme-migration-lab examples/ops-deck examples/docs-reader examples/app-health-monitor examples/shortcut-trainer"
+    "verify:examples": "node dist/cli.js verify --all examples"
   },
   "devDependencies": {
     "@types/node": "latest",

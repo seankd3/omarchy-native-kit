@@ -1,5 +1,5 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
 import type { AgentBlueprintKind, OmarchyAgentBlueprint } from './agent.js';
 
 export type AppVerificationCheck = {
@@ -108,6 +108,15 @@ export function verifyOmarchyApps(appPaths: string[]): AppVerificationBatchRepor
     verifiedCount: reports.filter((report) => report.ok).length,
     reports
   };
+}
+
+export function verifyOmarchyAppDirectory(rootPath: string): AppVerificationBatchReport {
+  const root = resolve(rootPath);
+  const appPaths = findBlueprints(root)
+    .map((blueprintPath) => dirname(blueprintPath))
+    .sort((a, b) => a.localeCompare(b));
+
+  return verifyOmarchyApps(appPaths);
 }
 
 export function toAppVerificationJson(report: AppVerificationReport): string {
@@ -221,6 +230,26 @@ function walk(path: string, visit: (path: string) => void): void {
   const stat = statSync(path);
   if (stat.isDirectory()) {
     for (const entry of readdirSync(path)) walk(join(path, entry), visit);
+    return;
+  }
+
+  if (stat.isFile()) visit(path);
+}
+
+function findBlueprints(root: string): string[] {
+  const results: string[] = [];
+  walkBlueprints(root, (path) => {
+    if (basename(path) === 'omarchy-blueprint.json') results.push(path);
+  });
+  return results;
+}
+
+function walkBlueprints(path: string, visit: (path: string) => void): void {
+  if (!existsSync(path)) return;
+  const stat = statSync(path);
+  if (stat.isDirectory()) {
+    if (basename(path) === 'node_modules' || basename(path) === 'dist') return;
+    for (const entry of readdirSync(path)) walkBlueprints(join(path, entry), visit);
     return;
   }
 

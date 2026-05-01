@@ -227,6 +227,20 @@ test('verify reports multiple app contract statuses', () => {
   );
 });
 
+test('verify all reports discovered app contract statuses', () => {
+  const output = execFileSync(process.execPath, [...cli, 'verify', '--all', 'examples', '--json'], {
+    encoding: 'utf8'
+  });
+  const payload = JSON.parse(output);
+
+  assert.equal(payload.schemaVersion, 1);
+  assert.equal(payload.ok, true);
+  assert.equal(payload.appCount, 15);
+  assert.equal(payload.verifiedCount, 15);
+  assert.ok(payload.reports.some((report) => report.appName === 'docs-reader'));
+  assert.ok(payload.reports.some((report) => report.appName === 'shortcut-trainer'));
+});
+
 test('app desktop writes launcher entry', () => {
   const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-desktop-'));
   try {

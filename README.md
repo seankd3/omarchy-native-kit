@@ -141,6 +141,7 @@ Verify an app contract after generation or agent edits:
 ```bash
 omarchy-native verify ./my-app
 omarchy-native verify ./app-one ./app-two
+omarchy-native verify --all ./examples
 omarchy-native verify ./my-app --json
 ```
 

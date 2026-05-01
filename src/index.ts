@@ -34,6 +34,7 @@ export {
   toAppVerificationBatchText,
   toAppVerificationJson,
   toAppVerificationText,
+  verifyOmarchyAppDirectory,
   verifyOmarchyApps,
   verifyOmarchyApp,
   type AppVerificationBatchReport,

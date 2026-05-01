@@ -22,6 +22,7 @@ import {
   toJsonTheme,
   toQtPalette,
   toShellExports,
+  verifyOmarchyAppDirectory,
   verifyOmarchyApp,
   verifyOmarchyApps
 } from '../dist/index.js';
@@ -158,6 +159,16 @@ test('verifies multiple committed dogfood app contracts', () => {
   );
   assert.match(text, /Omarchy app verification summary: ok/);
   assert.match(text, /verified: 2\/2/);
+});
+
+test('verifies a directory of committed dogfood app contracts', () => {
+  const report = verifyOmarchyAppDirectory('examples');
+
+  assert.equal(report.ok, true);
+  assert.equal(report.appCount, 15);
+  assert.equal(report.verifiedCount, 15);
+  assert.ok(report.reports.some((app) => app.appName === 'app-health-monitor'));
+  assert.ok(report.reports.some((app) => app.appName === 'shortcut-trainer'));
 });
 
 test('catalogs committed dogfood apps', () => {
