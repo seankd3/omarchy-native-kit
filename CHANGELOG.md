@@ -79,4 +79,5 @@ Initial public seed of Omarchy Native Kit.
   - `package-update-coordinator`
   - `journal-timeline-inspector`
   - `service-restart-orchestrator`
+  - `environment-variable-auditor`
 - Ecosystem map and CI workflow template.

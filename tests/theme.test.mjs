@@ -195,8 +195,8 @@ test('verifies a directory of committed dogfood app contracts', () => {
   const report = verifyOmarchyAppDirectory('examples');
 
   assert.equal(report.ok, true);
-  assert.equal(report.appCount, 33);
-  assert.equal(report.verifiedCount, 33);
+  assert.equal(report.appCount, 34);
+  assert.equal(report.verifiedCount, 34);
   assert.ok(report.reports.some((app) => app.appName === 'app-health-monitor'));
   assert.ok(report.reports.some((app) => app.appName === 'audio-device-mixer'));
   assert.ok(report.reports.some((app) => app.appName === 'backup-restore-console'));
@@ -204,6 +204,7 @@ test('verifies a directory of committed dogfood app contracts', () => {
   assert.ok(report.reports.some((app) => app.appName === 'config-diff-studio'));
   assert.ok(report.reports.some((app) => app.appName === 'credential-session-vault'));
   assert.ok(report.reports.some((app) => app.appName === 'display-layout-planner'));
+  assert.ok(report.reports.some((app) => app.appName === 'environment-variable-auditor'));
   assert.ok(report.reports.some((app) => app.appName === 'focus-flight-recorder'));
   assert.ok(report.reports.some((app) => app.appName === 'input-method-studio'));
   assert.ok(report.reports.some((app) => app.appName === 'journal-timeline-inspector'));
@@ -222,8 +223,8 @@ test('verifies a directory of committed dogfood app contracts', () => {
 test('catalogs committed dogfood apps', () => {
   const catalog = readAppCatalog('examples');
 
-  assert.equal(catalog.appCount, 33);
-  assert.equal(catalog.verifiedCount, 33);
+  assert.equal(catalog.appCount, 34);
+  assert.equal(catalog.verifiedCount, 34);
   assert.deepEqual(
     catalog.apps.map((app) => app.name),
     [
@@ -237,6 +238,7 @@ test('catalogs committed dogfood apps', () => {
       'credential-session-vault',
       'display-layout-planner',
       'docs-reader',
+      'environment-variable-auditor',
       'focus-flight-recorder',
       'hello-omarchy-native',
       'hook-station',

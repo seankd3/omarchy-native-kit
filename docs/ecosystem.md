@@ -45,6 +45,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Package Update Coordinator | `examples/package-update-coordinator` | Dashboard app for planning package updates, pinning holds, comparing risky upgrades, and scheduling rollback-safe maintenance windows. |
 | Journal Timeline Inspector | `examples/journal-timeline-inspector` | Studio app for inspecting system logs across boots, correlating service failures with updates, and saving annotated incident timelines. |
 | Service Restart Orchestrator | `examples/service-restart-orchestrator` | Dashboard app for planning systemd user and system service restarts, previewing dependency impact, and scheduling safe restart batches. |
+| Environment Variable Auditor | `examples/environment-variable-auditor` | Studio app for inspecting shell, desktop, and service environments, comparing mismatched variables, and staging clean export fixes. |
 
 ## Build Loop
 
@@ -120,7 +121,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `environment-variable-auditor` - inspect shell, desktop, and service environments, compare mismatched variables, and stage clean export fixes.
+- `locale-timezone-manager` - compare locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes.
 
 ## Kit Refinements To Unlock More Apps
 
