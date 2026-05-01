@@ -64,6 +64,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Device Compliance Attestation Desk | `examples/device-compliance-attestation-desk` | Studio app for inspecting enrolled devices, posture attestations, stale compliance signals, owner intent, exception windows, and rollback-safe access policy changes. |
 | Zero Trust Access Review Console | `examples/zero-trust-access-review-console` | Studio app for inspecting protected resources, device posture gates, identity risk, stale access exceptions, owner intent, and rollback-safe zero-trust policy changes. |
 | Conditional Access Simulator | `examples/conditional-access-simulator` | Studio app for inspecting conditional access rules, device and identity signals, blocked paths, break-glass exceptions, owner intent, and rollback-safe policy simulations. |
+| Identity Threat Session Recorder | `examples/identity-threat-session-recorder` | Studio app for inspecting risky sign-in sessions, impossible travel evidence, token replay clues, device pivots, owner intent, containment status, and rollback-safe session revocation plans. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -159,7 +160,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `identity-threat-session-recorder` - inspect risky sign-in sessions, impossible travel evidence, token replay clues, device pivots, owner intent, containment status, and rollback-safe session revocation plans.
+- `privileged-role-activation-planner` - inspect just-in-time privileged role activations, approval chains, risky assignments, standing access drift, owner intent, emergency elevation, and rollback-safe role deactivation plans.
 
 ## Kit Refinements To Unlock More Apps
 

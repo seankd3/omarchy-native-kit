@@ -1,0 +1,366 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--omarchy-danger) 13%, transparent), transparent 32rem),
+    linear-gradient(315deg, color-mix(in srgb, var(--omarchy-info) 12%, transparent), transparent 34rem),
+    var(--omarchy-background);
+}
+
+button {
+  font: inherit;
+}
+
+.shell {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.workspace {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+
+.masthead,
+.sessionPanel,
+.cluePanel,
+.pivotPanel,
+.planPanel {
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface) 94%, transparent);
+  box-shadow: 0 22px 70px color-mix(in srgb, var(--omarchy-shadow) 28%, transparent);
+}
+
+.masthead {
+  min-height: 116px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--omarchy-accent);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.2rem;
+  line-height: 0.96;
+}
+
+h2 {
+  max-width: 760px;
+  color: var(--omarchy-surface-foreground);
+  font-size: 1.08rem;
+  line-height: 1.36;
+}
+
+h3 {
+  color: var(--omarchy-surface-foreground);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+p,
+code,
+small {
+  color: var(--omarchy-muted-foreground);
+}
+
+button {
+  min-height: 42px;
+  border: 1px solid var(--omarchy-border-strong);
+  padding: 0 16px;
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  cursor: pointer;
+}
+
+button:hover,
+button:focus-visible,
+article:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--omarchy-accent) 72%, transparent);
+  outline-offset: 3px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.summary article {
+  min-height: 104px;
+  padding: 18px;
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface-raised) 88%, transparent);
+}
+
+.summary span {
+  display: block;
+  color: var(--omarchy-foreground);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.summary p {
+  margin-top: 10px;
+  line-height: 1.35;
+}
+
+.panelHeader {
+  min-height: 84px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 20px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.panelHeader.compact {
+  min-height: auto;
+  display: block;
+}
+
+.signalBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+  color: var(--omarchy-info);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.signalBadge span {
+  width: 9px;
+  height: 9px;
+  background: var(--omarchy-info);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--omarchy-info) 18%, transparent);
+}
+
+.sessionGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--omarchy-border);
+}
+
+.sessionCard {
+  min-height: 250px;
+  display: grid;
+  align-content: space-between;
+  gap: 14px;
+  padding: 18px;
+  border-right: 1px solid var(--omarchy-border);
+  background: var(--omarchy-surface);
+}
+
+.sessionCard:last-child {
+  border-right: 0;
+}
+
+.cardStatus,
+.stack span,
+.pivotList span,
+.planGrid span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--omarchy-muted-foreground);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.cardStatus strong,
+.pivotList strong,
+.planGrid strong {
+  color: var(--omarchy-surface-foreground);
+}
+
+code {
+  display: block;
+  padding: 10px;
+  border: 1px solid var(--omarchy-border);
+  background: var(--omarchy-background);
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  white-space: normal;
+}
+
+small {
+  display: block;
+  font-weight: 700;
+}
+
+[data-state="contained"] {
+  border-top: 4px solid var(--omarchy-success);
+}
+
+[data-state="investigate"] {
+  border-top: 4px solid var(--omarchy-warning);
+}
+
+[data-state="revoke"] {
+  border-top: 4px solid var(--omarchy-danger);
+}
+
+[data-state="contained"] .cardStatus span,
+[data-state="contained"] > span {
+  color: var(--omarchy-success);
+}
+
+[data-state="investigate"] .cardStatus span,
+[data-state="investigate"] > span {
+  color: var(--omarchy-warning);
+}
+
+[data-state="revoke"] .cardStatus span,
+[data-state="revoke"] > span {
+  color: var(--omarchy-danger);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 18px;
+}
+
+.stack,
+.pivotList,
+.planGrid {
+  display: grid;
+  gap: 1px;
+  background: var(--omarchy-border);
+}
+
+.stack article,
+.pivotList article,
+.planGrid article {
+  background: var(--omarchy-surface);
+}
+
+.stack article {
+  min-height: 156px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 18px;
+}
+
+.stack h3,
+.pivotList h3,
+.planGrid h3 {
+  margin-top: 8px;
+}
+
+.stack p,
+.stack strong,
+.pivotList p,
+.pivotList strong,
+.planGrid p,
+.planGrid strong {
+  display: block;
+  margin-top: 6px;
+  line-height: 1.45;
+}
+
+.stack strong {
+  color: var(--omarchy-surface-foreground);
+}
+
+.pivotList article {
+  min-height: 128px;
+  display: grid;
+  grid-template-columns: 112px minmax(110px, 0.65fr) minmax(0, 1fr) minmax(110px, 0.35fr);
+  align-items: start;
+  gap: 14px;
+  padding: 18px;
+}
+
+.planGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.planGrid article {
+  min-height: 240px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 18px;
+}
+
+@media (max-width: 980px) {
+  .summary,
+  .sessionGrid,
+  .split,
+  .planGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sessionCard {
+    border-right: 0;
+    border-bottom: 1px solid var(--omarchy-border);
+  }
+
+  .pivotList article {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .shell {
+    padding: 12px;
+  }
+
+  .masthead,
+  .panelHeader {
+    display: grid;
+  }
+
+  h1 {
+    font-size: 2.3rem;
+  }
+
+  .summary,
+  .sessionGrid,
+  .split,
+  .planGrid {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
+}

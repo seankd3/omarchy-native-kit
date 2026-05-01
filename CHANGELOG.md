@@ -105,6 +105,7 @@ Initial public seed of Omarchy Native Kit.
   - `device-compliance-attestation-desk`
   - `zero-trust-access-review-console`
   - `conditional-access-simulator`
+  - `identity-threat-session-recorder`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
