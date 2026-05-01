@@ -45,7 +45,10 @@
     "typecheck": "tsc --noEmit",
     "prepare": "npm run build",
     "theme:json": "node dist/cli.js theme json",
-    "theme:css": "node dist/cli.js theme css"
+    "theme:css": "node dist/cli.js theme css",
+    "theme:sync": "node dist/cli.js theme sync --out src/omarchy-theme.css",
+    "theme:watch": "node dist/cli.js theme watch --out src/omarchy-theme.css",
+    "verify:examples": "node dist/cli.js verify examples/hello-omarchy-native && node dist/cli.js verify examples/agent-context-lab && node dist/cli.js verify examples/signal-desk && node dist/cli.js verify examples/theme-forge"
   },
   "devDependencies": {
     "@types/node": "latest",
