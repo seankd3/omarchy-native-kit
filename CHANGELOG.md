@@ -138,6 +138,7 @@ Initial public seed of Omarchy Native Kit.
   - `access-review-escalation-closeout-ledger`
   - `access-review-ledger-archive-browser`
   - `access-review-archive-retention-policy-lab`
+  - `access-review-archive-purge-approval-console`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`

@@ -97,6 +97,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Access Review Escalation Closeout Ledger | `examples/access-review-escalation-closeout-ledger` | Studio app for inspecting closed access review receipt escalations, final owner acknowledgements, breach timer outcomes, retry transcript retention, checksum repair proof, reviewer closeout packets, and rollback-safe audit ledgers. |
 | Access Review Ledger Archive Browser | `examples/access-review-ledger-archive-browser` | Studio app for inspecting archived access review ledgers, retained receipt closeouts, owner acknowledgement history, retry transcript hashes, checksum repair records, audit export labels, and rollback-safe archive retrieval. |
 | Access Review Archive Retention Policy Lab | `examples/access-review-archive-retention-policy-lab` | Studio app for inspecting access review archive retention policies, ledger expiry windows, receipt closeout holds, owner acknowledgement history, retry hash preservation, checksum repair retention, and rollback-safe archive purge previews. |
+| Access Review Archive Purge Approval Console | `examples/access-review-archive-purge-approval-console` | Studio app for inspecting access review archive purge approvals, retention policy exceptions, legal hold overrides, delegated owner approvals, retry hash preservation, checksum proof retention, and rollback-safe purge authorization packets. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -192,7 +193,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `access-review-archive-purge-approval-console` - inspect access review archive purge approvals, retention policy exceptions, legal hold overrides, delegated owner approvals, retry hash preservation, checksum proof retention, and rollback-safe purge authorization packets.
+- `access-review-purge-exception-appeal-board` - inspect denied archive purge appeals, retention exception disputes, legal hold release evidence, delegated owner re-approvals, retry hash disputes, checksum proof objections, and rollback-safe appeal packets.
 
 ## Kit Refinements To Unlock More Apps
 

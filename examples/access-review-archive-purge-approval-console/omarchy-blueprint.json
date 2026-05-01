@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-archive-purge-approval-console",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "approval-summary",
+      "purpose": "Track purge requests, policy exceptions, legal holds, and sealed authorization packets.",
+      "tokens": ["surface", "surfaceForeground", "border", "success", "info", "warning", "danger"]
+    },
+    {
+      "name": "request-grid",
+      "purpose": "Compare archive purge requests by owner, exception, approval state, and rollback readiness.",
+      "tokens": ["surface", "surfaceRaised", "mutedForeground", "accent", "danger"]
+    },
+    {
+      "name": "authorization-workspace",
+      "purpose": "Inspect retention exceptions, legal hold overrides, delegated approvals, retry hash preservation, checksum proof retention, and rollback-safe authorization packets.",
+      "tokens": ["background", "surface", "border", "borderStrong", "danger", "warning", "info"]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricTile",
+      "purpose": "Compact purge approval counter with semantic status tone.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["stable height across values", "tone visible without raw colors"]
+    },
+    {
+      "name": "RequestCard",
+      "purpose": "Archive purge request card showing exception, approval, status, and authorization progress.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "accent", "danger", "success"],
+      "interactions": ["progress bar uses semantic tokens", "status chip maps to approval state"]
+    },
+    {
+      "name": "AuthorizationRow",
+      "purpose": "Rollback-safe purge authorization row with command and packet proof details.",
+      "tokens": ["background", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["authorization text remains readable at narrow widths", "row layout does not shift when state changes"]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button and status row has a visible focus or stable hover-safe presentation.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
