@@ -46,6 +46,7 @@ Initial public seed of Omarchy Native Kit.
 - `.desktop` launcher generation.
 - Opt-in theme hook script generation.
 - Dogfood apps:
+  - `accessibility-contrast-auditor`
   - `hello-omarchy-native`
   - `agent-context-lab`
   - `signal-desk`

@@ -12,6 +12,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | App catalog | `src/catalog.ts` | Discover blueprint-backed apps and summarize verification status. |
 | Hook generator | `src/hooks.ts` | Generate opt-in theme sync scripts without mutating Omarchy config. |
 | React/Vite template | `templates/react-vite` | Small starter for theme-aware apps. |
+| Accessibility Contrast Auditor | `examples/accessibility-contrast-auditor` | Studio app for inspecting contrast, focus rings, reduced-motion behavior, font scaling, and pointer target sizes across Omarchy-native app surfaces. |
 | Hello app | `examples/hello-omarchy-native` | Minimal command-surface starter output. |
 | Agent Context Lab | `examples/agent-context-lab` | Studio-style app for inspecting agent context. |
 | Signal Desk | `examples/signal-desk` | Dashboard app built from a blueprint. |
@@ -125,7 +126,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `accessibility-contrast-auditor` - inspect contrast, focus rings, reduced-motion behavior, font scaling, and pointer target sizes across Omarchy-native app surfaces.
+- `desktop-entry-inspector` - audit `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps.
 
 ## Kit Refinements To Unlock More Apps
 

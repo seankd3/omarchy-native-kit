@@ -1,0 +1,422 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--omarchy-success) 12%, transparent), transparent 34rem),
+    linear-gradient(315deg, color-mix(in srgb, var(--omarchy-danger) 9%, transparent), transparent 36rem),
+    var(--omarchy-background);
+}
+
+button,
+a,
+label,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  min-height: 44px;
+}
+
+button {
+  border: 1px solid var(--omarchy-border-strong);
+  padding: 0 14px;
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+a {
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--omarchy-border-strong);
+  padding: 0 14px;
+  color: var(--omarchy-info);
+  background: var(--omarchy-background);
+  font-weight: 850;
+  text-decoration: none;
+}
+
+button:hover,
+button:focus-visible,
+a:hover,
+a:focus-visible,
+label:focus-within {
+  outline: 2px solid var(--omarchy-focus);
+  outline-offset: 2px;
+}
+
+button:hover,
+button:focus-visible {
+  background: var(--omarchy-accent-strong);
+}
+
+code {
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.shell {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.auditor {
+  width: min(1340px, 100%);
+  margin: 0 auto;
+}
+
+.masthead,
+.metrics,
+.layout,
+.panelHeader,
+.auditBadge,
+.auditRow,
+.auditTitle,
+.auditMeta,
+.sampleGrid,
+.scaleList article,
+.fixList article {
+  display: grid;
+}
+
+.masthead {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: end;
+  padding: 8px 0 22px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--omarchy-info);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.55rem, 7vw, 5.8rem);
+  line-height: 0.92;
+}
+
+h2 {
+  font-size: 1.05rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+.metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 22px 0;
+  border: 1px solid var(--omarchy-border);
+  background: var(--omarchy-border);
+}
+
+.metrics article {
+  min-height: 118px;
+  padding: 18px;
+  background: color-mix(in srgb, var(--omarchy-surface) 94%, transparent);
+}
+
+.metrics span {
+  display: block;
+  color: var(--omarchy-accent);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 0.95;
+}
+
+.metrics article:nth-child(2) span {
+  color: var(--omarchy-success);
+}
+
+.metrics article:last-child span {
+  color: var(--omarchy-danger);
+}
+
+.metrics p,
+.auditRow p,
+.auditRow small,
+.scaleList p,
+.fixList p {
+  color: var(--omarchy-muted-foreground);
+}
+
+.layout {
+  grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.75fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.auditPanel,
+.previewPanel,
+.scalePanel,
+.fixPanel {
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface) 94%, transparent);
+  box-shadow: 0 18px 58px color-mix(in srgb, var(--omarchy-shadow) 24%, transparent);
+}
+
+.panelHeader {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 74px;
+  padding: 16px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.panelHeader.compact {
+  grid-template-columns: 1fr;
+}
+
+.auditBadge {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 9px;
+  min-height: 36px;
+  border: 1px solid var(--omarchy-border);
+  padding: 0 11px;
+  color: var(--omarchy-success);
+  background: color-mix(in srgb, var(--omarchy-success) 9%, var(--omarchy-surface));
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.auditBadge span {
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 999px;
+  background: var(--omarchy-success);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--omarchy-success) 17%, transparent);
+}
+
+.auditList,
+.sideRail,
+.scaleList,
+.fixList {
+  display: grid;
+}
+
+.auditList,
+.scaleList,
+.fixList {
+  gap: 1px;
+  background: var(--omarchy-border);
+}
+
+.auditRow {
+  grid-template-columns: minmax(220px, 0.48fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  min-height: 116px;
+  padding: 16px;
+  background: var(--omarchy-surface);
+}
+
+.auditRow:hover,
+.auditRow:focus-visible {
+  outline: 0;
+  background: var(--omarchy-surface-raised);
+}
+
+.auditRow:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--omarchy-focus);
+}
+
+.auditTitle {
+  gap: 7px;
+}
+
+.auditTitle span,
+.scaleList article span,
+.fixList article > span {
+  width: fit-content;
+  border: 1px solid var(--omarchy-border);
+  padding: 3px 8px;
+  color: var(--omarchy-success);
+  background: color-mix(in srgb, var(--omarchy-success) 10%, transparent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.auditRow[data-state="review"] .auditTitle span,
+.scaleList article[data-state="review"] span,
+.fixList article[data-state="review"] > span {
+  color: var(--omarchy-warning);
+  background: color-mix(in srgb, var(--omarchy-warning) 12%, transparent);
+}
+
+.auditRow[data-state="fail"] .auditTitle span,
+.scaleList article[data-state="fail"] span,
+.fixList article[data-state="fail"] > span {
+  color: var(--omarchy-danger);
+  background: color-mix(in srgb, var(--omarchy-danger) 11%, transparent);
+}
+
+.auditMeta {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--omarchy-border);
+}
+
+.auditMeta div {
+  min-width: 0;
+  padding: 11px;
+  background: var(--omarchy-background);
+}
+
+.auditMeta small {
+  display: block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.auditMeta strong {
+  color: var(--omarchy-surface-foreground);
+  font-size: 0.9rem;
+}
+
+.sideRail {
+  gap: 18px;
+}
+
+.sampleGrid {
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  min-height: 260px;
+  padding: 16px;
+  align-content: center;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--omarchy-border) 72%, transparent) 1px, transparent 1px),
+    linear-gradient(0deg, color-mix(in srgb, var(--omarchy-border) 72%, transparent) 1px, transparent 1px),
+    var(--omarchy-background);
+  background-size: 44px 44px;
+}
+
+.sampleGrid .secondary {
+  color: var(--omarchy-surface-foreground);
+  background: var(--omarchy-surface);
+}
+
+label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  border: 1px solid var(--omarchy-border-strong);
+  padding: 0 12px;
+  color: var(--omarchy-surface-foreground);
+  background: var(--omarchy-surface);
+  font-weight: 850;
+}
+
+input {
+  inline-size: 18px;
+  block-size: 18px;
+  accent-color: var(--omarchy-accent);
+}
+
+.scaleList article,
+.fixList article {
+  gap: 9px;
+  min-height: 104px;
+  padding: 14px;
+  background: var(--omarchy-surface);
+}
+
+.scaleList article {
+  grid-template-columns: minmax(0, 1fr) 96px;
+  align-items: center;
+}
+
+meter {
+  inline-size: 96px;
+  block-size: 10px;
+  accent-color: var(--omarchy-accent);
+}
+
+.fixList code {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--omarchy-info);
+  font-size: 0.78rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+}
+
+@media (max-width: 980px) {
+  .layout,
+  .metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .sideRail {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fixPanel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .shell {
+    padding: 12px;
+  }
+
+  .masthead,
+  .layout,
+  .metrics,
+  .sideRail,
+  .auditRow,
+  .auditMeta,
+  .sampleGrid,
+  .scaleList article {
+    grid-template-columns: 1fr;
+  }
+
+  .masthead button,
+  .auditBadge {
+    width: fit-content;
+  }
+}
