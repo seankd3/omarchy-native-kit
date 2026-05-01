@@ -9,3 +9,9 @@ npm run dev
 ```
 
 The template uses `src/omarchy-theme.css` for semantic tokens such as `--omarchy-background`, `--omarchy-foreground`, `--omarchy-surface`, and `--omarchy-accent`.
+
+Generated apps also include `omarchy-blueprint.json`, a structured build contract for coding agents. Regenerate it from the parent kit with:
+
+```bash
+omarchy-native agent blueprint --app my-app --kind command-center > omarchy-blueprint.json
+```

@@ -35,7 +35,7 @@ omarchy-native theme css --out src/omarchy-theme.css
 omarchy-native agent json
 omarchy-native agent prompt
 omarchy-native agent blueprint --app signal-desk --kind dashboard
-omarchy-native create hello-omarchy-native --template react-vite
+omarchy-native create hello-omarchy-native --template react-vite --kind dashboard
 ```
 
 All theme commands read inside `~/.config/omarchy/current/theme` by default, primarily `colors.toml` and optionally `theme.name` if present in that directory. For tests or deterministic generation, pass `--colors <path>` or `--theme-dir <path>`.
@@ -95,6 +95,8 @@ Generated apps import `src/omarchy-theme.css` before `src/styles.css` and use va
 --omarchy-surface
 --omarchy-accent
 ```
+
+Generated apps also include `omarchy-blueprint.json`, so coding agents can keep the target layout, component recipes, token roles, and acceptance checks in the app repo while they build.
 
 The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/agent-context-lab` is a richer dogfood app that turns the agent context contract into a compact Omarchy-native build workspace.

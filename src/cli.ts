@@ -111,7 +111,7 @@ function doctor(parsed: ParsedArgs): void {
 
 function create(parsed: ParsedArgs): void {
   const [, name] = parsed.positionals;
-  if (!name) throw new Error('Missing app name. Usage: omarchy-native create <name> --template react-vite');
+  if (!name) throw new Error('Missing app name. Usage: omarchy-native create <name> --template react-vite [--kind dashboard]');
 
   const template = stringFlag(parsed, 'template') ?? 'react-vite';
   if (template !== 'react-vite') throw new Error(`Unsupported template "${template}". Available: react-vite.`);
@@ -119,10 +119,14 @@ function create(parsed: ParsedArgs): void {
   const target = resolve(name);
   if (existsSync(target)) throw new Error(`Target already exists: ${target}`);
 
+  const theme = loadTheme(parsed, true);
+  const appName = basename(target);
+  const kind = stringFlag(parsed, 'kind');
   const templateDir = resolve(dirname(fileURLToPath(import.meta.url)), '../templates/react-vite');
   cpSync(templateDir, target, { recursive: true });
-  personalizePackageJson(join(target, 'package.json'), basename(target));
-  writeFileSync(join(target, 'src/omarchy-theme.css'), toCssVariables(loadTheme(parsed, true).tokens));
+  personalizePackageJson(join(target, 'package.json'), appName);
+  writeFileSync(join(target, 'src/omarchy-theme.css'), toCssVariables(theme.tokens));
+  writeFileSync(join(target, 'omarchy-blueprint.json'), toAgentBlueprintJson(theme, { appName, kind }));
   console.log(`Created ${name} from ${template}.`);
   console.log(`Next: cd ${name} && npm install && npm run dev`);
 }
@@ -193,5 +197,6 @@ Commands:
   agent prompt [--colors <path>]        Print a compact design prompt for agents
   agent blueprint [--app <name>]        Print a structured app build blueprint
   create <name> --template react-vite   Create a React/Vite starter app
+    [--kind command-center|dashboard|studio] writes omarchy-blueprint.json
 `);
 }

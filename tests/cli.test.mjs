@@ -64,16 +64,24 @@ test('agent blueprint prints a structured app plan', () => {
   assert.ok(payload.components.some((component) => component.name === 'ToolButton'));
 });
 
-test('create generates react-vite app', () => {
+test('create generates react-vite app with blueprint contract', () => {
   const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-create-'));
   try {
     const target = join(dir, 'hello');
-    execFileSync(process.execPath, [...cli, 'create', target, '--template', 'react-vite', '--colors', fixture], {
-      encoding: 'utf8'
-    });
+    execFileSync(
+      process.execPath,
+      [...cli, 'create', target, '--template', 'react-vite', '--kind', 'dashboard', '--colors', fixture],
+      {
+        encoding: 'utf8'
+      }
+    );
+    const blueprint = JSON.parse(readFileSync(join(target, 'omarchy-blueprint.json'), 'utf8'));
 
     assert.match(readFileSync(join(target, 'package.json'), 'utf8'), /"name": "hello"/);
     assert.match(readFileSync(join(target, 'src/omarchy-theme.css'), 'utf8'), /--omarchy-background/);
+    assert.equal(blueprint.appName, 'hello');
+    assert.equal(blueprint.kind, 'dashboard');
+    assert.ok(blueprint.acceptanceChecks.some((check) => check.includes('npm run build')));
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
