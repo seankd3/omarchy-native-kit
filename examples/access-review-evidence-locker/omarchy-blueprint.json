@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-evidence-locker",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "locker-summary",
+      "purpose": "At-a-glance counts for sealed bundles, pending attestations, rationale gaps, and retention windows.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "danger",
+        "warning",
+        "success",
+        "info"
+      ]
+    },
+    {
+      "name": "evidence-bundles",
+      "purpose": "Keyboard-focusable rows for review evidence bundles and their campaign ownership state.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "surfaceForeground",
+        "border",
+        "accent"
+      ]
+    },
+    {
+      "name": "custody-and-retention",
+      "purpose": "Panels for reviewer signatures, exported access snapshots, custody notes, and safe sealing guardrails.",
+      "tokens": [
+        "background",
+        "surface",
+        "mutedForeground",
+        "borderStrong",
+        "shadow"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "BundleRow",
+      "purpose": "Focusable evidence bundle row with campaign, owner, status, and included artifact context.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "surfaceForeground",
+        "accent",
+        "border"
+      ],
+      "interactions": [
+        "hover and focus-visible states expose row selection",
+        "bundle state is shown with semantic info, warning, danger, or success"
+      ]
+    },
+    {
+      "name": "AttestationCard",
+      "purpose": "Reviewer decision card that keeps signature state and exception rationale visible.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "mutedForeground",
+        "danger",
+        "warning",
+        "success",
+        "info"
+      ],
+      "interactions": [
+        "tone label stays visible without overlapping text",
+        "card sizing remains stable across responsive breakpoints"
+      ]
+    },
+    {
+      "name": "SealList",
+      "purpose": "Ordered evidence sealing checklist for retention-safe review bundles.",
+      "tokens": [
+        "background",
+        "accent",
+        "borderStrong",
+        "surfaceForeground"
+      ],
+      "interactions": [
+        "primary retention action has visible hover and focus-visible states",
+        "guardrail numbers are stable and token-colored"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
