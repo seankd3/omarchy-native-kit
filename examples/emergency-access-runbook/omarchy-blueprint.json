@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "emergency-access-runbook",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "emergency-summary",
+      "purpose": "Readiness counts for break-glass paths, ready accounts, handoffs, and blocked drills.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "border",
+        "accent"
+      ]
+    },
+    {
+      "name": "break-glass-ledger",
+      "purpose": "Emergency account inventory with scope, custodian, grant window, and readiness state.",
+      "tokens": [
+        "background",
+        "border",
+        "shadow"
+      ]
+    },
+    {
+      "name": "handoff-and-rehearsal-panels",
+      "purpose": "Contact proof, time-boxed access grants, rollback commands, and drill steps.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "borderStrong",
+        "info"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "AccountCard",
+      "purpose": "Focusable break-glass account card with scope, custodian, and grant window.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "accent",
+        "accentForeground"
+      ],
+      "interactions": [
+        "focus outlines with accent",
+        "state badge distinguishes ready, handoff, and blocked paths",
+        "wrapped labels do not resize sibling cards"
+      ]
+    },
+    {
+      "name": "HandoffProof",
+      "purpose": "Emergency contact channel, verification proof, and fallback instruction.",
+      "tokens": [
+        "background",
+        "border",
+        "shadow"
+      ],
+      "interactions": [
+        "focus state is visible for keyboard review",
+        "blocked contacts remain visually distinct"
+      ]
+    },
+    {
+      "name": "AccessGrant",
+      "purpose": "Time-boxed grant surface with target, limit, expiry, and rollback command.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "mutedForeground",
+        "accent",
+        "border"
+      ],
+      "interactions": [
+        "tab order follows visual order",
+        "rollback command wraps without horizontal overflow"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}

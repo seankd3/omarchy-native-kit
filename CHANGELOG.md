@@ -94,6 +94,7 @@ Initial public seed of Omarchy Native Kit.
   - `pinentry-prompt-router`
   - `hardware-token-manager`
   - `backup-key-recovery-planner`
+  - `emergency-access-runbook`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
