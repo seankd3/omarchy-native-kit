@@ -69,6 +69,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Entitlement Review Campaign Board | `examples/entitlement-review-campaign-board` | Studio app for inspecting entitlement review campaigns, reviewer queues, stale group membership, orphaned roles, owner intent, exception windows, and rollback-safe access removals. |
 | Directory Group Nesting Inspector | `examples/directory-group-nesting-inspector` | Studio app for inspecting nested directory groups, transitive privilege, stale owners, circular membership, app entitlements, blast-radius previews, and rollback-safe group cleanup. |
 | Directory Owner Attestation Desk | `examples/directory-owner-attestation-desk` | Studio app for inspecting directory resource owners, stale approvers, delegated stewardship, missing attestations, group risk, escalation windows, and rollback-safe owner reassignment. |
+| Directory Lifecycle Policy Lab | `examples/directory-lifecycle-policy-lab` | Studio app for inspecting joiner-mover-leaver lifecycle policy, stale identities, manager handoffs, suspended accounts, entitlement drift, exception windows, and rollback-safe lifecycle cleanup. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -164,7 +165,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `directory-lifecycle-policy-lab` - inspect joiner-mover-leaver lifecycle policy, stale identities, manager handoffs, suspended accounts, entitlement drift, exception windows, and rollback-safe lifecycle cleanup.
+- `directory-deprovisioning-runbook` - inspect deprovisioning tasks, suspended identities, app offboarding queues, orphaned sessions, manager sign-off, exception holds, and rollback-safe account disablement.
 
 ## Kit Refinements To Unlock More Apps
 
