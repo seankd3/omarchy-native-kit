@@ -222,6 +222,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/oauth-consent-review-board` is a studio dogfood app for inspecting OAuth grants, delegated scopes, stale app access, owner intent, revocation windows, and rollback-safe consent cleanup.
 `examples/saml-assertion-trust-lab` is a studio dogfood app for inspecting SAML apps, assertion attributes, stale identity provider trust, certificate expiry, owner intent, and rollback-safe federation cleanup.
 `examples/webauthn-passkey-policy-center` is a studio dogfood app for inspecting passkey registrations, resident credentials, authenticator attestation, stale devices, owner intent, and rollback-safe WebAuthn policy changes.
+`examples/device-compliance-attestation-desk` is a studio dogfood app for inspecting enrolled devices, posture attestations, stale compliance signals, owner intent, exception windows, and rollback-safe access policy changes.
 `examples/clipboard-history-curator` is a studio dogfood app for reviewing clipboard history, redacting secrets, pinning snippets, and routing copied content.
 `examples/desktop-entry-inspector` is a studio dogfood app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps.
 `examples/dns-resolver-policy-lab` is a studio dogfood app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes.
