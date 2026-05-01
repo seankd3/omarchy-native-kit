@@ -69,4 +69,5 @@ Initial public seed of Omarchy Native Kit.
   - `backup-restore-console`
   - `notification-routing-board`
   - `power-profile-switchboard`
+  - `audio-device-mixer`
 - Ecosystem map and CI workflow template.

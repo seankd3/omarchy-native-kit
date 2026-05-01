@@ -196,6 +196,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/backup-restore-console` is a dashboard dogfood app for checking backup coverage, restore points, and rollback readiness.
 `examples/notification-routing-board` is a dashboard dogfood app for designing notification routes, quiet hours, and escalation rules.
 `examples/power-profile-switchboard` is a dashboard dogfood app for tuning power profiles, brightness, idle behavior, and performance modes per workspace.
+`examples/audio-device-mixer` is a dashboard dogfood app for routing microphones, speakers, per-app volume, and meeting presets.
 
 ## Development
 
@@ -227,7 +228,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/verify.ts` - app contract verification for generated Omarchy-native apps
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app
-- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer`, `examples/focus-flight-recorder`, `examples/window-rule-lab`, `examples/config-diff-studio`, `examples/session-restore-planner`, `examples/portal-permission-center`, `examples/backup-restore-console`, `examples/notification-routing-board`, `examples/power-profile-switchboard` - richer dogfood apps
+- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer`, `examples/focus-flight-recorder`, `examples/window-rule-lab`, `examples/config-diff-studio`, `examples/session-restore-planner`, `examples/portal-permission-center`, `examples/backup-restore-console`, `examples/notification-routing-board`, `examples/power-profile-switchboard`, `examples/audio-device-mixer` - richer dogfood apps
 - `docs/` - preserved research, product, architecture, and implementation notes
 
 ## Current Scope
