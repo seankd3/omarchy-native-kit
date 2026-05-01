@@ -56,6 +56,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Emergency Access Runbook | `examples/emergency-access-runbook` | Studio app for inspecting break-glass accounts, offline runbooks, contact handoffs, time-boxed access grants, and rollback-safe emergency access rehearsals. |
 | Incident Credential Rotator | `examples/incident-credential-rotator` | Studio app for inspecting compromised credential reports, rotation batches, service owners, secret age, rollback snapshots, and post-incident access cleanup. |
 | Credential Leak Forensics | `examples/credential-leak-forensics` | Studio app for inspecting leaked secret fingerprints, exposure timelines, affected workspaces, scanner evidence, containment status, and cleanup verification. |
+| Secret Lifecycle Governor | `examples/secret-lifecycle-governor` | Studio app for inspecting secret birth, owner attestations, rotation cadence, consumer drift, deletion readiness, and policy-safe lifecycle changes. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -151,7 +152,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `secret-lifecycle-governor` - inspect secret birth, owner attestations, rotation cadence, consumer drift, deletion readiness, and policy-safe lifecycle changes.
+- `api-token-scope-auditor` - inspect API token scopes, stale grants, owner intent, overbroad permissions, revocation windows, and rollback-safe scope reductions.
 
 ## Kit Refinements To Unlock More Apps
 
