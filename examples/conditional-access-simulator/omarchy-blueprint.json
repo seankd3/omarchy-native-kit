@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "conditional-access-simulator",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "masthead",
+      "purpose": "Summarize the conditional access simulation and expose the dry-run action.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "border",
+        "accent"
+      ]
+    },
+    {
+      "name": "rule-panel",
+      "purpose": "Inspect conditional access rules with target apps, evaluated signals, outcomes, and confidence.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "border",
+        "success",
+        "warning",
+        "danger"
+      ]
+    },
+    {
+      "name": "access-matrix",
+      "purpose": "Compare actor, app, device, identity, and path signals before staging a policy change.",
+      "tokens": [
+        "surface",
+        "mutedForeground",
+        "border",
+        "info"
+      ]
+    },
+    {
+      "name": "simulation-panels",
+      "purpose": "Review break-glass exceptions, owner intent, rollback notes, and blocked paths.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "borderStrong",
+        "accent"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "RuleCard",
+      "purpose": "Shows one conditional access rule with its target, evaluated signal, confidence, and allow, step-up, or block state.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "interactions": [
+        "focus outlines with accent",
+        "state is visible through tokenized border color",
+        "card content stays stable across responsive breakpoints"
+      ]
+    },
+    {
+      "name": "ScenarioRow",
+      "purpose": "Compares device posture, identity risk, and access path signals for a simulated actor.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border"
+      ],
+      "interactions": [
+        "focus outlines with accent",
+        "grid collapses without hiding any signal"
+      ]
+    },
+    {
+      "name": "ExceptionCard",
+      "purpose": "Captures break-glass window, owner intent, guardrails, and rollback-safe exception status.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "border",
+        "warning",
+        "danger"
+      ],
+      "interactions": [
+        "focus outlines with accent",
+        "expired or unowned exceptions are visually distinct"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}

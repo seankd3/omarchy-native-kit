@@ -104,6 +104,7 @@ Initial public seed of Omarchy Native Kit.
   - `webauthn-passkey-policy-center`
   - `device-compliance-attestation-desk`
   - `zero-trust-access-review-console`
+  - `conditional-access-simulator`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
