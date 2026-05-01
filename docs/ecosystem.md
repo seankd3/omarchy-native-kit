@@ -47,6 +47,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Credential Session Vault | `examples/credential-session-vault` | Studio app for staging session secrets, SSH agents, keyring readiness, and workspace credential exposure. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
+| DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
 | Package Update Coordinator | `examples/package-update-coordinator` | Dashboard app for planning package updates, pinning holds, comparing risky upgrades, and scheduling rollback-safe maintenance windows. |
 | Journal Timeline Inspector | `examples/journal-timeline-inspector` | Studio app for inspecting system logs across boots, correlating service failures with updates, and saving annotated incident timelines. |
 | Service Restart Orchestrator | `examples/service-restart-orchestrator` | Dashboard app for planning systemd user and system service restarts, previewing dependency impact, and scheduling safe restart batches. |
@@ -137,7 +138,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `dns-resolver-policy-lab` - inspect resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes.
+- `vpn-profile-coordinator` - inspect VPN profiles, route ownership, kill-switch posture, workspace bindings, and rollback-safe tunnel changes.
 
 ## Kit Refinements To Unlock More Apps
 
