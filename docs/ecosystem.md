@@ -46,6 +46,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Journal Timeline Inspector | `examples/journal-timeline-inspector` | Studio app for inspecting system logs across boots, correlating service failures with updates, and saving annotated incident timelines. |
 | Service Restart Orchestrator | `examples/service-restart-orchestrator` | Dashboard app for planning systemd user and system service restarts, previewing dependency impact, and scheduling safe restart batches. |
 | Environment Variable Auditor | `examples/environment-variable-auditor` | Studio app for inspecting shell, desktop, and service environments, comparing mismatched variables, and staging clean export fixes. |
+| Locale Timezone Manager | `examples/locale-timezone-manager` | Dashboard app for comparing locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes. |
 
 ## Build Loop
 
@@ -121,7 +122,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `locale-timezone-manager` - compare locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes.
+- `font-rendering-tuner` - compare font stacks, antialiasing, hinting, and scaling behavior across GTK, Qt, browser, and terminal surfaces.
 
 ## Kit Refinements To Unlock More Apps
 

@@ -80,4 +80,5 @@ Initial public seed of Omarchy Native Kit.
   - `journal-timeline-inspector`
   - `service-restart-orchestrator`
   - `environment-variable-auditor`
+  - `locale-timezone-manager`
 - Ecosystem map and CI workflow template.
