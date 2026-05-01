@@ -93,6 +93,7 @@ Initial public seed of Omarchy Native Kit.
   - `gpg-keyring-policy-lab`
   - `pinentry-prompt-router`
   - `hardware-token-manager`
+  - `backup-key-recovery-planner`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`

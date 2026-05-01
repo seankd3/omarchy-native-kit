@@ -52,6 +52,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | GPG Keyring Policy Lab | `examples/gpg-keyring-policy-lab` | Studio app for inspecting GPG agent sockets, smartcard state, signing key trust, cache TTLs, and rollback-safe cryptographic policy changes. |
 | Pinentry Prompt Router | `examples/pinentry-prompt-router` | Studio app for inspecting pinentry variants, desktop prompt routing, TTY fallback behavior, passphrase cache boundaries, and rollback-safe prompt changes. |
 | Hardware Token Manager | `examples/hardware-token-manager` | Studio app for inspecting FIDO2, PIV, and smartcard devices, enrollment state, touch policies, recovery paths, and rollback-safe token changes. |
+| Backup Key Recovery Planner | `examples/backup-key-recovery-planner` | Studio app for inspecting recovery keys, backup tokens, emergency passphrases, escrow readiness, and rollback-safe recovery drills. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -147,7 +148,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `backup-key-recovery-planner` - inspect recovery keys, backup tokens, emergency passphrases, escrow readiness, and rollback-safe recovery drills.
+- `emergency-access-runbook` - inspect break-glass accounts, offline runbooks, contact handoffs, time-boxed access grants, and rollback-safe emergency access rehearsals.
 
 ## Kit Refinements To Unlock More Apps
 
