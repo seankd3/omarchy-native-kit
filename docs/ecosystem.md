@@ -32,6 +32,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Config Diff Studio | `examples/config-diff-studio` | Studio app for staging reversible Omarchy config patch previews. |
 | Session Restore Planner | `examples/session-restore-planner` | Dashboard app for modeling startup apps, workspaces, and restore order. |
 | Portal Permission Center | `examples/portal-permission-center` | Studio app for reviewing portals, default handlers, and desktop integration permissions. |
+| Backup Restore Console | `examples/backup-restore-console` | Dashboard app for checking backup coverage, restore points, and rollback readiness. |
 
 ## Build Loop
 
@@ -107,7 +108,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `backup-restore-console` - verify app state backups, restore points, and rollback readiness for Omarchy-native workflows.
+- `notification-routing-board` - design notification routes, quiet hours, and escalation rules for Omarchy-native apps.
 
 ## Kit Refinements To Unlock More Apps
 
