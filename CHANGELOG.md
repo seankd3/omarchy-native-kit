@@ -51,4 +51,5 @@ Initial public seed of Omarchy Native Kit.
   - `prompt-foundry`
   - `native-gallery`
   - `release-console`
+  - `aur-packager`
 - Ecosystem map and CI workflow template.

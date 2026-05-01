@@ -1,0 +1,282 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--omarchy-warning) 12%, transparent), transparent 28rem),
+    var(--omarchy-background);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.packagerShell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(250px, 330px) minmax(0, 1fr) minmax(280px, 340px);
+}
+
+.metaPanel,
+.checkPanel {
+  background: var(--omarchy-surface);
+}
+
+.metaPanel {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+  padding: 18px;
+  border-right: 1px solid var(--omarchy-border);
+}
+
+.eyebrow,
+small,
+kbd,
+input,
+.paneHeader span,
+.codeBlock {
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.eyebrow,
+h1,
+h2 {
+  margin: 0;
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  color: var(--omarchy-accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 0.96;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+.fieldStack,
+.checkStack,
+.commandStack {
+  display: grid;
+  gap: 10px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  color: var(--omarchy-muted-foreground);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+input {
+  width: 100%;
+  min-height: 40px;
+  border: 1px solid var(--omarchy-border);
+  color: var(--omarchy-surface-foreground);
+  background: var(--omarchy-background);
+  padding: 0 10px;
+}
+
+.buildPane {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.paneHeader {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 18px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.primaryAction,
+.checkRow,
+.commandRow {
+  border: 1px solid var(--omarchy-border);
+  color: var(--omarchy-surface-foreground);
+  background: var(--omarchy-surface);
+}
+
+.primaryAction {
+  min-height: 40px;
+  padding: 0 14px;
+  border-color: var(--omarchy-accent);
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  font-weight: 800;
+}
+
+.codeBlock {
+  margin: 0;
+  min-width: 0;
+  overflow: auto;
+  padding: 18px;
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.codeBlock span {
+  display: grid;
+  grid-template-columns: 3ch minmax(0, 1fr);
+  gap: 14px;
+  min-width: max-content;
+}
+
+.codeBlock i {
+  color: var(--omarchy-muted-foreground);
+  font-style: normal;
+  text-align: right;
+}
+
+.checkPanel {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  border-left: 1px solid var(--omarchy-border);
+}
+
+.checkStack,
+.commandStack {
+  padding: 0 14px;
+}
+
+.checkStack {
+  padding-top: 14px;
+}
+
+.commandStack {
+  padding-bottom: 14px;
+}
+
+.checkRow {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.checkRow > span {
+  width: 10px;
+  aspect-ratio: 1;
+  background: var(--omarchy-success);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--omarchy-success) 16%, transparent);
+}
+
+small,
+.paneHeader span {
+  color: var(--omarchy-muted-foreground);
+  font-size: 0.78rem;
+}
+
+.commandRow {
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.commandRow span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+kbd {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  aspect-ratio: 1;
+  border: 1px solid var(--omarchy-border-strong);
+  color: var(--omarchy-accent);
+  background: var(--omarchy-background);
+}
+
+.primaryAction:hover,
+.checkRow:hover,
+.commandRow:hover {
+  background: var(--omarchy-surface-raised);
+}
+
+.primaryAction:focus-visible,
+.checkRow:focus-visible,
+.commandRow:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--omarchy-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1040px) {
+  .packagerShell {
+    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+  }
+
+  .checkPanel {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--omarchy-border);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .packagerShell {
+    grid-template-columns: 1fr;
+  }
+
+  .metaPanel {
+    border-right: 0;
+    border-bottom: 1px solid var(--omarchy-border);
+  }
+
+  .paneHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 14px;
+  }
+
+  .primaryAction {
+    width: 100%;
+  }
+
+  .checkRow {
+    grid-template-columns: 14px minmax(0, 1fr);
+  }
+
+  .checkRow small {
+    grid-column: 2;
+  }
+}

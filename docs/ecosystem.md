@@ -21,6 +21,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Prompt Foundry | `examples/prompt-foundry` | Studio app for composing Omarchy-native app-building prompts. |
 | Native Gallery | `examples/native-gallery` | Studio app for browsing verified apps and copying blueprint recipes. |
 | Release Console | `examples/release-console` | Dashboard app for release dry-runs, catalog snapshots, and publish prep. |
+| AUR Packager | `examples/aur-packager` | Studio app for staging Arch/AUR package metadata and validation. |
 
 ## Build Loop
 
@@ -96,7 +97,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `aur-packager` - stage PKGBUILD metadata, install commands, and package validation for Arch/Omarchy users.
+- `theme-migration-lab` - compare old and new Omarchy palettes before rolling theme changes through apps.
 
 ## Kit Refinements To Unlock More Apps
 
