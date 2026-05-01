@@ -108,6 +108,7 @@ Initial public seed of Omarchy Native Kit.
   - `identity-threat-session-recorder`
   - `privileged-role-activation-planner`
   - `entitlement-review-campaign-board`
+  - `directory-group-nesting-inspector`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`

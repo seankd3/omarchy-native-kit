@@ -67,6 +67,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Identity Threat Session Recorder | `examples/identity-threat-session-recorder` | Studio app for inspecting risky sign-in sessions, impossible travel evidence, token replay clues, device pivots, owner intent, containment status, and rollback-safe session revocation plans. |
 | Privileged Role Activation Planner | `examples/privileged-role-activation-planner` | Studio app for inspecting just-in-time privileged role activations, approval chains, risky assignments, standing access drift, owner intent, emergency elevation, and rollback-safe role deactivation plans. |
 | Entitlement Review Campaign Board | `examples/entitlement-review-campaign-board` | Studio app for inspecting entitlement review campaigns, reviewer queues, stale group membership, orphaned roles, owner intent, exception windows, and rollback-safe access removals. |
+| Directory Group Nesting Inspector | `examples/directory-group-nesting-inspector` | Studio app for inspecting nested directory groups, transitive privilege, stale owners, circular membership, app entitlements, blast-radius previews, and rollback-safe group cleanup. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -162,7 +163,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `directory-group-nesting-inspector` - inspect nested directory groups, transitive privilege, stale owners, circular membership, app entitlements, blast-radius previews, and rollback-safe group cleanup.
+- `directory-owner-attestation-desk` - inspect directory resource owners, stale approvers, delegated stewardship, missing attestations, group risk, escalation windows, and rollback-safe owner reassignment.
 
 ## Kit Refinements To Unlock More Apps
 

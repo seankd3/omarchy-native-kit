@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "directory-group-nesting-inspector",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "masthead",
+      "purpose": "Summarize directory group nesting risk and expose the cleanup staging action.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "border",
+        "accent"
+      ]
+    },
+    {
+      "name": "nesting-graph",
+      "purpose": "Inspect nested directory groups, transitive privilege, owners, parent groups, and cleanup state.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "border",
+        "success",
+        "warning",
+        "danger"
+      ]
+    },
+    {
+      "name": "membership-and-entitlement-panels",
+      "purpose": "Compare stale owners, circular membership, app entitlements, and blast-radius previews.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "info"
+      ]
+    },
+    {
+      "name": "cleanup-plans",
+      "purpose": "Stage rollback-safe group cleanup plans with reversible emergency access paths.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "borderStrong",
+        "accent"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "GroupCard",
+      "purpose": "Shows one nested directory group with parent, transitive privilege, owner, and clear, review, or cleanup state.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "interactions": [
+        "focus outlines with accent",
+        "state is visible through tokenized border color",
+        "card content stays stable across responsive breakpoints"
+      ]
+    },
+    {
+      "name": "EntitlementBlastRadiusRow",
+      "purpose": "Captures app entitlement path, affected group, blast radius, and cleanup status.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border"
+      ],
+      "interactions": [
+        "focus outlines with accent",
+        "grid collapses without hiding blast-radius details"
+      ]
+    },
+    {
+      "name": "GroupCleanupPlan",
+      "purpose": "Captures group cleanup action and rollback-safe recovery path.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "border",
+        "warning",
+        "danger",
+        "success"
+      ],
+      "interactions": [
+        "focus outlines with accent",
+        "rollback note remains visible at narrow widths"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
