@@ -70,6 +70,7 @@ Initial public seed of Omarchy Native Kit.
   - `portal-permission-center`
   - `backup-restore-console`
   - `camera-microphone-permission-lab`
+  - `container-runtime-dashboard`
   - `notification-routing-board`
   - `power-profile-switchboard`
   - `proxy-environment-router`

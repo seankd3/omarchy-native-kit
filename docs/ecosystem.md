@@ -36,6 +36,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Portal Permission Center | `examples/portal-permission-center` | Studio app for reviewing portals, default handlers, and desktop integration permissions. |
 | Backup Restore Console | `examples/backup-restore-console` | Dashboard app for checking backup coverage, restore points, and rollback readiness. |
 | Camera Microphone Permission Lab | `examples/camera-microphone-permission-lab` | Studio app for inspecting camera and microphone portals, device selection, per-app grants, meeting profiles, and privacy fallback behavior. |
+| Container Runtime Dashboard | `examples/container-runtime-dashboard` | Dashboard app for inspecting Podman and Docker services, socket exposure, image trust, volume mounts, and rollback-safe container runtime changes. |
 | Notification Routing Board | `examples/notification-routing-board` | Dashboard app for designing notification routes, quiet hours, and escalation rules. |
 | Power Profile Switchboard | `examples/power-profile-switchboard` | Dashboard app for tuning power profiles, brightness, idle behavior, and performance modes per workspace. |
 | Proxy Environment Router | `examples/proxy-environment-router` | Studio app for inspecting proxy variables, per-app proxy routing, no-proxy gaps, PAC files, and rollback-safe proxy changes. |
@@ -140,7 +141,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `container-runtime-dashboard` - inspect Podman and Docker services, socket exposure, image trust, volume mounts, and rollback-safe container runtime changes.
+- `flatpak-permission-auditor` - inspect Flatpak permissions, filesystem grants, portal use, override drift, and rollback-safe sandbox changes.
 
 ## Kit Refinements To Unlock More Apps
 
