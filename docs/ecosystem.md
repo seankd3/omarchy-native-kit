@@ -29,6 +29,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Shortcut Trainer | `examples/shortcut-trainer` | Command-center app for practicing keyboard chords and focus checks. |
 | Focus Flight Recorder | `examples/focus-flight-recorder` | Studio app for capturing keyboard navigation paths and inspecting focus landings. |
 | Window Rule Lab | `examples/window-rule-lab` | Studio app for drafting window/workspace rules before live config changes. |
+| Config Diff Studio | `examples/config-diff-studio` | Studio app for staging reversible Omarchy config patch previews. |
 
 ## Build Loop
 
@@ -104,7 +105,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `config-diff-studio` - compare proposed Omarchy config edits against current files and stage a reversible patch.
+- `session-restore-planner` - model startup apps, workspaces, and restore order before committing session automation.
 
 ## Kit Refinements To Unlock More Apps
 

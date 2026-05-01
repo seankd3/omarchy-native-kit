@@ -190,6 +190,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/shortcut-trainer` is a command-center dogfood app for practicing keyboard chords and focus checks.
 `examples/focus-flight-recorder` is a studio dogfood app for capturing keyboard navigation paths and focus landings.
 `examples/window-rule-lab` is a studio dogfood app for drafting window/workspace rules before live config changes.
+`examples/config-diff-studio` is a studio dogfood app for staging reversible Omarchy config patch previews.
 
 ## Development
 
@@ -221,7 +222,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/verify.ts` - app contract verification for generated Omarchy-native apps
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app
-- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer`, `examples/focus-flight-recorder`, `examples/window-rule-lab` - richer dogfood apps
+- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge`, `examples/shortcut-trainer`, `examples/focus-flight-recorder`, `examples/window-rule-lab`, `examples/config-diff-studio` - richer dogfood apps
 - `docs/` - preserved research, product, architecture, and implementation notes
 
 ## Current Scope

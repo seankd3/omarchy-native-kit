@@ -63,4 +63,5 @@ Initial public seed of Omarchy Native Kit.
   - `shortcut-trainer`
   - `focus-flight-recorder`
   - `window-rule-lab`
+  - `config-diff-studio`
 - Ecosystem map and CI workflow template.
