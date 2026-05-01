@@ -49,6 +49,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Credential Session Vault | `examples/credential-session-vault` | Studio app for staging session secrets, SSH agents, keyring readiness, and workspace credential exposure. |
 | Secret Service Inspector | `examples/secret-service-inspector` | Studio app for inspecting Secret Service providers, keyring unlock state, app access, stale secrets, and rollback-safe credential cleanup. |
 | SSH Agent Session Monitor | `examples/ssh-agent-session-monitor` | Studio app for inspecting SSH agent sockets, loaded identities, forwarding exposure, lifetime policies, and rollback-safe key hygiene. |
+| GPG Keyring Policy Lab | `examples/gpg-keyring-policy-lab` | Studio app for inspecting GPG agent sockets, smartcard state, signing key trust, cache TTLs, and rollback-safe cryptographic policy changes. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -144,7 +145,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `gpg-keyring-policy-lab` - inspect GPG agent sockets, smartcard state, signing key trust, cache TTLs, and rollback-safe cryptographic policy changes.
+- `pinentry-prompt-router` - inspect pinentry variants, desktop prompt routing, TTY fallback behavior, passphrase cache boundaries, and rollback-safe prompt changes.
 
 ## Kit Refinements To Unlock More Apps
 

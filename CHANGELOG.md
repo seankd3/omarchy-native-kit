@@ -90,6 +90,7 @@ Initial public seed of Omarchy Native Kit.
   - `screen-capture-permission-lab`
   - `secret-service-inspector`
   - `ssh-agent-session-monitor`
+  - `gpg-keyring-policy-lab`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
