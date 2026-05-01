@@ -1,0 +1,474 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--omarchy-danger) 10%, transparent), transparent 34rem),
+    linear-gradient(235deg, color-mix(in srgb, var(--omarchy-info) 9%, transparent), transparent 42rem),
+    var(--omarchy-background);
+}
+
+button {
+  font: inherit;
+}
+
+.shell {
+  width: min(1460px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: end;
+  border: 1px solid var(--omarchy-border);
+  padding: 28px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--omarchy-surface-raised) 92%, transparent), color-mix(in srgb, var(--omarchy-surface) 90%, transparent)),
+    var(--omarchy-surface);
+  box-shadow: 0 24px 72px color-mix(in srgb, var(--omarchy-shadow) 32%, transparent);
+}
+
+.eyebrow,
+.cardTop p,
+.sectionTitle span,
+.facts span,
+.timerRow span,
+.ownerRow span,
+.checksum span,
+.evidenceNote span,
+.packetRow span {
+  margin: 0;
+  color: var(--omarchy-muted-foreground);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: var(--omarchy-accent);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 980px;
+  margin-bottom: 18px;
+  font-size: 3.2rem;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 0;
+  color: var(--omarchy-surface-foreground);
+  font-size: 1.12rem;
+}
+
+h3 {
+  margin-bottom: 8px;
+  color: var(--omarchy-surface-foreground);
+  font-size: 1rem;
+}
+
+.lede {
+  max-width: 920px;
+  margin-bottom: 0;
+  color: var(--omarchy-muted-foreground);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.hero button {
+  min-height: 44px;
+  border: 1px solid color-mix(in srgb, var(--omarchy-accent) 62%, var(--omarchy-border));
+  padding: 0 18px;
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hero button:hover,
+.hero button:focus-visible {
+  outline: 2px solid var(--omarchy-accent);
+  outline-offset: 3px;
+  background: color-mix(in srgb, var(--omarchy-accent) 84%, var(--omarchy-foreground));
+}
+
+.metrics,
+.escalationGrid,
+.workspace,
+.signalGrid,
+.bottomGrid {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric,
+.escalationCard,
+.panel {
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface) 92%, transparent);
+}
+
+.metric {
+  min-height: 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.metric span,
+.metric small,
+.summary,
+.retry p,
+.evidenceNote p {
+  color: var(--omarchy-muted-foreground);
+}
+
+.metric span,
+.metric small,
+.timerRow small,
+.ownerRow small,
+.checksum small,
+.evidenceNote small {
+  font-size: 0.82rem;
+}
+
+.metric strong {
+  display: block;
+  color: var(--omarchy-surface-foreground);
+  font-size: 2.35rem;
+  line-height: 1;
+}
+
+.metric.good {
+  border-color: color-mix(in srgb, var(--omarchy-success) 44%, var(--omarchy-border));
+}
+
+.metric.danger {
+  border-color: color-mix(in srgb, var(--omarchy-danger) 50%, var(--omarchy-border));
+}
+
+.metric.warn {
+  border-color: color-mix(in srgb, var(--omarchy-warning) 48%, var(--omarchy-border));
+}
+
+.metric.info {
+  border-color: color-mix(in srgb, var(--omarchy-info) 44%, var(--omarchy-border));
+}
+
+.escalationGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.escalationCard {
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  padding: 18px;
+}
+
+.cardTop,
+.sectionTitle,
+.timerRow,
+.ownerRow,
+.checksum,
+.evidenceNote {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.chip,
+.badge,
+.timerRow small,
+.ownerRow small,
+.checksum small,
+.evidenceNote small {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--omarchy-border);
+  padding: 4px 9px;
+  color: var(--omarchy-muted-foreground);
+  background: var(--omarchy-background);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.sealed,
+.matched,
+.acknowledged {
+  border-color: color-mix(in srgb, var(--omarchy-success) 60%, var(--omarchy-border));
+  color: var(--omarchy-success);
+}
+
+.breach,
+.drift,
+.missing,
+.open {
+  border-color: color-mix(in srgb, var(--omarchy-danger) 64%, var(--omarchy-border));
+  color: var(--omarchy-danger);
+}
+
+.reconciling {
+  border-color: color-mix(in srgb, var(--omarchy-warning) 64%, var(--omarchy-border));
+  color: var(--omarchy-warning);
+}
+
+.escalated,
+.paged {
+  border-color: color-mix(in srgb, var(--omarchy-info) 58%, var(--omarchy-border));
+  color: var(--omarchy-info);
+}
+
+.summary {
+  margin-bottom: 0;
+  line-height: 1.55;
+}
+
+.facts {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.facts span {
+  display: block;
+  border-left: 3px solid var(--omarchy-border-strong);
+  padding-left: 10px;
+}
+
+.progress {
+  overflow: hidden;
+  block-size: 8px;
+  background: var(--omarchy-background);
+}
+
+.progress span {
+  display: block;
+  block-size: 100%;
+  background: linear-gradient(90deg, var(--omarchy-accent), var(--omarchy-danger));
+}
+
+.workspace {
+  grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.65fr);
+}
+
+.signalGrid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+}
+
+.bottomGrid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(320px, 0.75fr);
+}
+
+.panel {
+  padding: 18px;
+}
+
+.wide {
+  min-height: 260px;
+}
+
+.sectionTitle {
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--omarchy-border);
+  padding-bottom: 14px;
+}
+
+.sectionTitle p {
+  margin: 0;
+  color: var(--omarchy-surface-foreground);
+  font-size: 1.08rem;
+  font-weight: 900;
+}
+
+.timerList,
+.ownerList,
+.retryGrid,
+.checksumList {
+  display: grid;
+  gap: 10px;
+}
+
+.timerRow,
+.ownerRow,
+.checksum,
+.evidenceNote,
+.packetRow {
+  border: 1px solid var(--omarchy-border);
+  padding: 12px;
+  background: color-mix(in srgb, var(--omarchy-background) 62%, transparent);
+}
+
+.timerRow strong,
+.ownerRow strong,
+.checksum strong,
+.evidenceNote strong,
+.packetRow strong {
+  display: block;
+  color: var(--omarchy-surface-foreground);
+}
+
+.retryGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.retry {
+  min-height: 166px;
+  border: 1px solid var(--omarchy-border);
+  padding: 14px;
+  background: color-mix(in srgb, var(--omarchy-background) 62%, transparent);
+}
+
+.retry .badge {
+  margin-bottom: 16px;
+}
+
+.retry p,
+.evidenceNote p {
+  margin-bottom: 10px;
+}
+
+.retry strong {
+  display: block;
+  color: var(--omarchy-surface-foreground);
+}
+
+.checksum {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto auto;
+  align-items: start;
+}
+
+.evidence,
+.packet,
+.checklist {
+  min-height: 330px;
+}
+
+.evidenceNote + .evidenceNote,
+.packetRow + .packetRow {
+  margin-top: 10px;
+}
+
+.evidenceNote {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr) auto;
+  align-items: start;
+}
+
+.packetRow {
+  display: grid;
+  gap: 10px;
+}
+
+.packetRow strong {
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+ol {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 22px;
+}
+
+li {
+  color: var(--omarchy-muted-foreground);
+  line-height: 1.5;
+}
+
+li::marker {
+  color: var(--omarchy-accent);
+  font-weight: 900;
+}
+
+@media (max-width: 1180px) {
+  .metrics,
+  .escalationGrid,
+  .workspace,
+  .signalGrid,
+  .bottomGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wide,
+  .evidence {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .shell {
+    padding: 12px;
+  }
+
+  .hero,
+  .metrics,
+  .escalationGrid,
+  .workspace,
+  .signalGrid,
+  .bottomGrid,
+  .retryGrid,
+  .checksum,
+  .evidenceNote {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    align-items: stretch;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.32rem;
+  }
+
+  .hero button {
+    width: 100%;
+  }
+
+  .cardTop,
+  .timerRow,
+  .ownerRow {
+    display: grid;
+  }
+}

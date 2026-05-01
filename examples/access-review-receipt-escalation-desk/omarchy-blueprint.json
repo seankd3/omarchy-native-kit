@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-receipt-escalation-desk",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "escalation-summary",
+      "purpose": "Track late receipts, owner pages, checksum fixes, and sealed rollback packets.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "border",
+        "danger",
+        "info",
+        "warning",
+        "success"
+      ]
+    },
+    {
+      "name": "escalation-grid",
+      "purpose": "Compare receipt escalations by owner, breach timer, paging channel, status, and progress.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "mutedForeground",
+        "accent",
+        "danger"
+      ]
+    },
+    {
+      "name": "receipt-closeout-workspace",
+      "purpose": "Inspect breach timers, delegated owner paging, retry transcripts, checksum reconciliation, reviewer evidence, and rollback packets.",
+      "tokens": [
+        "background",
+        "surface",
+        "border",
+        "borderStrong",
+        "danger",
+        "warning",
+        "info"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricTile",
+      "purpose": "Compact escalation counter with semantic status tone.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ],
+      "interactions": [
+        "stable height across values",
+        "tone visible without raw colors"
+      ]
+    },
+    {
+      "name": "EscalationCard",
+      "purpose": "Late receipt escalation card showing breach timer, paging channel, status, and progress.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "accent",
+        "danger",
+        "warning"
+      ],
+      "interactions": [
+        "progress bar uses semantic tokens",
+        "status chip maps to escalation state"
+      ]
+    },
+    {
+      "name": "ChecksumRow",
+      "purpose": "Reconciliation row comparing expected and observed packet hashes before closeout.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ],
+      "interactions": [
+        "hash values remain readable at narrow widths",
+        "row layout does not shift when state changes"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button and status row has a visible focus or stable hover-safe presentation.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
