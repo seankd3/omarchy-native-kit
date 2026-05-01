@@ -1,0 +1,436 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--omarchy-danger) 12%, transparent), transparent 34rem),
+    linear-gradient(225deg, color-mix(in srgb, var(--omarchy-warning) 10%, transparent), transparent 30rem),
+    var(--omarchy-background);
+}
+
+button {
+  font: inherit;
+}
+
+.shell {
+  width: min(1440px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 28px;
+}
+
+.masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: end;
+  padding: 28px 0 22px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--omarchy-accent);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 790px;
+  margin-bottom: 16px;
+  color: var(--omarchy-foreground);
+  font-size: 4.45rem;
+  line-height: 0.95;
+}
+
+h2 {
+  margin-bottom: 0;
+  color: var(--omarchy-surface-foreground);
+  font-size: 1.14rem;
+  line-height: 1.2;
+}
+
+.lede {
+  max-width: 800px;
+  margin-bottom: 0;
+  color: var(--omarchy-muted-foreground);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.actions button,
+.primary-action {
+  min-height: 42px;
+  border: 1px solid var(--omarchy-border-strong);
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  box-shadow: 0 16px 34px color-mix(in srgb, var(--omarchy-shadow) 24%, transparent);
+  cursor: pointer;
+}
+
+.actions button {
+  padding: 0 14px;
+}
+
+.actions button + button {
+  color: var(--omarchy-surface-foreground);
+  background: var(--omarchy-surface);
+}
+
+.actions button:hover,
+.actions button:focus-visible,
+.primary-action:hover,
+.primary-action:focus-visible,
+.candidate-row:hover,
+.candidate-row:focus-visible {
+  outline: 2px solid var(--omarchy-accent);
+  outline-offset: 3px;
+  background: var(--omarchy-surface-raised);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.metric,
+.panel,
+.owner-card,
+.batch-card {
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface) 94%, transparent);
+  box-shadow: 0 18px 52px color-mix(in srgb, var(--omarchy-shadow) 18%, transparent);
+}
+
+.metric {
+  min-height: 112px;
+  display: grid;
+  align-content: space-between;
+  padding: 16px;
+  border-top: 4px solid var(--tone-color);
+}
+
+.metric strong {
+  color: var(--tone-color);
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.metric span,
+.panel-heading span,
+.candidate-row small,
+.candidate-row em,
+.owner-card p,
+.owner-card small,
+.note-row span,
+.note-row small,
+.note-row em,
+.batch-card small,
+.batch-card em {
+  color: var(--omarchy-muted-foreground);
+}
+
+[data-tone='critical'] {
+  --tone-color: var(--omarchy-danger);
+}
+
+[data-tone='late'] {
+  --tone-color: var(--omarchy-warning);
+}
+
+[data-tone='blocked'] {
+  --tone-color: var(--omarchy-info);
+}
+
+[data-tone='ready'] {
+  --tone-color: var(--omarchy-success);
+}
+
+.board-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(320px, 0.85fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.panel {
+  min-width: 0;
+  padding: 18px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--omarchy-border);
+  padding-bottom: 14px;
+}
+
+.panel-heading span {
+  font-size: 0.82rem;
+}
+
+.candidate-list,
+.owner-list,
+.batch-list,
+.guardrail-list {
+  display: grid;
+  gap: 10px;
+}
+
+.candidate-row {
+  width: 100%;
+  min-height: 84px;
+  display: grid;
+  grid-template-columns: 18px minmax(230px, 1fr) minmax(110px, 0.34fr) minmax(90px, 0.26fr) minmax(120px, 0.36fr) minmax(180px, 0.54fr);
+  gap: 14px;
+  align-items: center;
+  border: 1px solid var(--omarchy-border);
+  color: var(--omarchy-surface-foreground);
+  background: var(--omarchy-surface);
+  text-align: left;
+  cursor: pointer;
+}
+
+.candidate-row span,
+.candidate-row small,
+.candidate-row em {
+  min-width: 0;
+}
+
+.candidate-row span:nth-child(2) {
+  display: grid;
+  gap: 5px;
+}
+
+.candidate-row strong {
+  color: var(--omarchy-surface-foreground);
+}
+
+.candidate-row em,
+.note-row em,
+.batch-card em {
+  font-style: normal;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  justify-self: center;
+  border: 2px solid var(--tone-color);
+  background: color-mix(in srgb, var(--tone-color) 30%, transparent);
+}
+
+.owner-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.owner-list {
+  flex: 1;
+}
+
+.owner-card {
+  min-height: 128px;
+  padding: 14px;
+  border-left: 4px solid var(--omarchy-info);
+}
+
+.owner-card span {
+  color: var(--omarchy-accent);
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.74rem;
+}
+
+.owner-card strong,
+.batch-card strong,
+.note-row strong {
+  color: var(--omarchy-surface-foreground);
+}
+
+.owner-card strong {
+  display: block;
+  margin-top: 10px;
+}
+
+.owner-card p {
+  margin: 5px 0 12px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.note-table {
+  display: grid;
+  border: 1px solid var(--omarchy-border);
+}
+
+.note-row {
+  min-height: 76px;
+  display: grid;
+  grid-template-columns: minmax(120px, 0.32fr) minmax(120px, 0.32fr) minmax(190px, 0.62fr) minmax(130px, 0.36fr);
+  gap: 14px;
+  align-items: center;
+  padding: 12px 14px;
+  background: var(--omarchy-surface);
+}
+
+.note-row + .note-row {
+  border-top: 1px solid var(--omarchy-border);
+}
+
+.note-row em {
+  color: var(--omarchy-success);
+}
+
+.batch-card {
+  min-height: 150px;
+  display: grid;
+  gap: 9px;
+  padding: 14px;
+  border-left: 4px solid var(--tone-color);
+}
+
+.batch-card span {
+  width: fit-content;
+  border: 1px solid var(--tone-color);
+  padding: 4px 8px;
+  color: var(--tone-color);
+  background: color-mix(in srgb, var(--tone-color) 10%, transparent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.batch-card p {
+  margin-bottom: 0;
+  color: var(--omarchy-foreground);
+  line-height: 1.45;
+}
+
+.guardrail-panel {
+  margin-bottom: 16px;
+}
+
+.primary-action {
+  padding: 0 16px;
+}
+
+.guardrail-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: guardrail;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.guardrail-list li {
+  min-height: 96px;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  border: 1px solid var(--omarchy-border);
+  padding: 14px;
+  color: var(--omarchy-surface-foreground);
+  background: var(--omarchy-surface);
+}
+
+.guardrail-list li::before {
+  counter-increment: guardrail;
+  content: counter(guardrail);
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--omarchy-border-strong);
+  color: var(--omarchy-accent);
+  background: var(--omarchy-background);
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1080px) {
+  .masthead,
+  .board-layout,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    justify-content: flex-start;
+  }
+
+  .metrics,
+  .guardrail-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .candidate-row,
+  .note-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding: 14px;
+  }
+
+  .masthead {
+    padding-top: 18px;
+  }
+
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  .metrics,
+  .guardrail-list,
+  .candidate-row,
+  .note-row {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    display: grid;
+    justify-content: stretch;
+  }
+
+  .metric {
+    min-height: 96px;
+  }
+}

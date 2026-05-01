@@ -76,6 +76,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Access Certification Scope Mapper | `examples/access-certification-scope-mapper` | Studio app for inspecting certification scopes, population filters, excluded accounts, resource ownership, reviewer coverage, sampling windows, and rollback-safe scope corrections. |
 | Access Policy Change Ledger | `examples/access-policy-change-ledger` | Studio app for inspecting access policy edits, approver chains, diffed rule changes, affected principals, simulation snapshots, publish windows, and rollback-safe policy history. |
 | Access Impact Simulation Studio | `examples/access-impact-simulation-studio` | Studio app for inspecting proposed access changes, simulated deny paths, impacted principals, compensating controls, reviewer confidence, blast-radius deltas, and rollback-safe simulation evidence. |
+| Access Remediation Priority Board | `examples/access-remediation-priority-board` | Studio app for inspecting access remediation candidates, risk-ranked removals, owner assignments, missed SLA windows, dependency blockers, reviewer notes, and rollback-safe cleanup batches. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -171,7 +172,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `access-remediation-priority-board` - inspect access remediation candidates, risk-ranked removals, owner assignments, missed SLA windows, dependency blockers, reviewer notes, and rollback-safe cleanup batches.
+- `access-removal-batch-planner` - inspect removal batches, entitlement dependencies, dry-run outcomes, delegated owners, rollback commands, communication windows, and audit-ready cleanup evidence.
 
 ## Kit Refinements To Unlock More Apps
 

@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-remediation-priority-board",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "remediation-summary",
+      "purpose": "At-a-glance counts for critical removals, missed SLA windows, dependency blockers, and ready cleanup batches.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "danger",
+        "warning",
+        "success",
+        "info"
+      ]
+    },
+    {
+      "name": "candidate-board",
+      "purpose": "Keyboard-focusable rows for risk-ranked access remediation candidates.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "surfaceForeground",
+        "border",
+        "accent"
+      ]
+    },
+    {
+      "name": "cleanup-batches",
+      "purpose": "Panels for owner assignments, reviewer notes, dependency blockers, and rollback-safe cleanup batches.",
+      "tokens": [
+        "background",
+        "surface",
+        "mutedForeground",
+        "borderStrong",
+        "shadow"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "CandidateRow",
+      "purpose": "Focusable remediation candidate row with risk, owner, SLA, blocker, and cleanup batch context.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "surfaceForeground",
+        "accent",
+        "border"
+      ],
+      "interactions": [
+        "hover and focus-visible states expose row selection",
+        "priority state is shown with semantic danger, warning, info, or success"
+      ]
+    },
+    {
+      "name": "BatchCard",
+      "purpose": "Cleanup batch card that keeps removals, rollback command, and window visible.",
+      "tokens": [
+        "surface",
+        "foreground",
+        "mutedForeground",
+        "danger",
+        "warning",
+        "success",
+        "info"
+      ],
+      "interactions": [
+        "tone label stays visible without overlapping text",
+        "card sizing remains stable across responsive breakpoints"
+      ]
+    },
+    {
+      "name": "GuardrailList",
+      "purpose": "Ordered cleanup checklist for rollback-safe remediation batches.",
+      "tokens": [
+        "background",
+        "accent",
+        "borderStrong",
+        "surfaceForeground"
+      ],
+      "interactions": [
+        "primary cleanup action has visible hover and focus-visible states",
+        "guardrail numbers are stable and token-colored"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
