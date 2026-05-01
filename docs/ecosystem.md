@@ -47,6 +47,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Service Restart Orchestrator | `examples/service-restart-orchestrator` | Dashboard app for planning systemd user and system service restarts, previewing dependency impact, and scheduling safe restart batches. |
 | Environment Variable Auditor | `examples/environment-variable-auditor` | Studio app for inspecting shell, desktop, and service environments, comparing mismatched variables, and staging clean export fixes. |
 | Locale Timezone Manager | `examples/locale-timezone-manager` | Dashboard app for comparing locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes. |
+| Font Rendering Tuner | `examples/font-rendering-tuner` | Studio app for comparing font stacks, antialiasing, hinting, and scaling behavior across GTK, Qt, browser, and terminal surfaces. |
 
 ## Build Loop
 
@@ -122,7 +123,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `font-rendering-tuner` - compare font stacks, antialiasing, hinting, and scaling behavior across GTK, Qt, browser, and terminal surfaces.
+- `cursor-pointer-theme-studio` - compare cursor themes, pointer sizes, acceleration, and touchpad behavior across compositor, GTK, Qt, and browser surfaces.
 
 ## Kit Refinements To Unlock More Apps
 
