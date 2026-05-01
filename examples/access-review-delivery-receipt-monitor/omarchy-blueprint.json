@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-delivery-receipt-monitor",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "receipt-summary",
+      "purpose": "Track receipt volume, acknowledgement rate, failed retries, and checksum drift.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "border",
+        "info",
+        "success",
+        "warning",
+        "danger"
+      ]
+    },
+    {
+      "name": "delivery-packet-grid",
+      "purpose": "Compare exported review packets by destination, receipt id, status, and delivery progress.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "mutedForeground",
+        "accent",
+        "success"
+      ]
+    },
+    {
+      "name": "receipt-workspace",
+      "purpose": "Inspect destination acknowledgements, failed retries, checksum drift, closeout notes, escalations, and rollback evidence.",
+      "tokens": [
+        "background",
+        "surface",
+        "border",
+        "borderStrong",
+        "danger",
+        "warning",
+        "info"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricTile",
+      "purpose": "Compact receipt counter with semantic status tone.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ],
+      "interactions": [
+        "stable height across values",
+        "tone visible without raw colors"
+      ]
+    },
+    {
+      "name": "DeliveryCard",
+      "purpose": "Exported review packet card showing destination receipt status and delivery progress.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "accent",
+        "success",
+        "warning"
+      ],
+      "interactions": [
+        "progress bar uses semantic tokens",
+        "status chip maps to receipt state"
+      ]
+    },
+    {
+      "name": "ReceiptRow",
+      "purpose": "Destination acknowledgement row with lane, age, receipt state, and rollback evidence context.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ],
+      "interactions": [
+        "receipt state remains readable at narrow widths",
+        "row layout does not shift when state changes"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button and status row has a visible focus or stable hover-safe presentation.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
