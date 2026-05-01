@@ -5,6 +5,23 @@
   "description": "Scaffolding and theme runtime for Omarchy-native apps.",
   "type": "module",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sean-Kenneth-Doherty/omarchy-native-kit.git"
+  },
+  "homepage": "https://github.com/Sean-Kenneth-Doherty/omarchy-native-kit#readme",
+  "bugs": {
+    "url": "https://github.com/Sean-Kenneth-Doherty/omarchy-native-kit/issues"
+  },
+  "keywords": [
+    "omarchy",
+    "theme",
+    "design-tokens",
+    "cli",
+    "ai-agents",
+    "vite",
+    "react"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -26,6 +43,7 @@
     "build": "tsc",
     "test": "npm run build && node --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
+    "prepare": "npm run build",
     "theme:json": "node dist/cli.js theme json",
     "theme:css": "node dist/cli.js theme css"
   },
