@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-revocation-sla-radar",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "sla-summary",
+      "purpose": "Summarizes overdue removals, at-risk SLA windows, paused exceptions, and breach packet readiness.",
+      "tokens": [
+        "surface",
+        "border",
+        "danger",
+        "warning",
+        "shadow"
+      ]
+    },
+    {
+      "name": "revocation-lanes",
+      "purpose": "Shows queue aging by system with owners, blockers, escalations, pauses, and breach state.",
+      "tokens": [
+        "surface",
+        "background",
+        "surfaceForeground",
+        "border",
+        "danger",
+        "warning",
+        "info"
+      ]
+    },
+    {
+      "name": "breach-workbench",
+      "purpose": "Tracks escalations, dependency blockers, exception pauses, and audit-ready breach evidence.",
+      "tokens": [
+        "surface",
+        "mutedForeground",
+        "danger",
+        "warning",
+        "info"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "SlaLane",
+      "purpose": "Queue lane card for revocation SLA status and owner escalation.",
+      "tokens": [
+        "surface",
+        "background",
+        "border",
+        "danger",
+        "warning",
+        "info"
+      ],
+      "interactions": [
+        "aging chip remains visible at all widths",
+        "facts wrap without horizontal scrolling"
+      ]
+    },
+    {
+      "name": "EscalationRow",
+      "purpose": "Ownership escalation row with due time, path, reason, and breach state.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "danger",
+        "warning"
+      ],
+      "interactions": [
+        "state labels use token-backed color",
+        "row layout collapses to one column on narrow viewports"
+      ]
+    },
+    {
+      "name": "EvidenceChecklist",
+      "purpose": "Audit packet checklist for revocation SLA breach evidence.",
+      "tokens": [
+        "surface",
+        "background",
+        "border",
+        "danger",
+        "mutedForeground"
+      ],
+      "interactions": [
+        "items keep stable dimensions",
+        "markers are semantic token mixes"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}

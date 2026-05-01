@@ -80,6 +80,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Access Removal Batch Planner | `examples/access-removal-batch-planner` | Studio app for inspecting removal batches, entitlement dependencies, dry-run outcomes, delegated owners, rollback commands, communication windows, and audit-ready cleanup evidence. |
 | Access Removal Evidence Vault | `examples/access-removal-evidence-vault` | Studio app for inspecting completed removal batches, sealed entitlement snapshots, rollback expiry, communication receipts, auditor requests, exception reopenings, and cleanup evidence retention. |
 | Access Reopen Exception Console | `examples/access-reopen-exception-console` | Studio app for inspecting access reopen requests, temporary regrant approvals, dependency evidence, expiry timers, owner acknowledgements, rollback scope, and audit-ready exception trails. |
+| Access Revocation SLA Radar | `examples/access-revocation-sla-radar` | Studio app for inspecting revocation SLA windows, overdue removals, queue aging, ownership escalations, dependency blockers, exception pauses, and audit-ready breach evidence. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -175,7 +176,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `access-revocation-sla-radar` - inspect revocation SLA windows, overdue removals, queue aging, ownership escalations, dependency blockers, exception pauses, and audit-ready breach evidence.
+- `access-owner-escalation-map` - inspect access owner escalation paths, stalled approvals, delegated backups, breach notifications, team handoffs, escalation evidence, and rollback-safe accountability trails.
 
 ## Kit Refinements To Unlock More Apps
 
