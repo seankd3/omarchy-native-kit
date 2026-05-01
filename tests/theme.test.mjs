@@ -9,6 +9,7 @@ import {
   mapSemanticTokens,
   parseColorsToml,
   readOmarchyTheme,
+  toAgentBlueprint,
   toAgentContext,
   toAgentPrompt,
   toCssVariables,
@@ -95,4 +96,17 @@ test('emits agent context for coding assistants', () => {
   assert.ok(context.designRules.some((rule) => rule.includes('--omarchy-*')));
   assert.match(prompt, /You are building an Omarchy-native interface/);
   assert.match(prompt, /--omarchy-background: #101216/);
+});
+
+test('emits app blueprints for common Omarchy-native surfaces', () => {
+  const theme = readOmarchyTheme({ colorsPath: 'tests/fixtures/colors.basic.toml', themeNamePath: null });
+  const blueprint = toAgentBlueprint(theme, { appName: 'Signal Desk', kind: 'dashboard' });
+
+  assert.equal(blueprint.schemaVersion, 1);
+  assert.equal(blueprint.appName, 'Signal Desk');
+  assert.equal(blueprint.kind, 'dashboard');
+  assert.ok(blueprint.files.includes('src/App.tsx'));
+  assert.ok(blueprint.layoutRegions.some((region) => region.name === 'activity-table'));
+  assert.ok(blueprint.components.some((component) => component.name === 'MetricTile'));
+  assert.ok(blueprint.acceptanceChecks.some((check) => check.includes('npm run build')));
 });

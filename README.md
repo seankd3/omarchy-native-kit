@@ -34,6 +34,7 @@ omarchy-native theme json
 omarchy-native theme css --out src/omarchy-theme.css
 omarchy-native agent json
 omarchy-native agent prompt
+omarchy-native agent blueprint --app signal-desk --kind dashboard
 omarchy-native create hello-omarchy-native --template react-vite
 ```
 
@@ -72,9 +73,11 @@ Omarchy Native Kit includes an agent-facing contract so coding assistants can bu
 ```bash
 omarchy-native agent json
 omarchy-native agent prompt
+omarchy-native agent blueprint --app signal-desk --kind dashboard
 ```
 
 `agent json` emits `schemaVersion: 1`, CSS variable mappings, suggested token uses, design rules, component patterns, and canonical kit commands. `agent prompt` emits the same guidance as a compact natural-language brief for coding agents.
+`agent blueprint` emits a structured app plan with files, layout regions, component recipes, token roles, and acceptance checks. Supported blueprint kinds are `command-center`, `dashboard`, and `studio`.
 
 ## React/Vite Template
 
@@ -113,7 +116,7 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/color.ts` - hex validation, blending, contrast, and readable foreground helpers
 - `src/emitters.ts` - CSS and JSON emitters
 - `src/agent.ts` - machine-readable and prompt-ready agent context
-- `src/cli.ts` - `doctor`, `theme json`, `theme css`, `agent json`, `agent prompt`, and `create`
+- `src/cli.ts` - `doctor`, `theme json`, `theme css`, `agent json`, `agent prompt`, `agent blueprint`, and `create`
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app
 - `docs/` - preserved research, product, architecture, and implementation notes

@@ -50,6 +50,20 @@ test('agent prompt prints compact instructions for coding agents', () => {
   assert.match(output, /--omarchy-accent: #7aa2f7/);
 });
 
+test('agent blueprint prints a structured app plan', () => {
+  const output = execFileSync(
+    process.execPath,
+    [...cli, 'agent', 'blueprint', '--colors', fixture, '--app', 'Signal Desk', '--kind', 'studio'],
+    { encoding: 'utf8' }
+  );
+  const payload = JSON.parse(output);
+
+  assert.equal(payload.schemaVersion, 1);
+  assert.equal(payload.appName, 'Signal Desk');
+  assert.equal(payload.kind, 'studio');
+  assert.ok(payload.components.some((component) => component.name === 'ToolButton'));
+});
+
 test('create generates react-vite app', () => {
   const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-create-'));
   try {

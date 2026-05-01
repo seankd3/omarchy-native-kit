@@ -5,12 +5,14 @@
 ```bash
 omarchy-native agent json
 omarchy-native agent prompt
+omarchy-native agent blueprint --app signal-desk --kind dashboard
 ```
 
 For deterministic generation in tests or CI:
 
 ```bash
 omarchy-native agent json --colors tests/fixtures/colors.basic.toml
+omarchy-native agent blueprint --app canvas-forge --kind studio --colors tests/fixtures/colors.basic.toml
 ```
 
 ## Schema
@@ -26,3 +28,15 @@ The payload uses `schemaVersion: 1` and contains:
 - `commands` - canonical CLI commands for syncing CSS, printing theme JSON, and scaffolding.
 
 Use `agent prompt` when an agent cannot reliably consume JSON, and `agent json` when building workflows that transform the contract into code, design tokens, or generated starter apps.
+
+## Blueprints
+
+`agent blueprint` emits a practical plan for an Omarchy-native app before any files are written. It includes target files, layout regions, component recipes, token roles, interactions, and acceptance checks.
+
+Supported `--kind` values:
+
+- `command-center` - action rows, shortcut-first workflows, and contextual inspection.
+- `dashboard` - metric strips, tables, filters, and detail panels.
+- `studio` - tool rails, creation canvases, and properties panels.
+
+Unknown kinds fall back to `command-center` so agents still get a usable plan.

@@ -7,6 +7,7 @@ import {
   createStarterTheme,
   defaultColorsPath,
   readOmarchyTheme,
+  toAgentBlueprintJson,
   toAgentContextJson,
   toAgentPrompt,
   toCssVariables,
@@ -69,6 +70,16 @@ function run(parsed: ParsedArgs): void {
 
   if (command === 'agent' && subcommand === 'prompt') {
     process.stdout.write(toAgentPrompt(loadTheme(parsed)));
+    return;
+  }
+
+  if (command === 'agent' && subcommand === 'blueprint') {
+    process.stdout.write(
+      toAgentBlueprintJson(loadTheme(parsed), {
+        appName: stringFlag(parsed, 'app'),
+        kind: stringFlag(parsed, 'kind')
+      })
+    );
     return;
   }
 
@@ -180,6 +191,7 @@ Commands:
   theme css [--out <file>]              Print or write CSS variables
   agent json [--colors <path>]          Print AI-agent design context as JSON
   agent prompt [--colors <path>]        Print a compact design prompt for agents
+  agent blueprint [--app <name>]        Print a structured app build blueprint
   create <name> --template react-vite   Create a React/Vite starter app
 `);
 }

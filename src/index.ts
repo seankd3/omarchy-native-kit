@@ -7,10 +7,16 @@ export {
   type HexColor
 } from './color.js';
 export {
+  toAgentBlueprint,
+  toAgentBlueprintJson,
   toAgentContext,
   toAgentContextJson,
   toAgentPrompt,
   type AgentCssVariable,
+  type AgentBlueprintComponent,
+  type AgentBlueprintKind,
+  type AgentBlueprintRegion,
+  type OmarchyAgentBlueprint,
   type OmarchyAgentContext
 } from './agent.js';
 export { toCssVariables, toJsonTheme } from './emitters.js';
