@@ -195,8 +195,8 @@ test('verifies a directory of committed dogfood app contracts', () => {
   const report = verifyOmarchyAppDirectory('examples');
 
   assert.equal(report.ok, true);
-  assert.equal(report.appCount, 63);
-  assert.equal(report.verifiedCount, 63);
+  assert.equal(report.appCount, 64);
+  assert.equal(report.verifiedCount, 64);
   assert.ok(report.reports.some((app) => app.appName === 'accessibility-contrast-auditor'));
   assert.ok(report.reports.some((app) => app.appName === 'app-health-monitor'));
   assert.ok(report.reports.some((app) => app.appName === 'apparmor-profile-workbench'));
@@ -207,6 +207,7 @@ test('verifies a directory of committed dogfood app contracts', () => {
   assert.ok(report.reports.some((app) => app.appName === 'clipboard-history-curator'));
   assert.ok(report.reports.some((app) => app.appName === 'config-diff-studio'));
   assert.ok(report.reports.some((app) => app.appName === 'container-runtime-dashboard'));
+  assert.ok(report.reports.some((app) => app.appName === 'credential-leak-forensics'));
   assert.ok(report.reports.some((app) => app.appName === 'credential-session-vault'));
   assert.ok(report.reports.some((app) => app.appName === 'cursor-pointer-theme-studio'));
   assert.ok(report.reports.some((app) => app.appName === 'desktop-entry-inspector'));
@@ -252,8 +253,8 @@ test('verifies a directory of committed dogfood app contracts', () => {
 test('catalogs committed dogfood apps', () => {
   const catalog = readAppCatalog('examples');
 
-  assert.equal(catalog.appCount, 63);
-  assert.equal(catalog.verifiedCount, 63);
+  assert.equal(catalog.appCount, 64);
+  assert.equal(catalog.verifiedCount, 64);
   assert.deepEqual(
     catalog.apps.map((app) => app.name),
     [
@@ -269,6 +270,7 @@ test('catalogs committed dogfood apps', () => {
       'clipboard-history-curator',
       'config-diff-studio',
       'container-runtime-dashboard',
+      'credential-leak-forensics',
       'credential-session-vault',
       'cursor-pointer-theme-studio',
       'desktop-entry-inspector',

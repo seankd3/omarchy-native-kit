@@ -265,8 +265,8 @@ test('verify all reports discovered app contract statuses', () => {
 
   assert.equal(payload.schemaVersion, 1);
   assert.equal(payload.ok, true);
-  assert.equal(payload.appCount, 63);
-  assert.equal(payload.verifiedCount, 63);
+  assert.equal(payload.appCount, 64);
+  assert.equal(payload.verifiedCount, 64);
   assert.ok(payload.reports.some((report) => report.appName === 'accessibility-contrast-auditor'));
   assert.ok(payload.reports.some((report) => report.appName === 'apparmor-profile-workbench'));
   assert.ok(payload.reports.some((report) => report.appName === 'audio-device-mixer'));
@@ -276,6 +276,7 @@ test('verify all reports discovered app contract statuses', () => {
   assert.ok(payload.reports.some((report) => report.appName === 'clipboard-history-curator'));
   assert.ok(payload.reports.some((report) => report.appName === 'config-diff-studio'));
   assert.ok(payload.reports.some((report) => report.appName === 'container-runtime-dashboard'));
+  assert.ok(payload.reports.some((report) => report.appName === 'credential-leak-forensics'));
   assert.ok(payload.reports.some((report) => report.appName === 'credential-session-vault'));
   assert.ok(payload.reports.some((report) => report.appName === 'cursor-pointer-theme-studio'));
   assert.ok(payload.reports.some((report) => report.appName === 'desktop-entry-inspector'));
@@ -368,8 +369,8 @@ test('app catalog lists verified blueprint apps', () => {
   const payload = JSON.parse(output);
 
   assert.equal(payload.schemaVersion, 1);
-  assert.equal(payload.appCount, 63);
-  assert.equal(payload.verifiedCount, 63);
+  assert.equal(payload.appCount, 64);
+  assert.equal(payload.verifiedCount, 64);
   assert.ok(payload.apps.some((app) => app.name === 'accessibility-contrast-auditor' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'app-health-monitor' && app.kind === 'dashboard' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'apparmor-profile-workbench' && app.kind === 'studio' && app.verified));
@@ -381,6 +382,7 @@ test('app catalog lists verified blueprint apps', () => {
   assert.ok(payload.apps.some((app) => app.name === 'aur-packager' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'config-diff-studio' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'container-runtime-dashboard' && app.kind === 'dashboard' && app.verified));
+  assert.ok(payload.apps.some((app) => app.name === 'credential-leak-forensics' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'credential-session-vault' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'cursor-pointer-theme-studio' && app.kind === 'studio' && app.verified));
   assert.ok(payload.apps.some((app) => app.name === 'desktop-entry-inspector' && app.kind === 'studio' && app.verified));

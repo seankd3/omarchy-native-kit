@@ -96,6 +96,7 @@ Initial public seed of Omarchy Native Kit.
   - `backup-key-recovery-planner`
   - `emergency-access-runbook`
   - `incident-credential-rotator`
+  - `credential-leak-forensics`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
