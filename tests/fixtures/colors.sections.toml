@@ -1,0 +1,11 @@
+[colors]
+background = "#ffffff" # inline comments are ignored
+foreground = '#111111'
+color0 = "#f2f4f8"
+color1 = "#b91c1c"
+color2 = "#047857"
+color3 = "#a16207"
+color4 = "#2563eb"
+color5 = "#7c3aed"
+color6 = "#0891b2"
+color7 = "#334155"

@@ -1,14 +1,30 @@
 {
   "name": "omarchy-native-kit",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "description": "Scaffolding and theme runtime for Omarchy-native apps.",
   "type": "module",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "bin": {
     "omarchy-native": "./dist/cli.js"
   },
+  "files": [
+    "dist",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
+    "test": "npm run build && node --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
     "theme:json": "node dist/cli.js theme json",
     "theme:css": "node dist/cli.js theme css"

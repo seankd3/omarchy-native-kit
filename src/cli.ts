@@ -1,56 +1,171 @@
 #!/usr/bin/env node
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { homedir } from 'node:os';
-import { join } from 'node:path';
-import { mapSemanticPalette, parseColorsToml, toCssVariables } from './index.js';
+import { cpSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { basename, dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import {
+  OmarchyThemeError,
+  createStarterTheme,
+  defaultColorsPath,
+  readOmarchyTheme,
+  toCssVariables,
+  toJsonTheme
+} from './index.js';
 
-function currentColorsPath(): string {
-  return join(homedir(), '.config/omarchy/current/theme/colors.toml');
-}
+type ParsedArgs = {
+  positionals: string[];
+  flags: Map<string, string | boolean>;
+};
 
-function loadTheme() {
-  const path = currentColorsPath();
-  if (!existsSync(path)) {
-    throw new Error(`No Omarchy colors.toml found at ${path}`);
-  }
-  const raw = parseColorsToml(readFileSync(path, 'utf8'));
-  return { path, raw, semantic: mapSemanticPalette(raw) };
-}
-
-function help() {
-  console.log(`omarchy-native
-
-Commands:
-  theme json          Print current Omarchy semantic theme as JSON
-  theme css [--out]   Print or write CSS variables
-  doctor              Check Omarchy theme detection
-`);
-}
-
-const args = process.argv.slice(2);
+const args = parseArgs(process.argv.slice(2));
 
 try {
-  if (args.length === 0 || args[0] === '--help' || args[0] === '-h') {
+  run(args);
+} catch (error) {
+  if (error instanceof OmarchyThemeError) {
+    console.error(error.message);
+    for (const detail of error.details) console.error(`  - ${detail}`);
+  } else {
+    console.error(error instanceof Error ? error.message : String(error));
+  }
+  process.exitCode = 1;
+}
+
+function run(parsed: ParsedArgs): void {
+  const [command, subcommand] = parsed.positionals;
+
+  if (!command || command === '--help' || command === '-h') {
     help();
-  } else if (args[0] === 'doctor') {
-    const path = currentColorsPath();
-    console.log(`colors.toml: ${path}`);
-    console.log(`exists: ${existsSync(path) ? 'yes' : 'no'}`);
-  } else if (args[0] === 'theme' && args[1] === 'json') {
-    console.log(JSON.stringify(loadTheme(), null, 2));
-  } else if (args[0] === 'theme' && args[1] === 'css') {
-    const css = toCssVariables(loadTheme().semantic);
-    const outIndex = args.indexOf('--out');
-    if (outIndex !== -1 && args[outIndex + 1]) {
-      writeFileSync(args[outIndex + 1], css);
+    return;
+  }
+
+  if (command === 'doctor') {
+    doctor(parsed);
+    return;
+  }
+
+  if (command === 'theme' && subcommand === 'json') {
+    process.stdout.write(toJsonTheme(loadTheme(parsed)));
+    return;
+  }
+
+  if (command === 'theme' && subcommand === 'css') {
+    const css = toCssVariables(loadTheme(parsed).tokens);
+    const out = stringFlag(parsed, 'out');
+    if (out) {
+      mkdirSync(dirname(resolve(out)), { recursive: true });
+      writeFileSync(out, css);
     } else {
       process.stdout.write(css);
     }
-  } else {
-    help();
-    process.exitCode = 1;
+    return;
   }
-} catch (error) {
-  console.error(error instanceof Error ? error.message : String(error));
+
+  if (command === 'create') {
+    create(parsed);
+    return;
+  }
+
+  help();
   process.exitCode = 1;
+}
+
+function doctor(parsed: ParsedArgs): void {
+  const paths = {
+    colorsPath: stringFlag(parsed, 'colors') ?? defaultColorsPath()
+  };
+  console.log('Omarchy Native Kit doctor');
+  console.log(`colors.toml: ${paths.colorsPath}`);
+  console.log(`exists: ${existsSync(paths.colorsPath) ? 'yes' : 'no'}`);
+
+  if (existsSync(paths.colorsPath)) {
+    const theme = loadTheme(parsed);
+    console.log(`theme name: ${theme.name ?? '(unknown)'}`);
+    console.log(`raw colors: ${Object.keys(theme.raw).length}`);
+    console.log(`tokens: ${Object.keys(theme.tokens).length}`);
+    for (const warning of theme.warnings) console.log(`warning: ${warning}`);
+  }
+}
+
+function create(parsed: ParsedArgs): void {
+  const [, name] = parsed.positionals;
+  if (!name) throw new Error('Missing app name. Usage: omarchy-native create <name> --template react-vite');
+
+  const template = stringFlag(parsed, 'template') ?? 'react-vite';
+  if (template !== 'react-vite') throw new Error(`Unsupported template "${template}". Available: react-vite.`);
+
+  const target = resolve(name);
+  if (existsSync(target)) throw new Error(`Target already exists: ${target}`);
+
+  const templateDir = resolve(dirname(fileURLToPath(import.meta.url)), '../templates/react-vite');
+  cpSync(templateDir, target, { recursive: true });
+  personalizePackageJson(join(target, 'package.json'), basename(target));
+  writeFileSync(join(target, 'src/omarchy-theme.css'), toCssVariables(loadTheme(parsed, true).tokens));
+  console.log(`Created ${name} from ${template}.`);
+  console.log(`Next: cd ${name} && npm install && npm run dev`);
+}
+
+function personalizePackageJson(path: string, appName: string): void {
+  const packageJson = JSON.parse(readFileSync(path, 'utf8')) as { name?: string };
+  packageJson.name = slugifyPackageName(appName);
+  writeFileSync(path, `${JSON.stringify(packageJson, null, 2)}\n`);
+}
+
+function slugifyPackageName(value: string): string {
+  return (
+    value
+      .toLowerCase()
+      .replace(/[^a-z0-9._-]+/g, '-')
+      .replace(/^-+|-+$/g, '') || 'omarchy-native-app'
+  );
+}
+
+function loadTheme(parsed: ParsedArgs, allowFallback = false) {
+  const colorsPath = stringFlag(parsed, 'colors');
+  const themeDir = stringFlag(parsed, 'theme-dir');
+  try {
+    return readOmarchyTheme({ colorsPath, themeDir });
+  } catch (error) {
+    if (!allowFallback) throw error;
+    return createStarterTheme();
+  }
+}
+
+function stringFlag(parsed: ParsedArgs, name: string): string | undefined {
+  const value = parsed.flags.get(name);
+  return typeof value === 'string' ? value : undefined;
+}
+
+function parseArgs(rawArgs: string[]): ParsedArgs {
+  const positionals: string[] = [];
+  const flags = new Map<string, string | boolean>();
+
+  for (let index = 0; index < rawArgs.length; index += 1) {
+    const arg = rawArgs[index];
+    if (arg.startsWith('--')) {
+      const [name, inlineValue] = arg.slice(2).split('=', 2);
+      if (inlineValue !== undefined) {
+        flags.set(name, inlineValue);
+      } else if (rawArgs[index + 1] && !rawArgs[index + 1].startsWith('--')) {
+        flags.set(name, rawArgs[index + 1]);
+        index += 1;
+      } else {
+        flags.set(name, true);
+      }
+    } else {
+      positionals.push(arg);
+    }
+  }
+
+  return { positionals, flags };
+}
+
+function help(): void {
+  console.log(`omarchy-native
+
+Commands:
+  doctor [--colors <path>]              Check Omarchy theme detection
+  theme json [--colors <path>]          Print current Omarchy theme as JSON
+  theme css [--out <file>]              Print or write CSS variables
+  create <name> --template react-vite   Create a React/Vite starter app
+`);
 }

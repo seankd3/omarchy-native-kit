@@ -1,89 +1,107 @@
 # Omarchy Native Kit
 
-A framework/scaffolding project for building apps that feel native to [Omarchy](https://omarchy.org): theme-aware, Hyprland-friendly, keyboard-first, and aesthetically aligned with the user's current Omarchy theme instead of hard-coding colors.
+Scaffolding and theme utilities for apps that should feel native to [Omarchy](https://omarchy.org): theme-aware, keyboard-first, and aligned with the user's current Omarchy palette.
 
-## Why this should exist
+This repo now ships a small TypeScript library, a CLI, a React/Vite starter template, parser fixtures, and a generated dogfood app.
 
-Omarchy has a strong visual identity, but third-party apps and local tools usually miss it. Current Omarchy theming is excellent for first-party components — terminal, Waybar, Walker, Mako, Hyprlock, btop, browser, VS Code, Obsidian — but every new app author has to rediscover:
-
-- where the current theme lives;
-- how `colors.toml` maps to UI roles;
-- how to react to `omarchy-hook theme-set`;
-- how to make GTK/Qt/web/Tauri apps look coherent;
-- how to package a small local app so it launches like an Omarchy citizen.
-
-This project aims to become the missing developer kit.
-
-## Product shape
-
-### 1. Theme runtime
-
-A small library + CLI that reads the current Omarchy theme and emits native app tokens.
-
-Inputs:
-
-- `~/.config/omarchy/current/theme/colors.toml`
-- `~/.config/omarchy/current/theme.name`
-- light/dark markers when present
-- optional app overrides under `~/.config/omarchy/apps/<app-id>/`
-
-Outputs:
-
-- CSS custom properties for web/Tauri/Electron apps
-- JSON tokens for any runtime
-- shell exports for TUI scripts
-- future: GTK CSS, Qt palette helpers, Tailwind preset
-
-### 2. App scaffold
-
-A generator for apps that should feel Omarchy-native from minute one:
-
-- Vite/Tauri-style web app template
-- keyboard-first layout primitives
-- theme token loading
-- Hyprland window/app-id conventions
-- `.desktop` file generation
-- theme-change hook installation
-- sane typography using the active Omarchy font where discoverable
-
-### 3. Design system
-
-Opinionated primitives that match the Omarchy vibe without copying one theme:
-
-- panels, command menus, cards, status pills, forms
-- terminal-adjacent spacing and borders
-- background/accent/foreground derived from Omarchy colors
-- accessible contrast checks and fallbacks
-
-## First command sketches
+## Install
 
 ```bash
-# Print current Omarchy theme as JSON
-omarchy-native theme json
-
-# Generate CSS variables for an app
-omarchy-native theme css --out ./src/omarchy-theme.css
-
-# Watch theme changes and regenerate outputs
-omarchy-native theme watch --css ./src/omarchy-theme.css
-
-# Create a starter app
-omarchy-native create my-app --template react-vite
-
-# Install a theme-set hook for an app
-omarchy-native hook install --app my-app --cmd 'npm run theme:sync'
+npm install
+npm run build
 ```
 
-## Repository layout
+Use the local CLI while developing:
 
-- `src/theme.ts` — current theme discovery and token mapping
-- `src/cli.ts` — CLI entrypoint sketch
-- `docs/research.md` — research notes from Omarchy repo/manual/community signals
-- `docs/product-brief.md` — what the community likely needs
-- `docs/architecture.md` — proposed technical architecture
-- `docs/implementation-plan.md` — first build plan
-- `templates/react-vite/` — starter template placeholder
+```bash
+node dist/cli.js doctor
+node dist/cli.js theme json
+node dist/cli.js theme css --out ./omarchy-theme.css
+node dist/cli.js create my-app --template react-vite
+```
 
-## Status
+After package installation, the binary name is:
 
-Seed project. Research and architecture first; implementation next.
+```bash
+omarchy-native doctor
+```
+
+## Commands
+
+```bash
+omarchy-native doctor
+omarchy-native theme json
+omarchy-native theme css --out src/omarchy-theme.css
+omarchy-native create hello-omarchy-native --template react-vite
+```
+
+All theme commands read inside `~/.config/omarchy/current/theme` by default, primarily `colors.toml` and optionally `theme.name` if present in that directory. For tests or deterministic generation, pass `--colors <path>` or `--theme-dir <path>`.
+
+The CLI only reads Omarchy's current theme path. It does not write to `~/.config/omarchy` or `~/.local/share/omarchy`.
+
+## Library
+
+```ts
+import {
+  readOmarchyTheme,
+  mapSemanticTokens,
+  toCssVariables,
+  toJsonTheme
+} from 'omarchy-native-kit';
+
+const theme = readOmarchyTheme();
+const css = toCssVariables(theme.tokens);
+const json = toJsonTheme(theme);
+```
+
+The stable token payload uses `schemaVersion: 1` and exposes semantic roles:
+
+- background, foreground, mutedForeground
+- surface, surfaceForeground, surfaceRaised, surfaceRaisedForeground
+- border, borderStrong, shadow
+- accent, danger, success, warning, info plus contrast-safe foregrounds for each
+
+The color helpers validate six-digit hex colors, compute WCAG-style contrast ratios, blend colors, and choose readable foregrounds when an Omarchy palette has low contrast.
+
+## React/Vite Template
+
+The starter lives in `templates/react-vite`.
+
+```bash
+node dist/cli.js create examples/hello-omarchy-native --template react-vite --colors tests/fixtures/colors.basic.toml
+```
+
+Generated apps import `src/omarchy-theme.css` before `src/styles.css` and use variables such as:
+
+```css
+--omarchy-background
+--omarchy-foreground
+--omarchy-surface
+--omarchy-accent
+```
+
+The first dogfood output is committed under `examples/hello-omarchy-native`.
+
+## Development
+
+```bash
+npm run build
+npm run typecheck
+npm test
+```
+
+Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
+
+## Repository Layout
+
+- `src/theme.ts` - theme discovery, parser, validation, and semantic token mapping
+- `src/color.ts` - hex validation, blending, contrast, and readable foreground helpers
+- `src/emitters.ts` - CSS and JSON emitters
+- `src/cli.ts` - `doctor`, `theme json`, `theme css`, and `create`
+- `templates/react-vite` - starter app template
+- `examples/hello-omarchy-native` - generated dogfood app
+- `docs/` - preserved research, product, architecture, and implementation notes
+
+## Current Scope
+
+This MVP covers CSS and JSON token output plus a React/Vite starter. Future work can add file watching, hook installation, shell exports, GTK/Qt emitters, and richer app primitives.
