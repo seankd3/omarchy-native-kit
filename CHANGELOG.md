@@ -92,6 +92,7 @@ Initial public seed of Omarchy Native Kit.
   - `ssh-agent-session-monitor`
   - `gpg-keyring-policy-lab`
   - `pinentry-prompt-router`
+  - `hardware-token-manager`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`
