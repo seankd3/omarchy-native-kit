@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-removal-evidence-vault",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "vault-summary",
+      "purpose": "Summarizes evidence readiness, sealed packets, rollback expiry, and audit gaps.",
+      "tokens": [
+        "surface",
+        "border",
+        "accent",
+        "success",
+        "shadow"
+      ]
+    },
+    {
+      "name": "packet-vault",
+      "purpose": "Lists completed removal batches with snapshots, receipts, retention state, and rollback expiry.",
+      "tokens": [
+        "surface",
+        "background",
+        "surfaceForeground",
+        "border",
+        "info",
+        "warning"
+      ]
+    },
+    {
+      "name": "audit-workbench",
+      "purpose": "Tracks auditor requests, exception reopenings, communication receipts, and chain-of-custody steps.",
+      "tokens": [
+        "surface",
+        "mutedForeground",
+        "success",
+        "warning",
+        "danger"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "EvidencePacket",
+      "purpose": "Completed removal batch card with sealed snapshot and retention metadata.",
+      "tokens": [
+        "surface",
+        "background",
+        "border",
+        "success",
+        "warning",
+        "info"
+      ],
+      "interactions": [
+        "status labels remain visible at all widths",
+        "snapshot ids wrap without horizontal scrolling"
+      ]
+    },
+    {
+      "name": "AuditorRequest",
+      "purpose": "Request row for pending audit evidence asks and due dates.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "warning",
+        "success"
+      ],
+      "interactions": [
+        "state labels use token-backed color",
+        "request details remain readable on narrow viewports"
+      ]
+    },
+    {
+      "name": "RetentionCard",
+      "purpose": "Small metric card for hold, checksum, missing receipt, and purge-blocker counts.",
+      "tokens": [
+        "surface",
+        "border",
+        "danger",
+        "warning",
+        "info",
+        "success"
+      ],
+      "interactions": [
+        "cards keep stable dimensions",
+        "tone colors are semantic token mixes"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}

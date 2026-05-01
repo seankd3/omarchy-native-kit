@@ -78,6 +78,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Access Impact Simulation Studio | `examples/access-impact-simulation-studio` | Studio app for inspecting proposed access changes, simulated deny paths, impacted principals, compensating controls, reviewer confidence, blast-radius deltas, and rollback-safe simulation evidence. |
 | Access Remediation Priority Board | `examples/access-remediation-priority-board` | Studio app for inspecting access remediation candidates, risk-ranked removals, owner assignments, missed SLA windows, dependency blockers, reviewer notes, and rollback-safe cleanup batches. |
 | Access Removal Batch Planner | `examples/access-removal-batch-planner` | Studio app for inspecting removal batches, entitlement dependencies, dry-run outcomes, delegated owners, rollback commands, communication windows, and audit-ready cleanup evidence. |
+| Access Removal Evidence Vault | `examples/access-removal-evidence-vault` | Studio app for inspecting completed removal batches, sealed entitlement snapshots, rollback expiry, communication receipts, auditor requests, exception reopenings, and cleanup evidence retention. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -173,7 +174,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `access-removal-evidence-vault` - inspect completed removal batches, sealed entitlement snapshots, rollback expiry, communication receipts, auditor requests, exception reopenings, and cleanup evidence retention.
+- `access-reopen-exception-console` - inspect access reopen requests, temporary regrant approvals, dependency evidence, expiry timers, owner acknowledgements, rollback scope, and audit-ready exception trails.
 
 ## Kit Refinements To Unlock More Apps
 
