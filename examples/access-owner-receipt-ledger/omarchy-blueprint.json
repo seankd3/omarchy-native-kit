@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-owner-receipt-ledger",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "hero",
+      "purpose": "Summarize owner receipt readiness and expose audit packet sealing.",
+      "tokens": ["surface", "surfaceRaised", "foreground", "accent", "border", "shadow"]
+    },
+    {
+      "name": "receipt-grid",
+      "purpose": "Compare owner receipts by cleanup evidence, delegated signoff, acknowledgement state, and progress.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "background", "border", "success", "warning", "danger", "info"]
+    },
+    {
+      "name": "ledger-workbench",
+      "purpose": "Inspect missing acknowledgements, delegated signoffs, retry queues, stale credential evidence, audit packet fields, and rollback accountability.",
+      "tokens": ["surface", "background", "border", "accent", "info", "success", "warning", "danger"]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricCard",
+      "purpose": "Show owner receipt totals and risk tone with stable dimensions.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["stable card height across values", "semantic token border communicates tone"]
+    },
+    {
+      "name": "ReceiptCard",
+      "purpose": "Show a cleanup owner receipt with owner, evidence, signoff, status, and progress.",
+      "tokens": ["surface", "background", "surfaceForeground", "mutedForeground", "border", "accent", "success", "warning", "danger"],
+      "interactions": ["status chip stacks cleanly on mobile", "progress bar uses Omarchy tokens"]
+    },
+    {
+      "name": "LedgerRow",
+      "purpose": "Dense rows for acknowledgements, delegated signoffs, stale evidence, and audit packet fields.",
+      "tokens": ["background", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["row layout stacks at mobile widths", "status labels remain visible without layout shift"]
+    },
+    {
+      "name": "SealAuditPacketButton",
+      "purpose": "Primary action for sealing rollback-safe owner accountability evidence.",
+      "tokens": ["accent", "accentForeground", "foreground"],
+      "interactions": ["hover and focus-visible states use accent tokens"]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
