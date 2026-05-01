@@ -1,0 +1,22 @@
+:root {
+  --omarchy-background: #101216;
+  --omarchy-foreground: #e7eaf0;
+  --omarchy-muted-foreground: #abaeb3;
+  --omarchy-surface: #151820;
+  --omarchy-surface-foreground: #e7eaf0;
+  --omarchy-surface-raised: #414868;
+  --omarchy-surface-raised-foreground: #e7eaf0;
+  --omarchy-border: #44464a;
+  --omarchy-border-strong: #626469;
+  --omarchy-accent: #7aa2f7;
+  --omarchy-accent-foreground: #111827;
+  --omarchy-danger: #f7768e;
+  --omarchy-danger-foreground: #111827;
+  --omarchy-success: #9ece6a;
+  --omarchy-success-foreground: #111827;
+  --omarchy-warning: #e0af68;
+  --omarchy-warning-foreground: #111827;
+  --omarchy-info: #7dcfff;
+  --omarchy-info-foreground: #111827;
+  --omarchy-shadow: #000000;
+}

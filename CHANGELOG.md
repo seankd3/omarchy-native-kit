@@ -131,6 +131,7 @@ Initial public seed of Omarchy Native Kit.
   - `access-dependent-service-restart-map`
   - `access-credential-cache-cleanup-desk`
   - `access-owner-receipt-ledger`
+  - `access-audit-packet-seal-reviewer`
   - `sandbox-policy-simulator`
   - `sensor-access-ledger`
   - `environment-variable-auditor`

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-audit-packet-seal-reviewer",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "hero",
+      "purpose": "Summarize audit packet sealing readiness and expose the seal action.",
+      "tokens": ["surface", "surfaceRaised", "foreground", "accent", "border", "shadow"]
+    },
+    {
+      "name": "packet-grid",
+      "purpose": "Compare audit packets by receipt completeness, reviewer, status, and seal progress.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "background", "border", "success", "warning", "danger", "info"]
+    },
+    {
+      "name": "review-workbench",
+      "purpose": "Inspect receipt completeness, delegated approvals, retry exceptions, export readiness, seal rules, and rollback-safe trails.",
+      "tokens": ["surface", "background", "border", "accent", "info", "success", "warning", "danger"]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricCard",
+      "purpose": "Show packet review totals and risk tone with stable dimensions.",
+      "tokens": ["surface", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["stable card height across values", "semantic token border communicates tone"]
+    },
+    {
+      "name": "PacketCard",
+      "purpose": "Show an audit packet with owner, completeness, reviewer, status, and progress.",
+      "tokens": ["surface", "background", "surfaceForeground", "mutedForeground", "border", "accent", "success", "warning", "danger"],
+      "interactions": ["status chip stacks cleanly on mobile", "progress bar uses Omarchy tokens"]
+    },
+    {
+      "name": "ReviewRow",
+      "purpose": "Dense rows for receipts, approvals, exports, and seal packet fields.",
+      "tokens": ["background", "surfaceForeground", "mutedForeground", "border", "success", "warning", "danger", "info"],
+      "interactions": ["row layout stacks at mobile widths", "status labels remain visible without layout shift"]
+    },
+    {
+      "name": "SealSelectedButton",
+      "purpose": "Primary action for sealing rollback-safe audit packets.",
+      "tokens": ["accent", "accentForeground", "foreground"],
+      "interactions": ["hover and focus-visible states use accent tokens"]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
