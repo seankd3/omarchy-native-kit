@@ -2,7 +2,7 @@
 
 Scaffolding and theme utilities for apps that should feel native to [Omarchy](https://omarchy.org): theme-aware, keyboard-first, and aligned with the user's current Omarchy palette.
 
-This repo now ships a small TypeScript library, a CLI, a React/Vite starter template, parser fixtures, and a generated dogfood app.
+This repo ships a small TypeScript library, a CLI, a React/Vite starter template, agent contracts, app verification, launcher generation, parser fixtures, and dogfood apps.
 
 ## Install
 
@@ -16,8 +16,9 @@ Use the local CLI while developing:
 ```bash
 node dist/cli.js doctor
 node dist/cli.js theme json
-node dist/cli.js theme css --out ./omarchy-theme.css
-node dist/cli.js create my-app --template react-vite
+node dist/cli.js theme sync --out ./omarchy-theme.css
+node dist/cli.js create my-app --template react-vite --kind dashboard
+node dist/cli.js verify my-app
 ```
 
 After package installation, the binary name is:
@@ -137,11 +138,13 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 npm run build
 npm run typecheck
 npm test
+npm run verify:examples
 ```
 
 Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 `docs/ci.workflow.yml` contains a ready-to-install GitHub Actions workflow for typecheck, test, and package dry-run verification.
 `docs/ecosystem.md` maps the current kit, examples, build loop, and next app ideas.
+`docs/release-checklist.md` covers pre-publish verification.
 
 ## Repository Layout
 
@@ -154,8 +157,9 @@ Tests use Node's built-in test runner and fixtures under `tests/fixtures`.
 - `src/verify.ts` - app contract verification for generated Omarchy-native apps
 - `templates/react-vite` - starter app template
 - `examples/hello-omarchy-native` - generated dogfood app
+- `examples/agent-context-lab`, `examples/signal-desk`, `examples/theme-forge` - richer dogfood apps
 - `docs/` - preserved research, product, architecture, and implementation notes
 
 ## Current Scope
 
-This MVP covers CSS and JSON token output plus a React/Vite starter. Future work can add file watching, hook installation, shell exports, GTK/Qt emitters, and richer app primitives.
+This MVP covers CSS and JSON token output, live theme syncing, agent context, app blueprints, React/Vite scaffolding, generated app verification, `.desktop` launcher generation, and dogfood apps. Future work can add safe hook installation, shell exports, GTK/Qt emitters, visual regression checks, npm publishing, and AUR packaging.

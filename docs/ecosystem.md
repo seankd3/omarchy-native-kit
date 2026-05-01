@@ -66,11 +66,10 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## Kit Refinements To Unlock More Apps
 
-- Add `omarchy-native theme watch` for local development.
 - Add GTK and Qt emitters beside CSS/JSON.
-- Add `.desktop` file generation for app launchers.
 - Add Playwright visual checks for generated apps.
 - Publish npm package and install docs.
+- Add safe hook installation for app-level theme refresh.
 - Add an AUR packaging path once the CLI stabilizes.
 
 ## Definition Of A Good Omarchy-Native App
