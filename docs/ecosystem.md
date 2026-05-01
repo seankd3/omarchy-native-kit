@@ -62,6 +62,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | SAML Assertion Trust Lab | `examples/saml-assertion-trust-lab` | Studio app for inspecting SAML apps, assertion attributes, stale identity provider trust, certificate expiry, owner intent, and rollback-safe federation cleanup. |
 | WebAuthn Passkey Policy Center | `examples/webauthn-passkey-policy-center` | Studio app for inspecting passkey registrations, resident credentials, authenticator attestation, stale devices, owner intent, and rollback-safe WebAuthn policy changes. |
 | Device Compliance Attestation Desk | `examples/device-compliance-attestation-desk` | Studio app for inspecting enrolled devices, posture attestations, stale compliance signals, owner intent, exception windows, and rollback-safe access policy changes. |
+| Zero Trust Access Review Console | `examples/zero-trust-access-review-console` | Studio app for inspecting protected resources, device posture gates, identity risk, stale access exceptions, owner intent, and rollback-safe zero-trust policy changes. |
 | Clipboard History Curator | `examples/clipboard-history-curator` | Studio app for reviewing clipboard history, pinning safe snippets, redacting secrets, and routing copied content by workspace. |
 | Desktop Entry Inspector | `examples/desktop-entry-inspector` | Studio app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps. |
 | DNS Resolver Policy Lab | `examples/dns-resolver-policy-lab` | Studio app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes. |
@@ -157,7 +158,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `zero-trust-access-review-console` - inspect protected resources, device posture gates, identity risk, stale access exceptions, owner intent, and rollback-safe zero-trust policy changes.
+- `conditional-access-simulator` - inspect conditional access rules, device and identity signals, blocked paths, break-glass exceptions, owner intent, and rollback-safe policy simulations.
 
 ## Kit Refinements To Unlock More Apps
 
