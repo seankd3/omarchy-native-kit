@@ -195,8 +195,8 @@ test('verifies a directory of committed dogfood app contracts', () => {
   const report = verifyOmarchyAppDirectory('examples');
 
   assert.equal(report.ok, true);
-  assert.equal(report.appCount, 52);
-  assert.equal(report.verifiedCount, 52);
+  assert.equal(report.appCount, 53);
+  assert.equal(report.verifiedCount, 53);
   assert.ok(report.reports.some((app) => app.appName === 'accessibility-contrast-auditor'));
   assert.ok(report.reports.some((app) => app.appName === 'app-health-monitor'));
   assert.ok(report.reports.some((app) => app.appName === 'apparmor-profile-workbench'));
@@ -223,6 +223,7 @@ test('verifies a directory of committed dogfood app contracts', () => {
   assert.ok(report.reports.some((app) => app.appName === 'notification-routing-board'));
   assert.ok(report.reports.some((app) => app.appName === 'package-update-coordinator'));
   assert.ok(report.reports.some((app) => app.appName === 'power-profile-switchboard'));
+  assert.ok(report.reports.some((app) => app.appName === 'proxy-environment-router'));
   assert.ok(report.reports.some((app) => app.appName === 'privacy-indicator-monitor'));
   assert.ok(report.reports.some((app) => app.appName === 'portal-file-picker-lab'));
   assert.ok(report.reports.some((app) => app.appName === 'service-restart-orchestrator'));
@@ -241,8 +242,8 @@ test('verifies a directory of committed dogfood app contracts', () => {
 test('catalogs committed dogfood apps', () => {
   const catalog = readAppCatalog('examples');
 
-  assert.equal(catalog.appCount, 52);
-  assert.equal(catalog.verifiedCount, 52);
+  assert.equal(catalog.appCount, 53);
+  assert.equal(catalog.verifiedCount, 53);
   assert.deepEqual(
     catalog.apps.map((app) => app.name),
     [
@@ -283,6 +284,7 @@ test('catalogs committed dogfood apps', () => {
       'power-profile-switchboard',
       'privacy-indicator-monitor',
       'prompt-foundry',
+      'proxy-environment-router',
       'release-console',
       'sandbox-policy-simulator',
       'screen-capture-permission-lab',

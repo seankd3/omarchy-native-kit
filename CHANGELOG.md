@@ -72,6 +72,7 @@ Initial public seed of Omarchy Native Kit.
   - `camera-microphone-permission-lab`
   - `notification-routing-board`
   - `power-profile-switchboard`
+  - `proxy-environment-router`
   - `privacy-indicator-monitor`
   - `audio-device-mixer`
   - `network-profile-mapper`

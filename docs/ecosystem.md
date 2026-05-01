@@ -38,6 +38,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Camera Microphone Permission Lab | `examples/camera-microphone-permission-lab` | Studio app for inspecting camera and microphone portals, device selection, per-app grants, meeting profiles, and privacy fallback behavior. |
 | Notification Routing Board | `examples/notification-routing-board` | Dashboard app for designing notification routes, quiet hours, and escalation rules. |
 | Power Profile Switchboard | `examples/power-profile-switchboard` | Dashboard app for tuning power profiles, brightness, idle behavior, and performance modes per workspace. |
+| Proxy Environment Router | `examples/proxy-environment-router` | Studio app for inspecting proxy variables, per-app proxy routing, no-proxy gaps, PAC files, and rollback-safe proxy changes. |
 | Privacy Indicator Monitor | `examples/privacy-indicator-monitor` | Studio app for inspecting camera, microphone, screen-capture, and location activity indicators, stale grants, and per-workspace privacy posture. |
 | Audio Device Mixer | `examples/audio-device-mixer` | Dashboard app for routing microphones, speakers, per-app volume, and meeting presets. |
 | Network Profile Mapper | `examples/network-profile-mapper` | Dashboard app for mapping trusted networks, VPN posture, DNS profiles, and workspace connectivity rules. |
@@ -139,7 +140,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `proxy-environment-router` - inspect proxy variables, per-app proxy routing, no-proxy gaps, PAC files, and rollback-safe proxy changes.
+- `container-runtime-dashboard` - inspect Podman and Docker services, socket exposure, image trust, volume mounts, and rollback-safe container runtime changes.
 
 ## Kit Refinements To Unlock More Apps
 
