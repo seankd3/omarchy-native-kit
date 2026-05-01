@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-review-appeal-outcome-reconciliation-desk",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "outcome-hero",
+      "purpose": "Summarize overturned archive purge appeal outcomes and expose the outcome sealing action.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "border",
+        "success"
+      ]
+    },
+    {
+      "name": "outcome-grid",
+      "purpose": "Compare appeal outcome ledgers, settlement state, release receipts, and delegated re-approval attestations.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success",
+        "warning",
+        "info"
+      ]
+    },
+    {
+      "name": "reconciliation-panels",
+      "purpose": "Inspect retry hash objection outcomes, checksum proof acceptance, and rollback-safe reconciliation packet exhibits.",
+      "tokens": [
+        "background",
+        "surface",
+        "borderStrong",
+        "accent",
+        "success"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "OutcomeCard",
+      "purpose": "Overturned appeal outcome summary with settlement, attestation, and reconciliation progress.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "success"
+      ],
+      "interactions": [
+        "status chip highlights sealed, reconciling, or review state",
+        "progress bar communicates reconciliation readiness without layout shift"
+      ]
+    },
+    {
+      "name": "EvidenceRow",
+      "purpose": "Dense row for outcome ledgers, retention settlements, release receipts, attestations, and checksum acceptance.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "border",
+        "info",
+        "success"
+      ],
+      "interactions": [
+        "state label remains visible at narrow widths",
+        "row content stacks cleanly on mobile"
+      ]
+    },
+    {
+      "name": "ReconciliationPacket",
+      "purpose": "Rollback-safe command and exhibit checklist for sealing an overturned appeal outcome.",
+      "tokens": [
+        "surface",
+        "border",
+        "success",
+        "accent"
+      ],
+      "interactions": [
+        "packet fields preserve long command text without overlapping neighboring panels",
+        "checklist remains readable on mobile and desktop"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
