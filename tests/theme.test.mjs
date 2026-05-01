@@ -145,11 +145,11 @@ test('verifies committed dogfood app contracts', () => {
 test('catalogs committed dogfood apps', () => {
   const catalog = readAppCatalog('examples');
 
-  assert.equal(catalog.appCount, 5);
-  assert.equal(catalog.verifiedCount, 5);
+  assert.equal(catalog.appCount, 6);
+  assert.equal(catalog.verifiedCount, 6);
   assert.deepEqual(
     catalog.apps.map((app) => app.name),
-    ['agent-context-lab', 'hello-omarchy-native', 'hook-station', 'signal-desk', 'theme-forge']
+    ['agent-context-lab', 'hello-omarchy-native', 'hook-station', 'signal-desk', 'theme-forge', 'workspace-radar']
   );
   assert.ok(catalog.apps.every((app) => app.acceptanceChecks === 8));
 });

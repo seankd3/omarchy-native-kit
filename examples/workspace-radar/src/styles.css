@@ -1,0 +1,326 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--omarchy-accent) 14%, transparent), transparent 26rem),
+    var(--omarchy-background);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.radarShell {
+  width: min(1240px, 100%);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.mast {
+  min-height: 112px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 18px;
+}
+
+.eyebrow,
+.workspaceId,
+small,
+em,
+kbd,
+.panelHeader span,
+.tableHead {
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.eyebrow,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  color: var(--omarchy-accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(2.35rem, 6vw, 5.25rem);
+  line-height: 0.95;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+.scanButton,
+.workspaceTile,
+.windowRow,
+.shortcutRow {
+  border: 1px solid var(--omarchy-border);
+  color: var(--omarchy-surface-foreground);
+  background: var(--omarchy-surface);
+}
+
+.scanButton {
+  min-height: 42px;
+  padding: 0 18px;
+  border-color: var(--omarchy-accent);
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  font-weight: 800;
+}
+
+.overview {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.workspaceTile {
+  position: relative;
+  min-height: 150px;
+  display: grid;
+  align-content: space-between;
+  justify-items: start;
+  gap: 8px;
+  overflow: hidden;
+  padding: 14px;
+  text-align: left;
+}
+
+.workspaceTile::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: var(--omarchy-border-strong);
+}
+
+.workspaceTile.active::before {
+  background: var(--omarchy-accent);
+}
+
+.workspaceTile.ready::before {
+  background: var(--omarchy-success);
+}
+
+.workspaceTile.busy::before {
+  background: var(--omarchy-warning);
+}
+
+.workspaceTile.quiet::before {
+  background: var(--omarchy-info);
+}
+
+.workspaceId {
+  color: var(--omarchy-muted-foreground);
+  font-size: 0.78rem;
+}
+
+.workspaceTile strong {
+  font-size: 1.55rem;
+}
+
+.workspaceTile em {
+  color: var(--omarchy-info);
+}
+
+small,
+em,
+.panelHeader span,
+.tableHead {
+  color: var(--omarchy-muted-foreground);
+  font-size: 0.78rem;
+  font-style: normal;
+}
+
+.radarGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 14px;
+}
+
+.windowPanel,
+.inspector {
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface) 94%, transparent);
+}
+
+.panelHeader {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 14px;
+  border-bottom: 1px solid var(--omarchy-border);
+}
+
+.windowTable {
+  display: grid;
+  gap: 1px;
+  background: var(--omarchy-border);
+}
+
+.tableHead,
+.windowRow {
+  display: grid;
+  grid-template-columns: minmax(86px, 0.5fr) minmax(190px, 1fr) 92px 54px;
+  align-items: center;
+  gap: 14px;
+  padding: 0 14px;
+}
+
+.tableHead {
+  min-height: 38px;
+  background: var(--omarchy-background);
+  text-transform: uppercase;
+}
+
+.windowRow {
+  min-height: 62px;
+  text-align: left;
+}
+
+.windowRow em {
+  color: var(--omarchy-accent);
+}
+
+.inspector {
+  align-self: start;
+}
+
+.focusCard {
+  display: grid;
+  gap: 10px;
+  margin: 14px;
+  padding: 14px;
+  border: 1px solid var(--omarchy-border-strong);
+  background: var(--omarchy-background);
+}
+
+.focusCard strong {
+  color: var(--omarchy-info);
+  font-size: 1.25rem;
+}
+
+.focusCard p {
+  color: var(--omarchy-muted-foreground);
+  line-height: 1.55;
+}
+
+.shortcutStack {
+  display: grid;
+  gap: 8px;
+  padding: 0 14px 14px;
+}
+
+.shortcutRow {
+  min-height: 46px;
+  display: grid;
+  grid-template-columns: minmax(108px, 0.52fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+kbd {
+  width: fit-content;
+  max-width: 100%;
+  padding: 5px 8px;
+  border: 1px solid var(--omarchy-border-strong);
+  color: var(--omarchy-accent);
+  background: var(--omarchy-background);
+  font-size: 0.78rem;
+}
+
+.shortcutRow em {
+  color: var(--omarchy-success);
+}
+
+.scanButton:hover,
+.workspaceTile:hover,
+.windowRow:hover,
+.shortcutRow:hover {
+  background: var(--omarchy-surface-raised);
+}
+
+.scanButton:focus-visible,
+.workspaceTile:focus-visible,
+.windowRow:focus-visible,
+.shortcutRow:focus-visible {
+  outline: 2px solid var(--omarchy-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 980px) {
+  .overview,
+  .radarGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .windowPanel {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .radarShell {
+    padding: 12px;
+  }
+
+  .mast {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .scanButton {
+    width: 100%;
+  }
+
+  .overview,
+  .radarGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .tableHead {
+    display: none;
+  }
+
+  .windowRow {
+    grid-template-columns: minmax(82px, 0.45fr) minmax(0, 1fr);
+    min-height: 88px;
+    border-bottom: 1px solid var(--omarchy-border);
+  }
+
+  .windowRow em,
+  .windowRow small {
+    grid-column: 2;
+  }
+
+  .shortcutRow {
+    grid-template-columns: 1fr;
+  }
+}
