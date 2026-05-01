@@ -54,6 +54,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Environment Variable Auditor | `examples/environment-variable-auditor` | Studio app for inspecting shell, desktop, and service environments, comparing mismatched variables, and staging clean export fixes. |
 | Locale Timezone Manager | `examples/locale-timezone-manager` | Dashboard app for comparing locale, timezone, keyboard, and clock settings across shells, desktop sessions, and services before applying changes. |
 | Font Rendering Tuner | `examples/font-rendering-tuner` | Studio app for comparing font stacks, antialiasing, hinting, and scaling behavior across GTK, Qt, browser, and terminal surfaces. |
+| Trust Zone Mapper | `examples/trust-zone-mapper` | Studio app for inspecting workspace trust zones, portal exposure, network posture, removable media, and rollback-safe isolation recipes. |
 | Cursor Pointer Theme Studio | `examples/cursor-pointer-theme-studio` | Studio app for comparing cursor themes, pointer sizes, acceleration, and touchpad behavior across compositor, GTK, Qt, and browser surfaces. |
 | Icon Theme Coordinator | `examples/icon-theme-coordinator` | Studio app for comparing icon themes, symbolic icon coverage, launcher glyphs, and file-manager fallbacks across GTK, Qt, browser, and shell surfaces. |
 | MIME Defaults Workbench | `examples/mime-defaults-workbench` | Studio app for auditing MIME defaults, opener precedence, portal handoffs, browser handlers, and rollback-safe association changes. |
@@ -133,7 +134,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `trust-zone-mapper` - inspect workspace trust zones, portal exposure, network posture, removable media, and rollback-safe isolation recipes.
+- `sandbox-policy-simulator` - inspect sandbox profiles, bind mounts, portal holes, network namespaces, and rollback-safe policy experiments.
 
 ## Kit Refinements To Unlock More Apps
 
