@@ -53,4 +53,5 @@ Initial public seed of Omarchy Native Kit.
   - `release-console`
   - `aur-packager`
   - `theme-migration-lab`
+  - `ops-deck`
 - Ecosystem map and CI workflow template.

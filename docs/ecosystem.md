@@ -23,6 +23,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Release Console | `examples/release-console` | Dashboard app for release dry-runs, catalog snapshots, and publish prep. |
 | AUR Packager | `examples/aur-packager` | Studio app for staging Arch/AUR package metadata and validation. |
 | Theme Migration Lab | `examples/theme-migration-lab` | Studio app for comparing theme changes before rollout. |
+| Ops Deck | `examples/ops-deck` | Dashboard app for daily catalog, release, and rollout operations. |
 
 ## Build Loop
 
@@ -98,7 +99,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `ops-deck` - collect daily Omarchy-native checks, app catalog status, and release tasks in one operator dashboard.
+- `docs-reader` - browse local kit docs, commands, and app blueprints in a keyboard-first reference surface.
 
 ## Kit Refinements To Unlock More Apps
 

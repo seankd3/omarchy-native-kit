@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "ops-deck",
+  "kind": "dashboard",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "metric-strip",
+      "purpose": "Dense glanceable numbers for current system or workflow state.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "border",
+        "success",
+        "warning"
+      ]
+    },
+    {
+      "name": "activity-table",
+      "purpose": "Sortable rows for recent events, jobs, or records.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "border",
+        "mutedForeground"
+      ]
+    },
+    {
+      "name": "side-panel",
+      "purpose": "Filters and focused details without leaving the dashboard.",
+      "tokens": [
+        "background",
+        "surface",
+        "borderStrong",
+        "accent"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "MetricTile",
+      "purpose": "Small fixed-format tile with label, value, and semantic delta.",
+      "tokens": [
+        "surface",
+        "surfaceForeground",
+        "mutedForeground",
+        "success",
+        "danger"
+      ],
+      "interactions": [
+        "focusable when it drills down",
+        "keeps value from shifting neighboring tiles"
+      ]
+    },
+    {
+      "name": "DataRow",
+      "purpose": "Scannable table row with selected and hover states.",
+      "tokens": [
+        "surface",
+        "surfaceRaised",
+        "accent",
+        "border"
+      ],
+      "interactions": [
+        "hover raises surface",
+        "selected row uses accent rail",
+        "enter opens details"
+      ]
+    },
+    {
+      "name": "FilterToggle",
+      "purpose": "Binary dashboard filter with clear active state.",
+      "tokens": [
+        "surface",
+        "accent",
+        "accentForeground",
+        "border"
+      ],
+      "interactions": [
+        "space toggles",
+        "active state uses accent background"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}

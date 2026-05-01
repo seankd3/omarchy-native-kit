@@ -181,6 +181,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/release-console` is a dashboard dogfood app for release dry-runs, catalog snapshots, and publish prep.
 `examples/aur-packager` is a studio dogfood app for staging Arch/AUR package metadata and validation.
 `examples/theme-migration-lab` is a studio dogfood app for comparing theme changes before rollout.
+`examples/ops-deck` is a dashboard dogfood app for daily catalog, release, and rollout operations.
 
 ## Development
 
