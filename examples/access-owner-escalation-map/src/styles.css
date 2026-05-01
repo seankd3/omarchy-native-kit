@@ -1,0 +1,423 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color: var(--omarchy-foreground);
+  background: var(--omarchy-background);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--omarchy-accent) 12%, transparent),
+      transparent 34rem
+    ),
+    linear-gradient(
+      315deg,
+      color-mix(in srgb, var(--omarchy-warning) 10%, transparent),
+      transparent 30rem
+    ),
+    var(--omarchy-background);
+}
+
+button {
+  font: inherit;
+}
+
+.shell {
+  width: min(1500px, 100%);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 340px);
+  gap: 20px;
+  align-items: stretch;
+  padding: 28px;
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface) 90%, transparent);
+  box-shadow: 0 24px 82px color-mix(in srgb, var(--omarchy-shadow) 30%, transparent);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--omarchy-accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 13ch;
+  margin-bottom: 18px;
+  font-size: 4.45rem;
+  line-height: 0.92;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 1.05rem;
+}
+
+h3 {
+  margin: 10px 0 0;
+  font-size: 1rem;
+}
+
+.lede {
+  max-width: 74ch;
+  margin-bottom: 0;
+  color: var(--omarchy-muted-foreground);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.decisionPanel,
+.metric,
+.panel,
+.path {
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-surface) 92%, transparent);
+}
+
+.decisionPanel {
+  display: grid;
+  gap: 12px;
+  align-content: center;
+  min-height: 172px;
+  padding: 24px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--omarchy-accent) 18%, transparent), transparent),
+    var(--omarchy-surface);
+}
+
+.decisionPanel span,
+.metric span,
+dt,
+small {
+  color: var(--omarchy-muted-foreground);
+}
+
+.decisionPanel strong {
+  color: var(--omarchy-accent);
+  font-size: 3.3rem;
+  line-height: 1;
+}
+
+.decisionPanel small {
+  line-height: 1.5;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.metric {
+  display: grid;
+  gap: 8px;
+  min-height: 132px;
+  padding: 18px;
+}
+
+.metric strong {
+  color: var(--omarchy-surface-foreground);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(320px, 0.9fr);
+  gap: 16px;
+}
+
+.threeColumn {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.panel {
+  min-width: 0;
+  padding: 18px;
+  box-shadow: 0 18px 54px color-mix(in srgb, var(--omarchy-shadow) 18%, transparent);
+}
+
+.panelHeader {
+  display: flex;
+  gap: 16px;
+  align-items: start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.panelHeader.compact {
+  align-items: end;
+}
+
+.panelHeader button {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid var(--omarchy-border-strong);
+  color: var(--omarchy-accent-foreground);
+  background: var(--omarchy-accent);
+  cursor: pointer;
+}
+
+.panelHeader button:hover,
+.panelHeader button:focus-visible {
+  outline: 2px solid var(--omarchy-accent);
+  outline-offset: 2px;
+  filter: brightness(1.05);
+}
+
+.pathList,
+.trailList,
+.notificationList,
+.handoffList,
+.evidenceList {
+  display: grid;
+  gap: 12px;
+}
+
+.path {
+  padding: 16px;
+  background: var(--omarchy-surface);
+}
+
+.pathTop {
+  display: flex;
+  gap: 16px;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.pathTop > strong {
+  min-width: 94px;
+  padding: 8px 10px;
+  border: 1px solid color-mix(in srgb, var(--omarchy-warning) 44%, var(--omarchy-border));
+  color: var(--omarchy-warning);
+  background: color-mix(in srgb, var(--omarchy-warning) 12%, transparent);
+  text-align: center;
+}
+
+.status,
+.rowFooter b {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  min-height: 26px;
+  padding: 4px 9px;
+  border: 1px solid var(--omarchy-border);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.breach,
+.late {
+  color: var(--omarchy-danger);
+  background: color-mix(in srgb, var(--omarchy-danger) 14%, transparent);
+  border-color: color-mix(in srgb, var(--omarchy-danger) 44%, var(--omarchy-border));
+}
+
+.escalated,
+.waiting,
+.queued {
+  color: var(--omarchy-warning);
+  background: color-mix(in srgb, var(--omarchy-warning) 14%, transparent);
+  border-color: color-mix(in srgb, var(--omarchy-warning) 44%, var(--omarchy-border));
+}
+
+.watching {
+  color: var(--omarchy-info);
+  background: color-mix(in srgb, var(--omarchy-info) 14%, transparent);
+  border-color: color-mix(in srgb, var(--omarchy-info) 44%, var(--omarchy-border));
+}
+
+.ready,
+.sent,
+.acknowledged,
+.active {
+  color: var(--omarchy-success);
+  background: color-mix(in srgb, var(--omarchy-success) 14%, transparent);
+  border-color: color-mix(in srgb, var(--omarchy-success) 44%, var(--omarchy-border));
+}
+
+dl {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  margin: 16px 0 0;
+}
+
+dl div {
+  min-height: 72px;
+  padding: 12px;
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-background) 56%, transparent);
+}
+
+dt {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+dd {
+  margin: 6px 0 0;
+  color: var(--omarchy-surface-foreground);
+  font-weight: 700;
+}
+
+.trail,
+.notification,
+.handoff,
+.evidence {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--omarchy-border);
+  background: color-mix(in srgb, var(--omarchy-background) 52%, transparent);
+}
+
+.trail {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+}
+
+code {
+  color: var(--omarchy-info);
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.78rem;
+}
+
+.trail div,
+.notification div:first-child {
+  display: grid;
+  gap: 5px;
+}
+
+.trail span,
+.notification span,
+.evidence span {
+  color: var(--omarchy-muted-foreground);
+}
+
+.notification p,
+.handoff p,
+.evidence p {
+  margin: 0;
+  color: var(--omarchy-muted-foreground);
+  line-height: 1.5;
+}
+
+.rowFooter {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.handoff strong,
+.evidence strong {
+  color: var(--omarchy-surface-foreground);
+}
+
+.checklistPanel {
+  margin-top: 16px;
+}
+
+.checklistPanel ul {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checklistPanel li {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  min-height: 88px;
+  padding: 12px;
+  border: 1px solid var(--omarchy-border);
+  color: var(--omarchy-surface-foreground);
+  background: color-mix(in srgb, var(--omarchy-background) 52%, transparent);
+  line-height: 1.45;
+}
+
+.checklistPanel li span {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  border: 1px solid color-mix(in srgb, var(--omarchy-accent) 56%, var(--omarchy-border));
+  background: color-mix(in srgb, var(--omarchy-accent) 20%, transparent);
+}
+
+@media (max-width: 1180px) {
+  .masthead,
+  .mainGrid,
+  .threeColumn {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 3.35rem;
+  }
+
+  .metrics,
+  .checklistPanel ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .shell {
+    padding: 12px;
+  }
+
+  .masthead,
+  .panel {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 2.45rem;
+  }
+
+  .metrics,
+  dl,
+  .trail,
+  .rowFooter,
+  .checklistPanel ul {
+    grid-template-columns: 1fr;
+  }
+
+  .pathTop,
+  .panelHeader {
+    flex-direction: column;
+  }
+}

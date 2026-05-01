@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "kit": "omarchy-native-kit",
+  "appName": "access-owner-escalation-map",
+  "kind": "studio",
+  "themeName": null,
+  "files": [
+    "src/omarchy-theme.css",
+    "src/App.tsx",
+    "src/styles.css",
+    "src/main.tsx",
+    "README.md"
+  ],
+  "layoutRegions": [
+    {
+      "name": "escalation-summary",
+      "purpose": "Summarizes stalled approvals, delegated backups, breach notices, and evidence coverage.",
+      "tokens": [
+        "surface",
+        "border",
+        "accent",
+        "warning",
+        "shadow"
+      ]
+    },
+    {
+      "name": "owner-paths",
+      "purpose": "Shows owner escalation paths with primary owners, backups, handoffs, evidence, and state.",
+      "tokens": [
+        "surface",
+        "background",
+        "surfaceForeground",
+        "border",
+        "accent",
+        "warning",
+        "danger"
+      ]
+    },
+    {
+      "name": "accountability-workbench",
+      "purpose": "Tracks breach notifications, delegated backups, evidence coverage, and accountability events.",
+      "tokens": [
+        "surface",
+        "mutedForeground",
+        "success",
+        "warning",
+        "danger",
+        "info"
+      ]
+    }
+  ],
+  "components": [
+    {
+      "name": "EscalationPathCard",
+      "purpose": "Owner route card with primary owner, backup, path, handoff, evidence, and stalled count.",
+      "tokens": [
+        "surface",
+        "background",
+        "border",
+        "accent",
+        "warning",
+        "danger"
+      ],
+      "interactions": [
+        "stalled count remains visible at all widths",
+        "path and evidence cells wrap without horizontal scrolling"
+      ]
+    },
+    {
+      "name": "BreachNotification",
+      "purpose": "Notification row with target, team, reason, sent time, and acknowledgement state.",
+      "tokens": [
+        "background",
+        "surfaceForeground",
+        "mutedForeground",
+        "success",
+        "warning"
+      ],
+      "interactions": [
+        "state labels use token-backed color",
+        "row layout collapses to one column on narrow viewports"
+      ]
+    },
+    {
+      "name": "AccountabilityChecklist",
+      "purpose": "Rollback-safe control checklist for sealing accountability trails.",
+      "tokens": [
+        "surface",
+        "background",
+        "border",
+        "accent",
+        "mutedForeground"
+      ],
+      "interactions": [
+        "items keep stable dimensions",
+        "markers are semantic token mixes"
+      ]
+    }
+  ],
+  "acceptanceChecks": [
+    "Generated app imports src/omarchy-theme.css before app styles.",
+    "Every visible color comes from a --omarchy-* CSS variable or color-mix using one.",
+    "Every button, row, input, and command item has a visible :focus-visible state.",
+    "Layout remains stable at 320px, 768px, and 1280px viewport widths.",
+    "Primary content is usable on first load without a marketing interstitial.",
+    "A .desktop launcher can be generated with omarchy-native app desktop.",
+    "An opt-in theme sync hook can be generated with omarchy-native app hook.",
+    "npm run build completes successfully."
+  ]
+}
