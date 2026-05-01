@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdtempSync, readFileSync, rmSync, statSync, unlinkSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -168,6 +168,16 @@ test('verify reports generated app contract status', () => {
     assert.equal(payload.kind, 'command-center');
 
     unlinkSync(join(target, 'src/omarchy-theme.css'));
+    assert.throws(
+      () => execFileSync(process.execPath, [...cli, 'verify', target], { encoding: 'utf8', stdio: 'pipe' }),
+      /Command failed/
+    );
+
+    execFileSync(
+      process.execPath,
+      [...cli, 'theme', 'css', '--colors', fixture, '--out', join(target, 'src/omarchy-theme.css')]
+    );
+    writeFileSync(join(target, 'src/bad.css'), '.bad { color: #123456; }\n');
     assert.throws(
       () => execFileSync(process.execPath, [...cli, 'verify', target], { encoding: 'utf8', stdio: 'pipe' }),
       /Command failed/

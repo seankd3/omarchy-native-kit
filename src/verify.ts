@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import type { AgentBlueprintKind, OmarchyAgentBlueprint } from './agent.js';
 
@@ -29,6 +29,7 @@ export function verifyOmarchyApp(appPath: string): AppVerificationReport {
   const blueprint = readJson<OmarchyAgentBlueprint>(blueprintPath);
   const themeCss = readText(themeCssPath);
   const main = readText(mainPath);
+  const hardcodedColors = findHardcodedColors(root);
 
   checks.push({
     name: 'package-json',
@@ -59,6 +60,14 @@ export function verifyOmarchyApp(appPath: string): AppVerificationReport {
     name: 'theme-import-order',
     ok: main.ok && importsThemeBeforeStyles(main.value),
     detail: main.ok ? 'src/omarchy-theme.css is imported before src/styles.css' : main.error
+  });
+  checks.push({
+    name: 'no-hardcoded-colors',
+    ok: hardcodedColors.length === 0,
+    detail:
+      hardcodedColors.length === 0
+        ? 'no raw hex colors found outside generated theme files'
+        : `raw hex colors: ${hardcodedColors.slice(0, 6).join(', ')}`
   });
 
   return {
@@ -111,4 +120,34 @@ function importsThemeBeforeStyles(source: string): boolean {
   const themeIndex = source.indexOf("import './omarchy-theme.css'");
   const stylesIndex = source.indexOf("import './styles.css'");
   return themeIndex >= 0 && stylesIndex >= 0 && themeIndex < stylesIndex;
+}
+
+function findHardcodedColors(root: string): string[] {
+  const findings: string[] = [];
+  walk(join(root, 'src'), (path) => {
+    if (path.endsWith('omarchy-theme.css')) return;
+    if (!/\.(css|tsx?|jsx?)$/.test(path)) return;
+
+    const source = readText(path);
+    if (!source.ok) return;
+    const relativePath = path.slice(root.length + 1);
+    const lines = source.value.split(/\r?\n/);
+    lines.forEach((line, index) => {
+      const matches = line.match(/#[0-9a-fA-F]{6}\b/g) ?? [];
+      for (const match of matches) findings.push(`${relativePath}:${index + 1}:${match}`);
+    });
+  });
+
+  return findings;
+}
+
+function walk(path: string, visit: (path: string) => void): void {
+  if (!existsSync(path)) return;
+  const stat = statSync(path);
+  if (stat.isDirectory()) {
+    for (const entry of readdirSync(path)) walk(join(path, entry), visit);
+    return;
+  }
+
+  if (stat.isFile()) visit(path);
 }

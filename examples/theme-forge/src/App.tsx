@@ -1,13 +1,13 @@
 const swatches = [
-  { token: 'background', variable: '--omarchy-background', value: '#101216', role: 'Window' },
-  { token: 'foreground', variable: '--omarchy-foreground', value: '#e7eaf0', role: 'Text' },
-  { token: 'surface', variable: '--omarchy-surface', value: '#151820', role: 'Panel' },
-  { token: 'raised', variable: '--omarchy-surface-raised', value: '#414868', role: 'Hover' },
-  { token: 'accent', variable: '--omarchy-accent', value: '#7aa2f7', role: 'Action' },
-  { token: 'success', variable: '--omarchy-success', value: '#9ece6a', role: 'Good' },
-  { token: 'warning', variable: '--omarchy-warning', value: '#e0af68', role: 'Risk' },
-  { token: 'danger', variable: '--omarchy-danger', value: '#f7768e', role: 'Error' },
-  { token: 'info', variable: '--omarchy-info', value: '#7dcfff', role: 'Note' }
+  { token: 'background', variable: '--omarchy-background', role: 'Window' },
+  { token: 'foreground', variable: '--omarchy-foreground', role: 'Text' },
+  { token: 'surface', variable: '--omarchy-surface', role: 'Panel' },
+  { token: 'raised', variable: '--omarchy-surface-raised', role: 'Hover' },
+  { token: 'accent', variable: '--omarchy-accent', role: 'Action' },
+  { token: 'success', variable: '--omarchy-success', role: 'Good' },
+  { token: 'warning', variable: '--omarchy-warning', role: 'Risk' },
+  { token: 'danger', variable: '--omarchy-danger', role: 'Error' },
+  { token: 'info', variable: '--omarchy-info', role: 'Note' }
 ];
 
 const exports = ['CSS variables', 'Agent JSON', 'Blueprint', 'Verifier report'];
@@ -55,7 +55,7 @@ export function App() {
           <span className="previewSwatch" />
           <div>
             <strong>--omarchy-accent</strong>
-            <small>#7aa2f7</small>
+            <small>var(--omarchy-accent)</small>
           </div>
         </div>
         <div className="propertyList">
