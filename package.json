@@ -1,0 +1,20 @@
+{
+  "name": "omarchy-native-kit",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Scaffolding and theme runtime for Omarchy-native apps.",
+  "type": "module",
+  "bin": {
+    "omarchy-native": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "theme:json": "node dist/cli.js theme json",
+    "theme:css": "node dist/cli.js theme css"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "typescript": "latest"
+  }
+}
