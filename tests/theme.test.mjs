@@ -146,8 +146,8 @@ test('verifies committed dogfood app contracts', () => {
 test('catalogs committed dogfood apps', () => {
   const catalog = readAppCatalog('examples');
 
-  assert.equal(catalog.appCount, 10);
-  assert.equal(catalog.verifiedCount, 10);
+  assert.equal(catalog.appCount, 11);
+  assert.equal(catalog.verifiedCount, 11);
   assert.deepEqual(
     catalog.apps.map((app) => app.name),
     [
@@ -160,6 +160,7 @@ test('catalogs committed dogfood apps', () => {
       'release-console',
       'signal-desk',
       'theme-forge',
+      'theme-migration-lab',
       'workspace-radar'
     ]
   );

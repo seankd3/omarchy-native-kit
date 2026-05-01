@@ -22,6 +22,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 | Native Gallery | `examples/native-gallery` | Studio app for browsing verified apps and copying blueprint recipes. |
 | Release Console | `examples/release-console` | Dashboard app for release dry-runs, catalog snapshots, and publish prep. |
 | AUR Packager | `examples/aur-packager` | Studio app for staging Arch/AUR package metadata and validation. |
+| Theme Migration Lab | `examples/theme-migration-lab` | Studio app for comparing theme changes before rollout. |
 
 ## Build Loop
 
@@ -97,7 +98,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `theme-migration-lab` - compare old and new Omarchy palettes before rolling theme changes through apps.
+- `ops-deck` - collect daily Omarchy-native checks, app catalog status, and release tasks in one operator dashboard.
 
 ## Kit Refinements To Unlock More Apps
 

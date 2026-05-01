@@ -51,7 +51,7 @@
     "theme:sync": "node dist/cli.js theme sync --out src/omarchy-theme.css",
     "theme:watch": "node dist/cli.js theme watch --out src/omarchy-theme.css",
     "catalog:examples": "node dist/cli.js app catalog examples",
-    "verify:examples": "node dist/cli.js verify examples/hello-omarchy-native && node dist/cli.js verify examples/agent-context-lab && node dist/cli.js verify examples/signal-desk && node dist/cli.js verify examples/theme-forge && node dist/cli.js verify examples/hook-station && node dist/cli.js verify examples/workspace-radar && node dist/cli.js verify examples/prompt-foundry && node dist/cli.js verify examples/native-gallery && node dist/cli.js verify examples/release-console && node dist/cli.js verify examples/aur-packager"
+    "verify:examples": "node dist/cli.js verify examples/hello-omarchy-native && node dist/cli.js verify examples/agent-context-lab && node dist/cli.js verify examples/signal-desk && node dist/cli.js verify examples/theme-forge && node dist/cli.js verify examples/hook-station && node dist/cli.js verify examples/workspace-radar && node dist/cli.js verify examples/prompt-foundry && node dist/cli.js verify examples/native-gallery && node dist/cli.js verify examples/release-console && node dist/cli.js verify examples/aur-packager && node dist/cli.js verify examples/theme-migration-lab"
   },
   "devDependencies": {
     "@types/node": "latest",
