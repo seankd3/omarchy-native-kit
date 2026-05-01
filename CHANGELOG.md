@@ -84,6 +84,7 @@ Initial public seed of Omarchy Native Kit.
   - `journal-timeline-inspector`
   - `service-restart-orchestrator`
   - `screen-capture-permission-lab`
+  - `sensor-access-ledger`
   - `environment-variable-auditor`
   - `locale-timezone-manager`
   - `font-rendering-tuner`
