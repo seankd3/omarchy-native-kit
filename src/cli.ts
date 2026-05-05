@@ -23,8 +23,11 @@ import {
   toGtkCss,
   toThemeHookScript,
   toJsonTheme,
+  readIntegrationCatalog,
   toQtPalette,
   toShellExports,
+  toIntegrationCatalogJson,
+  toIntegrationCatalogText,
   verifyOmarchyAppDirectory,
   verifyOmarchyApps,
   verifyOmarchyApp
@@ -170,6 +173,11 @@ function run(parsed: ParsedArgs): void {
     return;
   }
 
+  if (command === 'integrate' && subcommand === 'list') {
+    integrations(parsed);
+    return;
+  }
+
   if (command === 'integrate' && subcommand === 'darktable') {
     darktable(parsed);
     return;
@@ -177,6 +185,11 @@ function run(parsed: ParsedArgs): void {
 
   help();
   process.exitCode = 1;
+}
+
+function integrations(parsed: ParsedArgs): void {
+  const catalog = readIntegrationCatalog();
+  process.stdout.write(booleanFlag(parsed, 'json') ? toIntegrationCatalogJson(catalog) : toIntegrationCatalogText(catalog));
 }
 
 function darktable(parsed: ParsedArgs): void {
@@ -415,6 +428,7 @@ Commands:
   app desktop [path] [--out <file>]     Generate a .desktop launcher entry
   app hook [path] [--out <file>]        Generate a safe theme sync hook script
   app catalog [path] [--json]           Catalog Omarchy-native apps by blueprint
+  integrate list [--json]               List available app integrations
   integrate darktable [--out <file>]    Generate an opt-in darktable CSS theme
 `);
 }

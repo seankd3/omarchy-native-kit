@@ -23,6 +23,13 @@ export { toCssVariables, toDarktableCss, toGtkCss, toJsonTheme, toQtPalette, toS
 export { toDesktopEntry, type DesktopEntryOptions } from './desktop.js';
 export { toThemeHookScript, type ThemeHookOptions } from './hooks.js';
 export {
+  readIntegrationCatalog,
+  toIntegrationCatalogJson,
+  toIntegrationCatalogText,
+  type IntegrationCatalog,
+  type IntegrationCatalogEntry
+} from './integrations.js';
+export {
   readAppCatalog,
   toAppCatalogJson,
   toAppCatalogText,

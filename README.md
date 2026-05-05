@@ -66,6 +66,7 @@ omarchy-native verify ./hello-omarchy-native
 omarchy-native app desktop ./hello-omarchy-native --out hello-omarchy-native.desktop
 omarchy-native app hook ./hello-omarchy-native --out theme-set
 omarchy-native app catalog ./examples
+omarchy-native integrate list
 omarchy-native integrate darktable --out ~/.config/darktable/themes/omarchy.css
 ```
 
@@ -101,9 +102,10 @@ omarchy-native theme qt
 omarchy-native theme qt --out qt.ini
 ```
 
-Use `integrate darktable` for an experimental opt-in darktable CSS theme:
+Use `integrate list` to see available app adapters, then `integrate darktable` for an experimental opt-in darktable CSS theme:
 
 ```bash
+omarchy-native integrate list
 omarchy-native integrate darktable --out ./omarchy-darktable.css
 ```
 

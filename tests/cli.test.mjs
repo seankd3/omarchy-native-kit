@@ -96,6 +96,25 @@ test('integrate darktable writes opt-in darktable css', () => {
   }
 });
 
+test('integrate list reports available integrations', () => {
+  const text = execFileSync(process.execPath, [...cli, 'integrate', 'list'], {
+    encoding: 'utf8'
+  });
+  const json = execFileSync(process.execPath, [...cli, 'integrate', 'list', '--json'], {
+    encoding: 'utf8'
+  });
+  const payload = JSON.parse(json);
+
+  assert.match(text, /darktable \(experimental\)/);
+  assert.match(text, /writes only requested paths/);
+  assert.equal(payload.schemaVersion, 1);
+  assert.deepEqual(
+    payload.integrations.map((integration) => integration.name),
+    ['darktable']
+  );
+  assert.equal(payload.integrations[0].writesOnlyRequestedPaths, true);
+});
+
 test('theme qt writes qt palette ini', () => {
   const dir = mkdtempSync(join(tmpdir(), 'omarchy-native-kit-qt-'));
   try {

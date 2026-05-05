@@ -18,6 +18,7 @@ node dist/cli.js theme qt --out my-app/qt.ini --colors tests/fixtures/colors.bas
 node dist/cli.js verify my-app --json
 node dist/cli.js app desktop my-app --out my-app.desktop
 node dist/cli.js app hook my-app --out theme-set
+node dist/cli.js integrate list
 ```
 
 On an Omarchy machine, omit `--colors` to read `~/.config/omarchy/current/theme/colors.toml`.
@@ -37,6 +38,8 @@ On an Omarchy machine, omit `--colors` to read `~/.config/omarchy/current/theme/
 - `verify <path>` audits generated app contracts before handoff.
 - `app desktop <path>` generates a launcher entry without installing it.
 - `app hook <path>` generates a theme sync hook script without installing it.
+- `integrate list` reports available opt-in app integrations and their safety posture.
+- `integrate darktable` emits an experimental darktable CSS theme without installing it.
 
 ## Build Rules
 
