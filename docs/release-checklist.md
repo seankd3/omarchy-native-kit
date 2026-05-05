@@ -22,6 +22,7 @@ node dist/cli.js agent blueprint --app release-smoke --kind dashboard --colors t
 node dist/cli.js create /tmp/release-smoke --template react-vite --kind dashboard --colors tests/fixtures/colors.basic.toml
 node dist/cli.js verify /tmp/release-smoke
 node dist/cli.js app desktop /tmp/release-smoke --out /tmp/release-smoke.desktop
+node dist/cli.js integrate darktable --colors tests/fixtures/colors.basic.toml --out /tmp/omarchy-darktable.css
 ```
 
 ## Update Metadata
@@ -29,7 +30,7 @@ node dist/cli.js app desktop /tmp/release-smoke --out /tmp/release-smoke.desktop
 - Confirm `README.md` commands match CLI help.
 - Confirm `CHANGELOG.md` has the release notes.
 - Confirm `package.json` version and repository metadata.
-- Confirm `npm pack --dry-run` includes `dist`, `templates`, `README.md`, and `LICENSE`.
+- Confirm `npm pack --dry-run` includes `dist`, `templates`, `docs`, `README.md`, and `LICENSE`.
 
 ## Publish
 

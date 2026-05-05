@@ -19,6 +19,7 @@ import {
   toAppVerificationText,
   toCssVariables,
   toDesktopEntry,
+  toDarktableCss,
   toGtkCss,
   toThemeHookScript,
   toJsonTheme,
@@ -169,8 +170,24 @@ function run(parsed: ParsedArgs): void {
     return;
   }
 
+  if (command === 'integrate' && subcommand === 'darktable') {
+    darktable(parsed);
+    return;
+  }
+
   help();
   process.exitCode = 1;
+}
+
+function darktable(parsed: ParsedArgs): void {
+  const css = toDarktableCss(loadTheme(parsed).tokens);
+  const out = stringFlag(parsed, 'out');
+  if (out) {
+    mkdirSync(dirname(resolve(out)), { recursive: true });
+    writeFileSync(out, css);
+  } else {
+    process.stdout.write(css);
+  }
 }
 
 function catalog(parsed: ParsedArgs): void {
@@ -398,5 +415,6 @@ Commands:
   app desktop [path] [--out <file>]     Generate a .desktop launcher entry
   app hook [path] [--out <file>]        Generate a safe theme sync hook script
   app catalog [path] [--json]           Catalog Omarchy-native apps by blueprint
+  integrate darktable [--out <file>]    Generate an opt-in darktable CSS theme
 `);
 }

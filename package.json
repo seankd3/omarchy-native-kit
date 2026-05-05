@@ -36,6 +36,7 @@
   "files": [
     "dist",
     "templates",
+    "docs",
     "README.md",
     "CHANGELOG.md",
     "CONTRIBUTING.md",

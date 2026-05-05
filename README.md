@@ -2,6 +2,8 @@
 
 Scaffolding and theme utilities for apps that should feel native to [Omarchy](https://omarchy.org): theme-aware, keyboard-first, and aligned with the user's current Omarchy palette.
 
+The problem is simple: too many local Linux apps ship their own private visual kingdom. Omarchy Native Kit gives app authors and coding agents a small contract for reading the system theme, mapping it to semantic roles, and emitting artifacts that let apps follow the user's desktop instead of hard-coding another dark mode.
+
 This repo ships a small TypeScript library, a CLI, a React/Vite starter template, agent contracts, app verification, app cataloging, launcher generation, parser fixtures, and dogfood apps.
 
 ## Install
@@ -27,6 +29,24 @@ After package installation, the binary name is:
 omarchy-native doctor
 ```
 
+## Try It In 10 Minutes
+
+You do not need to be on Omarchy to try the workflow. Use the fixture palette for deterministic output:
+
+```bash
+git clone https://github.com/Sean-Kenneth-Doherty/omarchy-native-kit.git
+cd omarchy-native-kit
+npm install
+npm run build
+node dist/cli.js agent prompt --colors tests/fixtures/colors.basic.toml
+node dist/cli.js create /tmp/omarchy-smoke --template react-vite --kind dashboard --colors tests/fixtures/colors.basic.toml
+node dist/cli.js verify /tmp/omarchy-smoke
+node dist/cli.js app desktop /tmp/omarchy-smoke --out /tmp/omarchy-smoke.desktop
+node dist/cli.js integrate darktable --colors tests/fixtures/colors.basic.toml --out /tmp/omarchy-darktable.css
+```
+
+On an Omarchy machine, omit `--colors` and the CLI reads `~/.config/omarchy/current/theme/colors.toml`. All generated launchers, hooks, app CSS, and integration themes are written only to the paths you request.
+
 ## Commands
 
 ```bash
@@ -46,6 +66,7 @@ omarchy-native verify ./hello-omarchy-native
 omarchy-native app desktop ./hello-omarchy-native --out hello-omarchy-native.desktop
 omarchy-native app hook ./hello-omarchy-native --out theme-set
 omarchy-native app catalog ./examples
+omarchy-native integrate darktable --out ~/.config/darktable/themes/omarchy.css
 ```
 
 All theme commands read inside `~/.config/omarchy/current/theme` by default, primarily `colors.toml` and optionally `theme.name` if present in that directory. For tests or deterministic generation, pass `--colors <path>` or `--theme-dir <path>`.
@@ -79,6 +100,14 @@ Use `theme qt` for Qt/PySide palette experiments:
 omarchy-native theme qt
 omarchy-native theme qt --out qt.ini
 ```
+
+Use `integrate darktable` for an experimental opt-in darktable CSS theme:
+
+```bash
+omarchy-native integrate darktable --out ./omarchy-darktable.css
+```
+
+Review the generated CSS before installing it. The file maps Omarchy semantic tokens to darktable UI chrome while preserving neutral image-review backgrounds so theme personality does not distort photo judgment.
 
 ## Library
 
@@ -163,6 +192,14 @@ omarchy-native app hook ./my-app --out theme-set
 ```
 
 The hook script runs `omarchy-native theme sync --out <app>/src/omarchy-theme.css`. Review it, then wire it into your preferred Omarchy hook workflow manually.
+
+Generate an experimental darktable theme without installing it:
+
+```bash
+omarchy-native integrate darktable --out ~/.config/darktable/themes/omarchy.css
+```
+
+Then select the theme from darktable's preferences. Rollback is just selecting another theme or deleting the generated CSS file. See `docs/flagship-darktable-integration.md` for the research plan, mapping notes, and acceptance checks.
 
 Catalog a directory of Omarchy-native apps:
 
@@ -264,6 +301,7 @@ The first dogfood output is committed under `examples/hello-omarchy-native`.
 `examples/access-review-purge-execution-freeze-monitor` is a studio dogfood app for inspecting approved-but-frozen archive purge executions, reconciliation packet locks, legal hold re-freezes, delegated owner pause acknowledgements, retry hash freeze proofs, checksum acceptance freezes, and rollback-safe thaw packets.
 `examples/access-review-purge-thaw-authorization-console` is a studio dogfood app for inspecting archive purge thaw authorization requests, freeze release attestations, legal hold thaw clearances, delegated owner resume approvals, retry hash thaw proofs, checksum acceptance unlocks, and rollback-safe purge resume packets.
 `examples/access-review-purge-resume-execution-sentinel` is a studio dogfood app for inspecting resumed archive purge executions, thaw authorization drift, legal hold relapse alerts, delegated owner resume confirmations, retry hash thaw replay, checksum unlock drift, and rollback-safe resume sentinels.
+`examples/access-review-purge-freezeback-command-center` is a studio dogfood app for inspecting archive purge freezeback commands, resume sentinel triggers, authorization drift containment, legal hold relapse lockouts, delegated owner rollback confirmations, retry hash replay capture, checksum unlock re-locks, and rollback-safe freeze restoration packets.
 `examples/clipboard-history-curator` is a studio dogfood app for reviewing clipboard history, redacting secrets, pinning snippets, and routing copied content.
 `examples/desktop-entry-inspector` is a studio dogfood app for auditing `.desktop` launchers, categories, icons, actions, startup hints, and app identity metadata across generated and installed Omarchy apps.
 `examples/dns-resolver-policy-lab` is a studio dogfood app for inspecting resolver routing, split-horizon VPN domains, per-workspace DNS leaks, and rollback-safe DNS changes.

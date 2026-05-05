@@ -131,6 +131,79 @@ Minimum proof:
 6. Can theme regeneration be triggered safely after Omarchy theme changes?
 7. What should rollback look like?
 
+## Research Notes
+
+The current darktable manual documents user CSS themes as files placed in `$HOME/.config/darktable/themes` and notes that darktable's built-in themes live under `$DARKTABLE/share/darktable/themes/`. It also supports saving user CSS tweaks to `$HOME/.config/darktable/user.css`. Source: <https://docs.darktable.org/usermanual/development/en/preferences-settings/general/>.
+
+Practical implications:
+
+- The first integration should generate a user theme CSS file, not patch darktable.
+- Generated themes should be installable by copying to `~/.config/darktable/themes/`.
+- Rollback should be a preference change or deleting the generated CSS file.
+- The theme should avoid fragile assumptions about darktable internals and keep selectors broad until tested against real releases.
+- If deeper fidelity requires importing an upstream darktable base theme, that should become an explicit `--base-theme` option after research, not a hidden default.
+
+## CLI Target Spec
+
+Initial command:
+
+```bash
+omarchy-native integrate darktable --out ~/.config/darktable/themes/omarchy.css
+```
+
+Supported now:
+
+- `--colors <path>` for deterministic fixture generation.
+- `--theme-dir <path>` for reading an alternate Omarchy theme directory.
+- `--out <file>` for writing the CSS artifact.
+- stdout output when `--out` is omitted.
+
+Future opt-in commands:
+
+```bash
+omarchy-native integrate darktable --out ./omarchy-darktable.css
+omarchy-native integrate darktable --out ~/.config/darktable/themes/omarchy.css --base-theme darktable.css
+omarchy-native integrate darktable install --name omarchy
+omarchy-native integrate darktable watch --out ~/.config/darktable/themes/omarchy.css
+```
+
+`install` and `watch` must remain opt-in. They may write only to user-selected app theme paths and must not mutate Omarchy hooks automatically.
+
+## Token Mapping Notes
+
+| Omarchy role | darktable target | Constraint |
+| --- | --- | --- |
+| `background` / `foreground` | main windows, dialogs, menus, tooltips | Keep readable under the active desktop theme. |
+| `surface` / `surfaceForeground` | side panels, modules, toolbars, rows, entries | Use for dense app chrome and repeated controls. |
+| `surfaceRaised` / `surfaceRaisedForeground` | hover and raised states | Make hover states visible without changing layout. |
+| `border` / `borderStrong` | control borders and panel separators | Keep structure clear in dense panels. |
+| `accent` / `accentForeground` | focus, selected rows, active tabs, checked buttons | Use generated foreground tokens on accent backgrounds. |
+| `danger`, `success`, `warning`, `info` plus foregrounds | status badges and message classes | Preserve semantic intent and contrast. |
+| neutral canvas roles | center preview, filmstrip, image surfaces | Stay neutral so theme color does not affect photo judgment. |
+
+The first emitter defines `omarchy_photo_canvas`, `omarchy_photo_canvas_foreground`, and `omarchy_photo_canvas_border` as neutral roles inside the generated CSS. These are intentionally not exposed as global Omarchy tokens yet; they are app-specific constraints for color-critical software.
+
+## Acceptance Checks
+
+- `npm test` covers the exported `toDarktableCss` emitter and CLI output.
+- `node dist/cli.js integrate darktable --colors tests/fixtures/colors.basic.toml` prints CSS with Omarchy token definitions.
+- `node dist/cli.js integrate darktable --colors tests/fixtures/colors.basic.toml --out /tmp/omarchy-darktable.css` writes a standalone CSS file.
+- Generated CSS includes semantic foregrounds for selected/status states.
+- Generated CSS includes neutral image workspace roles.
+- No command installs hooks or mutates Omarchy configuration automatically.
+
+## Public Launch Narrative
+
+Darktable is the proof that Omarchy Native Kit is more than a starter template. The story is: a serious Linux creative app can respect the user's desktop theme while preserving the neutral viewing environment photographers need. That is the ecosystem wedge: one token contract, many app surfaces, and an integration path that does not require forking upstream on day one.
+
+Launch assets should show:
+
+- default darktable theme next to generated Omarchy-native theme;
+- the same generated theme under two different Omarchy palettes;
+- a close-up of panels and controls inheriting desktop roles;
+- the image canvas staying neutral across both palettes;
+- rollback instructions in one sentence.
+
 ## First Build Slice
 
 Add an experimental Darktable theme emitter to Omarchy Native Kit:

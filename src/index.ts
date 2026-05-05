@@ -19,7 +19,7 @@ export {
   type OmarchyAgentBlueprint,
   type OmarchyAgentContext
 } from './agent.js';
-export { toCssVariables, toGtkCss, toJsonTheme, toQtPalette, toShellExports } from './emitters.js';
+export { toCssVariables, toDarktableCss, toGtkCss, toJsonTheme, toQtPalette, toShellExports } from './emitters.js';
 export { toDesktopEntry, type DesktopEntryOptions } from './desktop.js';
 export { toThemeHookScript, type ThemeHookOptions } from './hooks.js';
 export {

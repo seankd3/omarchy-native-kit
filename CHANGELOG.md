@@ -15,6 +15,7 @@ Initial public seed of Omarchy Native Kit.
 - Shell export theme emitter.
 - GTK CSS theme emitter.
 - Qt palette theme emitter.
+- Experimental opt-in darktable CSS integration emitter.
 - CLI commands:
   - `doctor`
   - `theme json`
@@ -32,6 +33,7 @@ Initial public seed of Omarchy Native Kit.
   - `app desktop`
   - `app hook`
   - `app catalog`
+  - `integrate darktable`
 - React/Vite starter template.
 - Agent context, prompt, and blueprint contracts for coding agents.
 - App contract verifier for generated apps.

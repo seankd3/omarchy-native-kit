@@ -198,7 +198,7 @@ This repo is the seed of a small Omarchy-native app ecosystem: a theme runtime, 
 
 ## App Ideas To Build Next
 
-- `access-review-purge-freezeback-command-center` - inspect archive purge freezeback commands, resume sentinel triggers, authorization drift containment, legal hold relapse lockouts, delegated owner rollback confirmations, retry hash replay capture, checksum unlock re-locks, and rollback-safe freeze restoration packets.
+- `access-review-freeze-restoration-audit-ledger` - inspect archive purge freeze restoration audit trails, freezeback command receipts, sentinel trigger closeouts, drift containment evidence, legal hold lockout proofs, owner rollback acknowledgements, retry replay captures, checksum re-lock evidence, and rollback-safe restoration ledgers.
 
 ## Kit Refinements To Unlock More Apps
 
